@@ -1,0 +1,76 @@
+Movie = Movie: {
+	signature = "FWS";
+	version = 5;
+	length = 57;
+	frameSize = Bounds: {
+		fieldSize = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array: {
+		[0] = SetBackgroundColor: {
+			type = 9;
+			length = 3;
+			color = Color: {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction: {
+			type = 12;
+			length = 63;
+			lengthExtended = 22;
+			actions = Array: {
+				[0] = Table: {
+					type = 136;
+					length = 4;
+					variableCount = 1;
+					strings = Array: {
+						[0] = "a";
+					};
+				};
+				[1] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[2] = Delete: {
+					type = 59;
+				};
+				[3] = Pop: {
+					type = 23;
+				};
+				[4] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[5] = Delete: {
+					type = 59;
+				};
+				[6] = Pop: {
+					type = 23;
+				};
+			};
+		};
+		[2] = ShowFrame: {
+			type = 1;
+			length = 0;
+		};
+	};
+};

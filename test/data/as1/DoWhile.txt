@@ -1,0 +1,920 @@
+Movie = Movie: {
+	signature = "FWS";
+	version = 5;
+	length = 599;
+	frameSize = Bounds: {
+		fieldSize = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array: {
+		[0] = SetBackgroundColor: {
+			type = 9;
+			length = 3;
+			color = Color: {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction: {
+			type = 12;
+			length = 63;
+			lengthExtended = 564;
+			actions = Array: {
+				[0] = Table: {
+					type = 136;
+					length = 10;
+					variableCount = 4;
+					strings = Array: {
+						[0] = "a";
+						[1] = "b";
+						[2] = "c";
+						[3] = "d";
+					};
+				};
+				[1] = Push: {
+					type = 150;
+					length = 11;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[2] = SetVariable: {
+					type = 29;
+				};
+				[3] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[4] = SetVariable: {
+					type = 29;
+				};
+				[5] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[6] = GetVariable: {
+					type = 28;
+				};
+				[7] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[8] = Add: {
+					type = 71;
+				};
+				[9] = SetVariable: {
+					type = 29;
+				};
+				[10] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[11] = GetVariable: {
+					type = 28;
+				};
+				[12] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[13] = GetVariable: {
+					type = 28;
+				};
+				[14] = Less: {
+					type = 72;
+				};
+				[15] = If: {
+					type = 157;
+					length = 2;
+					offset = -36;
+				};
+				[16] = Push: {
+					type = 150;
+					length = 11;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[17] = SetVariable: {
+					type = 29;
+				};
+				[18] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[19] = SetVariable: {
+					type = 29;
+				};
+				[20] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[21] = GetVariable: {
+					type = 28;
+				};
+				[22] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[23] = Add: {
+					type = 71;
+				};
+				[24] = SetVariable: {
+					type = 29;
+				};
+				[25] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[26] = GetVariable: {
+					type = 28;
+				};
+				[27] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[28] = GetVariable: {
+					type = 28;
+				};
+				[29] = Less: {
+					type = 72;
+				};
+				[30] = If: {
+					type = 157;
+					length = 2;
+					offset = -36;
+				};
+				[31] = Push: {
+					type = 150;
+					length = 11;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[32] = SetVariable: {
+					type = 29;
+				};
+				[33] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[34] = SetVariable: {
+					type = 29;
+				};
+				[35] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[36] = GetVariable: {
+					type = 28;
+				};
+				[37] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[38] = GetVariable: {
+					type = 28;
+				};
+				[39] = Less: {
+					type = 72;
+				};
+				[40] = If: {
+					type = 157;
+					length = 2;
+					offset = -18;
+				};
+				[41] = Push: {
+					type = 150;
+					length = 11;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[42] = SetVariable: {
+					type = 29;
+				};
+				[43] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[44] = SetVariable: {
+					type = 29;
+				};
+				[45] = Push: {
+					type = 150;
+					length = 11;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+						[1] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[46] = SetVariable: {
+					type = 29;
+				};
+				[47] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 3;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[48] = SetVariable: {
+					type = 29;
+				};
+				[49] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[50] = GetVariable: {
+					type = 28;
+				};
+				[51] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[52] = Add: {
+					type = 71;
+				};
+				[53] = SetVariable: {
+					type = 29;
+				};
+				[54] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[55] = GetVariable: {
+					type = 28;
+				};
+				[56] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[57] = GetVariable: {
+					type = 28;
+				};
+				[58] = Less: {
+					type = 72;
+				};
+				[59] = If: {
+					type = 157;
+					length = 2;
+					offset = -36;
+				};
+				[60] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[61] = GetVariable: {
+					type = 28;
+				};
+				[62] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[63] = Add: {
+					type = 71;
+				};
+				[64] = SetVariable: {
+					type = 29;
+				};
+				[65] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[66] = GetVariable: {
+					type = 28;
+				};
+				[67] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[68] = GetVariable: {
+					type = 28;
+				};
+				[69] = Less: {
+					type = 72;
+				};
+				[70] = If: {
+					type = 157;
+					length = 2;
+					offset = -98;
+				};
+				[71] = Push: {
+					type = 150;
+					length = 11;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[72] = SetVariable: {
+					type = 29;
+				};
+				[73] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[74] = SetVariable: {
+					type = 29;
+				};
+				[75] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[76] = GetVariable: {
+					type = 28;
+				};
+				[77] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 5;
+						};
+					};
+				};
+				[78] = Equals: {
+					type = 73;
+				};
+				[79] = Not: {
+					type = 18;
+				};
+				[80] = If: {
+					type = 157;
+					length = 2;
+					offset = 10;
+				};
+				[81] = Jump: {
+					type = 153;
+					length = 2;
+					offset = 46;
+				};
+				[82] = Jump: {
+					type = 153;
+					length = 2;
+					offset = 5;
+				};
+				[83] = Jump: {
+					type = 153;
+					length = 2;
+					offset = 18;
+				};
+				[84] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[85] = GetVariable: {
+					type = 28;
+				};
+				[86] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[87] = Add: {
+					type = 71;
+				};
+				[88] = SetVariable: {
+					type = 29;
+				};
+				[89] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[90] = GetVariable: {
+					type = 28;
+				};
+				[91] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[92] = GetVariable: {
+					type = 28;
+				};
+				[93] = Less: {
+					type = 72;
+				};
+				[94] = If: {
+					type = 157;
+					length = 2;
+					offset = -72;
+				};
+				[95] = Push: {
+					type = 150;
+					length = 11;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[96] = SetVariable: {
+					type = 29;
+				};
+				[97] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[98] = SetVariable: {
+					type = 29;
+				};
+				[99] = Push: {
+					type = 150;
+					length = 11;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+						[1] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[100] = SetVariable: {
+					type = 29;
+				};
+				[101] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 3;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[102] = SetVariable: {
+					type = 29;
+				};
+				[103] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[104] = GetVariable: {
+					type = 28;
+				};
+				[105] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 5;
+						};
+					};
+				};
+				[106] = Equals: {
+					type = 73;
+				};
+				[107] = Not: {
+					type = 18;
+				};
+				[108] = If: {
+					type = 157;
+					length = 2;
+					offset = 10;
+				};
+				[109] = Jump: {
+					type = 153;
+					length = 2;
+					offset = 46;
+				};
+				[110] = Jump: {
+					type = 153;
+					length = 2;
+					offset = 5;
+				};
+				[111] = Jump: {
+					type = 153;
+					length = 2;
+					offset = 18;
+				};
+				[112] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[113] = GetVariable: {
+					type = 28;
+				};
+				[114] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[115] = Add: {
+					type = 71;
+				};
+				[116] = SetVariable: {
+					type = 29;
+				};
+				[117] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[118] = GetVariable: {
+					type = 28;
+				};
+				[119] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[120] = GetVariable: {
+					type = 28;
+				};
+				[121] = Less: {
+					type = 72;
+				};
+				[122] = If: {
+					type = 157;
+					length = 2;
+					offset = -72;
+				};
+				[123] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[124] = GetVariable: {
+					type = 28;
+				};
+				[125] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[126] = Add: {
+					type = 71;
+				};
+				[127] = SetVariable: {
+					type = 29;
+				};
+				[128] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[129] = GetVariable: {
+					type = 28;
+				};
+				[130] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[131] = GetVariable: {
+					type = 28;
+				};
+				[132] = Less: {
+					type = 72;
+				};
+				[133] = If: {
+					type = 157;
+					length = 2;
+					offset = -134;
+				};
+			};
+		};
+		[2] = ShowFrame: {
+			type = 1;
+			length = 0;
+		};
+	};
+};

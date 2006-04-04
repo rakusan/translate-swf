@@ -1,0 +1,461 @@
+Movie = Movie: {
+	signature = "FWS";
+	version = 5;
+	length = 339;
+	frameSize = Bounds: {
+		fieldSize = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array: {
+		[0] = SetBackgroundColor: {
+			type = 9;
+			length = 3;
+			color = Color: {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction: {
+			type = 12;
+			length = 63;
+			lengthExtended = 304;
+			actions = Array: {
+				[0] = Table: {
+					type = 136;
+					length = 60;
+					variableCount = 10;
+					strings = Array: {
+						[0] = "Data.swf";
+						[1] = "a";
+						[2] = "_blank";
+						[3] = "_self";
+						[4] = "_parent";
+						[5] = "_top";
+						[6] = "_root";
+						[7] = "_level1";
+						[8] = "Clip";
+						[9] = "b";
+					};
+				};
+				[1] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[2] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[3] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[4] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 193;
+				};
+				[5] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[6] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 193;
+				};
+				[7] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[8] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 194;
+				};
+				[9] = Push: {
+					type = 150;
+					length = 7;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[10] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 194;
+				};
+				[11] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[12] = GetVariable: {
+					type = 28;
+				};
+				[13] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[14] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[15] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[16] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[17] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[18] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 4;
+						};
+					};
+				};
+				[19] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[20] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[21] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[22] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 6;
+						};
+					};
+				};
+				[23] = GetVariable: {
+					type = 28;
+				};
+				[24] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[25] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 7;
+						};
+					};
+				};
+				[26] = GetVariable: {
+					type = 28;
+				};
+				[27] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[28] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 8;
+						};
+					};
+				};
+				[29] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 192;
+				};
+				[30] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 8;
+						};
+					};
+				};
+				[31] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 193;
+				};
+				[32] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 8;
+						};
+					};
+				};
+				[33] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 194;
+				};
+				[34] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[35] = GetVariable: {
+					type = 28;
+				};
+				[36] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 9;
+						};
+					};
+				};
+				[37] = GetVariable: {
+					type = 28;
+				};
+				[38] = Add: {
+					type = 71;
+				};
+				[39] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 194;
+				};
+				[40] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[41] = GetVariable: {
+					type = 28;
+				};
+				[42] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 9;
+						};
+					};
+				};
+				[43] = GetVariable: {
+					type = 28;
+				};
+				[44] = Add: {
+					type = 71;
+				};
+				[45] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 194;
+				};
+				[46] = Push: {
+					type = 150;
+					length = 4;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[47] = GetVariable: {
+					type = 28;
+				};
+				[48] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 9;
+						};
+					};
+				};
+				[49] = GetVariable: {
+					type = 28;
+				};
+				[50] = Add: {
+					type = 71;
+				};
+				[51] = GetUrl2: {
+					type = 154;
+					length = 1;
+					requestType = 194;
+				};
+			};
+		};
+		[2] = ShowFrame: {
+			type = 1;
+			length = 0;
+		};
+	};
+};

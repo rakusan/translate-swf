@@ -1,0 +1,167 @@
+<Clinics>
+<Clinic>
+<identifier>1</identifier>
+<name>SantaClara</name>
+<fullName>Santa Clara Family Medicine</fullName>
+<street>2484 River Road</street>
+<city>Eugene</city>
+<zipCode>97404</zipCode>
+<state>OR</state>
+<neighborhood>River Road-Santa Clara</neighborhood>
+<departments>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874051</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+<Clinic>
+<identifier>2</identifier>
+<name>Westmoreland</name>
+<fullName>Westmoreland Family Medicine &amp; Pediatrics</fullName>
+<street>1650-1680 Chambers Street, #106</street>
+<city>Eugene</city>
+<zipCode>97404</zipCode>
+<state>OR</state>
+<neighborhood>West Eugene</neighborhood>
+<departments>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874523</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+<Clinic>
+<identifier>3</identifier>
+<name>Southtowne</name>
+<fullName>Southtowne Family Medicine &amp; Pediatrics</fullName>
+<street>2460 Willamette Street</street>
+<city>Eugene</city>
+<zipCode>97405</zipCode>
+<state>OR</state>
+<neighborhood>South Eugene</neighborhood>
+<departments>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874535</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+<Clinic>
+<identifier>4</identifier>
+<name>ClinicForWomen</name>
+<fullName>Clinic For Women</fullName>
+<street>1200 Hilyard Street, Suite S-140, South Building</street>
+<city>Eugene</city>
+<zipCode>97401</zipCode>
+<state>OR</state>
+<neighborhood>University Area</neighborhood>
+<departments>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874273</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+<Clinic>
+<identifier>5</identifier>
+<name>OMG</name>
+<fullName>OMG Physicians &amp; Surgeons</fullName>
+<street>920 Country Club Road</street>
+<city>Eugene</city>
+<zipCode>97401</zipCode>
+<state>OR</state>
+<neighborhood>Ferry Street Bridge</neighborhood>
+<departments>
+<department>
+<departmentName>Adult Medicine</departmentName>
+<departmentAddress>Suite 220A</departmentAddress>
+<departmentPhoneNumber>(541) 342-2134</departmentPhoneNumber>
+<departmentHours></departmentHours>
+</department>
+<department>
+<departmentName>Cedar Clinic/Mammography</departmentName>
+<departmentAddress>Suite 100A</departmentAddress>
+<departmentPhoneNumber>(541) 242-4162</departmentPhoneNumber>
+<departmentHours></departmentHours>
+</department>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874315</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+<Clinic>
+<identifier>6</identifier>
+<name>Crescent</name>
+<fullName>Crescent Family Medicine &amp; Pediatrics</fullName>
+<street>2830 Crescent Avenue</street>
+<city>Eugene</city>
+<zipCode>97408</zipCode>
+<state>OR</state>
+<neighborhood>North Eugene</neighborhood>
+<departments>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874358</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+<Clinic>
+<identifier>7</identifier>
+<name>Valley</name>
+<fullName>Valley Children's Clinic</fullName>
+<street>2000 North 19th Street</street>
+<city>Springfield</city>
+<zipCode>97477</zipCode>
+<state>OR</state>
+<neighborhood>Springfield</neighborhood>
+<departments>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874499</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+<Clinic>
+<identifier>8</identifier>
+<name>McKenzie</name>
+<fullName>McKenzie Adult Medicine</fullName>
+<street>1110 North 18th Street, Suite 4</street>
+<city>Springfield</city>
+<zipCode>97477</zipCode>
+<state>OR</state>
+<neighborhood>Springfield</neighborhood>
+<departments>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874433</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+<Clinic>
+<identifier>9</identifier>
+<name>WomensHealth</name>
+<fullName>Center For Women's Health</fullName>
+<street>1403 F Street</street>
+<city>Springfield</city>
+<zipCode>97477</zipCode>
+<state>OR</state>
+<neighborhood>Springfield</neighborhood>
+<departments>
+</departments>
+<mapX></mapX>
+<mapY></mapY>
+<recordStatus>show</recordStatus>
+<dateLastModified>1031874483</dateLastModified>
+<modifiedBy>admin</modifiedBy>
+</Clinic>
+</Clinics>

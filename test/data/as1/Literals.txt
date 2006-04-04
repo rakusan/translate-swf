@@ -1,0 +1,601 @@
+Movie = Movie: {
+	signature = "FWS";
+	version = 5;
+	length = 461;
+	frameSize = Bounds: {
+		fieldSize = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array: {
+		[0] = SetBackgroundColor: {
+			type = 9;
+			length = 3;
+			color = Color: {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction: {
+			type = 12;
+			length = 63;
+			lengthExtended = 426;
+			actions = Array: {
+				[0] = Table: {
+					type = 136;
+					length = 28;
+					variableCount = 10;
+					strings = Array: {
+						[0] = "";
+						[1] = "abcd";
+						[2] = """;
+						[3] = "'";
+						[4] = "";
+						[5] = "";
+						[6] = "
+";
+						[7] = "";
+						[8] = "	";
+						[9] = "
+	";
+					};
+				};
+				[1] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = -0.0;
+						};
+					};
+				};
+				[2] = Pop: {
+					type = 23;
+				};
+				[3] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[4] = Pop: {
+					type = 23;
+				};
+				[5] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[6] = Pop: {
+					type = 23;
+				};
+				[7] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = -1;
+						};
+					};
+				};
+				[8] = Pop: {
+					type = 23;
+				};
+				[9] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[10] = Pop: {
+					type = 23;
+				};
+				[11] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[12] = Pop: {
+					type = 23;
+				};
+				[13] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[14] = Pop: {
+					type = 23;
+				};
+				[15] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[16] = Pop: {
+					type = 23;
+				};
+				[17] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[18] = Pop: {
+					type = 23;
+				};
+				[19] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 2147483647;
+						};
+					};
+				};
+				[20] = Pop: {
+					type = 23;
+				};
+				[21] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = -2147483648;
+						};
+					};
+				};
+				[22] = Pop: {
+					type = 23;
+				};
+				[23] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = -0.0;
+						};
+					};
+				};
+				[24] = Pop: {
+					type = 23;
+				};
+				[25] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[26] = Pop: {
+					type = 23;
+				};
+				[27] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[28] = Pop: {
+					type = 23;
+				};
+				[29] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[30] = Pop: {
+					type = 23;
+				};
+				[31] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[32] = Pop: {
+					type = 23;
+				};
+				[33] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[34] = Pop: {
+					type = 23;
+				};
+				[35] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.1;
+						};
+					};
+				};
+				[36] = Pop: {
+					type = 23;
+				};
+				[37] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[38] = Pop: {
+					type = 23;
+				};
+				[39] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[40] = Pop: {
+					type = 23;
+				};
+				[41] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = -1;
+						};
+					};
+				};
+				[42] = Pop: {
+					type = 23;
+				};
+				[43] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = -0.1;
+						};
+					};
+				};
+				[44] = Pop: {
+					type = 23;
+				};
+				[45] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = -10;
+						};
+					};
+				};
+				[46] = Pop: {
+					type = 23;
+				};
+				[47] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = -10;
+						};
+					};
+				};
+				[48] = Pop: {
+					type = 23;
+				};
+				[49] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[50] = Pop: {
+					type = 23;
+				};
+				[51] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.1;
+						};
+					};
+				};
+				[52] = Pop: {
+					type = 23;
+				};
+				[53] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[54] = Pop: {
+					type = 23;
+				};
+				[55] = Push: {
+					type = 150;
+					length = 5;
+					values = Array: {
+						[0] = Integer: {
+							type = 7;
+							value = 10;
+						};
+					};
+				};
+				[56] = Pop: {
+					type = 23;
+				};
+				[57] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[58] = Pop: {
+					type = 23;
+				};
+				[59] = Push: {
+					type = 150;
+					length = 9;
+					values = Array: {
+						[0] = Double: {
+							type = 6;
+							value = Infinity;
+						};
+					};
+				};
+				[60] = Pop: {
+					type = 23;
+				};
+				[61] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[62] = Pop: {
+					type = 23;
+				};
+				[63] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[64] = Pop: {
+					type = 23;
+				};
+				[65] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[66] = Pop: {
+					type = 23;
+				};
+				[67] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[68] = Pop: {
+					type = 23;
+				};
+				[69] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[70] = Pop: {
+					type = 23;
+				};
+				[71] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[72] = Pop: {
+					type = 23;
+				};
+				[73] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 4;
+						};
+					};
+				};
+				[74] = Pop: {
+					type = 23;
+				};
+				[75] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[76] = Pop: {
+					type = 23;
+				};
+				[77] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 6;
+						};
+					};
+				};
+				[78] = Pop: {
+					type = 23;
+				};
+				[79] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 7;
+						};
+					};
+				};
+				[80] = Pop: {
+					type = 23;
+				};
+				[81] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 8;
+						};
+					};
+				};
+				[82] = Pop: {
+					type = 23;
+				};
+				[83] = Push: {
+					type = 150;
+					length = 2;
+					values = Array: {
+						[0] = TableIndex: {
+							type = 8;
+							value = 9;
+						};
+					};
+				};
+				[84] = Pop: {
+					type = 23;
+				};
+			};
+		};
+		[2] = ShowFrame: {
+			type = 1;
+			length = 0;
+		};
+	};
+};
