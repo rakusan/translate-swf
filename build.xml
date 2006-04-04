@@ -32,7 +32,7 @@
 
     </description>
 
-    <property name="version" value="2.0.2"/>
+    <property name="version" value="2.0.3"/>
     
     <property name="src.dir" location="src"/>
     <property name="lib.dir" location="lib"/>
