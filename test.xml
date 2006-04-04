@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<project name="translate-test" default="test" basedir=".">
+
+    <description>Test targets
+    
+        clean-test remove all the files generated during testing.
+                    
+        build-test compile the classes used to test the framework.
+                    
+        test       run test suites on the classes to verify the framework
+                   classes are correct.
+        
+        class-test run the unit tests for an individual class. The target will
+                   prompt for the name of the class to test.
+
+    </description>
+        
+    <import file="build.xml"/>
+
+    <property name="test.dir" location="test"/>
+    <property name="test.data.dir" value="${test.dir}/data"/>
+    <property name="test.suite.dir" value="${test.dir}/suites"/>
+    <property name="test.result.dir" value="${test.dir}/results"/>
+    <property name="test.report.dir" value="${test.dir}/reports"/>
+    
+    <taskdef resource="testngtasks"  classpath="${lib.dir}/testng-4.2-jdk14.jar"/>
+    
+    <target name="clean-test" 
+        description="Remove all the files and reports generating during testing">
+        
+        <delete failonerror="false" includeemptydirs="true">
+            <fileset dir="${test.result.dir}" includes="**/*"/>
+        </delete>
+        
+        <delete failonerror="false" includeemptydirs="true">
+            <fileset dir="${test.report.dir}" includes="**/*"/>
+        </delete>
+        
+    </target>
+
+    <target name="build-test" description="Compile test classes">
+    
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}"
+            classpath="${lib.dir}/transform.jar"
+            debug="off" optimize="on" source="1.4">
+            <include name="${package.test.dir}/*.java" />
+        </javac>
+        
+    </target>
+         
+    <target name="test" depends="build,build-test" 
+        description="Test the classes in the framework">
+
+        <antcall target="class-test">
+            <param name="test.class" value="ASParser"/>
+        </antcall>
+        
+    </target>
+
+    <target name="class-test" description="Unit test a specific class in the framework">
+    
+        <input message="Enter the name of the suite to run:"
+            addProperty="test.class"/>
+
+        <mkdir dir="${test.report.dir}/${test.class}"/>
+        
+        <delete failonerror="false" includeemptydirs="true">
+            <fileset dir="${test.report.dir}/${test.class}" includes="**/*"/>
+        </delete>
+
+        <testng classpath="${build.dir};transform.jar" 
+                outputDir="${test.report.dir}/${test.class}"
+                sourceDir = "src/${package.test.dir}"
+                haltOnFailure = "true">
+            <jvmarg value="-ea" />
+            <xmlfileset dir="${test.suite.dir}" includes="${test.class}.xml"/>
+        </testng>
+        
+    </target>
+        
+</project>
