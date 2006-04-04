@@ -1,0 +1,1520 @@
+/*
+ * ASPArser.jj
+ * Translate AS1
+ *
+ * A compiler for ActionScript 1.x
+ * Copyright (c) 2003-2006 Flagstone Software Ltd. All rights reserved.
+ *
+ @license@
+ */
+ 
+options {
+    STATIC = false;
+	JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(ASParser)
+
+package com.flagstone.translate;
+
+import java.util.*;
+import java.io.*;
+
+/**
+ * The ASParser framework is a collection of classes used to implement a compiler 
+ * for Macromedia's ActionScript, Version 1.0. ActionScript statements are parsed 
+ * to generate the byte-codes and actions that will be executed by the Flash Player.
+ * 
+ * The parser translates ActionScript into a tree of ASNode objects which are then
+ * encoded to the byte-codes and actions that will be executed by the Flash Player.
+ *
+ * <pre>
+ *     String script = "gotoFrame(1)";
+ * 
+ *     byte[] encodedActions = parser.parse(script).encode(swfVersion);
+ * </pre>
+ *
+ * The version of Flash (swf) that the script is being encoded for must be passed
+ * to the root ASNode when the tree of nodes is encoded. The format of the data 
+ * structures that represent clip and button events changed when version 6 and 
+ * version 7 of the Flash File Format Specification was released.
+ *
+ * <b>Search Paths</b><br/>
+ * ActionScript supports #include directives which allow scripts to be nested.
+ * When the script is preprocessed the current working directory is checked for 
+ * for the file specified. The parser also supports search paths which is a list
+ * of directories which should also be checked for the file.
+ *
+ * Paths may be specified as an array of path names or as a single string with 
+ * paths separated by the system-dependent path separator character - ';' on Windows
+ * platforms and ':' for Unix compatible platforms. The string is split into 
+ * separate paths and added to the array of paths searched.
+ *
+ * The directories are searched in the order they were added to the array of paths
+ * maintained by the parser.
+ *
+ * <b>Error Handling</b><br/>
+ * If an error occurs while parsing the script an exception is thrown. The ParseException
+ * contains detailed information on the token sequence that caused the parser to 
+ * generate the error. This informatrion can be hard to decipher and should not 
+ * be presented to an end-user of an application. The ASParser object generates 
+ * more user/script-writer friendly information that can be used to identify 
+ * the line in a script that generated the error.
+ *
+ * <pre>
+ *    try 
+ *    {
+ *        String script = "on(mouseDown) { startDrag(); }";
+ *        ...
+ *        ASNode root = parser.parse(script);
+ *        ...
+ *    }
+ *    catch (ParseException e)
+ *    {
+ *        String filename = parser.getFilename();
+ *        String line = parser.getLine();
+ *        String message = parser.getError();
+ *        int lineNumber = parser.getLineNumber();
+ *        ...
+ *    }
+ * </pre> 
+ *
+ */
+public final class ASParser extends Object
+{
+    private final boolean Debug = false;
+    
+    /**
+     * Keys that identify the different types of error generated while #include 
+     * directives are being processed and the script is being parsed. The key 
+     * can be used with a ResourceBundle object to generate a localized string 
+     * that describes the error in detail.
+     */
+    public static String[] errorKeys =  {
+        /**
+        * A FileNotFound error is reported when the file referenced in  a #include 
+        * directive cannot be opened.
+        */
+        "FileNotFound", 
+        /**
+         * ReadError is reported when an error occurs while reading the file referenced
+         * in a #include directive.
+         */
+           "ReadError",
+        /**
+         * A #include directive must be the only ActionScript present on a given line
+         * (though the directive may be split over two lines). If other statements or
+         * directives are present then a SingleDirective error is reported.
+         */
+        "SingleDirective",
+        /**
+         * A QuoteFileName error is reported if the filename refernced in a #include 
+         * directive is not enclosed in double quotes.
+         */
+        "QuoteFileName",
+           /**
+         * A ParseError error is used to report any exception thrown by the parser
+         * while parsing a script.
+         */
+        "ParseError",
+        /**
+         * An OnOnly error occurs when on statements are mixed with other statements 
+         * in a script. 
+         */
+        "OnOnly",
+        /**
+         * An OnClipEventOnly error occurs when onClipEvent statements are mixed with
+         * other statements in a script. 
+         */
+        "OnClipEventOnly",
+        /**
+         * An UnknownMovieClipEvent error occurs when an unknown movie clip event
+         * name is found in an OnClipEvent() statement. 
+         */
+        "UnknownMovieClipEvent",
+        /**
+         * An UnknownButtonEvent error occurs when an unknown button event name is
+         * in an On() statement. 
+         */
+        "UnknownButtonEvent",
+        /**
+         * A IncorrectArgumentCount error occurs when the wrong number of arguments are 
+         * supplied to one of the built-in functions in Flash.
+         */
+        "IncorrectArgumentCount",
+        /**
+         * A CannotUseBreak error occurs when a break statement is used outside of a 
+         * loop statement.
+         */
+           "CannotUseBreak",
+        /**
+         * A CannotUseContinue error occurs when a continue statement is used outside of a 
+         * loop statement.
+         */
+        "CannotUseContinue",
+        /**
+         * A CannotUseReturn error occurs when a return statement is used outside of a 
+         * function definition.
+         */
+        "CannotUseReturn",
+    };
+
+    private final static String separator = System.getProperty("line.separator");        
+    private final static String wordDelimiters = " \t";
+    
+    /*
+     * The following attributes are used to report errors that occur while processing
+     * directives or parsing a script.
+     *
+     * _filename contains the name of the file which contains the line of code that
+     * triggered the error. Note if an error occurs because the file specified in the 
+     * #include directive cannot be found or an error occurs then _filename is the 
+     * name of the file containing the directive and not the name of the file being
+     * included.
+     *
+     * _lineNumber is the line in the file referenced in _filename which contains the 
+     * code that triggered the error.
+     *
+     * _line is the line of code that triggered the error.
+     *
+     * _error is a keyword that identifies th type of error reported. The key may be
+     * used with a ResourceBundle to generate a localized description, reporting the 
+     * error in full.
+     */
+    private String _filename = "";
+    private int _lineNumber = 0;
+    private String _line = "";
+    private String _error = "";
+    
+    /*
+     * The following arrays are used to map the line number reported when a 
+     * parseException is thrown (after all #include directives have been processed) 
+     * to the original file, line number and line of code. The arrays are updated
+     * using the processDirectives method. 
+     */
+    private ArrayList files = new ArrayList();
+    private ArrayList lines = new ArrayList();
+    private ArrayList codes = new ArrayList();
+    
+    /*
+     * The pathNames array allows multiple directories to be searched when 
+     * looking for a file specified in a #include directive.
+     */
+    private ArrayList pathNames = new ArrayList();
+
+    /**
+     * Constructs a new parser object. The current working directory "." is added 
+     * to the list of directories that will be searched when looking for a file.
+     */
+    public ASParser() 
+    {
+        this(System.in);
+        
+        pathNames.add(".");
+    }
+    
+    /**
+     * Returns the array of path names used when searching for a file.
+     *
+     * @return an array of strings containing the names of directories to search.
+     */
+    public ArrayList getPaths()
+    {
+        return pathNames;
+    }
+
+    /**
+     * Sets the array of path names used when searching for a file.
+     *
+     * @param paths an array of strings containing the names of directories to search.
+     */
+    public void setPaths(ArrayList paths)
+    {
+        pathNames = paths;
+    }
+    
+    /**
+     * Sets the array of path names used when searching for a file. The string should 
+     * contains paths which contain the system-dependent separator and pathSeparator
+     * characters.
+     *
+     * @param paths a string containing the names of directories to search.
+     */
+    public void setPaths(String paths)
+    {
+        StringTokenizer pathTokenizer = new StringTokenizer(paths, File.pathSeparator, false);
+
+        pathNames.clear();
+        
+        while (pathTokenizer.hasMoreTokens())
+            pathNames.add(pathTokenizer.nextToken());
+    }
+    
+    /**
+     * Add a path to the array of pathnames. The path should contain the system-dependent
+     * separator.
+     *
+     * @param path a string containing the path to a directory.
+     */
+    public void add(String path)
+    {
+        pathNames.add(path);
+    }
+
+    /**
+     * Returns the name of the file that contained the line of code that generated 
+     * an error while parsing a script.
+     *
+     * @return the name of the file which contained the line of code or an empty 
+     * string if the line was in the 'root' script.
+     */
+    public String getFilename()
+    {
+        return _filename;
+    }
+    
+    /**
+     * Returns the number of the the line of code that generated an error 
+     * parsing a script.
+     *
+     * @return the number of the line which that triggered the error.
+     */
+    public int getLineNumber()
+    {
+        return _lineNumber;
+    }
+    
+    /**
+     * Returns the line of code that generated an error while parsing a script.
+     *
+     * @return the line which that triggered the error.
+     */
+    public String getLine()
+    {
+        return _line;
+    }
+
+    /**
+     * Returns the key identifying the type of error that occured while
+     * of parsing a script.
+     *
+     * @return the line which that triggered the error.
+     */
+    public String getError()
+    {
+        return _error;
+    }
+
+    /**
+     * Parses the ActionScript string, script. Any nested files specified
+     * using #include directives are loaded before the complete script is 
+     * parsed. The filenames and line numbers of #include'd scripts are 
+     * tracked so any syntax errors are reported accurately.
+     *
+     * @param script a String containing the ActionScript code to parse.
+     *
+     * @throws ParseException if a parsing error occurs.
+     */
+    public ASNode parse(String script) throws ParseException
+    {
+        ASNode root = null;
+        
+        files.clear();
+        lines.clear();
+        codes.clear();
+        
+        try 
+        {
+            if (script != null && script.length() > 0)
+            {
+                StringBuffer buffer = new StringBuffer();
+                byte[] bytes = null;
+            
+                processDirectives("", script, buffer);
+            
+                try 
+                { 
+                    bytes = buffer.toString().getBytes("ISO-8859-1"); 
+                }
+                catch(Exception e) 
+                { 
+                    bytes = buffer.toString().getBytes();
+                }
+                
+                ReInit(new ByteArrayInputStream(bytes));
+            }
+            root = Script();
+            root.validate();
+        }
+        catch (ParseException e)
+        {
+            /*
+             * Check the correct error key was used.
+             */
+            if (Debug)
+            {
+                boolean foundKey = false;
+                String errorKey = (e.tokenImage != null) ? "ParseError" : e.getMessage();
+                
+                for (int i=0; i<errorKeys.length; i++)
+                {
+                    if (errorKey.equals(errorKeys[i]))
+                        foundKey = true;
+                }
+                if (foundKey == false)
+                    System.err.println("Cannot find error key: " + errorKey);
+                    
+                e.printStackTrace();
+            }
+        
+            int errorLine = e.currentToken.beginLine-1;
+            
+            /* 
+             * If the exception was generated by the parser then the arrays
+             * of tokens encountered and tokens expected will not be null,
+             * allowing them to be differentiated from exceptions reported
+             * using the reportError() method.
+             */
+            _error = (e.tokenImage != null) ? "ParseError" : e.getMessage();
+            _filename = (String)files.get(errorLine);
+            _lineNumber = ((Integer)lines.get(errorLine)).intValue();
+            _line = (String)codes.get(errorLine);
+            
+            throw e;
+        }
+        return root;
+    }
+
+    /**
+     * Parses the file containing ActionScript. Any nested files specified
+     * using #include directives are loaded before the complete script is 
+     * parsed. The filenames and line numbers of #include'd scripts are 
+     * tracked so any syntax errors are reported accurately.
+     *
+     * @param file a File containing the ActionScript statements to parse.
+     *
+     * @throws ParseException if a parsing error occurs.
+     */
+    public ASNode parse(File file) throws ParseException
+    {
+        ASNode root = null;
+        
+        try 
+        {
+            byte[] fileIn = new byte[(int)file.length()];
+            
+            FileInputStream fileContents = new FileInputStream(file);
+            fileContents.read(fileIn);
+            
+            String script = new String(fileIn);
+            fileContents.close();
+            
+            root = parse(script);
+        }
+        catch (ParseException e)
+        {
+            _filename = file.getPath();
+            
+            throw e;
+        }
+        catch (FileNotFoundException e)
+        {
+            _error = "FileNotFound";
+            _filename = file.getPath();
+            
+            throw new ParseException("FileNotFound");
+        }
+        catch (IOException e)
+        {
+            _error = "ReadError";
+            _filename = file.getPath();
+            
+            throw new ParseException("ReadError");
+        }
+        return root;
+    }
+
+    /*
+     * processDirectives is used to resolve #include directives defined in a set of 
+     * ActionScript statements.
+     *
+     * If an error occurs when including files the name of the file, the line number
+     * and the code which triggered the error is recorded. These may be retrieved
+     * using the getFilename(), getLineNumber() and getLine() methods respectively.
+     * Depending on the type of error either an IOException or ParseException is 
+     * thrown. The exception message contains a key that identifies the exact error
+     * that occurs. The key may be used in conjunction with an instance of the 
+     * ResourceBundle class to generated a localized string describing the error.
+     * 
+     * @param fileName is the name of file from which the script was loaded or an 
+     * empty string if the script was entered directly.
+     * 
+     * @param script a string containing the ActionScript statements to be parsed.
+     * 
+     * @param out a StringBuffer which will contain the 'flattened' scripts with all 
+     * #include directives replaced by the contents of the file they reference.
+     * 
+     * @throws ParseException unless a line contains a single #include directive.
+     * 
+     * @throws IOException if a #included file cannot be found or an error occurs when
+     * including it. 
+     */
+    private void processDirectives(String fileName, String script, StringBuffer out) 
+        throws ParseException
+    {
+        StringTokenizer lineTokenizer = new StringTokenizer(script, separator, true);
+
+        int currentLine = 1;
+        int lineNumber = 0;
+        String code = "";
+        
+        /*
+         * Boolean flags are used to signal when a directive has been found rather 
+         * immediately reading the following token to process the directive. This 
+         * allows a directive to be split over two lines (valid ActionScript) and 
+         * still be processed correctly.
+         */
+        boolean includeFile = false;
+        
+        while (lineTokenizer.hasMoreTokens())
+        {
+            String line = lineTokenizer.nextToken();
+            
+            /*
+             * Add the line of code to the output and updates the line mapping
+             * arrays.
+             */
+            if (line.length() == 1 && (line.charAt(0) == '\n' || line.charAt(0) == '\r'))
+            {
+                out.append(code);
+                out.append(separator);
+                
+                files.add(fileName);
+                lines.add(new Integer(currentLine++));
+                codes.add(code);
+                
+                /*
+                 * Set the dafault line of code to take blank lines into account.
+                 */
+                code = "";
+            }
+            else if (line.indexOf("#include") != -1 || includeFile)
+            {
+                /* 
+                 * Split the line containing a directive into individual words 
+                 */ 
+                StringTokenizer wordTokenizer = new StringTokenizer(line, wordDelimiters, false);
+                
+                while (wordTokenizer.hasMoreTokens())
+                {
+                    String token = wordTokenizer.nextToken();
+                    
+                    if (token.equals("#include"))
+                    {
+                        includeFile = true;
+                        lineNumber = currentLine;
+                    }
+                    else
+                    {
+                        if (includeFile)
+                        {
+                            /*
+                             * #include directives can only be followed by a string literal
+                             * containing the name of a file. For all practical purposes 
+                             * having multiple directives on the same line is not a problem 
+                             * however Macromedia's Flash reports this as an error when 
+                             * encoding  Flash file, so this behaviour is maintained just to
+                             * be compatible.
+                             */
+                            if (wordTokenizer.countTokens() > 0)
+                                reportError("SingleDirective", fileName, lineNumber, line);
+
+                            /*
+                             * filenames must be enclosed in quotes.
+                             */
+                            if (token.startsWith("\"") == false || token.endsWith("\"") == false)
+                                reportError("QuoteFileName", fileName, lineNumber, line);
+
+
+                            /*
+                             * If the contentsOfFile() method throws an IOException then 
+                             * change it into a ParseException so the filename, line number
+                             * and line of code that triggered the error can be cirrectly 
+                             * reported.
+                             */
+                            try 
+                            {
+                                String filename = token.substring(1, token.length()-1);
+                                
+                                processDirectives(filename, contentsOfFile(filename), out);
+                            }
+                            catch (FileNotFoundException e)
+                            {
+                                reportError("FileNotFound", fileName, lineNumber, line);
+                            }
+                            catch (IOException e)
+                            {
+                                reportError("ReadError", fileName, lineNumber, line);
+                            }                  
+                            includeFile = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                code = line;
+            }
+        }
+        if (code.length() > 0)
+        {
+            out.append(code);
+            out.append(separator);
+            
+            files.add(fileName);
+            lines.add(new Integer(currentLine++));
+            codes.add(code);
+        }
+    }
+    
+    /*
+     * reportError is used to report any errors found when processing a directive. A
+     * ParseException is created containing the key which identifies the error and the 
+     * line number which triggered it. The line mapping arrays are updated so that when
+     * the exception is reported to the code using the parser the method: getFileName(), 
+     * getLineNumber() and getLine() return the correct information.
+     *
+     * @param errorKey a String that idenfities the type of error that occurred.
+     * @param fileName the name of the file which contains the line that triggered the error.
+     * @param lineNumber the number of the line that triggered the error.
+     * @param line the line of code that triggered the error.
+     *
+     * @throws ParseException containing the errorKey and line number.
+     */
+    private void reportError(String errorKey, String fileName, int lineNumber, String line) throws ParseException
+    {
+        ParseException parseError = new ParseException(errorKey);
+        
+        parseError.currentToken = new Token();
+        parseError.currentToken.beginLine = lineNumber;
+        
+        files.add(fileName);
+        lines.add(new Integer(lineNumber));
+        codes.add(line);
+        
+        throw parseError;
+    }
+
+    /*
+     * reportError is used to report any errors found when validating a node during parsing. A
+     * ParseException is created containing the key which identifies the error and the 
+     * Token which triggered it.
+     *
+     * @param errorKey a String that idenfities the type of error that occurred.
+     * @param token the token being parsed which triggered the error.
+     *
+     * @throws ParseException containing the errorKey and line number.
+     */
+    private void reportError(String errorKey, Token token) throws ParseException
+    {
+        ParseException parseError = new ParseException(errorKey);
+        
+        parseError.currentToken = token;
+        
+        throw parseError;
+    }
+    
+    /*
+     * reportError is used to report any errors found when validating a node. A
+     * ParseException is created containing the key which identifies the error and the 
+     * Token which triggered it.
+     *
+     * @param errorKey a String that idenfities the type of error that occurred.
+     * @param number the number of the line or token that triggered the error.
+     *
+     * @throws ParseException containing the errorKey and line number.
+     */
+    private void reportError(String errorKey, int number) throws ParseException
+    {
+        ParseException parseError = new ParseException(errorKey);
+        
+        parseError.currentToken = new Token();
+        parseError.currentToken.beginLine = number;
+
+        throw parseError;
+    }
+
+    /*
+     * Returns the contents of the file as a single string. The list of directories
+     * in the pathNames attribute is searched for the file.
+     * 
+     * @param fileName the name of the file to read.
+     * 
+     * @return a String containing the contents of the file.
+     * 
+     * @throws FileNotFoundException if the file could not be found.
+     * @throws IOException if an error occurred while reading the file.
+     */
+    private String contentsOfFile(String fileName) throws FileNotFoundException, IOException
+    {
+        String script = "";
+        
+        boolean fileFound = false;
+        
+        for (Iterator i = pathNames.iterator(); i.hasNext();)
+        {
+            File aFile = new File((String)i.next() + File.separator + fileName);
+            
+            if (aFile.exists())
+            {
+                byte[] fileIn = new byte[(int)aFile.length()];
+                            
+                FileInputStream fileContents = new FileInputStream(aFile);
+                fileContents.read(fileIn);
+            
+                script = new String(fileIn);
+            
+                fileContents.close();
+                fileFound = true;
+            }
+        }
+    
+        if (fileFound == false)
+            throw new FileNotFoundException();
+
+        return script;
+    }
+}
+
+PARSER_END(ASParser)
+
+SKIP : /* WHITE SPACE */
+{
+      " "
+    | "\t"
+    | "\f"
+    | "\n"
+    | "\r"
+    | <"//" (~["\n","\r"])* ("\n" | "\r" | "\r\n") >
+    | <"/*" (~["*"])* "*" ("*" | ~["*","/"] (~["*"])* "*")* "/">
+}
+
+TOKEN : /* LITERALS */
+{
+      <BOOLEAN_LITERAL: "true" | "false" >
+    | <NULL_LITERAL:    "null" >         
+
+    | <INTEGER_LITERAL: (["+","-"])? <DECIMAL_LITERAL> | <HEX_LITERAL> >
+    |     <#DECIMAL_LITERAL: ["0"-"9"] (["0"-"9"])*> 
+    |       <#HEX_LITERAL: "0" ["x","X"] (["0"-"9","a"-"f","A"-"F"])+> 
+
+    | <FLOATING_POINT_LITERAL:
+        (["+","-"])? (["0"-"9"])+ "." (["0"-"9"])* (<EXPONENT>)?
+      | "." (["0"-"9"])+ (<EXPONENT>)?
+      | (["0"-"9"])+ <EXPONENT>
+      | (["0"-"9"])+ (<EXPONENT>)?
+      >
+    |     <#EXPONENT: ["e","E"] ((["+","-"])? (["0"-"9"])+)? >
+       
+    | <STRING_LITERAL: <DOUBLE_QUOTE> | <SINGLE_QUOTE> >
+    |     <#DOUBLE_QUOTE: 
+          "\"" 
+          (   (~["\"","\\","\n","\r"])
+            | ("\\"
+                ( ["n","t","b","r","f","\\","\""]
+                | ["0"-"7"] ( ["0"-"7"] )?
+                | ["0"-"3"] ["0"-"7"] ["0"-"7"]
+                | "u" (["0"-"9","a"-"f","A"-"F"])+
+                | "x" (["0"-"9","a"-"f","A"-"F"])+
+                | "X" (["0"-"9","a"-"f","A"-"F"])+
+                )
+              )
+          )*
+          "\"">
+    |     <#SINGLE_QUOTE: 
+          "'" 
+          (   (~["'","\\","\n","\r"])
+            | ("\\"
+                ( ["n","t","b","r","f","\\","'","\""]
+                | ["0"-"7"] ( ["0"-"7"] )?
+                | ["0"-"3"] ["0"-"7"] ["0"-"7"]
+                | "u" (["0"-"9","a"-"f","A"-"F"])+
+                | "x" (["0"-"9","a"-"f","A"-"F"])+
+                | "X" (["0"-"9","a"-"f","A"-"F"])+
+                )
+              )
+          )*
+          "'">
+}
+
+TOKEN : /* Operators */
+{ 
+        < ASSIGN: "=" >
+    |   < ASSIGN_ADD: "+=" >
+    |   < ASSIGN_SUB: "-=" >
+    |   < ASSIGN_MUL: "*=" >
+    |   < ASSIGN_DIV: "/=" >
+    |   < ASSIGN_MOD: "%=" >
+    |   < ASSIGN_LSL: "<<=" >
+    |   < ASSIGN_ASR: ">>=" >
+    |   < ASSIGN_LSR: ">>>=" >
+    |   < ASSIGN_AND: "&=" >
+    |   < ASSIGN_OR: "|=" >
+    |   < ASSIGN_XOR: "^=" >
+    |   < LOGICAL_AND: "&&" >
+    |   < LOGICAL_OR: "||" >
+    |   < LOGICAL_NOT: "!" >
+    |   < EQ: "==" >
+    |   < GT: ">" >
+    |   < LT: "<" >
+    |   < GTE: ">=" >
+    |   < LTE: "<=" >
+    |   < NE: "!=" >
+    |   < BIT_AND: "&" >
+    |   < BIT_OR: "|" >
+    |   < BIT_XOR: "^" >
+    |   < BIT_NOT: "~" >
+    |   < LSL: "<<" >
+    |   < LSR: ">>>" >
+    |   < ASR: ">>" >
+    |   < PLUS: "+" >
+    |   < MINUS: "-" >
+    |   < MULTIPLY: "*" >
+    |   < DIVIDE: "/" >
+    |   < MOD: "%" >
+    |   < INC: "++" >
+    |   < DEC: "--" >
+}
+
+TOKEN : /* Commands */
+{ 
+      <IF: "if" >
+    | <ELSE: "else" >
+    | <WHILE: "while" >
+    | <DO: "do" >
+    | <FOR: "for" >
+    | <IN: "in" >
+    | <BREAK: "break" >
+    | <CONTINUE: "continue" >
+    | <DELETE: "delete" >
+    | <INSTANCEOF: "instanceof" >
+    | <RETURN:    "return" >
+    | <WITH: "with" >
+    | <NEW: "new">
+    | <FUNCTION: "function">
+    | <VAR: "var">
+    | <ONCLIPEVENT: "onClipEvent">
+    | <ON: "on">
+}
+
+TOKEN : /* IDENTIFIERS */
+{
+      <IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
+    |     < #LETTER: [ "a"-"z", "A"-"Z", "_"] >
+    |     < #DIGIT: [ "0"-"9"] >
+}
+
+ASNode Literal() : { Token t; ASNode node = new ASNode(ASNode.Literal);  }
+{
+    t=<BOOLEAN_LITERAL>
+    {
+        node.setStringValue(t.image);
+        return node;
+    }
+    
+    | t=<INTEGER_LITERAL>
+    {
+        Integer i;
+        
+        try {
+            if (token.image.toLowerCase().startsWith("0x"))
+            {
+                i = Integer.valueOf(t.image.substring(2), 16); 
+            }
+            else
+            {
+                if (token.image.startsWith("+"))
+                    i = Integer.valueOf(token.image.substring(1));
+                else
+                    i = Integer.valueOf(token.image);
+            } 
+        }
+        catch (NumberFormatException e) {
+            i = new Integer(0);
+        }
+        node.setIntValue(i.intValue());
+        return node;
+    }
+    
+    | t=<FLOATING_POINT_LITERAL>
+    {
+        Double d;
+        
+        try {
+            if (token.image.endsWith("e"))
+            	d = Double.valueOf(token.image+"0");
+            else
+            	d = Double.valueOf(token.image);
+        }
+        catch (NumberFormatException e) {
+            d = new Double(0);
+        }
+        node.setDoubleValue(d.doubleValue());
+        return node;
+    }
+
+    | t=<STRING_LITERAL>
+    {
+        node.setStringValue(t.image.substring(1, t.image.length()-1));
+        return node;
+    }
+
+    | t=<NULL_LITERAL>
+    {
+        node.setStringValue(t.image);
+        return node;
+    }
+}
+
+ASNode Identifier() : { Token t; ASNode node = null; }
+{
+    /* Identifier() now looks ahead to see whether an identifier is followed 
+     * by a Function() node. This allows 'named' functions to be diferentiated, 
+     * e.g. stopAllSounds() from constructs such as 'this["echo"](args)'. This 
+     * latter construct is why function calls are classed as suffix nodes since
+     * any value returned in Flash can in theory be used to call a function.
+     *
+     * The Identifier() node short-circuits any PrimarySuffix() rule that might
+     * follow by consuming the following tokens.
+     */
+      LOOKAHEAD(<IDENTIFIER> Function()) t=<IDENTIFIER> node=Function() 
+      { 
+          node.setStringValue(t.image);
+          node.setNumber(t.beginLine);
+          return node; 
+      }
+    | LOOKAHEAD(<IDENTIFIER>) t=<IDENTIFIER> 
+      { 
+          node = new ASNode(ASNode.Identifier, t.image); 
+          return node; 
+      }
+}
+
+/*
+ * Statements
+ */
+ 
+ASNode Script() : { ASNode root = new ASNode(ASNode.Array), node = null; }
+{
+    ( node=Statement()
+        { 
+            if (node.getType() == ASNode.OnClipEvent)
+                root.setType(ASNode.MovieClip);
+            else if (node.getType() == ASNode.On)
+                root.setType(ASNode.Button);
+                
+            root.setNumber(token.beginLine);
+              root.add(node); 
+        }
+       )*
+    { return root; }
+}
+
+ASNode Statement() : { ASNode node = null; }
+{
+    /*
+     * Lookaheads are required on each different type of statements to allow
+     * the following pairs of structures to be differentiated:
+     * 
+     * 1. BlockStatements and AnonymousObjects - both are enclosed by braces.
+     * 2. FunctionDefinitions and MethodDefinitions - both start with the 'function'
+     *
+     * The ambiguities are a result of syntax choices in the design of the ActionScript
+     * languages rather than shortcomings in the design of the parser.
+     */
+      LOOKAHEAD(BlockStatement()) node=BlockStatement() { return node; }
+    | LOOKAHEAD(FunctionDefinition()) node=FunctionDefinition() { return node; }
+    | LOOKAHEAD(ExpressionStatement()) node=ExpressionStatement() { return node; }
+    | LOOKAHEAD(IfStatement()) node=IfStatement() { return node; }
+    | LOOKAHEAD(WithStatement()) node=WithStatement() { return node; }
+    | LOOKAHEAD(WhileStatement()) node=WhileStatement() { return node; }
+    | LOOKAHEAD(DoStatement()) node=DoStatement() { return node; }
+    | LOOKAHEAD(ForStatement()) node=ForStatement() { return node; }
+    | LOOKAHEAD(BreakStatement()) node=BreakStatement() { return node; }
+    | LOOKAHEAD(ContinueStatement()) node=ContinueStatement() { return node; }
+    | LOOKAHEAD(ReturnStatement()) node=ReturnStatement() { return node; }
+    | LOOKAHEAD(OnClipEvent()) node=OnClipEvent() { return node; }
+    | LOOKAHEAD(On()) node=On() { return node; }
+}
+
+
+ASNode FunctionDefinition() : { Token t; ASNode node = new ASNode(ASNode.DefineFunction), name = null, args = null, body = null; }
+{
+    <FUNCTION> t=<IDENTIFIER> { node.setStringValue(t.image); } "(" [ args=ArgumentList() { node.add(args); } ] ")" body=BlockStatement() { node.add(body); }
+
+    { return node; }
+}
+
+ASNode BlockStatement() : { ASNode list = new ASNode(ASNode.StatementList), node = null; }
+{
+    "{" ( node=Statement() { list.add(node); } )* "}"
+    { return list; }
+}
+
+ASNode ExpressionStatement() : { ASNode node = new ASNode(ASNode.NoOp); }
+{
+    [ node=ExpressionList() ] ";" { return node; }
+}
+
+ASNode IfStatement() : { Token t; ASNode ifnode = new ASNode(ASNode.If), node = null;  ifnode.add(new ASNode(ASNode.NoOp)); }
+{
+    t=<IF> "(" node=ConditionalExpression() ")" { ifnode.set(0, node); } 
+        node=Statement() { ifnode.add(node); } 
+        [ LOOKAHEAD(2) <ELSE> node=Statement() { ifnode.add(node); } ]
+
+    { return ifnode; } 
+}
+
+ASNode WithStatement() : { ASNode withNode = new ASNode(ASNode.With), node = null; }
+{
+    <WITH> "(" node=ConditionalExpression() ")" { withNode.add(node); } 
+        node=Statement() { withNode.add(node); }
+        
+    { return withNode; }
+}
+
+ASNode WhileStatement() : { ASNode whileNode = new ASNode(ASNode.While), node = null; whileNode.add(new ASNode(ASNode.NoOp)); }
+{
+    <WHILE> "(" node=ConditionalExpression() ")" { whileNode.set(0, node); }
+        node=Statement() { whileNode.add(node); }
+        
+    { return whileNode; }
+}    
+
+ASNode DoStatement() : { ASNode doNode = new ASNode(ASNode.Do), node = null; doNode.add(new ASNode(ASNode.NoOp)); }
+{
+    <DO> node=Statement() { doNode.set(0, node); }
+    <WHILE> "(" node=ConditionalExpression() ")" ";" { doNode.add(node); }
+    
+    { return doNode; }
+}    
+
+ASNode ForStatement() : { ASNode forNode = null, node = null; }
+{
+    LOOKAHEAD (4) // Lookahead for the <IN> token that separates for() from for..in
+    
+      <FOR> 
+          { 
+              forNode = new ASNode(ASNode.For); 
+              forNode.add(new ASNode(ASNode.NoOp)); 
+              forNode.add(new ASNode(ASNode.NoOp)); 
+              forNode.add(new ASNode(ASNode.NoOp)); 
+              forNode.add(new ASNode(ASNode.NoOp)); 
+          } "(" 
+          [ node=ExpressionList() { forNode.set(0, node); } ] ";" 
+          [ node=ConditionalExpression() { forNode.set(1, node); } ] ";" 
+          [ node=ExpressionList() { forNode.set(2, node); } ] ")" 
+          node=Statement() { forNode.set(3, node); return forNode; }
+          
+    | <FOR> { forNode = new ASNode(ASNode.ForIn); } "(" 
+               node=Identifier() { forNode.add(node); }
+          <IN> node=ConditionalExpression() ")"  { forNode.add(node); }
+          node=Statement() { forNode.add(node); return forNode; }
+}
+
+ASNode BreakStatement() : { Token t; ASNode node = new ASNode(ASNode.Break); }
+{
+    t=<BREAK> ";"
+    { 
+        node.setNumber(t.beginLine);
+        return node; 
+    }
+}
+
+ASNode ContinueStatement() : { Token t; ASNode node = new ASNode(ASNode. Continue); }
+{
+    t=<CONTINUE> ";"
+    { 
+        node.setNumber(t.beginLine);
+        return node; 
+    }
+}
+
+ASNode ReturnStatement() : { Token t; ASNode returnNode = new ASNode(ASNode.Return), node = null; }
+{
+    t=<RETURN> [ node=ConditionalExpression() { returnNode.add(node); } ] ";"
+    { 
+        returnNode.setNumber(t.beginLine);
+        return returnNode; 
+    }
+}
+
+ASNode OnClipEvent() : { Token t; ASNode eventNode = new ASNode(ASNode.OnClipEvent), node = null; }
+{
+    t=<ONCLIPEVENT> "(" node=Identifier() 
+    {
+        if (node.getType() == ASNode.Identifier)
+        {
+            if (ASNode.clipEvents.containsKey(node.getStringValue()))
+            {
+                int eventCode = ((Integer)ASNode.clipEvents.get(node.getStringValue())).intValue();
+                
+                eventNode.setIntValue(eventCode); 
+            }
+            else
+            {
+                reportError("UnknownMovieClipEvent", t);
+            }
+        }
+        else
+        {
+            reportError("UnknownMovieClipEvent", t);
+        }
+       } 
+    ( "," node=Identifier() 
+    {
+        if (node.getType() == ASNode.Identifier)
+        {
+            if (ASNode.clipEvents.containsKey(node.getStringValue()))
+            {
+                int allEvents = eventNode.getIntValue();
+                int event = ((Integer)ASNode.clipEvents.get(node.getStringValue())).intValue();
+                
+                eventNode.setIntValue(allEvents + event); 
+            }
+            else
+            {
+                reportError("UnknownMovieClipEvent", t);
+            }
+        }
+        else
+        {
+            reportError("UnknownMovieClipEvent", t);
+        }
+    } 
+    )* ")" node=Statement() { eventNode.add(node); }
+        
+    { return eventNode; }
+}
+
+ASNode On() : { Token t; ASNode eventNode = new ASNode(ASNode.On), node = null; }
+{
+    t=<ON> "(" ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
+    {
+        if (node.getType() == ASNode.Identifier)
+        {
+            if (ASNode.buttonEvents.containsKey(node.getStringValue()))
+            {
+                int event = ((Integer)ASNode.buttonEvents.get(node.getStringValue())).intValue();
+                eventNode.setIntValue(event); 
+            }
+            else
+            {
+                reportError("UnknownButtonEvent", t);
+            }
+        }
+        else if (node.getType() == ASNode.Literal)
+        {
+            String key = node.getStringValue();
+            int event = 0;
+            
+            if (ASNode.buttonEvents.containsKey(key))
+            {
+                event = ((Integer)ASNode.buttonEvents.get(key)).intValue();
+            }
+            else
+            {
+                event = key.charAt(0) << 9;
+            }
+            eventNode.setIntValue(event); 
+        }
+        else
+        {
+            reportError("UnknownButtonEvent", t);
+        }
+       } 
+    ( ","  ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
+    {
+        if (node.getType() == ASNode.Identifier)
+        {
+            if (ASNode.buttonEvents.containsKey(node.getStringValue()))
+            {
+                int allEvents = eventNode.getIntValue();
+                int event = ((Integer)ASNode.buttonEvents.get(node.getStringValue())).intValue();
+                
+                eventNode.setIntValue(allEvents + event); 
+            }
+            else
+            {
+                reportError("UnknownButtonEvent", t);
+            }
+        }
+        else if (node.getType() == ASNode.Literal)
+        {
+            String key = node.getStringValue();
+            int allEvents = eventNode.getIntValue();
+            int event = 0;
+            
+            if (ASNode.buttonEvents.containsKey(key))
+            {
+                event = ((Integer)ASNode.buttonEvents.get(key)).intValue();
+            }
+            else
+            {
+                event = key.charAt(0) << 9;
+            }
+            eventNode.setIntValue(allEvents + event); 
+        }
+        else
+        {
+            reportError("UnknownButtonEvent", t);
+        }
+    } 
+    )* 
+    ")" node=Statement() { eventNode.add(node); }
+        
+    { return eventNode; }
+}
+
+/*
+ * Define lists
+ */
+
+ASNode ExpressionList() : { ASNode block = new ASNode(ASNode.List), node = null; }
+{
+    node=Expression() { block.add(node); } ( "," node=Expression() { block.add(node); } )*
+    { 
+        if (block.count() == 1)
+            return block.get(0);
+        else
+            return block; 
+    }
+}
+
+ASNode ArgumentList() : { ASNode block = new ASNode(ASNode.List), node = null; }
+{
+    node=ConditionalExpression() { block.add(node); } ( "," node=ConditionalExpression() { block.add(node); } )*
+    { 
+        if (block.count() == 1)
+            return block.get(0);
+        else
+            return block; 
+    }
+}
+
+/*
+ * Expression Syntax
+ */
+ 
+ASNode Expression() : { ASNode node = null; }
+{
+      node=AssignmentExpression() { return node; }
+ //   | LOOKAHEAD(ConditionalExpression()) node=ConditionalExpression() { return node; }
+}
+
+ASNode AssignmentExpression() : { boolean isVar = false; int type = 0; ASNode node = null, left = null, right = null; }
+{
+    ( "var" { isVar = true; } ) ? node=ConditionalExpression()  { if (isVar) node.setType(ASNode.DefineVariable); }
+    [
+        ( <ASSIGN> { type = ASNode.Assign; }
+        | <ASSIGN_ADD> { type = ASNode.AssignAdd; }
+        | <ASSIGN_SUB> { type = ASNode.AssignSub; }
+        | <ASSIGN_MUL> { type = ASNode.AssignMul; }
+        | <ASSIGN_DIV> { type = ASNode.AssignDiv; }
+        | <ASSIGN_MOD> { type = ASNode.AssignMod; }
+        | <ASSIGN_LSL> { type = ASNode.AssignLSL; }
+        | <ASSIGN_ASR> { type = ASNode.AssignASR; }
+        | <ASSIGN_LSR> { type = ASNode.AssignLSR; }
+        | <ASSIGN_AND> { type = ASNode.AssignBitAnd; }
+        | <ASSIGN_OR> { type = ASNode.AssignBitOr; }
+        | <ASSIGN_XOR> { type = ASNode.AssignBitXOr; }
+        )  
+        
+        right=AssignmentExpression() 
+    
+        { 
+            node = new ASNode(type, node, right);
+        }
+    
+    ]
+    
+    { return node; }
+}
+
+/*
+ * The following nodes describe a binary tree which are used to parse expressions containing 
+ * the different types of operators. The left branch of the tree descends down one level.
+ * The right branch parses the remaining part of the expression starting at the same level. 
+ * This allows statements such as a + b * c to be correctly parsed as a + (b * c) which takes
+ * into account the level of precendence assigned to different operations. If the right brach 
+ * also descended down the tree then the expression would be parsed as (a + b) * c.
+ */
+ 
+ASNode ConditionalExpression() : { ASNode node = null, cond = null, a = null, b = null; }
+{
+    node=LogicalOrExpression() (  
+        "?" a=Expression() ":" b=ConditionalExpression() 
+        { cond = node; 
+          node = new ASNode(ASNode.Select); 
+          node.add(cond);
+          node.add(a);
+          node.add(b);
+        }
+    )?
+    { return node; }
+}
+
+ASNode LogicalOrExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=LogicalAndExpression()  ( 
+        <LOGICAL_OR> { type = ASNode.Or; }  
+        right=LogicalAndExpression()
+        
+        { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode LogicalAndExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=InclusiveOrExpression()  ( 
+        <LOGICAL_AND> { type = ASNode.And; } 
+        right=InclusiveOrExpression()
+        
+        { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode InclusiveOrExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=ExclusiveOrExpression() ( 
+        <BIT_OR> { type = ASNode.BitOr; }
+        right=ExclusiveOrExpression()
+        
+        { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode ExclusiveOrExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=AndExpression() ( 
+        <BIT_XOR> { type = ASNode.BitXOr; }
+        right=AndExpression()
+        
+        { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode AndExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=EqualityExpression() ( 
+        <BIT_AND> { type = ASNode.BitAnd; }
+        right=EqualityExpression()
+        
+        { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode EqualityExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=RelationalExpression() ( 
+        ( <EQ> { type = ASNode.Equal; }
+        | <NE> { type = ASNode.NotEqual; }
+        ) 
+        right=RelationalExpression()
+ 
+        { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode RelationalExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=InstanceExpression() ( 
+        ( <LT> { type = ASNode.LessThan; }
+        | <GT> { type = ASNode.GreaterThan; }
+        | <LTE> { type = ASNode.LessThanEqual; }
+        | <GTE> { type = ASNode.GreaterThanEqual; }
+        ) 
+        right=InstanceExpression()
+ 
+        { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode InstanceExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=ShiftExpression() ( 
+        ( <INSTANCEOF> { type = ASNode.InstanceOf; }
+        ) right=ShiftExpression()
+        
+       { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode ShiftExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=AdditiveExpression() ( 
+        ( <LSL> { type = ASNode.LSL; }
+        | <LSR> { type = ASNode.LSR; }
+        | <ASR> { type = ASNode.ASR; }
+        ) right=AdditiveExpression()
+        
+        { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode AdditiveExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=MultiplicativeExpression() ( 
+        ( <PLUS> { type = ASNode.Add; }
+        | <MINUS> { type = ASNode.Sub; }
+        ) right=MultiplicativeExpression()
+        
+       { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode MultiplicativeExpression() : { int type = 0; ASNode left = null, right = null; }
+{
+    left=UnaryExpression() ( 
+        ( <MULTIPLY> { type = ASNode.Mul; }
+        | <DIVIDE> { type = ASNode.Div; }
+        | <MOD> { type = ASNode.Mod; }
+        ) right=UnaryExpression()
+        
+       { left = new ASNode(type, left, right); }
+    )*
+    { return left; }
+}
+
+ASNode UnaryExpression() : { int type = 0; ASNode node = null; }
+{
+      ( <PLUS> { type = ASNode.Plus; } | <MINUS> { type = ASNode.Minus; } ) node=UnaryExpression() 
+      { return new ASNode(type, node); }
+    | ( <INC> { type = ASNode.PreInc; } | <DEC> { type = ASNode.PreDec; } ) node=PrimaryExpression()  
+      { return new ASNode(type, node); }
+    | ( <BIT_NOT> { type = ASNode.BitNot; } | <LOGICAL_NOT> { type = ASNode.Not; } ) node=UnaryExpression() 
+      { return new ASNode(type, node); }
+    | <DELETE> { type = ASNode.Delete; } node=UnaryExpression()  
+      { return new ASNode(type, node); }
+    | node=PostfixExpression() { return node; }
+}
+
+ASNode PostfixExpression() : { int type = 0; ASNode node = null; }
+{
+    node=PrimaryExpression() (
+        ( <INC> { type = ASNode.PostInc; } 
+        | <DEC> { type = ASNode.PostDec; } 
+        ) { node = new ASNode(type, node); }
+    )*
+    { return node; }
+}
+
+/*
+ * Primary expressions are split into a prefix/suffix pair. This allows some of the more 
+ * esoteric features of ActionScript to be handled cleanly, specifically variables and 
+ * array elments can contain objects and even functions. The statement a[1](arg) is 
+ * valid ActionScript - the first element of the array contains a function which is 
+ * executed passing the argument, arg.
+ *
+ * Suffixing also allows object path names, e.g. a.b.c() to be correctly parsed.
+ *
+ * IMPORTANT: The Identifier() node looks ahead to see whether the indentifier is 
+ * actually the name of a function. The node looksahead to see if the identifier 
+ * token is followed by a Function() node. If so the tokens are consumed.
+ */
+ASNode PrimaryExpression() : { ASNode list = new ASNode(ASNode.Value), node = null; }
+{
+    node=PrimaryPrefix() { list.add(node); } ( node=PrimarySuffix() { list.add(node); } )*
+    { 
+        if (list.count() == 1)
+            return list.get(0);
+        else
+            return list; 
+    }
+}
+
+ASNode PrimaryPrefix() : { ASNode node = null; }
+{
+    LOOKAHEAD(3)
+    
+      node=AnonymousArray() { return node; }
+    | node=AnonymousObject() { return node; }
+    | node=MethodDefinition() { return node; }
+    | node=Constructor() { return node; }
+    | node=Literal() { return node; }
+    | node=Identifier() { return node; }
+    | "(" node=ConditionalExpression() ")" { return node; }
+}
+
+ASNode PrimarySuffix() : { Token t; ASNode node = null, name = null; }
+{
+    /*
+     * Lookahead using the <IDENTIFIER> token when separating fetching an 
+     * attribute from calling a method on an object rather than using the
+     * Identifier() node. Look at Identifier() for an explanation why this
+     * is the case.
+     */
+      "[" node=ConditionalExpression() "]" 
+      { return new ASNode(ASNode.Subscript, node); }
+    | LOOKAHEAD ("." <IDENTIFIER> "(" ) "." t=<IDENTIFIER> node=Function() 
+      { node.setType(ASNode.Method); node.setStringValue(t.image); return node; }
+    | LOOKAHEAD ("." <IDENTIFIER>) "." t=<IDENTIFIER> 
+      { node = new ASNode(ASNode.Attribute); node.setStringValue(t.image); return node; }
+    | node=Function() 
+      { return node; }
+}
+
+ASNode Function() : { ASNode node = new ASNode(ASNode.Function, ""), arg = null; }
+{
+    "(" [ arg=ConditionalExpression() { node.add(arg); } ( "," arg=ConditionalExpression() { node.add(arg); } )* ] ")"
+    
+    { return node; }
+}
+
+ASNode Constructor() : { Token t; ASNode node = new ASNode(ASNode.NewObject), arg = null; }
+{
+    <NEW> t=<IDENTIFIER> "(" [ arg=ConditionalExpression() { node.add(arg); } ( "," arg=ConditionalExpression() { node.add(arg); } )* ] ")"
+    
+    { node.setStringValue(t.image); return node; }
+}
+
+ASNode AnonymousArray() : { ASNode node = new ASNode(ASNode.DefineArray), element = null; }
+{
+    "[" [ element=ConditionalExpression() { node.add(element); } 
+        ( "," element=ConditionalExpression() { node.add(element); } )*
+        ] 
+    "]"
+    
+    { return node; }
+}
+
+ASNode MethodDefinition() : { ASNode node = new ASNode(ASNode.DefineMethod), args = null, body = null; }
+{
+    <FUNCTION> "(" [ args=ArgumentList() { node.add(args); } ] ")" body=BlockStatement() { node.add(body); }
+
+    { return node; }
+}
+
+ASNode AnonymousObject() : { ASNode node = new ASNode(ASNode.DefineObject), attribute = null; }
+{
+    "{" [ attribute=Attribute() { node.add(attribute); } ( "," attribute=Attribute() { node.add(attribute); } )* ] "}"
+    
+    { return node; }
+}
+
+ASNode Attribute() : { ASNode key = null, value = null; }
+{
+    key=Identifier() ":" value=ConditionalExpression()
+    
+    { return new ASNode(ASNode.DefineAttribute, key, value); }
+}

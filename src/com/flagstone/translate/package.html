@@ -1,0 +1,208 @@
+<body>
+<p>The ASParser framework is a collection of classes used to implement a compiler 
+for Macromedia's ActionScript Version 1.0. ActionScript statements are parsed 
+to generate the byte-codes and actions that will be executed by the Flash Player.</p>
+
+<p>The process of compiling a script take two steps. The script is parsed and 
+converted into a tree of ASNodes then it is encoded to generate the binary
+data in the Flash (SWF) File Format which specifies the byte-codes and actions
+executed by the Flash Player.</p>
+
+<pre>
+String script = "a = b + c;"
+int swfVersion = 5;
+
+ASParser parser = new ASParser();
+ASNode root = parser.parse(script);
+
+byte[] data = root.encode(swfVersion);
+</pre>
+
+<p>The version of Flash that the ASNodes will be encoded to is passed to the root
+node. The file format of the data structures used to represent movie clip events
+and button events changed when Macromedia released Version 6 an 7 of the Flash 
+File Format Specification respectively so the version number is required to 
+encode the nodes correctly.</p>
+
+<p><b>Frames, Buttons or Movie Clips</b><br/>
+The parser can be used to compile scripts that are executed when, a frame is 
+displayed, an event occurs in a button or an event occurs in a movie clip.</p>
+
+<p>Scripts that will be executed when a frame is displayed can be encoded then 
+added to an FSDoAction object.</p>
+
+<pre>
+String script = "gotoFrame(1)";
+
+byte[] encodedActions = parser.parse(script).encode(swfVersion);
+FSDoAction frameActions = new FSDoAction(encodedActions);
+
+movie.add(frameActions);
+</pre>
+
+<p>For actions executed when an event in a button occurs there are two options
+for writing a script, either specify the actions for an individual button event 
+or for all the events that a button responds to in a single script.</p>
+
+<p>When specifying the actions that are executed in response to a set of one or 
+more events the encoded actions are added to an FSButtonEvent object:</p>
+
+<pre>
+String script = "gotoFrame(1)";
+int event = FSButtonEvent.Release;
+
+byte[] encodedActions = parser.parse(script).encode(swfVersion);
+FSButtonEvent eventActions = new FSButtonEvent(event, encodedActions);
+...
+button.add(eventActions);
+...
+movie.add(button);
+</pre>
+
+<p>For specifying multiple events ActionScript provides the on() block construct.
+When used in a script the nodes are encoded as an array of button event objects
+and are added to an FSDefineButton2 object:</p>
+
+<pre>
+// This script advances the movie by 10 frames each time a 
+// button is clicked.
+
+String script = "
+    on (press)
+    {
+        frameNumber = currentFrame + 10;
+    }
+
+    on (release)
+    {
+        currentFrame = frameNumber
+        gotoFrame(frameNumber);
+    }
+";
+
+byte[] encodedActions = parser.parse(script).encode(swfVersion);
+...
+button.add(encodedActions);
+...
+movie.add(button);
+</pre>
+
+<p>NOTE: Although a script can contain more than one on() block, other statements 
+cannot be mixed with on() statements. The parser will generate an error.</p>
+
+<p>For movie clip events the situation is similar to generating actions for 
+buttons. ActionScript contains the onClipEvent() block to allow actions to be
+specified for all the events a movie clip responds to in a single script.</p>
+
+<p>Specify the actions for a single event:</p>
+
+<pre>
+String script = "startDrag();";
+int event = FSClipEvent.MouseDown;
+
+byte[] encodedActions = parser.parse(script).encode(swfVersion);
+FSClipEvent eventActions = new FSClipEvent(event, encodedActions);
+...
+placeObject.add(eventActions);
+</pre>
+
+<p>Specify the actions for more than one event.</p>
+
+<pre>
+// Drag the mouse clip around the screen with the mouse
+
+String script = "
+    on (mouseDown)
+    {
+        startDrag();
+    }
+
+    on (mouseUp)
+    {
+        stopDrag();
+    }
+";
+
+byte[] encodedEvents = parser.parse(script).encode(swfVersion);
+...
+placeObject.add(encodedEvents);
+</pre> 
+
+<p>NOTE: As with button events a script can contain more than one onClipEvent() 
+block, other statements cannot be mixed with onClipEvent() statements. The 
+parser will generate an error.</p>
+
+<p><b>Using ASNodes</b<br/>\n
+Generating ASNodes as an intermediate step has two advantages: sections of 
+frequently used code can be parsed once and then encoded in the different 
+objects added to a movie greatly improving performance. For simple scripts 
+trees of ASNodes can be constructed 'manually' - again eliminating the overhead
+of the parser.</p>
+
+<pre>
+ASNode a = new ASNode(ASNode.Identifier, "a");
+ASNode b = new ASNode(ASNode.Identifier, "b");
+ASNode c = new ASNode(ASNode.Identifier, "c");
+
+ASNode add = new ASNode(ASNode.Add, a, b);
+ASNode assign = new ASNode(a, add);
+</pre>
+
+<p>The ASNode class defines a full range of node types ranging from specifying 
+literals through to complex structures such as iterative and conditional 
+constructs such as for loops and if/else blocks.</p>
+
+<p>The framework contains an example Interpreter class which can be used to 
+parse scripts and display a list of ASNode objects that a script is translated
+into.</p>
+
+<p><b>Search Paths</b>\n
+ActionScript supports #include directives which allow scripts to be nested.
+When the script is preprocessed the current working directory is checked for 
+for the file specified. The parser also supports search paths which is a list
+of directories which should also be checked for the file.</p>
+
+<p>Paths may be specified as an array of path names or as a single string with 
+paths separated by the system-dependent path separator character - ';' on Windows
+platforms and ':' for Unix compatible platforms.</p>
+
+<p><b>Error Handling</b><br/>
+The parser will throw a ParseException if it detects an error in the syntax of
+the script it is parsing. The ParseException contains information on the token
+that triggered the error however this can be cryptic. More useful information
+is maintained by the parser which has four methods for identifying the line 
+in the script that triggered the error:</p>
+
+<p>getFilename() returns the name of the file that contained the script that 
+caused the error. Scripts are passed as strings to the parser however #include
+directives can be used to load files containing ActionScript and can be nested
+to any depth. If an error occurs in the script passed directly to the parser 
+then this method will return an empty string "", otherwise the name of the 
+file that contains the line that caused the error is returned.</p>
+
+<p>getError() returns a string error code that identifies the type of error
+that occured, e.g. "FileNotFound". The string can be used as a key to generate 
+localized error message. The ASParser class contains a list of error keys.</p>
+
+<p>getLineNumber() returns the line number (starting at 1) in the script where 
+the error was found.</p>
+
+<p>getLine() returns the line of code that caused the error.</p>
+
+<pre>
+try 
+{
+    ...
+    ASNode root = parser.parse(script);
+    ...
+}
+catch (ParseException e)
+{
+    String filename = parser.getFilename();
+    String line = parser.getLine();
+    String message = parser.getError();
+    int lineNumber = parser.getLineNumber();
+    ...
+}
+</pre> 
+</body>
