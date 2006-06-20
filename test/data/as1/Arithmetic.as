@@ -21,6 +21,9 @@ d = (a + b) * c;
 d = a + (b / c);
 d = ((a + b) * c) / ((b * c) + 1);
 
+d = 1 - 2;
+d = 1 + 2;
+
 /*
  * Test operators where value should be discarded.
  */
