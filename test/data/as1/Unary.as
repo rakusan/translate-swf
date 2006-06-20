@@ -10,6 +10,12 @@
 a = 1;
 b = 2;
 
+a = -1;
+b = -2;
+
+a = +1;
+b = +2;
+
 x = ++a;
 x = a + b++;
 x = --b;
@@ -29,3 +35,17 @@ a--;
 -a;
 ~a;
 !a;
+
+/* 
+ * Test operators on object attributes.
+ */
+
+a.b++;
+++a.b;
+
+a.b--;
+--a.b;
+
+-a.b;
+~a.b;
+!a.b;
