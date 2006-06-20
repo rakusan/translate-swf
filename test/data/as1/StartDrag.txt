@@ -1,9 +1,9 @@
-Movie = Movie: {
+Movie = Movie {
 	signature = "FWS";
 	version = 5;
 	length = 195;
-	frameSize = Bounds: {
-		fieldSize = 13;
+	frameSize = Bounds {
+		size = 13;
 		minX = 0;
 		maxX = 4000;
 		minY = 0;
@@ -11,184 +11,184 @@ Movie = Movie: {
 	};
 	frameRate = 12.0;
 	frameCount = 1;
-	objects = Array: {
-		[0] = SetBackgroundColor: {
+	objects = Array {
+		[0] = SetBackgroundColor {
 			type = 9;
 			length = 3;
-			color = Color: {
+			color = Color {
 				red = 255;
 				green = 255;
 				blue = 255;
 			};
 		};
-		[1] = DoAction: {
+		[1] = DoAction {
 			type = 12;
 			length = 63;
 			lengthExtended = 160;
-			actions = Array: {
-				[0] = Table: {
+			actions = Array {
+				[0] = Table {
 					type = 136;
 					length = 7;
 					variableCount = 1;
-					strings = Array: {
+					strings = Array {
 						[0] = "Clip";
 					};
 				};
-				[1] = Push: {
+				[1] = Push {
 					type = 150;
 					length = 20;
-					values = Array: {
-						[0] = Double: {
+					values = Array {
+						[0] = Double {
 							type = 6;
 							value = 0.0;
 						};
-						[1] = Double: {
+						[1] = Double {
 							type = 6;
 							value = 0.0;
 						};
-						[2] = TableIndex: {
+						[2] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[2] = GetVariable: {
+				[2] = GetVariable {
 					type = 28;
 				};
-				[3] = StartDrag: {
+				[3] = StartDrag {
 					type = 39;
 				};
-				[4] = Push: {
+				[4] = Push {
 					type = 150;
 					length = 16;
-					values = Array: {
-						[0] = Double: {
+					values = Array {
+						[0] = Double {
 							type = 6;
 							value = 0.0;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 1;
 						};
-						[2] = TableIndex: {
+						[2] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[5] = GetVariable: {
+				[5] = GetVariable {
 					type = 28;
 				};
-				[6] = StartDrag: {
+				[6] = StartDrag {
 					type = 39;
 				};
-				[7] = Push: {
+				[7] = Push {
 					type = 150;
 					length = 20;
-					values = Array: {
-						[0] = Double: {
+					values = Array {
+						[0] = Double {
 							type = 6;
 							value = 0.0;
 						};
-						[1] = Double: {
+						[1] = Double {
 							type = 6;
 							value = 0.0;
 						};
-						[2] = TableIndex: {
+						[2] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[8] = GetVariable: {
+				[8] = GetVariable {
 					type = 28;
 				};
-				[9] = StartDrag: {
+				[9] = StartDrag {
 					type = 39;
 				};
-				[10] = Push: {
+				[10] = Push {
 					type = 150;
 					length = 32;
-					values = Array: {
-						[0] = Integer: {
+					values = Array {
+						[0] = Integer {
 							type = 7;
 							value = 200;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 400;
 						};
-						[2] = Integer: {
+						[2] = Integer {
 							type = 7;
 							value = 400;
 						};
-						[3] = Integer: {
+						[3] = Integer {
 							type = 7;
 							value = 200;
 						};
-						[4] = Integer: {
+						[4] = Integer {
 							type = 7;
 							value = 1;
 						};
-						[5] = Integer: {
+						[5] = Integer {
 							type = 7;
 							value = 1;
 						};
-						[6] = TableIndex: {
+						[6] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[11] = GetVariable: {
+				[11] = GetVariable {
 					type = 28;
 				};
-				[12] = StartDrag: {
+				[12] = StartDrag {
 					type = 39;
 				};
-				[13] = Push: {
+				[13] = Push {
 					type = 150;
 					length = 36;
-					values = Array: {
-						[0] = Integer: {
+					values = Array {
+						[0] = Integer {
 							type = 7;
 							value = 200;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 400;
 						};
-						[2] = Integer: {
+						[2] = Integer {
 							type = 7;
 							value = 400;
 						};
-						[3] = Integer: {
+						[3] = Integer {
 							type = 7;
 							value = 200;
 						};
-						[4] = Integer: {
+						[4] = Integer {
 							type = 7;
 							value = 1;
 						};
-						[5] = Double: {
+						[5] = Double {
 							type = 6;
 							value = 0.0;
 						};
-						[6] = TableIndex: {
+						[6] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[14] = GetVariable: {
+				[14] = GetVariable {
 					type = 28;
 				};
-				[15] = StartDrag: {
+				[15] = StartDrag {
 					type = 39;
 				};
 			};
 		};
-		[2] = ShowFrame: {
+		[2] = ShowFrame {
 			type = 1;
 			length = 0;
 		};

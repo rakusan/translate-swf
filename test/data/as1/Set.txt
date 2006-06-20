@@ -1,9 +1,9 @@
-Movie = Movie: {
+Movie = Movie {
 	signature = "FWS";
 	version = 5;
 	length = 80;
-	frameSize = Bounds: {
-		fieldSize = 13;
+	frameSize = Bounds {
+		size = 13;
 		minX = 0;
 		maxX = 4000;
 		minY = 0;
@@ -11,108 +11,108 @@ Movie = Movie: {
 	};
 	frameRate = 12.0;
 	frameCount = 1;
-	objects = Array: {
-		[0] = SetBackgroundColor: {
+	objects = Array {
+		[0] = SetBackgroundColor {
 			type = 9;
 			length = 3;
-			color = Color: {
+			color = Color {
 				red = 255;
 				green = 255;
 				blue = 255;
 			};
 		};
-		[1] = DoAction: {
+		[1] = DoAction {
 			type = 12;
 			length = 63;
 			lengthExtended = 45;
-			actions = Array: {
-				[0] = Table: {
+			actions = Array {
+				[0] = Table {
 					type = 136;
 					length = 8;
 					variableCount = 3;
-					strings = Array: {
+					strings = Array {
 						[0] = "a";
 						[1] = "b";
 						[2] = "i";
 					};
 				};
-				[1] = Push: {
+				[1] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[2] = GetVariable: {
+				[2] = GetVariable {
 					type = 28;
 				};
-				[3] = Push: {
+				[3] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[4] = GetVariable: {
+				[4] = GetVariable {
 					type = 28;
 				};
-				[5] = SetVariable: {
+				[5] = SetVariable {
 					type = 29;
 				};
-				[6] = Push: {
+				[6] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[7] = GetVariable: {
+				[7] = GetVariable {
 					type = 28;
 				};
-				[8] = Push: {
+				[8] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 2;
 						};
 					};
 				};
-				[9] = GetVariable: {
+				[9] = GetVariable {
 					type = 28;
 				};
-				[10] = Add: {
+				[10] = Add {
 					type = 71;
 				};
-				[11] = Push: {
+				[11] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[12] = GetVariable: {
+				[12] = GetVariable {
 					type = 28;
 				};
-				[13] = SetVariable: {
+				[13] = SetVariable {
 					type = 29;
 				};
 			};
 		};
-		[2] = ShowFrame: {
+		[2] = ShowFrame {
 			type = 1;
 			length = 0;
 		};

@@ -1,9 +1,9 @@
-Movie = Movie: {
+Movie = Movie {
 	signature = "FWS";
 	version = 5;
 	length = 115;
-	frameSize = Bounds: {
-		fieldSize = 13;
+	frameSize = Bounds {
+		size = 13;
 		minX = 0;
 		maxX = 4000;
 		minY = 0;
@@ -11,101 +11,101 @@ Movie = Movie: {
 	};
 	frameRate = 12.0;
 	frameCount = 1;
-	objects = Array: {
-		[0] = SetBackgroundColor: {
+	objects = Array {
+		[0] = SetBackgroundColor {
 			type = 9;
 			length = 3;
-			color = Color: {
+			color = Color {
 				red = 255;
 				green = 255;
 				blue = 255;
 			};
 		};
-		[1] = DoAction: {
+		[1] = DoAction {
 			type = 12;
 			length = 63;
 			lengthExtended = 80;
-			actions = Array: {
-				[0] = Table: {
+			actions = Array {
+				[0] = Table {
 					type = 136;
 					length = 40;
 					variableCount = 4;
-					strings = Array: {
+					strings = Array {
 						[0] = "print:";
 						[1] = "Clip";
 						[2] = "print:#bmax";
 						[3] = "print:#bframe";
 					};
 				};
-				[1] = Push: {
+				[1] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 0;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[2] = GetVariable: {
+				[2] = GetVariable {
 					type = 28;
 				};
-				[3] = GetUrl2: {
+				[3] = GetUrl2 {
 					type = 154;
 					length = 1;
 					requestType = 0;
 				};
-				[4] = Push: {
+				[4] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 2;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[5] = GetVariable: {
+				[5] = GetVariable {
 					type = 28;
 				};
-				[6] = GetUrl2: {
+				[6] = GetUrl2 {
 					type = 154;
 					length = 1;
 					requestType = 0;
 				};
-				[7] = Push: {
+				[7] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 3;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[8] = GetVariable: {
+				[8] = GetVariable {
 					type = 28;
 				};
-				[9] = GetUrl2: {
+				[9] = GetUrl2 {
 					type = 154;
 					length = 1;
 					requestType = 0;
 				};
 			};
 		};
-		[2] = ShowFrame: {
+		[2] = ShowFrame {
 			type = 1;
 			length = 0;
 		};

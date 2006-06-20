@@ -1,9 +1,9 @@
-Movie = Movie: {
+Movie = Movie {
 	signature = "FWS";
 	version = 5;
 	length = 96;
-	frameSize = Bounds: {
-		fieldSize = 13;
+	frameSize = Bounds {
+		size = 13;
 		minX = 0;
 		maxX = 4000;
 		minY = 0;
@@ -11,117 +11,117 @@ Movie = Movie: {
 	};
 	frameRate = 12.0;
 	frameCount = 1;
-	objects = Array: {
-		[0] = SetBackgroundColor: {
+	objects = Array {
+		[0] = SetBackgroundColor {
 			type = 9;
 			length = 3;
-			color = Color: {
+			color = Color {
 				red = 255;
 				green = 255;
 				blue = 255;
 			};
 		};
-		[1] = DoAction: {
+		[1] = DoAction {
 			type = 12;
 			length = 63;
 			lengthExtended = 61;
-			actions = Array: {
-				[0] = Table: {
+			actions = Array {
+				[0] = Table {
 					type = 136;
 					length = 6;
 					variableCount = 2;
-					strings = Array: {
+					strings = Array {
 						[0] = "a";
 						[1] = "b";
 					};
 				};
-				[1] = Push: {
+				[1] = Push {
 					type = 150;
 					length = 7;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 0;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 3;
 						};
 					};
 				};
-				[2] = InitVariable: {
+				[2] = InitVariable {
 					type = 60;
 				};
-				[3] = Push: {
+				[3] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[4] = GetVariable: {
+				[4] = GetVariable {
 					type = 28;
 				};
-				[5] = Push: {
+				[5] = Push {
 					type = 150;
 					length = 5;
-					values = Array: {
-						[0] = Integer: {
+					values = Array {
+						[0] = Integer {
 							type = 7;
 							value = 1;
 						};
 					};
 				};
-				[6] = Add: {
+				[6] = Add {
 					type = 71;
 				};
-				[7] = InitVariable: {
+				[7] = InitVariable {
 					type = 60;
 				};
-				[8] = Push: {
+				[8] = Push {
 					type = 150;
 					length = 7;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 0;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 1;
 						};
 					};
 				};
-				[9] = InitVariable: {
+				[9] = InitVariable {
 					type = 60;
 				};
-				[10] = Push: {
+				[10] = Push {
 					type = 150;
 					length = 7;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 1;
 						};
 					};
 				};
-				[11] = InitVariable: {
+				[11] = InitVariable {
 					type = 60;
 				};
 			};
 		};
-		[2] = ShowFrame: {
+		[2] = ShowFrame {
 			type = 1;
 			length = 0;
 		};

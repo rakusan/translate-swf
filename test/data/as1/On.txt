@@ -1,9 +1,9 @@
-Movie = Movie: {
+Movie = Movie {
 	signature = "FWS";
 	version = 5;
 	length = 384;
-	frameSize = Bounds: {
-		fieldSize = 15;
+	frameSize = Bounds {
+		size = 15;
 		minX = 0;
 		maxX = 11000;
 		minY = 0;
@@ -11,33 +11,33 @@ Movie = Movie: {
 	};
 	frameRate = 12.0;
 	frameCount = 1;
-	objects = Array: {
-		[0] = SetBackgroundColor: {
+	objects = Array {
+		[0] = SetBackgroundColor {
 			type = 9;
 			length = 3;
-			color = Color: {
+			color = Color {
 				red = 255;
 				green = 255;
 				blue = 255;
 			};
 		};
-		[1] = DefineShape: {
+		[1] = DefineShape {
 			type = 2;
 			length = 63;
 			lengthExtended = 77;
 			identifier = 1;
-			bounds = Bounds: {
-				fieldSize = 12;
+			bounds = Bounds {
+				size = 12;
 				minX = -1849;
 				maxX = 1689;
 				minY = -1470;
 				maxY = 1490;
 			};
 			fillStyleCount = 1;
-			fillStyles = Array: {
-				[0] = SolidFill: {
+			fillStyles = Array {
+				[0] = SolidFill {
 					type = 0;
-					color = Color: {
+					color = Color {
 						red = 0;
 						green = 204;
 						blue = 102;
@@ -45,118 +45,110 @@ Movie = Movie: {
 				};
 			};
 			lineStyleCount = 1;
-			lineStyles = Array: {
-				[0] = SolidLine: {
+			lineStyles = Array {
+				[0] = SolidLine {
 					width = 20;
-					color = Color: {
+					color = Color {
 						red = 0;
 						green = 51;
 						blue = 102;
 					};
 				};
 			};
-			shape = Shape: {
+			shape = Shape {
 				numberOfFillBits = 1;
 				numberOfLineBits = 1;
-				path = Array: {
-					[0] = ShapeStyle: {
-						shapeType = 0;
-						containsStyles = 0;
-						containsLineStyle = 1;
-						containsAltFillStyle = 1;
-						containsFillStyle = 0;
-						containsMove = 1;
-						fieldSize = 12;
+				path = Array {
+					[0] = ShapeStyle {
+						type = 0;
+						hasStyles = 0;
+						hasLineStyle = 1;
+						hasAltFillStyle = 1;
+						hasFillStyle = 0;
+						hasMove = 1;
+						size = 12;
 						x = 1164;
 						y = 1049;
 						altFillStyle = 1;
 						lineStyle = 1;
 					};
-					[1] = Curve: {
-						shapeType = 1;
-						edgeType = 0;
-						fieldSize = 9;
-						controlX = -515;
-						controlY = 431;
-						anchorX = -729;
-						anchorY = 0;
+					[1] = Curve {
+						type = 2;
+						size = 9;
+						cx = -515;
+						cy = 431;
+						ax = -729;
+						ay = 0;
 					};
-					[2] = Curve: {
-						shapeType = 1;
-						edgeType = 0;
-						fieldSize = 9;
-						controlX = -729;
-						controlY = 0;
-						anchorX = -515;
-						anchorY = -431;
+					[2] = Curve {
+						type = 2;
+						size = 9;
+						cx = -729;
+						cy = 0;
+						ax = -515;
+						ay = -431;
 					};
-					[3] = Curve: {
-						shapeType = 1;
-						edgeType = 0;
-						fieldSize = 9;
-						controlX = -515;
-						controlY = -430;
-						anchorX = 0;
-						anchorY = -609;
+					[3] = Curve {
+						type = 2;
+						size = 9;
+						cx = -515;
+						cy = -430;
+						ax = 0;
+						ay = -609;
 					};
-					[4] = Curve: {
-						shapeType = 1;
-						edgeType = 0;
-						fieldSize = 9;
-						controlX = 0;
-						controlY = -609;
-						anchorX = 515;
-						anchorY = -431;
+					[4] = Curve {
+						type = 2;
+						size = 9;
+						cx = 0;
+						cy = -609;
+						ax = 515;
+						ay = -431;
 					};
-					[5] = Curve: {
-						shapeType = 1;
-						edgeType = 0;
-						fieldSize = 9;
-						controlX = 515;
-						controlY = -430;
-						anchorX = 729;
-						anchorY = 0;
+					[5] = Curve {
+						type = 2;
+						size = 9;
+						cx = 515;
+						cy = -430;
+						ax = 729;
+						ay = 0;
 					};
-					[6] = Curve: {
-						shapeType = 1;
-						edgeType = 0;
-						fieldSize = 9;
-						controlX = 729;
-						controlY = 0;
-						anchorX = 515;
-						anchorY = 430;
+					[6] = Curve {
+						type = 2;
+						size = 9;
+						cx = 729;
+						cy = 0;
+						ax = 515;
+						ay = 430;
 					};
-					[7] = Curve: {
-						shapeType = 1;
-						edgeType = 0;
-						fieldSize = 9;
-						controlX = 515;
-						controlY = 431;
-						anchorX = 0;
-						anchorY = 609;
+					[7] = Curve {
+						type = 2;
+						size = 9;
+						cx = 515;
+						cy = 431;
+						ax = 0;
+						ay = 609;
 					};
-					[8] = Curve: {
-						shapeType = 1;
-						edgeType = 0;
-						fieldSize = 9;
-						controlX = 0;
-						controlY = 609;
-						anchorX = -515;
-						anchorY = 430;
+					[8] = Curve {
+						type = 2;
+						size = 9;
+						cx = 0;
+						cy = 609;
+						ax = -515;
+						ay = 430;
 					};
 					[9] = 0;
 				};
 			};
 		};
-		[2] = DefineButton2: {
+		[2] = DefineButton2 {
 			type = 34;
 			length = 63;
 			lengthExtended = 253;
 			identifier = 2;
 			buttonType = 0;
 			actionsOffset = 10;
-			buttonRecords = Array: {
-				[0] = Button: {
+			buttonRecords = Array {
+				[0] = Button {
 					reserved = 0;
 					isActive = 1;
 					isDown = 1;
@@ -164,23 +156,23 @@ Movie = Movie: {
 					isUp = 1;
 					identifier = 1;
 					layer = 1;
-					coordTransform = CoordTransform: {
-						containsScaling = 0;
-						containsRotation = 0;
+					coordTransform = CoordTransform {
+						hasScaling = 0;
+						hasRotation = 0;
 						translationFieldSize = 0;
 						translateX = 0;
 						translateY = 0;
 					};
-					colorTransform = ColorTransform: {
-						containsAddTerms = 0;
-						containsMultiplyTerms = 0;
-						fieldSize = 1;
+					colorTransform = ColorTransform {
+						hasAddTerms = 0;
+						hasMultiplyTerms = 0;
+						size = 1;
 					};
 				};
 				[1] = 0;
 			};
-			buttonEvents = Array: {
-				[0] = ButtonEvent: {
+			buttonEvents = Array {
+				[0] = ButtonEvent {
 					offsetToEnd = 30;
 					menuDragOver = 0;
 					releaseOut = 0;
@@ -192,51 +184,51 @@ Movie = Movie: {
 					rollOver = 0;
 					keyCode = 0;
 					menuDragOut = 0;
-					actions = Array: {
-						[0] = Table: {
+					actions = Array {
+						[0] = Table {
 							type = 136;
 							length = 4;
 							variableCount = 1;
-							strings = Array: {
+							strings = Array {
 								[0] = "a";
 							};
 						};
-						[1] = Push: {
+						[1] = Push {
 							type = 150;
 							length = 4;
-							values = Array: {
-								[0] = TableIndex: {
+							values = Array {
+								[0] = TableIndex {
 									type = 8;
 									value = 0;
 								};
-								[1] = TableIndex: {
+								[1] = TableIndex {
 									type = 8;
 									value = 0;
 								};
 							};
 						};
-						[2] = GetVariable: {
+						[2] = GetVariable {
 							type = 28;
 						};
-						[3] = Push: {
+						[3] = Push {
 							type = 150;
 							length = 5;
-							values = Array: {
-								[0] = Integer: {
+							values = Array {
+								[0] = Integer {
 									type = 7;
 									value = 1;
 								};
 							};
 						};
-						[4] = Add: {
+						[4] = Add {
 							type = 71;
 						};
-						[5] = SetVariable: {
+						[5] = SetVariable {
 							type = 29;
 						};
 					};
 				};
-				[1] = ButtonEvent: {
+				[1] = ButtonEvent {
 					offsetToEnd = 30;
 					menuDragOver = 0;
 					releaseOut = 0;
@@ -248,51 +240,51 @@ Movie = Movie: {
 					rollOver = 0;
 					keyCode = 0;
 					menuDragOut = 0;
-					actions = Array: {
-						[0] = Table: {
+					actions = Array {
+						[0] = Table {
 							type = 136;
 							length = 4;
 							variableCount = 1;
-							strings = Array: {
+							strings = Array {
 								[0] = "a";
 							};
 						};
-						[1] = Push: {
+						[1] = Push {
 							type = 150;
 							length = 4;
-							values = Array: {
-								[0] = TableIndex: {
+							values = Array {
+								[0] = TableIndex {
 									type = 8;
 									value = 0;
 								};
-								[1] = TableIndex: {
+								[1] = TableIndex {
 									type = 8;
 									value = 0;
 								};
 							};
 						};
-						[2] = GetVariable: {
+						[2] = GetVariable {
 							type = 28;
 						};
-						[3] = Push: {
+						[3] = Push {
 							type = 150;
 							length = 5;
-							values = Array: {
-								[0] = Integer: {
+							values = Array {
+								[0] = Integer {
 									type = 7;
 									value = 1;
 								};
 							};
 						};
-						[4] = Add: {
+						[4] = Add {
 							type = 71;
 						};
-						[5] = SetVariable: {
+						[5] = SetVariable {
 							type = 29;
 						};
 					};
 				};
-				[2] = ButtonEvent: {
+				[2] = ButtonEvent {
 					offsetToEnd = 30;
 					menuDragOver = 0;
 					releaseOut = 0;
@@ -304,51 +296,51 @@ Movie = Movie: {
 					rollOver = 0;
 					keyCode = 0;
 					menuDragOut = 0;
-					actions = Array: {
-						[0] = Table: {
+					actions = Array {
+						[0] = Table {
 							type = 136;
 							length = 4;
 							variableCount = 1;
-							strings = Array: {
+							strings = Array {
 								[0] = "a";
 							};
 						};
-						[1] = Push: {
+						[1] = Push {
 							type = 150;
 							length = 4;
-							values = Array: {
-								[0] = TableIndex: {
+							values = Array {
+								[0] = TableIndex {
 									type = 8;
 									value = 0;
 								};
-								[1] = TableIndex: {
+								[1] = TableIndex {
 									type = 8;
 									value = 0;
 								};
 							};
 						};
-						[2] = GetVariable: {
+						[2] = GetVariable {
 							type = 28;
 						};
-						[3] = Push: {
+						[3] = Push {
 							type = 150;
 							length = 5;
-							values = Array: {
-								[0] = Integer: {
+							values = Array {
+								[0] = Integer {
 									type = 7;
 									value = 1;
 								};
 							};
 						};
-						[4] = Add: {
+						[4] = Add {
 							type = 71;
 						};
-						[5] = SetVariable: {
+						[5] = SetVariable {
 							type = 29;
 						};
 					};
 				};
-				[3] = ButtonEvent: {
+				[3] = ButtonEvent {
 					offsetToEnd = 30;
 					menuDragOver = 0;
 					releaseOut = 1;
@@ -360,51 +352,51 @@ Movie = Movie: {
 					rollOver = 0;
 					keyCode = 0;
 					menuDragOut = 0;
-					actions = Array: {
-						[0] = Table: {
+					actions = Array {
+						[0] = Table {
 							type = 136;
 							length = 4;
 							variableCount = 1;
-							strings = Array: {
+							strings = Array {
 								[0] = "a";
 							};
 						};
-						[1] = Push: {
+						[1] = Push {
 							type = 150;
 							length = 4;
-							values = Array: {
-								[0] = TableIndex: {
+							values = Array {
+								[0] = TableIndex {
 									type = 8;
 									value = 0;
 								};
-								[1] = TableIndex: {
+								[1] = TableIndex {
 									type = 8;
 									value = 0;
 								};
 							};
 						};
-						[2] = GetVariable: {
+						[2] = GetVariable {
 							type = 28;
 						};
-						[3] = Push: {
+						[3] = Push {
 							type = 150;
 							length = 5;
-							values = Array: {
-								[0] = Integer: {
+							values = Array {
+								[0] = Integer {
 									type = 7;
 									value = 1;
 								};
 							};
 						};
-						[4] = Add: {
+						[4] = Add {
 							type = 71;
 						};
-						[5] = SetVariable: {
+						[5] = SetVariable {
 							type = 29;
 						};
 					};
 				};
-				[4] = ButtonEvent: {
+				[4] = ButtonEvent {
 					offsetToEnd = 30;
 					menuDragOver = 0;
 					releaseOut = 0;
@@ -416,51 +408,51 @@ Movie = Movie: {
 					rollOver = 1;
 					keyCode = 0;
 					menuDragOut = 0;
-					actions = Array: {
-						[0] = Table: {
+					actions = Array {
+						[0] = Table {
 							type = 136;
 							length = 4;
 							variableCount = 1;
-							strings = Array: {
+							strings = Array {
 								[0] = "a";
 							};
 						};
-						[1] = Push: {
+						[1] = Push {
 							type = 150;
 							length = 4;
-							values = Array: {
-								[0] = TableIndex: {
+							values = Array {
+								[0] = TableIndex {
 									type = 8;
 									value = 0;
 								};
-								[1] = TableIndex: {
+								[1] = TableIndex {
 									type = 8;
 									value = 0;
 								};
 							};
 						};
-						[2] = GetVariable: {
+						[2] = GetVariable {
 							type = 28;
 						};
-						[3] = Push: {
+						[3] = Push {
 							type = 150;
 							length = 5;
-							values = Array: {
-								[0] = Integer: {
+							values = Array {
+								[0] = Integer {
 									type = 7;
 									value = 1;
 								};
 							};
 						};
-						[4] = Add: {
+						[4] = Add {
 							type = 71;
 						};
-						[5] = SetVariable: {
+						[5] = SetVariable {
 							type = 29;
 						};
 					};
 				};
-				[5] = ButtonEvent: {
+				[5] = ButtonEvent {
 					offsetToEnd = 30;
 					menuDragOver = 0;
 					releaseOut = 0;
@@ -472,51 +464,51 @@ Movie = Movie: {
 					rollOver = 0;
 					keyCode = 0;
 					menuDragOut = 0;
-					actions = Array: {
-						[0] = Table: {
+					actions = Array {
+						[0] = Table {
 							type = 136;
 							length = 4;
 							variableCount = 1;
-							strings = Array: {
+							strings = Array {
 								[0] = "a";
 							};
 						};
-						[1] = Push: {
+						[1] = Push {
 							type = 150;
 							length = 4;
-							values = Array: {
-								[0] = TableIndex: {
+							values = Array {
+								[0] = TableIndex {
 									type = 8;
 									value = 0;
 								};
-								[1] = TableIndex: {
+								[1] = TableIndex {
 									type = 8;
 									value = 0;
 								};
 							};
 						};
-						[2] = GetVariable: {
+						[2] = GetVariable {
 							type = 28;
 						};
-						[3] = Push: {
+						[3] = Push {
 							type = 150;
 							length = 5;
-							values = Array: {
-								[0] = Integer: {
+							values = Array {
+								[0] = Integer {
 									type = 7;
 									value = 1;
 								};
 							};
 						};
-						[4] = Add: {
+						[4] = Add {
 							type = 71;
 						};
-						[5] = SetVariable: {
+						[5] = SetVariable {
 							type = 29;
 						};
 					};
 				};
-				[6] = ButtonEvent: {
+				[6] = ButtonEvent {
 					offsetToEnd = 30;
 					menuDragOver = 1;
 					releaseOut = 0;
@@ -528,51 +520,51 @@ Movie = Movie: {
 					rollOver = 0;
 					keyCode = 0;
 					menuDragOut = 0;
-					actions = Array: {
-						[0] = Table: {
+					actions = Array {
+						[0] = Table {
 							type = 136;
 							length = 4;
 							variableCount = 1;
-							strings = Array: {
+							strings = Array {
 								[0] = "a";
 							};
 						};
-						[1] = Push: {
+						[1] = Push {
 							type = 150;
 							length = 4;
-							values = Array: {
-								[0] = TableIndex: {
+							values = Array {
+								[0] = TableIndex {
 									type = 8;
 									value = 0;
 								};
-								[1] = TableIndex: {
+								[1] = TableIndex {
 									type = 8;
 									value = 0;
 								};
 							};
 						};
-						[2] = GetVariable: {
+						[2] = GetVariable {
 							type = 28;
 						};
-						[3] = Push: {
+						[3] = Push {
 							type = 150;
 							length = 5;
-							values = Array: {
-								[0] = Integer: {
+							values = Array {
+								[0] = Integer {
 									type = 7;
 									value = 1;
 								};
 							};
 						};
-						[4] = Add: {
+						[4] = Add {
 							type = 71;
 						};
-						[5] = SetVariable: {
+						[5] = SetVariable {
 							type = 29;
 						};
 					};
 				};
-				[7] = ButtonEvent: {
+				[7] = ButtonEvent {
 					offsetToEnd = 0;
 					menuDragOver = 0;
 					releaseOut = 0;
@@ -584,73 +576,73 @@ Movie = Movie: {
 					rollOver = 0;
 					keyCode = 97;
 					menuDragOut = 0;
-					actions = Array: {
-						[0] = Table: {
+					actions = Array {
+						[0] = Table {
 							type = 136;
 							length = 4;
 							variableCount = 1;
-							strings = Array: {
+							strings = Array {
 								[0] = "a";
 							};
 						};
-						[1] = Push: {
+						[1] = Push {
 							type = 150;
 							length = 4;
-							values = Array: {
-								[0] = TableIndex: {
+							values = Array {
+								[0] = TableIndex {
 									type = 8;
 									value = 0;
 								};
-								[1] = TableIndex: {
+								[1] = TableIndex {
 									type = 8;
 									value = 0;
 								};
 							};
 						};
-						[2] = GetVariable: {
+						[2] = GetVariable {
 							type = 28;
 						};
-						[3] = Push: {
+						[3] = Push {
 							type = 150;
 							length = 5;
-							values = Array: {
-								[0] = Integer: {
+							values = Array {
+								[0] = Integer {
 									type = 7;
 									value = 1;
 								};
 							};
 						};
-						[4] = Add: {
+						[4] = Add {
 							type = 71;
 						};
-						[5] = SetVariable: {
+						[5] = SetVariable {
 							type = 29;
 						};
 					};
 				};
 			};
 		};
-		[3] = PlaceObject2: {
+		[3] = PlaceObject2 {
 			type = 26;
 			length = 10;
-			containsClipEvents = 0;
-			containsClippingDepth = 0;
-			containsName = 0;
-			containsRatio = 0;
-			containsColorTransform = 0;
-			containsCoordTransform = 1;
+			hasClipEvents = 0;
+			hasClippingDepth = 0;
+			hasName = 0;
+			hasRatio = 0;
+			hasColorTransform = 0;
+			hasCoordTransform = 1;
 			placeType = 2;
 			layer = 1;
 			identifier = 2;
-			coordTransform = CoordTransform: {
-				containsScaling = 0;
-				containsRotation = 0;
+			coordTransform = CoordTransform {
+				hasScaling = 0;
+				hasRotation = 0;
 				translationFieldSize = 14;
 				translateX = 5542;
 				translateY = 3772;
 			};
 		};
-		[4] = ShowFrame: {
+		[4] = ShowFrame {
 			type = 1;
 			length = 0;
 		};

@@ -1,9 +1,9 @@
-Movie = Movie: {
+Movie = Movie {
 	signature = "FWS";
 	version = 5;
 	length = 383;
-	frameSize = Bounds: {
-		fieldSize = 13;
+	frameSize = Bounds {
+		size = 13;
 		minX = 0;
 		maxX = 4000;
 		minY = 0;
@@ -11,26 +11,26 @@ Movie = Movie: {
 	};
 	frameRate = 12.0;
 	frameCount = 1;
-	objects = Array: {
-		[0] = SetBackgroundColor: {
+	objects = Array {
+		[0] = SetBackgroundColor {
 			type = 9;
 			length = 3;
-			color = Color: {
+			color = Color {
 				red = 255;
 				green = 255;
 				blue = 255;
 			};
 		};
-		[1] = DoAction: {
+		[1] = DoAction {
 			type = 12;
 			length = 63;
 			lengthExtended = 348;
-			actions = Array: {
-				[0] = Table: {
+			actions = Array {
+				[0] = Table {
 					type = 136;
 					length = 14;
 					variableCount = 6;
-					strings = Array: {
+					strings = Array {
 						[0] = "a";
 						[1] = "b";
 						[2] = "c";
@@ -39,688 +39,688 @@ Movie = Movie: {
 						[5] = "x";
 					};
 				};
-				[1] = Push: {
+				[1] = Push {
 					type = 150;
 					length = 7;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 0;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 1;
 						};
 					};
 				};
-				[2] = SetVariable: {
+				[2] = SetVariable {
 					type = 29;
 				};
-				[3] = Push: {
+				[3] = Push {
 					type = 150;
 					length = 7;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 2;
 						};
 					};
 				};
-				[4] = SetVariable: {
+				[4] = SetVariable {
 					type = 29;
 				};
-				[5] = Push: {
+				[5] = Push {
 					type = 150;
 					length = 7;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 2;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 3;
 						};
 					};
 				};
-				[6] = SetVariable: {
+				[6] = SetVariable {
 					type = 29;
 				};
-				[7] = Push: {
+				[7] = Push {
 					type = 150;
 					length = 7;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 3;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 4;
 						};
 					};
 				};
-				[8] = SetVariable: {
+				[8] = SetVariable {
 					type = 29;
 				};
-				[9] = Push: {
+				[9] = Push {
 					type = 150;
 					length = 7;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 4;
 						};
-						[1] = Integer: {
+						[1] = Integer {
 							type = 7;
 							value = 5;
 						};
 					};
 				};
-				[10] = SetVariable: {
+				[10] = SetVariable {
 					type = 29;
 				};
-				[11] = Push: {
+				[11] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[12] = GetVariable: {
+				[12] = GetVariable {
 					type = 28;
 				};
-				[13] = SetVariable: {
+				[13] = SetVariable {
 					type = 29;
 				};
-				[14] = Push: {
+				[14] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[15] = GetVariable: {
+				[15] = GetVariable {
 					type = 28;
 				};
-				[16] = Push: {
+				[16] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[17] = GetVariable: {
+				[17] = GetVariable {
 					type = 28;
 				};
-				[18] = Add: {
+				[18] = Add {
 					type = 71;
 				};
-				[19] = SetVariable: {
+				[19] = SetVariable {
 					type = 29;
 				};
-				[20] = Push: {
+				[20] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[21] = GetVariable: {
+				[21] = GetVariable {
 					type = 28;
 				};
-				[22] = Push: {
+				[22] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[23] = GetVariable: {
+				[23] = GetVariable {
 					type = 28;
 				};
-				[24] = Subtract: {
+				[24] = Subtract {
 					type = 11;
 				};
-				[25] = SetVariable: {
+				[25] = SetVariable {
 					type = 29;
 				};
-				[26] = Push: {
+				[26] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[27] = GetVariable: {
+				[27] = GetVariable {
 					type = 28;
 				};
-				[28] = Push: {
+				[28] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 3;
 						};
 					};
 				};
-				[29] = GetVariable: {
+				[29] = GetVariable {
 					type = 28;
 				};
-				[30] = Multiply: {
+				[30] = Multiply {
 					type = 12;
 				};
-				[31] = SetVariable: {
+				[31] = SetVariable {
 					type = 29;
 				};
-				[32] = Push: {
+				[32] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[33] = GetVariable: {
+				[33] = GetVariable {
 					type = 28;
 				};
-				[34] = Push: {
+				[34] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[35] = GetVariable: {
+				[35] = GetVariable {
 					type = 28;
 				};
-				[36] = Divide: {
+				[36] = Divide {
 					type = 13;
 				};
-				[37] = SetVariable: {
+				[37] = SetVariable {
 					type = 29;
 				};
-				[38] = Push: {
+				[38] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[39] = GetVariable: {
+				[39] = GetVariable {
 					type = 28;
 				};
-				[40] = Push: {
+				[40] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 4;
 						};
 					};
 				};
-				[41] = GetVariable: {
+				[41] = GetVariable {
 					type = 28;
 				};
-				[42] = Modulo: {
+				[42] = Modulo {
 					type = 63;
 				};
-				[43] = SetVariable: {
+				[43] = SetVariable {
 					type = 29;
 				};
-				[44] = Push: {
+				[44] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[45] = GetVariable: {
+				[45] = GetVariable {
 					type = 28;
 				};
-				[46] = Push: {
+				[46] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 4;
 						};
 					};
 				};
-				[47] = GetVariable: {
+				[47] = GetVariable {
 					type = 28;
 				};
-				[48] = LogicalShiftLeft: {
+				[48] = LogicalShiftLeft {
 					type = 99;
 				};
-				[49] = SetVariable: {
+				[49] = SetVariable {
 					type = 29;
 				};
-				[50] = Push: {
+				[50] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[51] = GetVariable: {
+				[51] = GetVariable {
 					type = 28;
 				};
-				[52] = Push: {
+				[52] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[53] = GetVariable: {
+				[53] = GetVariable {
 					type = 28;
 				};
-				[54] = ArithmeticShiftRight: {
+				[54] = ArithmeticShiftRight {
 					type = 100;
 				};
-				[55] = SetVariable: {
+				[55] = SetVariable {
 					type = 29;
 				};
-				[56] = Push: {
+				[56] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[57] = GetVariable: {
+				[57] = GetVariable {
 					type = 28;
 				};
-				[58] = Push: {
+				[58] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[59] = GetVariable: {
+				[59] = GetVariable {
 					type = 28;
 				};
-				[60] = LogicalShiftRight: {
+				[60] = LogicalShiftRight {
 					type = 101;
 				};
-				[61] = SetVariable: {
+				[61] = SetVariable {
 					type = 29;
 				};
-				[62] = Push: {
+				[62] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[63] = GetVariable: {
+				[63] = GetVariable {
 					type = 28;
 				};
-				[64] = Push: {
+				[64] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 2;
 						};
 					};
 				};
-				[65] = GetVariable: {
+				[65] = GetVariable {
 					type = 28;
 				};
-				[66] = BitwiseAnd: {
+				[66] = BitwiseAnd {
 					type = 96;
 				};
-				[67] = SetVariable: {
+				[67] = SetVariable {
 					type = 29;
 				};
-				[68] = Push: {
+				[68] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[69] = GetVariable: {
+				[69] = GetVariable {
 					type = 28;
 				};
-				[70] = Push: {
+				[70] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 3;
 						};
 					};
 				};
-				[71] = GetVariable: {
+				[71] = GetVariable {
 					type = 28;
 				};
-				[72] = BitwiseOr: {
+				[72] = BitwiseOr {
 					type = 97;
 				};
-				[73] = SetVariable: {
+				[73] = SetVariable {
 					type = 29;
 				};
-				[74] = Push: {
+				[74] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 5;
 						};
 					};
 				};
-				[75] = GetVariable: {
+				[75] = GetVariable {
 					type = 28;
 				};
-				[76] = Push: {
+				[76] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 4;
 						};
 					};
 				};
-				[77] = GetVariable: {
+				[77] = GetVariable {
 					type = 28;
 				};
-				[78] = BitwiseXOr: {
+				[78] = BitwiseXOr {
 					type = 98;
 				};
-				[79] = SetVariable: {
+				[79] = SetVariable {
 					type = 29;
 				};
-				[80] = Push: {
+				[80] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 0;
 						};
 					};
 				};
-				[81] = GetVariable: {
+				[81] = GetVariable {
 					type = 28;
 				};
-				[82] = RegisterCopy: {
+				[82] = RegisterCopy {
 					type = 135;
 					length = 1;
 					register = 0;
 				};
-				[83] = SetVariable: {
+				[83] = SetVariable {
 					type = 29;
 				};
-				[84] = Push: {
+				[84] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = RegisterIndex: {
+					values = Array {
+						[0] = RegisterIndex {
 							type = 4;
 							value = 0;
 						};
 					};
 				};
-				[85] = Pop: {
+				[85] = Pop {
 					type = 23;
 				};
-				[86] = Push: {
+				[86] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 1;
 						};
 					};
 				};
-				[87] = GetVariable: {
+				[87] = GetVariable {
 					type = 28;
 				};
-				[88] = RegisterCopy: {
+				[88] = RegisterCopy {
 					type = 135;
 					length = 1;
 					register = 0;
 				};
-				[89] = SetVariable: {
+				[89] = SetVariable {
 					type = 29;
 				};
-				[90] = Push: {
+				[90] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = RegisterIndex: {
+					values = Array {
+						[0] = RegisterIndex {
 							type = 4;
 							value = 0;
 						};
 					};
 				};
-				[91] = Pop: {
+				[91] = Pop {
 					type = 23;
 				};
-				[92] = Push: {
+				[92] = Push {
 					type = 150;
 					length = 4;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 2;
 						};
 					};
 				};
-				[93] = GetVariable: {
+				[93] = GetVariable {
 					type = 28;
 				};
-				[94] = RegisterCopy: {
+				[94] = RegisterCopy {
 					type = 135;
 					length = 1;
 					register = 0;
 				};
-				[95] = SetVariable: {
+				[95] = SetVariable {
 					type = 29;
 				};
-				[96] = Push: {
+				[96] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = RegisterIndex: {
+					values = Array {
+						[0] = RegisterIndex {
 							type = 4;
 							value = 0;
 						};
 					};
 				};
-				[97] = Pop: {
+				[97] = Pop {
 					type = 23;
 				};
-				[98] = Push: {
+				[98] = Push {
 					type = 150;
 					length = 8;
-					values = Array: {
-						[0] = TableIndex: {
+					values = Array {
+						[0] = TableIndex {
 							type = 8;
 							value = 5;
 						};
-						[1] = TableIndex: {
+						[1] = TableIndex {
 							type = 8;
 							value = 0;
 						};
-						[2] = TableIndex: {
+						[2] = TableIndex {
 							type = 8;
 							value = 1;
 						};
-						[3] = TableIndex: {
+						[3] = TableIndex {
 							type = 8;
 							value = 2;
 						};
 					};
 				};
-				[99] = GetVariable: {
+				[99] = GetVariable {
 					type = 28;
 				};
-				[100] = RegisterCopy: {
+				[100] = RegisterCopy {
 					type = 135;
 					length = 1;
 					register = 0;
 				};
-				[101] = SetVariable: {
+				[101] = SetVariable {
 					type = 29;
 				};
-				[102] = Push: {
+				[102] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = RegisterIndex: {
+					values = Array {
+						[0] = RegisterIndex {
 							type = 4;
 							value = 0;
 						};
 					};
 				};
-				[103] = RegisterCopy: {
+				[103] = RegisterCopy {
 					type = 135;
 					length = 1;
 					register = 0;
 				};
-				[104] = SetVariable: {
+				[104] = SetVariable {
 					type = 29;
 				};
-				[105] = Push: {
+				[105] = Push {
 					type = 150;
 					length = 2;
-					values = Array: {
-						[0] = RegisterIndex: {
+					values = Array {
+						[0] = RegisterIndex {
 							type = 4;
 							value = 0;
 						};
 					};
 				};
-				[106] = SetVariable: {
+				[106] = SetVariable {
 					type = 29;
 				};
 			};
 		};
-		[2] = ShowFrame: {
+		[2] = ShowFrame {
 			type = 1;
 			length = 0;
 		};
