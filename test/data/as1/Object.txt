@@ -1,6 +1,6 @@
 Movie = Movie {
 	signature = "FWS";
-	version = 6;
+	version = 5;
 	length = 740;
 	frameSize = Bounds {
 		size = 13;

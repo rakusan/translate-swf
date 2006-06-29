@@ -20,6 +20,13 @@ x = c << b;
 x = d >> b;
 x = d >>> b;
 
+x = 1 & 2;
+x = 1 | 2;
+x = 1 ^ 2;
+x = 1 << 2;
+x = 1 >> 2;
+x = 1 >>> 2;
+
 /*
  * Test operators where value should be discarded.
  */

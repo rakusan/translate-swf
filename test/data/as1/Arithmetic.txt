@@ -1,7 +1,7 @@
 Movie = Movie {
 	signature = "FWS";
 	version = 5;
-	length = 432;
+	length = 562;
 	frameSize = Bounds {
 		size = 13;
 		minX = 0;
@@ -24,7 +24,7 @@ Movie = Movie {
 		[1] = DoAction {
 			type = 12;
 			length = 63;
-			lengthExtended = 397;
+			lengthExtended = 527;
 			actions = Array {
 				[0] = Table {
 					type = 136;
@@ -471,15 +471,15 @@ Movie = Movie {
 				};
 				[72] = Push {
 					type = 150;
-					length = 7;
+					length = 11;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
 							value = 3;
 						};
-						[1] = Integer {
-							type = 7;
-							value = -1;
+						[1] = Double {
+							type = 6;
+							value = 0.0;
 						};
 					};
 				};
@@ -496,7 +496,7 @@ Movie = Movie {
 						};
 						[1] = Integer {
 							type = 7;
-							value = 3;
+							value = 4;
 						};
 					};
 				};
@@ -505,112 +505,173 @@ Movie = Movie {
 				};
 				[76] = Push {
 					type = 150;
-					length = 2;
+					length = 7;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 0;
+							value = 3;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 4;
 						};
 					};
 				};
-				[77] = GetVariable {
-					type = 28;
+				[77] = SetVariable {
+					type = 29;
 				};
 				[78] = Push {
 					type = 150;
-					length = 2;
+					length = 7;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
+							value = 3;
+						};
+						[1] = Integer {
+							type = 7;
 							value = 1;
 						};
 					};
 				};
-				[79] = GetVariable {
-					type = 28;
+				[79] = SetVariable {
+					type = 29;
 				};
-				[80] = Add {
-					type = 71;
+				[80] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+					};
 				};
-				[81] = Pop {
-					type = 23;
+				[81] = SetVariable {
+					type = 29;
 				};
 				[82] = Push {
 					type = 150;
-					length = 2;
+					length = 7;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 0;
+							value = 3;
+						};
+						[1] = Integer {
+							type = 7;
+							value = -1;
 						};
 					};
 				};
-				[83] = GetVariable {
-					type = 28;
+				[83] = SetVariable {
+					type = 29;
 				};
 				[84] = Push {
 					type = 150;
-					length = 2;
+					length = 7;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 1;
+							value = 3;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 3;
 						};
 					};
 				};
-				[85] = GetVariable {
-					type = 28;
+				[85] = SetVariable {
+					type = 29;
 				};
-				[86] = Subtract {
-					type = 11;
+				[86] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+					};
 				};
-				[87] = Pop {
-					type = 23;
+				[87] = SetVariable {
+					type = 29;
 				};
 				[88] = Push {
 					type = 150;
-					length = 2;
+					length = 11;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
+							value = 3;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.5;
+						};
+					};
+				};
+				[89] = SetVariable {
+					type = 29;
+				};
+				[90] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+						[1] = Integer {
+							type = 7;
 							value = 1;
 						};
 					};
 				};
-				[89] = GetVariable {
-					type = 28;
+				[91] = SetVariable {
+					type = 29;
 				};
-				[90] = Push {
+				[92] = Push {
 					type = 150;
-					length = 2;
+					length = 11;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 2;
+							value = 3;
+						};
+						[1] = Double {
+							type = 6;
+							value = 1.5;
 						};
 					};
 				};
-				[91] = GetVariable {
-					type = 28;
-				};
-				[92] = Multiply {
-					type = 12;
-				};
-				[93] = Pop {
-					type = 23;
+				[93] = SetVariable {
+					type = 29;
 				};
 				[94] = Push {
 					type = 150;
-					length = 2;
+					length = 11;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 2;
+							value = 3;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.5;
 						};
 					};
 				};
-				[95] = GetVariable {
-					type = 28;
+				[95] = SetVariable {
+					type = 29;
 				};
 				[96] = Push {
 					type = 150;
@@ -618,33 +679,14 @@ Movie = Movie {
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 1;
+							value = 0;
 						};
 					};
 				};
 				[97] = GetVariable {
 					type = 28;
 				};
-				[98] = Divide {
-					type = 13;
-				};
-				[99] = Pop {
-					type = 23;
-				};
-				[100] = Push {
-					type = 150;
-					length = 2;
-					values = Array {
-						[0] = TableIndex {
-							type = 8;
-							value = 2;
-						};
-					};
-				};
-				[101] = GetVariable {
-					type = 28;
-				};
-				[102] = Push {
+				[98] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -654,16 +696,16 @@ Movie = Movie {
 						};
 					};
 				};
-				[103] = GetVariable {
+				[99] = GetVariable {
 					type = 28;
 				};
-				[104] = Modulo {
-					type = 63;
+				[100] = Add {
+					type = 71;
 				};
-				[105] = Pop {
+				[101] = Pop {
 					type = 23;
 				};
-				[106] = Push {
+				[102] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -673,8 +715,27 @@ Movie = Movie {
 						};
 					};
 				};
-				[107] = GetVariable {
+				[103] = GetVariable {
 					type = 28;
+				};
+				[104] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[105] = GetVariable {
+					type = 28;
+				};
+				[106] = Subtract {
+					type = 11;
+				};
+				[107] = Pop {
+					type = 23;
 				};
 				[108] = Push {
 					type = 150;
@@ -689,10 +750,7 @@ Movie = Movie {
 				[109] = GetVariable {
 					type = 28;
 				};
-				[110] = Add {
-					type = 71;
-				};
-				[111] = Push {
+				[110] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -702,29 +760,29 @@ Movie = Movie {
 						};
 					};
 				};
-				[112] = GetVariable {
+				[111] = GetVariable {
 					type = 28;
 				};
-				[113] = Multiply {
+				[112] = Multiply {
 					type = 12;
 				};
-				[114] = Pop {
+				[113] = Pop {
 					type = 23;
 				};
-				[115] = Push {
+				[114] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 0;
+							value = 2;
 						};
 					};
 				};
-				[116] = GetVariable {
+				[115] = GetVariable {
 					type = 28;
 				};
-				[117] = Push {
+				[116] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -734,10 +792,16 @@ Movie = Movie {
 						};
 					};
 				};
-				[118] = GetVariable {
+				[117] = GetVariable {
 					type = 28;
 				};
-				[119] = Push {
+				[118] = Divide {
+					type = 13;
+				};
+				[119] = Pop {
+					type = 23;
+				};
+				[120] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -747,30 +811,27 @@ Movie = Movie {
 						};
 					};
 				};
-				[120] = GetVariable {
+				[121] = GetVariable {
 					type = 28;
 				};
-				[121] = Divide {
-					type = 13;
-				};
-				[122] = Add {
-					type = 71;
-				};
-				[123] = Pop {
-					type = 23;
-				};
-				[124] = Push {
+				[122] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 0;
+							value = 1;
 						};
 					};
 				};
-				[125] = GetVariable {
+				[123] = GetVariable {
 					type = 28;
+				};
+				[124] = Modulo {
+					type = 63;
+				};
+				[125] = Pop {
+					type = 23;
 				};
 				[126] = Push {
 					type = 150;
@@ -778,33 +839,14 @@ Movie = Movie {
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 1;
+							value = 0;
 						};
 					};
 				};
 				[127] = GetVariable {
 					type = 28;
 				};
-				[128] = Add {
-					type = 71;
-				};
-				[129] = Push {
-					type = 150;
-					length = 2;
-					values = Array {
-						[0] = TableIndex {
-							type = 8;
-							value = 2;
-						};
-					};
-				};
-				[130] = GetVariable {
-					type = 28;
-				};
-				[131] = Multiply {
-					type = 12;
-				};
-				[132] = Push {
+				[128] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -814,10 +856,13 @@ Movie = Movie {
 						};
 					};
 				};
-				[133] = GetVariable {
+				[129] = GetVariable {
 					type = 28;
 				};
-				[134] = Push {
+				[130] = Add {
+					type = 71;
+				};
+				[131] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -827,13 +872,138 @@ Movie = Movie {
 						};
 					};
 				};
-				[135] = GetVariable {
+				[132] = GetVariable {
 					type = 28;
 				};
-				[136] = Multiply {
+				[133] = Multiply {
 					type = 12;
 				};
+				[134] = Pop {
+					type = 23;
+				};
+				[135] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[136] = GetVariable {
+					type = 28;
+				};
 				[137] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[138] = GetVariable {
+					type = 28;
+				};
+				[139] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[140] = GetVariable {
+					type = 28;
+				};
+				[141] = Divide {
+					type = 13;
+				};
+				[142] = Add {
+					type = 71;
+				};
+				[143] = Pop {
+					type = 23;
+				};
+				[144] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[145] = GetVariable {
+					type = 28;
+				};
+				[146] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[147] = GetVariable {
+					type = 28;
+				};
+				[148] = Add {
+					type = 71;
+				};
+				[149] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[150] = GetVariable {
+					type = 28;
+				};
+				[151] = Multiply {
+					type = 12;
+				};
+				[152] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[153] = GetVariable {
+					type = 28;
+				};
+				[154] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[155] = GetVariable {
+					type = 28;
+				};
+				[156] = Multiply {
+					type = 12;
+				};
+				[157] = Push {
 					type = 150;
 					length = 5;
 					values = Array {
@@ -843,13 +1013,13 @@ Movie = Movie {
 						};
 					};
 				};
-				[138] = Add {
+				[158] = Add {
 					type = 71;
 				};
-				[139] = Divide {
+				[159] = Divide {
 					type = 13;
 				};
-				[140] = Pop {
+				[160] = Pop {
 					type = 23;
 				};
 			};

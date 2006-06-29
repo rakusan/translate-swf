@@ -1,7 +1,7 @@
 Movie = Movie {
 	signature = "FWS";
 	version = 5;
-	length = 513;
+	length = 605;
 	frameSize = Bounds {
 		size = 13;
 		minX = 0;
@@ -24,7 +24,7 @@ Movie = Movie {
 		[1] = DoAction {
 			type = 12;
 			length = 63;
-			lengthExtended = 478;
+			lengthExtended = 570;
 			actions = Array {
 				[0] = Table {
 					type = 136;
@@ -557,48 +557,175 @@ Movie = Movie {
 				};
 				[100] = Push {
 					type = 150;
-					length = 2;
+					length = 7;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+					};
+				};
+				[101] = SetVariable {
+					type = 29;
+				};
+				[102] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
 							value = 0;
 						};
 					};
 				};
-				[101] = GetVariable {
-					type = 28;
+				[103] = SetVariable {
+					type = 29;
 				};
-				[102] = Duplicate {
-					type = 76;
+				[104] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
 				};
-				[103] = Not {
-					type = 18;
-				};
-				[104] = If {
-					type = 157;
-					length = 2;
-					offset = 7;
-				};
-				[105] = Pop {
-					type = 23;
+				[105] = SetVariable {
+					type = 29;
 				};
 				[106] = Push {
 					type = 150;
-					length = 2;
+					length = 4;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[107] = SetVariable {
+					type = 29;
+				};
+				[108] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[109] = SetVariable {
+					type = 29;
+				};
+				[110] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
 							value = 1;
 						};
 					};
 				};
-				[107] = GetVariable {
-					type = 28;
+				[111] = SetVariable {
+					type = 29;
 				};
-				[108] = Pop {
-					type = 23;
+				[112] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
 				};
-				[109] = Push {
+				[113] = SetVariable {
+					type = 29;
+				};
+				[114] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+					};
+				};
+				[115] = SetVariable {
+					type = 29;
+				};
+				[116] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[117] = SetVariable {
+					type = 29;
+				};
+				[118] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[119] = SetVariable {
+					type = 29;
+				};
+				[120] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -608,57 +735,8 @@ Movie = Movie {
 						};
 					};
 				};
-				[110] = GetVariable {
+				[121] = GetVariable {
 					type = 28;
-				};
-				[111] = Duplicate {
-					type = 76;
-				};
-				[112] = Not {
-					type = 18;
-				};
-				[113] = If {
-					type = 157;
-					length = 2;
-					offset = 8;
-				};
-				[114] = Pop {
-					type = 23;
-				};
-				[115] = Push {
-					type = 150;
-					length = 2;
-					values = Array {
-						[0] = TableIndex {
-							type = 8;
-							value = 1;
-						};
-					};
-				};
-				[116] = GetVariable {
-					type = 28;
-				};
-				[117] = Not {
-					type = 18;
-				};
-				[118] = Pop {
-					type = 23;
-				};
-				[119] = Push {
-					type = 150;
-					length = 2;
-					values = Array {
-						[0] = TableIndex {
-							type = 8;
-							value = 0;
-						};
-					};
-				};
-				[120] = GetVariable {
-					type = 28;
-				};
-				[121] = Not {
-					type = 18;
 				};
 				[122] = Duplicate {
 					type = 76;
@@ -703,24 +781,21 @@ Movie = Movie {
 				[130] = GetVariable {
 					type = 28;
 				};
-				[131] = Not {
-					type = 18;
-				};
-				[132] = Duplicate {
+				[131] = Duplicate {
 					type = 76;
 				};
-				[133] = Not {
+				[132] = Not {
 					type = 18;
 				};
-				[134] = If {
+				[133] = If {
 					type = 157;
 					length = 2;
 					offset = 8;
 				};
-				[135] = Pop {
+				[134] = Pop {
 					type = 23;
 				};
-				[136] = Push {
+				[135] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -730,16 +805,16 @@ Movie = Movie {
 						};
 					};
 				};
-				[137] = GetVariable {
+				[136] = GetVariable {
 					type = 28;
 				};
-				[138] = Not {
+				[137] = Not {
 					type = 18;
 				};
-				[139] = Pop {
+				[138] = Pop {
 					type = 23;
 				};
-				[140] = Push {
+				[139] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -749,8 +824,11 @@ Movie = Movie {
 						};
 					};
 				};
-				[141] = GetVariable {
+				[140] = GetVariable {
 					type = 28;
+				};
+				[141] = Not {
+					type = 18;
 				};
 				[142] = Duplicate {
 					type = 76;
@@ -779,13 +857,10 @@ Movie = Movie {
 				[147] = GetVariable {
 					type = 28;
 				};
-				[148] = Not {
-					type = 18;
-				};
-				[149] = Pop {
+				[148] = Pop {
 					type = 23;
 				};
-				[150] = Push {
+				[149] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -795,61 +870,27 @@ Movie = Movie {
 						};
 					};
 				};
-				[151] = GetVariable {
+				[150] = GetVariable {
 					type = 28;
+				};
+				[151] = Not {
+					type = 18;
 				};
 				[152] = Duplicate {
 					type = 76;
 				};
-				[153] = If {
-					type = 157;
-					length = 2;
-					offset = 7;
+				[153] = Not {
+					type = 18;
 				};
-				[154] = Pop {
-					type = 23;
-				};
-				[155] = Push {
-					type = 150;
-					length = 2;
-					values = Array {
-						[0] = TableIndex {
-							type = 8;
-							value = 1;
-						};
-					};
-				};
-				[156] = GetVariable {
-					type = 28;
-				};
-				[157] = Pop {
-					type = 23;
-				};
-				[158] = Push {
-					type = 150;
-					length = 2;
-					values = Array {
-						[0] = TableIndex {
-							type = 8;
-							value = 0;
-						};
-					};
-				};
-				[159] = GetVariable {
-					type = 28;
-				};
-				[160] = Duplicate {
-					type = 76;
-				};
-				[161] = If {
+				[154] = If {
 					type = 157;
 					length = 2;
 					offset = 8;
 				};
-				[162] = Pop {
+				[155] = Pop {
 					type = 23;
 				};
-				[163] = Push {
+				[156] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -859,16 +900,16 @@ Movie = Movie {
 						};
 					};
 				};
-				[164] = GetVariable {
+				[157] = GetVariable {
 					type = 28;
 				};
-				[165] = Not {
+				[158] = Not {
 					type = 18;
 				};
-				[166] = Pop {
+				[159] = Pop {
 					type = 23;
 				};
-				[167] = Push {
+				[160] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -878,24 +919,24 @@ Movie = Movie {
 						};
 					};
 				};
-				[168] = GetVariable {
+				[161] = GetVariable {
 					type = 28;
 				};
-				[169] = Not {
-					type = 18;
-				};
-				[170] = Duplicate {
+				[162] = Duplicate {
 					type = 76;
 				};
-				[171] = If {
+				[163] = Not {
+					type = 18;
+				};
+				[164] = If {
 					type = 157;
 					length = 2;
 					offset = 7;
 				};
-				[172] = Pop {
+				[165] = Pop {
 					type = 23;
 				};
-				[173] = Push {
+				[166] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -905,13 +946,16 @@ Movie = Movie {
 						};
 					};
 				};
-				[174] = GetVariable {
+				[167] = GetVariable {
 					type = 28;
 				};
-				[175] = Pop {
+				[168] = Not {
+					type = 18;
+				};
+				[169] = Pop {
 					type = 23;
 				};
-				[176] = Push {
+				[170] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -921,24 +965,61 @@ Movie = Movie {
 						};
 					};
 				};
-				[177] = GetVariable {
+				[171] = GetVariable {
 					type = 28;
 				};
-				[178] = Not {
-					type = 18;
-				};
-				[179] = Duplicate {
+				[172] = Duplicate {
 					type = 76;
 				};
-				[180] = If {
+				[173] = If {
+					type = 157;
+					length = 2;
+					offset = 7;
+				};
+				[174] = Pop {
+					type = 23;
+				};
+				[175] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[176] = GetVariable {
+					type = 28;
+				};
+				[177] = Pop {
+					type = 23;
+				};
+				[178] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[179] = GetVariable {
+					type = 28;
+				};
+				[180] = Duplicate {
+					type = 76;
+				};
+				[181] = If {
 					type = 157;
 					length = 2;
 					offset = 8;
 				};
-				[181] = Pop {
+				[182] = Pop {
 					type = 23;
 				};
-				[182] = Push {
+				[183] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -948,16 +1029,16 @@ Movie = Movie {
 						};
 					};
 				};
-				[183] = GetVariable {
+				[184] = GetVariable {
 					type = 28;
 				};
-				[184] = Not {
+				[185] = Not {
 					type = 18;
 				};
-				[185] = Pop {
+				[186] = Pop {
 					type = 23;
 				};
-				[186] = Push {
+				[187] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -967,21 +1048,24 @@ Movie = Movie {
 						};
 					};
 				};
-				[187] = GetVariable {
+				[188] = GetVariable {
 					type = 28;
 				};
-				[188] = Duplicate {
+				[189] = Not {
+					type = 18;
+				};
+				[190] = Duplicate {
 					type = 76;
 				};
-				[189] = If {
+				[191] = If {
 					type = 157;
 					length = 2;
 					offset = 7;
 				};
-				[190] = Pop {
+				[192] = Pop {
 					type = 23;
 				};
-				[191] = Push {
+				[193] = Push {
 					type = 150;
 					length = 2;
 					values = Array {
@@ -991,13 +1075,99 @@ Movie = Movie {
 						};
 					};
 				};
-				[192] = GetVariable {
+				[194] = GetVariable {
 					type = 28;
 				};
-				[193] = Not {
+				[195] = Pop {
+					type = 23;
+				};
+				[196] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[197] = GetVariable {
+					type = 28;
+				};
+				[198] = Not {
 					type = 18;
 				};
-				[194] = Pop {
+				[199] = Duplicate {
+					type = 76;
+				};
+				[200] = If {
+					type = 157;
+					length = 2;
+					offset = 8;
+				};
+				[201] = Pop {
+					type = 23;
+				};
+				[202] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[203] = GetVariable {
+					type = 28;
+				};
+				[204] = Not {
+					type = 18;
+				};
+				[205] = Pop {
+					type = 23;
+				};
+				[206] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[207] = GetVariable {
+					type = 28;
+				};
+				[208] = Duplicate {
+					type = 76;
+				};
+				[209] = If {
+					type = 157;
+					length = 2;
+					offset = 7;
+				};
+				[210] = Pop {
+					type = 23;
+				};
+				[211] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[212] = GetVariable {
+					type = 28;
+				};
+				[213] = Not {
+					type = 18;
+				};
+				[214] = Pop {
 					type = 23;
 				};
 			};

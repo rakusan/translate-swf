@@ -23,6 +23,22 @@ x = !a || !b;
 x = !(a || b);
 
 /*
+ * Test operators on integer literals.
+ */
+ 
+x = 1 && 2;
+x = 1 && !2;
+x = !1 && 2;
+x = !1 && !2;
+x = !(1 && 2);
+
+x = 1 || 2;
+x = 1 || !2;
+x = !1 || 2;
+x = !1 || !2;
+x = !(1 || 2);
+
+/*
  * Test operators where value should be discarded.
  */
  

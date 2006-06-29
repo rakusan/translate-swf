@@ -1,7 +1,7 @@
 Movie = Movie {
 	signature = "FWS";
 	version = 5;
-	length = 275;
+	length = 353;
 	frameSize = Bounds {
 		size = 13;
 		minX = 0;
@@ -24,7 +24,7 @@ Movie = Movie {
 		[1] = DoAction {
 			type = 12;
 			length = 63;
-			lengthExtended = 240;
+			lengthExtended = 318;
 			actions = Array {
 				[0] = Table {
 					type = 136;
@@ -324,67 +324,105 @@ Movie = Movie {
 				};
 				[45] = Push {
 					type = 150;
-					length = 2;
+					length = 11;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 0;
+							value = 4;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
 						};
 					};
 				};
-				[46] = GetVariable {
-					type = 28;
+				[46] = SetVariable {
+					type = 29;
 				};
 				[47] = Push {
 					type = 150;
-					length = 2;
+					length = 7;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 2;
+							value = 4;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 3;
 						};
 					};
 				};
-				[48] = GetVariable {
-					type = 28;
+				[48] = SetVariable {
+					type = 29;
 				};
-				[49] = BitwiseAnd {
-					type = 96;
+				[49] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 4;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 3;
+						};
+					};
 				};
-				[50] = Pop {
-					type = 23;
+				[50] = SetVariable {
+					type = 29;
 				};
 				[51] = Push {
 					type = 150;
-					length = 2;
+					length = 7;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 0;
+							value = 4;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 4;
 						};
 					};
 				};
-				[52] = GetVariable {
-					type = 28;
+				[52] = SetVariable {
+					type = 29;
 				};
 				[53] = Push {
 					type = 150;
-					length = 2;
+					length = 11;
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 1;
+							value = 4;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
 						};
 					};
 				};
-				[54] = GetVariable {
-					type = 28;
+				[54] = SetVariable {
+					type = 29;
 				};
-				[55] = BitwiseOr {
-					type = 97;
+				[55] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 4;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+					};
 				};
-				[56] = Pop {
-					type = 23;
+				[56] = SetVariable {
+					type = 29;
 				};
 				[57] = Push {
 					type = 150;
@@ -392,7 +430,7 @@ Movie = Movie {
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 1;
+							value = 0;
 						};
 					};
 				};
@@ -412,8 +450,8 @@ Movie = Movie {
 				[60] = GetVariable {
 					type = 28;
 				};
-				[61] = BitwiseXOr {
-					type = 98;
+				[61] = BitwiseAnd {
+					type = 96;
 				};
 				[62] = Pop {
 					type = 23;
@@ -424,7 +462,7 @@ Movie = Movie {
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 2;
+							value = 0;
 						};
 					};
 				};
@@ -444,8 +482,8 @@ Movie = Movie {
 				[66] = GetVariable {
 					type = 28;
 				};
-				[67] = LogicalShiftLeft {
-					type = 99;
+				[67] = BitwiseOr {
+					type = 97;
 				};
 				[68] = Pop {
 					type = 23;
@@ -456,7 +494,7 @@ Movie = Movie {
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 3;
+							value = 1;
 						};
 					};
 				};
@@ -469,15 +507,15 @@ Movie = Movie {
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 1;
+							value = 2;
 						};
 					};
 				};
 				[72] = GetVariable {
 					type = 28;
 				};
-				[73] = ArithmeticShiftRight {
-					type = 100;
+				[73] = BitwiseXOr {
+					type = 98;
 				};
 				[74] = Pop {
 					type = 23;
@@ -488,7 +526,7 @@ Movie = Movie {
 					values = Array {
 						[0] = TableIndex {
 							type = 8;
-							value = 3;
+							value = 2;
 						};
 					};
 				};
@@ -508,10 +546,74 @@ Movie = Movie {
 				[78] = GetVariable {
 					type = 28;
 				};
-				[79] = LogicalShiftRight {
-					type = 101;
+				[79] = LogicalShiftLeft {
+					type = 99;
 				};
 				[80] = Pop {
+					type = 23;
+				};
+				[81] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[82] = GetVariable {
+					type = 28;
+				};
+				[83] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[84] = GetVariable {
+					type = 28;
+				};
+				[85] = ArithmeticShiftRight {
+					type = 100;
+				};
+				[86] = Pop {
+					type = 23;
+				};
+				[87] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[88] = GetVariable {
+					type = 28;
+				};
+				[89] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[90] = GetVariable {
+					type = 28;
+				};
+				[91] = LogicalShiftRight {
+					type = 101;
+				};
+				[92] = Pop {
 					type = 23;
 				};
 			};

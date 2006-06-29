@@ -21,8 +21,24 @@ d = (a + b) * c;
 d = a + (b / c);
 d = ((a + b) * c) / ((b * c) + 1);
 
-d = 1 - 2;
-d = 1 + 2;
+d = 2 - 2;
+d = 2 + 2;
+d = 2 * 2;
+d = 2 / 2;
+d = 2 % 2;
+
+d = 1.0 - 2.0;
+d = 1.0 + 2.0;
+d = 1.0 * 2.0;
+d = 1.0 / 2.0;
+d = 1.0 % 2.0;
+
+/*
+ * Test automatic conversion to floating point.
+ */
+ 
+d = 3 / 2;
+d = 1 / 2;
 
 /*
  * Test operators where value should be discarded.
