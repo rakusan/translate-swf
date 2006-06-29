@@ -1,0 +1,99 @@
+---------------------------------------------------
+  Release Notes for Translate AS1, Version 2.0.3.
+---------------------------------------------------
+
+This release contains updates to the ActionScript grammar and several important
+of bug fixes.
+
+Bug Fixes     
+    The legacy function, random(), is now supported.
+    Unary operators can now be used on object attributes.
+    Arguments for anonymous functions are now supported.
+    Variables with local scope are supported.
+    String literals are now encoded correctly.
+ 
+Class Changes 
+    The encoding for characters sets can now be specified.
+  
+Package Changes 
+    
+ 
+-------------
+  Bug Fixes  
+-------------
+
+1. The legacy function, random(), is now supported.
+
+The Actionscript function, random(), was replaced in Flash 5 by Math.random(). 
+Support was added for completeness.
+
+2. Unary operators can now be used on object attributes.
+
+Attributes on objects can now be used with any of the unary operations: pre or 
+post increment (++), pre or post decrement (--), logical not (!) or bitwise 
+not (~). For example:
+
+var obj = new Object();
+
+obj.foo++;
+++obj.foo;
+
+
+3. Arguments for anonymous functions are now supported.
+
+The code for anonymous functions:
+
+a = function(x, y) {
+   b = x;
+   c = y;
+}
+
+now correctly creates the list of arguments to the NewFunction action so the 
+values are accessible within the function body. 
+
+4. Variables with local scope are supported.
+
+The scoping of local variables defined using the var keyword is now correct:
+
+var i = 1;
+
+if (i == 1) 
+{
+   var i = 0;
+   
+   trace(i);
+}
+
+will correctly report the value of the "innermost" variable i and display the 
+value of 0.
+
+5. String literals are now encoded correctly.
+
+String literals that contain characters whose codes require more than 1 byte
+can now be used in string literals and identifier.
+
+-----------------
+  Class Changes  
+-----------------
+
+1. The encoding for characters sets can now be specified.
+
+The following methods:
+
+    ASParser.java
+        public ASNode parse(String script, String encoding) throws ParseException;
+        public ASNode parse(File file, String encoding) throws ParseException;
+
+    ASNode.java
+        public byte[] encode(int version, String encoding);
+
+
+were added to allow the character encoding used in the actionscript code to be 
+specified. Previously releases assumed that all scripts were encoded as UTF-8.
+
+
+-------------------
+  Package Changes  
+-------------------
+
+
