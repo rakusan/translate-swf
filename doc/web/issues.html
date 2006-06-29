@@ -1,0 +1,376 @@
+<html>
+<head>
+<meta http-equiv=content-type content="text/html;  charset=ISO-8859-1">
+<title>Flagstone Software :: Issues &amp; Bugs in Translate AS1</title>
+<link rel="stylesheet" type="text/css" href="/flagstone.css">
+<script language="JavaScript" src="/js/imageload.js"></script>
+<script language="JavaScript" src="/js/imageswap.js"></script>
+</head>
+
+<body>
+<script type='text/javascript'>function Go(){return}</script>
+<script type="text/javascript" src="/js/menu_var.js"></script>
+<script type="text/javascript" src="/js/menu_com.js"></script>
+<noscript>Your browser does not support script</noscript>
+
+<div class="page">
+
+<div class="header">
+<img src="/images/flagstone_header.gif" alt="Flagstone Software" width=760 height=77>
+<table cellpadding="0" cellspacing="0" border="0" class="sitemenu">
+<tr>
+<td width=150 bgcolor="#9A1F31"><a href="/index.html" onmouseover="imageSwap('home', 'homeOn');" onmouseout="imageSwap('home', 'homeOff');"><img src="/images/home_off.gif" alt="[Home]" width=77 height=29 border=0 name="home"></a></td>
+<td width=29><img src="/images/diagonal_divider.gif" alt="" width=29 height=29></td>
+<td bgcolor="#C43F52"><div id='MenuPos' style='position:left; width:440; height:27;'><img src='/images/spacer.gif' width='440' height='27'></div></td>
+<td bgcolor="#C43F52"><img src='/images/spacer.gif' width='141' height='27'></td>
+</tr>
+</table>
+</div>
+
+<div class="content">
+<H1>Translate AS1: Known Issues &amp; Bugs</H1>
+
+<P>Version:2.0.2<br/>Updated:28th June 2006</P>
+
+<TABLE width="100%">
+
+<THEAD>
+<TR>
+<TH>Current Issue</TH>
+<TH>Status</TH>
+<TH>Fix Due</TH>
+</TR>
+</THEAD>
+
+<TBODY>
+<TR>
+<TD>1. Variables with local scope are not supported.</TD>
+<TD>Open</TD>
+<TD>2.0.3</TD>
+</TR>
+
+<TR>
+<TD>2. Accented Characters not supported</TD>
+<TD>Open</TD>
+<TD>2.0.3</TD>
+</TR>
+
+<TR>
+<TD>3. Anonymous function arguments are not assigned to variables</TD>
+<TD>Open</TD>
+<TD>2.0.3</TD>
+</TR>
+
+<TR>
+<TD>4. Incrementing object attributes fails</TD>
+<TD>Pending</TD>
+<TD>(2.0.2)</TD>
+</TR>
+
+<TR>
+<TD>5. random() function is not supported</TD>
+<TD>Open</TD>
+<TD>2.0.3</TD>
+</TR>
+
+<TR>
+<TD>6. Newline does not delimit statements</TD>
+<TD>Open</TD>
+<TD>Open</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<TABLE width="100%">
+
+<THEAD>
+<TR>
+<TH>Recently Fixed</TH>
+<TH>Status</TH>
+<TH>Release</TH>
+</TR>
+</THEAD>
+
+<TBODY>
+<TR>
+<TD>1. instanceof is not currently supported.</TD>
+<TD>Closed</TD>
+<TD>2.0.2</TD>
+</TR>
+
+<TR>
+<TD>2. delete operator is not currently supported.</TD>
+<TD>Closed</TD>
+<TD>2.0.2</TD>
+</TR>
+
+<TR>
+<TD>3. Multiple assignments are not supported.</TD>
+<TD>Closed</TD>
+<TD>2.0.2</TD>
+</TR>
+
+</TBODY>
+</TABLE>
+
+<br/>
+
+<h2>Current Issues</h2>
+
+<H3>1. Variables with local scope are not supported.</H3>
+
+<P>If a variable name is reused to define a variable with a localized scope, 
+e.g. within the body of a function definition or statement block, the original 
+variable definition is updated and not the local version.</P>
+
+<pre>
+    var i = 1;
+
+    if (i == 1) {
+       var i = 0;
+    }
+
+    trace(i); // i = 0;
+</pre>
+
+<P>Here the variable, i, that was defined at the start of the script is updated 
+rather the definition within the body of the if statement.</P>
+
+<h4>Root Cause</H4>
+
+<P>The problem is caused by the compiler generating a SetVariable action for
+the variable initialisation rather than InitVariable. The Flash Player must use 
+InitVariable actions to track the scope of variables since there are no 
+constructs in Flash that directly support scoping.</P>
+
+<h4>Workaround</h4>
+<P>The only work around available is to ensure that all variable names are
+unique.</P>
+
+<pre>
+    var i = 1;
+
+    if (i == 1) {
+        var j = 0;
+    }
+</pre>
+
+<H4>When will it be fixed?</H4>
+
+<P>The fix is already in the repository. It will be formally fixed when version 
+2.0.3 is released at the end of June.</P>
+
+<div class="hr"><hr/></div>
+
+<h3>2. Accented characters are not supported.</h3>
+
+<P>Non ASCII characters in strings cause errors:
+
+<PRE>
+   var str = &quot;Il y a un probl&egrave;me&quot;;
+</PRE>
+   
+<P>Will result in an java.lang.ArrayIndexOutOfBoundsException because of the 
+'&eacute;' character.</P>
+
+<H4>Root Cause</H4>
+
+<P>The problem is caused by the parser not recognizing non-ASCII characters. The
+JavaCC parser is able to support the full set of Unicode characters so this 
+should be simple to fix.</P>
+
+<H4>Workaround</H4>
+
+<P>There is no known workaround.</P>
+
+<H4>When will it be fixed?</H4>
+
+<P>The fix is already in the repository. It will be formally fixed when version 
+2.0.3 is released at the end of June.</P>
+
+<div class="hr"><hr/></div>
+
+<h3>3. Anonymous function arguments are not assigned to variables</H3>
+
+<P>When an anonymous function is assigned to a variable then the arguments
+passed to the function are not bound to the function variables:
+
+<pre>
+   foo = function(x) {
+       trace(&quot;x=&quot; + x)   
+   };
+
+   foo(&quot;hello&quot;);
+</pre>
+
+<p>Produces the result:</p>
+
+<pre>
+   &quot;x=undefined&quot;   
+</pre>
+
+<H4>Root Cause</H4>
+
+<P>The problem was caused by the arguments list not being included in the 
+NewFunction action that was generated when the script was compiled. </P>
+
+<H4>Workaround</H4>
+
+<P>No workaround is currently available.</P>
+
+<H4>When will it be fixed?</H4>
+
+<P>The fix is already in the repository. It will be formally fixed when version 
+2.0.3 is released at the end of June.</P>
+
+<div class="hr"><hr/></div>
+
+<H3>4. Incrementing object attributes fails</H3>
+
+<P>Incrementing an attribute of an object with either the prefix or postfix 
+operators &ndash; and ++ has no effect.</P>
+
+<pre>
+    obj.foo = 1;
+    obj.foo++;
+</pre>
+ 
+<H4>Root Cause</H4>
+
+<P>The code being generated uses the SetVariable actionrather than SetAttribute.</P>
+
+<H4>Workaround</H4>
+
+<P>Use explicity addition or subtraction:</P>
+
+<pre>
+    obj.foo = obj.foo + 1; 
+</pre>
+
+<P>This should have been fixed in release 2.0.2. It is currently awaiting the
+update of the test suites so the fix can be verified.</P>
+
+<H4>When will it be fixed?</H4>
+
+<P>The code has been tested and will be released in version 2.0.3.</P>
+
+<div class="hr"><hr/></div>
+
+<H3>5. random() function is not supported.</H3>
+
+<P>The (deprecated) function ramdom() is not supported in the grammar.</p> 
+
+<H4>Root Cause</H4>
+
+<P>The function will be successfully parsed but no code will be generated.</P>
+
+<H4>Workaround</H4>
+
+<P>Use the random method on the Math object instead:</P>
+
+<pre>
+    Math.random();
+</pre>
+
+<H4>When will it be fixed?</H4>
+
+<P>The fix is already in the repository. It will be formally fixed when version 
+2.0.3 is released at the end of June.</P>
+
+<div class="hr"><hr/></div>
+
+<H3>6. Newline does not delimit statements</H3>
+
+<P>The parser in Macromedia Flash allows newline characters to delimit 
+statements. The statements:
+
+<pre>
+    a = 1
+    b = 2
+</pre>
+<P>are valid ActionScript however Translate requires explicit semi-colons to
+terminate a statement, e.g.
+
+<pre>
+    a = 1;
+    b = 2;
+</pre>
+
+<H4>Root Cause</H4>
+
+<P>The parser rules recognize newlines as whitespace rather than as statement 
+delimiters.</P>
+
+<H4>Workaround</H4>
+
+<P>There is no workaround. All statements must be terminated with a semi-colon. 
+Block statements such as those which form the body of an if or for statement are
+not affected.</P>
+
+<H4>When will it be fixed?</H4>
+
+<P>This is a tough one to fix. Several different ways of preprocessing the 
+script to replace line-breaks with semi-colons have been examined. None gave 
+simple or consistent results.</P>
+
+<br/>
+
+<H2>Recently Fixed</H2>
+
+<h3>1. instanceof operator is now supported.</H3>
+
+<P>The instanceof operator can now be used to test class membership</P>
+
+<pre>
+    var a = new MyClass();
+
+    if (a instanceof MyClass) {
+        ...
+    }
+</pre>
+
+<H4>Root Cause</h4>
+
+<P>The problem was caused by the parser grammar.</P>
+<P>Fixed Version 2.0.2</P>
+
+<h3>2. delete operator is now supported.</h3>
+
+<P>The delete operator can be used to delete an object:</P>
+
+<pre>
+    var a = new MyClass();
+
+    delete a;
+</pre>
+
+<h4>Root Cause</h4>
+
+<P>The problem was caused by the parser grammar.</P>
+
+<P>Fixed Version 2.0.2</P>
+
+<H3>3. Multiple assignment statements not supported.</H3>
+
+<P>The value of more than one variable can be set in an assignment statement:</P>
+
+<pre>
+    var a = b = c = 1;
+</pre>
+
+<H4>Root Cause</H4>
+
+<P>The problem was caused by the parser grammar.</P>
+
+<P>Fixed Version 2.0.2</P>
+</div>
+<div class="footer">
+Copyright 2001-2006, Flagstone Software. All rights reserved. 
+Please read our <a href="/privacy.html">Privacy Policy</a> and 
+<a href="/legal.html">Legal Notices</a>.
+</div>
+</div>
+
+</body>
+</html>
+
