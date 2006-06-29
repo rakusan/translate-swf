@@ -44,6 +44,8 @@
             <fileset dir="${lib.dir}">
                 <include name="javacc.jar" />
                 <include name="transform.jar" />
+                <include name="testng-4.7-jdk14.jar" />
+                <include name="testng-4.7-jdk15.jar" />
             </fileset>
         </copy>
 
@@ -58,13 +60,12 @@
                 <include name="data/as1/*.fla" />
                 <include name="data/as1/script" />
                 <include name="data/directives/*.as" />
-                <include name="data/directives/script" />
-                <include name="suites/*.xml" />
+                <include name="data/directives/script.txt" />
+                <include name="suites/ASParserReference.xml" />
+                <include name="suites/ASParser.xml" />
             </fileset>
         </copy>
         
-        <mkdir dir="${dist.dir}/test/data/debug"/>
-
         <copy todir="${dist.dir}" overwrite="true">
             <fileset dir=".">
                 <include name="build.xml" />
