@@ -1,3 +1,27 @@
+2006-06-20 - smackay@flagstonesoftware.com
+
+    * Updated test suites for recently added features.
+    * Updated test suites to handle character set tests.
+
+2006-06-13 - smackay@flagstonesoftware.com
+
+    * Added support for the random() function.
+    * The character set used to encode scripts can now be specified.
+    * Unary operators (++, --, !, ~) can now be used on object attributes.
+    * Arguments for anonymous functions are now correctly passed to the 
+      code in the body of a function.
+    * Variables with local scope are supported - this was fixed in 2.0.2 but
+      only verified in the testing for 2.0.3
+    
+2006-06-11 - smackay@flagstonesoftware.com
+
+    * Resolved ambiguity in parent class name for Interpreter - the Tool class
+      is defined in Transform as well as Translate.
+      
+2006-04-03 - smackay@flagstonesoftware.com
+
+    * Released version 2.0.2.
+    
 2006-04-02 - smackay@flagstonesoftware.com
 
     * Fixed bug in #include directive.
