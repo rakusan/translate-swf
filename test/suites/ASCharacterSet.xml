@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+  
+<suite name="Character Sets">
+
+    <test name="Character Set">
+		<parameter name="srcDir" value="test/data/character-sets"/>
+		<classes>
+      		<class name="com.flagstone.translate.test.ASCharacterSetTest">
+      			<methods>
+      				<include name="compile"/>
+      			</methods>
+      		</class>
+		</classes>
+  	</test>  	
+
+</suite>
+

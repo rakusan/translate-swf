@@ -14,9 +14,33 @@
 		</classes>
   	</test>  	
 
-    <test name="Convert Results To Text">
+    <test name="Convert AS1 Results To Text">
 		<parameter name="srcDir" value="test/results/ASParser/as1"/>
 		<parameter name="dstDir" value="test/results/ASParser/as1"/>
+		<classes>
+      		<class name="com.flagstone.translate.test.ASParserTest">
+      			<methods>
+      				<include name="toText"/>
+      			</methods>
+      		</class>
+		</classes>
+  	</test>  	
+
+    <test name="Compile Character Sets">
+		<parameter name="srcDir" value="test/data/character-sets"/>
+		<parameter name="dstDir" value="test/results/ASParser/character-sets"/>
+		<classes>
+      		<class name="com.flagstone.translate.test.ASParserTest">
+      			<methods>
+      				<include name="compile"/>
+      			</methods>
+      		</class>
+		</classes>
+  	</test>  	
+
+    <test name="Convert Character Set Results To Text">
+		<parameter name="srcDir" value="test/results/ASParser/character-sets"/>
+		<parameter name="dstDir" value="test/results/ASParser/character-sets"/>
 		<classes>
       		<class name="com.flagstone.translate.test.ASParserTest">
       			<methods>
