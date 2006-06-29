@@ -23,7 +23,15 @@
     <property name="test.result.dir" value="${test.dir}/results"/>
     <property name="test.report.dir" value="${test.dir}/reports"/>
     
-    <taskdef resource="testngtasks"  classpath="${lib.dir}/testng-4.2-jdk14.jar"/>
+    <condition property="testng.jar" value="testng-4.7-jdk14.jar">
+        <equals arg1="${ant.java.version}" arg2="1.4"/>
+    </condition>
+    
+    <condition property="testng.jar" value="testng-4.7-jdk15.jar">
+        <equals arg1="${ant.java.version}" arg2="1.5"/>
+    </condition>
+    
+    <taskdef resource="testngtasks"  classpath="${lib.dir}/${testng.jar}"/>
     
     <target name="clean-test" 
         description="Remove all the files and reports generating during testing">
@@ -53,28 +61,32 @@
         description="Test the classes in the framework">
 
         <antcall target="class-test">
+            <param name="test.class" value="ASParserReference"/>
+        </antcall>
+        
+        <antcall target="class-test">
             <param name="test.class" value="ASParser"/>
         </antcall>
         
     </target>
 
-    <target name="class-test" description="Unit test a specific class in the framework">
+    <target name="suite-test" description="Run a selected unit test suite">
     
         <input message="Enter the name of the suite to run:"
-            addProperty="test.class"/>
+            addProperty="test.suite"/>
 
-        <mkdir dir="${test.report.dir}/${test.class}"/>
+        <mkdir dir="${test.report.dir}/${test.suite}"/>
         
         <delete failonerror="false" includeemptydirs="true">
-            <fileset dir="${test.report.dir}/${test.class}" includes="**/*"/>
+            <fileset dir="${test.report.dir}/${test.suite}" includes="**/*"/>
         </delete>
 
         <testng classpath="${build.dir};transform.jar" 
-                outputDir="${test.report.dir}/${test.class}"
+                outputDir="${test.report.dir}/${test.suite}"
                 sourceDir = "src/${package.test.dir}"
                 haltOnFailure = "true">
             <jvmarg value="-ea" />
-            <xmlfileset dir="${test.suite.dir}" includes="${test.class}.xml"/>
+            <xmlfileset dir="${test.suite.dir}" includes="${test.suite}.xml"/>
         </testng>
         
     </target>
