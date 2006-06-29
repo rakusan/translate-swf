@@ -1,0 +1,10 @@
+-----------------------------------------
+  Release Notes for Translate SWF 1.1.3
+-----------------------------------------
+
+Version 1.1.3 is a maintenance release using the revised API for classes in 
+the Transform SWF framework and adding new scripts to improve the installation 
+process.
+
+NOTE: This release requires Transform SWF 1.4 or later to run.
+

@@ -1,0 +1,48 @@
+-----------------------------------------
+  Release Notes for Translate AS1 1.1.1
+-----------------------------------------
+
+Version 1.1.1 is a maintenance release fixing a serious bug in array 
+subscripting and added support for run-time evaluation of array, function 
+and object names.</P>
+
+1. What bugs have been fixed ?
+
+  Array elements can now be assigned values.
+  Evaluating names of functions is now supported.
+
+
+1.1 Array elements can now be assigned values.</H3>
+
+Release 1.1 would not allow values to be assigned to an array element, e.g.: 
+
+    a[1] = 4;
+
+Resulting in an FSParseException being thrown. This is now fixed.>
+
+1.2 Evaluating names of functions is now supported.
+
+The name of a function or object can now be generated at run-time:
+
+    function echo(value)
+    {
+        return value;
+    }
+    
+    a = eval("echo")("A message");
+    a = this["echo"]("A message");
+
+This is useful in implementing a lookup table for executing functions. Instead 
+of:
+
+    if (value == "a")
+	    afunc();
+    else if (value == "b")
+        bfunc();
+    else if (value == "c")
+        cfunc();
+
+This code can be replaced with:
+ 
+    this[ value + "func"]();
+

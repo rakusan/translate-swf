@@ -1,0 +1,42 @@
+---------------------------------------
+  Release Notes for Translate AS1 1.0
+---------------------------------------
+
+Version 1.0 is the first public release of the framework. The framework  
+currently supports Flash 5.
+
+----------------
+  Requirements
+----------------
+To use Translate SWF 1.0 you must have:
+
+  * Transform SWF 1.1
+  * Java 2 Standard Edition
+
+
+----------------
+  Installation
+----------------
+To install Translate SWF simply add the JAR file from the package to your java 
+classpath:
+
+  Use WinZip, pkunzip, StuffIt Expander or tar to decompress and unpack the 
+  downloaded file.
+
+  Place the file, translate.jar, in the directory or your choice, e.g. 
+  /usr/local/lib/java.
+  
+  Update your java classpath to include the jar file when java searches for 
+  compiled classes, e.g. CLASSPATH=...:/usr/local/lib/java/translate.jar
+
+
+-----------------------
+  Using the Framework
+-----------------------
+The Developer Edition of the framework is available free of charge, for 
+development purposes only, on the download page. To use the classes in your 
+code use the following import statement:
+
+<pre>
+    import com.flagstone.translate.*;
+</pre>

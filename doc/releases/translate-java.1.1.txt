@@ -1,0 +1,62 @@
+------------------------------------------------------------
+  Release Notes for Translate AS1 for Java, Version 1,1.
+------------------------------------------------------------
+
+Version 1.1 is a maintenance release albeit a significant one. The grammar 
+used to parse scripts has been completely overhauled and now supports all of 
+the language constructs and functions provided in Macromedia's Flash 5 
+ActionScript language.
+
+1. New Language Constructs Supported
+
+Support has been added for the following keywords, statements and functions:
+
+  * null objects are now supported.
+  * the for..in statement, which iterates over an objects attributes, has been 
+    added.
+  * the Boolean(), String() and Number() functions are supported.
+  * user-defined functions can now be treated as objects.
+
+
+2. Differences with Macromedia's ActionScript</h2>
+
+The is one difference in the version of ActionScript supported by Translate SWF 
+when compared with Macromedia's Flash Authoring Tool. In the Authoring Tool the 
+concept of Scenes is supported for splitting long animations into more manageable 
+sections. Scenes are only supported by the Authoring Tool and are not part of 
+the Flash file format specification. Translate SWF does not support Scenes which 
+results in the following differences with Macromedia's ActionScript:
+
+ActionScript                 Support in Translate SWF
+gotoAndPlay(scene, frame)    the scene argument is optional.
+gotoAndStop(scene, frame)    the scene argument is optional.
+nextScene()                  generates code to move to frame 0.</td></tr>
+prevScene()                  generates code to move to frame 0.</td></tr>
+
+
+3. What bugs have been fixed ?
+
+In addition to added language constructs, the following known bugs were fixed:
+
+  * the radix argument of the parseInt() function is now optional. If omitted a 
+    default radix of 10 is assumed.
+  * rvalue statements now correctly pop the unused value from the stack.
+
+With the revised grammar the syntax of scripts is more robust: iterator 
+statements (for, while, do..while) now support statement bodies containing a 
+single statement; multi-level de-referencing of an object's attributes is now 
+supported - previously only one-level, e.g. a.b was supported.>
+
+4. Class Changes
+
+The following sections describe the changes, methods added and bugs fixed for 
+each class.
+
+4.1. Pkg
+
+  * The reportPackageInformation(boolean showLicense) method which was used to 
+    report information about either the Translate SWF package or any application 
+    using the package has been deprecated. The method now prints out information 
+    about the package. This code will be moved in to the main(String[] args) 
+    method at a future date.
+
