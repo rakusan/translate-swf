@@ -448,7 +448,7 @@ public final class ASParser extends Object
             FileInputStream fileContents = new FileInputStream(file);
             fileContents.read(fileIn);
             
-            String script = new String(fileIn);
+            String script = new String(fileIn, encoding);
             fileContents.close();
             
             root = parse(script, encoding);
