@@ -224,7 +224,7 @@ public final class ASNode extends Object
         }
         
         /*
-         * Encode a String value. String are assumed to be encoded using UTF8.
+         * Encode a String value. String are assumed to be encoded using UTF-8.
          * 
          * @param str a String object to be encoded.
          */
