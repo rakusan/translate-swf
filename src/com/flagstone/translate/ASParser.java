@@ -294,11 +294,29 @@ public final class ASParser extends Object implements ASParserConstants {
      * parsed. The filenames and line numbers of #include'd scripts are 
      * tracked so any syntax errors are reported accurately.
      *
+     * The character used used in the script is assumed to be UTF-8.
+     *
      * @param script a String containing the ActionScript code to parse.
      *
      * @throws ParseException if a parsing error occurs.
      */
     public ASNode parse(String script) throws ParseException
+    {
+        return parse(script, "UTF-8");
+        }
+
+    /**
+     * Parses the ActionScript string, script. Any nested files specified
+     * using #include directives are loaded before the complete script is 
+     * parsed. The filenames and line numbers of #include'd scripts are 
+     * tracked so any syntax errors are reported accurately.
+     * 
+     * @param script a String containing the ActionScript code to parse.
+     * @param encoding the character encoding used in the script.
+     *
+     * @throws ParseException if a parsing error occurs.
+     */
+    public ASNode parse(String script, String encoding) throws ParseException
     {
         ASNode root = null;
 
@@ -312,16 +330,16 @@ public final class ASParser extends Object implements ASParserConstants {
             {
                 StringBuffer buffer = new StringBuffer();
                 byte[] bytes = null;
-
+                
                 processDirectives("", script, buffer);
 
                 try
                 {
-                    bytes = buffer.toString().getBytes("ISO-8859-1");
+                    bytes = buffer.toString().getBytes(encoding);
                 }
                 catch(Exception e)
                 {
-                    bytes = buffer.toString().getBytes();
+                    throw new ParseException();
                 }
 
                 ReInit(new ByteArrayInputStream(bytes));
@@ -374,11 +392,29 @@ public final class ASParser extends Object implements ASParserConstants {
      * parsed. The filenames and line numbers of #include'd scripts are 
      * tracked so any syntax errors are reported accurately.
      *
+     * The character used used in the script is assumed to be UTF-8.
+     *
      * @param file a File containing the ActionScript statements to parse.
      *
      * @throws ParseException if a parsing error occurs.
      */
     public ASNode parse(File file) throws ParseException
+    {
+        return parse(file, "UTF-8");
+    }
+
+    /**
+     * Parses the file containing ActionScript. Any nested files specified
+     * using #include directives are loaded before the complete script is 
+     * parsed. The filenames and line numbers of #include'd scripts are 
+     * tracked so any syntax errors are reported accurately.
+     *
+     * @param file a File containing the ActionScript statements to parse.
+     * @param encoding the character encoding used in the script.
+     *
+     * @throws ParseException if a parsing error occurs.
+     */
+    public ASNode parse(File file, String encoding) throws ParseException
     {
         ASNode root = null;
 
@@ -392,7 +428,7 @@ public final class ASParser extends Object implements ASParserConstants {
             String script = new String(fileIn);
             fileContents.close();
 
-            root = parse(script);
+            root = parse(script, encoding);
         }
         catch (ParseException e)
         {
@@ -445,11 +481,10 @@ public final class ASParser extends Object implements ASParserConstants {
     private void processDirectives(String fileName, String script, StringBuffer out)
         throws ParseException
     {
-        StringTokenizer lineTokenizer = new StringTokenizer(script, separator, true);
+        String[] statements = script.split("\\r?\\n|\\r\\n?");
 
         int currentLine = 1;
         int lineNumber = 0;
-        String code = "";
 
         /*
          * Boolean flags are used to signal when a directive has been found rather 
@@ -459,38 +494,20 @@ public final class ASParser extends Object implements ASParserConstants {
          */
         boolean includeFile = false;
 
-        while (lineTokenizer.hasMoreTokens())
+        for (int i=0; i<statements.length; i++)
         {
-            String line = lineTokenizer.nextToken();
+            String line = statements[i];
 
-            /*
-             * Add the line of code to the output and updates the line mapping
-             * arrays.
-             */
-            if (line.length() == 1 && (line.charAt(0) == '\n' || line.charAt(0) == '\r'))
-            {
-                out.append(code);
-                out.append(separator);
-
-                files.add(fileName);
-                lines.add(new Integer(currentLine++));
-                codes.add(code);
-
-                /*
-                 * Set the dafault line of code to take blank lines into account.
-                 */
-                code = "";
-            }
-            else if (line.indexOf("#include") != -1 || includeFile)
+            if (line.indexOf("#include") != -1 || includeFile)
             {
                 /* 
                  * Split the line containing a directive into individual words 
                  */
-                StringTokenizer wordTokenizer = new StringTokenizer(line, wordDelimiters, false);
+                String[] words = line.split("\\s");
 
-                while (wordTokenizer.hasMoreTokens())
+                for (int j=0; j<words.length; j++)
                 {
-                    String token = wordTokenizer.nextToken();
+                    String token = words[j];
 
                     if (token.equals("#include"))
                     {
@@ -509,7 +526,7 @@ public final class ASParser extends Object implements ASParserConstants {
                              * encoding  Flash file, so this behaviour is maintained just to
                              * be compatible.
                              */
-                            if (wordTokenizer.countTokens() > 0)
+                            if (words.length > 2)
                                 reportError("SingleDirective", fileName, lineNumber, line);
 
                             /*
@@ -546,17 +563,13 @@ public final class ASParser extends Object implements ASParserConstants {
             }
             else
             {
-                code = line;
-            }
-        }
-        if (code.length() > 0)
-        {
-            out.append(code);
-            out.append(separator);
+                out.append(line);
+                out.append(separator);
 
-            files.add(fileName);
-            lines.add(new Integer(currentLine++));
-            codes.add(code);
+                files.add(fileName);
+                lines.add(new Integer(currentLine++));
+                codes.add(line);
+            }
         }
     }
 
@@ -669,11 +682,15 @@ public final class ASParser extends Object implements ASParserConstants {
     }
 
   final public ASNode Literal() throws ParseException {
-                     Token t; ASNode node = new ASNode(ASNode.Literal);
+                     Token t; ASNode node = new ASNode(ASNode.Value);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case BOOLEAN_LITERAL:
       t = jj_consume_token(BOOLEAN_LITERAL);
-        node.setStringValue(t.image);
+        node.setType(ASNode.BooleanLiteral);
+        if (t.image.toLowerCase().equals("true"))
+            node.setBoolValue(true);
+        else if (t.image.toLowerCase().equals("false"))
+            node.setBoolValue(false);
         {if (true) return node;}
       break;
     case INTEGER_LITERAL:
@@ -696,6 +713,7 @@ public final class ASParser extends Object implements ASParserConstants {
         catch (NumberFormatException e) {
             i = new Integer(0);
         }
+        node.setType(ASNode.IntegerLiteral);
         node.setIntValue(i.intValue());
         {if (true) return node;}
       break;
@@ -712,17 +730,19 @@ public final class ASParser extends Object implements ASParserConstants {
         catch (NumberFormatException e) {
             d = new Double(0);
         }
+        node.setType(ASNode.DoubleLiteral);
         node.setDoubleValue(d.doubleValue());
         {if (true) return node;}
       break;
     case STRING_LITERAL:
       t = jj_consume_token(STRING_LITERAL);
+        node.setType(ASNode.StringLiteral);
         node.setStringValue(t.image.substring(1, t.image.length()-1));
         {if (true) return node;}
       break;
     case NULL_LITERAL:
       t = jj_consume_token(NULL_LITERAL);
-        node.setStringValue(t.image);
+        node.setType(ASNode.NullLiteral);
         {if (true) return node;}
       break;
     default:
@@ -947,7 +967,7 @@ public final class ASParser extends Object implements ASParserConstants {
   }
 
   final public ASNode ExpressionStatement() throws ParseException {
-                                 ASNode node = new ASNode(ASNode.NoOp);
+                                 Token t; ASNode node = new ASNode(ASNode.NoOp);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case BOOLEAN_LITERAL:
     case NULL_LITERAL:
@@ -1302,7 +1322,7 @@ public final class ASParser extends Object implements ASParserConstants {
                 reportError("UnknownButtonEvent", t);
             }
         }
-        else if (node.getType() == ASNode.Literal)
+        else if (node.getType() == ASNode.StringLiteral)
         {
             String key = node.getStringValue();
             int event = 0;
@@ -1360,7 +1380,7 @@ public final class ASParser extends Object implements ASParserConstants {
                 reportError("UnknownButtonEvent", t);
             }
         }
-        else if (node.getType() == ASNode.Literal)
+        else if (node.getType() == ASNode.StringLiteral)
         {
             String key = node.getStringValue();
             int allEvents = eventNode.getIntValue();
@@ -2520,58 +2540,6 @@ public final class ASParser extends Object implements ASParserConstants {
     finally { jj_save(21, xla); }
   }
 
-  final private boolean jj_3R_53() {
-    if (jj_scan_token(78)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_19()) {
-    jj_scanpos = xsp;
-    if (jj_3R_81()) return true;
-    }
-    return false;
-  }
-
-  final private boolean jj_3R_170() {
-    if (jj_3R_77()) return true;
-    return false;
-  }
-
-  final private boolean jj_3R_172() {
-    if (jj_3R_41()) return true;
-    if (jj_scan_token(80)) return true;
-    if (jj_3R_48()) return true;
-    return false;
-  }
-
-  final private boolean jj_3R_169() {
-    if (jj_3R_172()) return true;
-    Token xsp;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_173()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  final private boolean jj_3R_171() {
-    if (jj_3R_48()) return true;
-    Token xsp;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_174()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  final private boolean jj_3R_162() {
-    if (jj_scan_token(75)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_169()) jj_scanpos = xsp;
-    if (jj_scan_token(76)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_163() {
     if (jj_scan_token(FUNCTION)) return true;
     if (jj_scan_token(73)) return true;
@@ -3330,11 +3298,6 @@ public final class ASParser extends Object implements ASParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_116() {
-    if (jj_scan_token(NE)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_66() {
     if (jj_3R_37()) return true;
     return false;
@@ -3342,6 +3305,11 @@ public final class ASParser extends Object implements ASParserConstants {
 
   final private boolean jj_3_5() {
     if (jj_3R_27()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_116() {
+    if (jj_scan_token(NE)) return true;
     return false;
   }
 
@@ -3638,11 +3606,6 @@ public final class ASParser extends Object implements ASParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_72() {
-    if (jj_scan_token(FLOATING_POINT_LITERAL)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_104() {
     if (jj_scan_token(ASSIGN_AND)) return true;
     return false;
@@ -3650,6 +3613,11 @@ public final class ASParser extends Object implements ASParserConstants {
 
   final private boolean jj_3R_103() {
     if (jj_scan_token(ASSIGN_LSR)) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_72() {
+    if (jj_scan_token(FLOATING_POINT_LITERAL)) return true;
     return false;
   }
 
@@ -3765,6 +3733,16 @@ public final class ASParser extends Object implements ASParserConstants {
     return false;
   }
 
+  final private boolean jj_3R_77() {
+    if (jj_3R_48()) return true;
+    Token xsp;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_85()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
   final private boolean jj_3R_70() {
     if (jj_scan_token(BOOLEAN_LITERAL)) return true;
     return false;
@@ -3785,16 +3763,6 @@ public final class ASParser extends Object implements ASParserConstants {
     }
     }
     }
-    }
-    return false;
-  }
-
-  final private boolean jj_3R_77() {
-    if (jj_3R_48()) return true;
-    Token xsp;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_85()) { jj_scanpos = xsp; break; }
     }
     return false;
   }
@@ -3840,6 +3808,58 @@ public final class ASParser extends Object implements ASParserConstants {
   final private boolean jj_3_19() {
     if (jj_3R_41()) return true;
     if (jj_3R_42()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_53() {
+    if (jj_scan_token(78)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_19()) {
+    jj_scanpos = xsp;
+    if (jj_3R_81()) return true;
+    }
+    return false;
+  }
+
+  final private boolean jj_3R_170() {
+    if (jj_3R_77()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_172() {
+    if (jj_3R_41()) return true;
+    if (jj_scan_token(80)) return true;
+    if (jj_3R_48()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_169() {
+    if (jj_3R_172()) return true;
+    Token xsp;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_173()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  final private boolean jj_3R_171() {
+    if (jj_3R_48()) return true;
+    Token xsp;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_174()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  final private boolean jj_3R_162() {
+    if (jj_scan_token(75)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_169()) jj_scanpos = xsp;
+    if (jj_scan_token(76)) return true;
     return false;
   }
 
