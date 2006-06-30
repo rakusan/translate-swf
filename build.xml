@@ -46,6 +46,7 @@
     <property name="package.test.dir" value="${package.dir}/test"/>
     
     <property name="doc.root.dir" location="doc"/>
+    <property name="doc.release.dir" location="${doc.root.dir}/releases"/>
     <property name="doc.css.dir" value="${doc.root.dir}/css"/>
     <property name="doc.datasheet.dir" value="${doc.root.dir}/datasheets"/>
         
