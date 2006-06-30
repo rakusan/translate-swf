@@ -330,7 +330,13 @@ public final class ASParser extends Object implements ASParserConstants {
             {
                 StringBuffer buffer = new StringBuffer();
                 byte[] bytes = null;
-                
+
+                script = script.replaceAll("\\\\n", "\n");
+                script = script.replaceAll("\\\\t", "\t");
+                script = script.replaceAll("\\\\b", "\b");
+                script = script.replaceAll("\\\\r", "\r");
+                script = script.replaceAll("\\\\f", "\f");
+
                 processDirectives("", script, buffer);
 
                 try
@@ -425,7 +431,7 @@ public final class ASParser extends Object implements ASParserConstants {
             FileInputStream fileContents = new FileInputStream(file);
             fileContents.read(fileIn);
 
-            String script = new String(fileIn);
+            String script = new String(fileIn, encoding);
             fileContents.close();
 
             root = parse(script, encoding);
@@ -2540,17 +2546,6 @@ public final class ASParser extends Object implements ASParserConstants {
     finally { jj_save(21, xla); }
   }
 
-  final private boolean jj_3R_163() {
-    if (jj_scan_token(FUNCTION)) return true;
-    if (jj_scan_token(73)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_170()) jj_scanpos = xsp;
-    if (jj_scan_token(74)) return true;
-    if (jj_3R_25()) return true;
-    return false;
-  }
-
   final private boolean jj_3R_84() {
     if (jj_scan_token(78)) return true;
     if (jj_3R_48()) return true;
@@ -3860,6 +3855,17 @@ public final class ASParser extends Object implements ASParserConstants {
     xsp = jj_scanpos;
     if (jj_3R_169()) jj_scanpos = xsp;
     if (jj_scan_token(76)) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_163() {
+    if (jj_scan_token(FUNCTION)) return true;
+    if (jj_scan_token(73)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_170()) jj_scanpos = xsp;
+    if (jj_scan_token(74)) return true;
+    if (jj_3R_25()) return true;
     return false;
   }
 
