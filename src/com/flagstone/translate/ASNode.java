@@ -108,6 +108,12 @@ public final class ASNode extends Object
         int version = 0;
         
         /*
+         * The character encoding used to represent identifiers and string 
+         * literals.
+         */
+        String encoding = null;
+        
+        /*
          * The stack used to track nodes where function definitions are inserted.
          */
         Stack nodes = new Stack();
@@ -127,12 +133,16 @@ public final class ASNode extends Object
         /*
          * Constructs a new ASInfo object with the specified version of Flash.
          *
-         * @param swfVersion the version of Flash that the script is being 
+         * @param version the version of Flash that the script is being 
          * translated and compiled into.
+         * 
+         * @param encoding the character set used to encode strings.
          */
-        ASInfo(int swfVersion)
+        ASInfo(int version, String encoding)
         {
-            version = swfVersion;
+            this.version = version;
+            this.encoding = encoding;
+            
         }
 
         /*
@@ -172,6 +182,12 @@ public final class ASNode extends Object
         int version = 0;
         
         /*
+         * The character encoding used to represent identifiers and string 
+         * literals.
+         */
+        String encoding = null;
+
+        /*
          * The array of bytes used to encode the actions representing a script.
          */
         byte[] data = null;
@@ -186,8 +202,10 @@ public final class ASNode extends Object
          * Constructs a new Coder object with an array large enough to hold the 
          * encoded objects.
          */
-        Coder(byte[] bytes)
+        Coder(byte[] bytes, String encoding)
         {
+            
+            this.encoding = encoding;
             data = bytes;
         }
         
@@ -214,7 +232,7 @@ public final class ASNode extends Object
         {
             try
             {
-                byte[] bytes = str.getBytes("UTF8");
+                byte[] bytes = str.getBytes(encoding);
                 
                 for (int i=0; i<bytes.length; i++)
                     data[ptr++] = bytes[i];
@@ -272,10 +290,11 @@ public final class ASNode extends Object
          * removing the need to call the method again to when encoding the object. 
          * 
          * @param version the version of Flash.
+         * @param encoding the character set used for strings.
          *
          * @return the number of bytes an action will occupy when encoded.
          */
-        abstract int length(int version);
+        abstract int length(int version, String encoding);
 
         /**
          * encode is used to encode an action to the array of bytes maintained 
@@ -353,7 +372,7 @@ public final class ASNode extends Object
          *
          * @return the number of bytes when encoded.
          */
-        int length(int version)
+        int length(int version, String encoding)
         {
             int length = 0;
             
@@ -361,16 +380,16 @@ public final class ASNode extends Object
             {
                 case Coding.Frame:
                     for (Iterator i=array.iterator(); i.hasNext();)
-                        length += ((Coding)i.next()).length(version);
+                        length += ((Coding)i.next()).length(version, encoding);
                     break;
                 case Coding.Button:
                     for (Iterator i=array.iterator(); i.hasNext();)
-                        length += 2 + ((Coding)i.next()).length(version);
+                        length += 2 + ((Coding)i.next()).length(version, encoding);
                     break;
                 case Coding.MovieClip:
                     length += version > 5 ? 10 : 6;
                     for (Iterator i=array.iterator(); i.hasNext();)
-                        length += ((Coding)i.next()).length(version);
+                        length += ((Coding)i.next()).length(version, encoding);
                     break;
             }        
             return length;
@@ -407,7 +426,7 @@ public final class ASNode extends Object
                          * Write the offset in bytes to the next event. An offset
                          * of zero indicates that no more ASEvent object follow.
                          */
-                        coder.encode((lastEvent == false) ? event.length(coder.version)+2 : 0, 2);
+                        coder.encode((lastEvent == false) ? event.length(coder.version, coder.encoding)+2 : 0, 2);
                         event.encode(coder);
                     }
                     break;
@@ -541,7 +560,7 @@ public final class ASNode extends Object
          *
          * @return the number of bytes when encoded.
          */
-        int length(int version)
+        int length(int version, String encoding)
         {
             switch (type)
             {
@@ -552,13 +571,13 @@ public final class ASNode extends Object
                         length += 1;
                     
                     for (Iterator i=array.iterator(); i.hasNext();)
-                        length += ((Coding)i.next()).length(version);
+                        length += ((Coding)i.next()).length(version, encoding);
                     break;
                 case Coding.Button:
                     length = 3;
                     
                     for (Iterator i=array.iterator(); i.hasNext();)
-                        length += ((Coding)i.next()).length(version);
+                        length += ((Coding)i.next()).length(version, encoding);
                     break;
             }
             return length;
@@ -767,7 +786,7 @@ public final class ASNode extends Object
          *
          * @return the number of bytes used to encode the action.
          */
-        int length(int version)
+        int length(int version, String encoding)
         {
             return length; 
         }
@@ -910,14 +929,14 @@ public final class ASNode extends Object
          *
          * @return the number of bytes the Table object will occupy when encoded.
          */ 
-        int length(int version)
+        int length(int version, String encoding)
         {
             length = 5;
             
             try
             {
                 for (Iterator i = values.iterator(); i.hasNext();) 
-                    length += ((String)i.next()).getBytes("UTF8").length+1;
+                    length += ((String)i.next()).getBytes(encoding).length+1;
             }
             catch (Exception e)
             {
@@ -1040,7 +1059,7 @@ public final class ASNode extends Object
          *
          * @return the number of bytes the object occupies when encoded.
          */
-        int length(int version)
+        int length(int version, String encoding)
         {
             length = 3;
         
@@ -1054,8 +1073,15 @@ public final class ASNode extends Object
                     length += 5;
                 else if (anObject instanceof Double)
                     length += 9;
-                else if (anObject instanceof String)
-                    length += ((String)anObject).length()+2;
+                else if (anObject instanceof String) 
+                {
+                    try {
+                        length += ((String)anObject).getBytes(encoding).length+2;
+                    }
+                    catch (java.io.UnsupportedEncodingException e) 
+                    {
+                    }
+                }
                 else if (anObject instanceof Null)
                     length += 1;
                 else if (anObject instanceof Void)
@@ -1179,7 +1205,7 @@ public final class ASNode extends Object
          * @param actions the array of action objects that define the 
          * body of the function.
          */
-        NewFunction(String name, ArrayList arguments, ArrayList actions)
+        NewFunction(String name, ArrayList arguments, ArrayList actions, int version, String encoding)
         {
             super(NewFunction);
             
@@ -1193,17 +1219,18 @@ public final class ASNode extends Object
                 length += ((String)i.next()).length()+1;
 
             for (Iterator i = actions.iterator(); i.hasNext();) 
-                actionLength += ((Coding)i.next()).length(5);
+                actionLength += ((Coding)i.next()).length(version, encoding);
         }
         
         /*
          * Return the length of the action when encoded to the Flash binary format.
          *
          * @param version the version number of Flash.
+         * @param encoding the character set used to encode strings.
          *
          * @return the number of bytes the object occupies when encoded.
          */
-        int length(int version)
+        int length(int version, String encoding)
         {
             return length + actionLength;
         }
@@ -1296,118 +1323,128 @@ public final class ASNode extends Object
      * an object's attribute.
      */
     public static final int Value      = 18;
-    /** Use to represent a string or numeric value */
-    public static final int Literal    = 19;
+
+    /** Use to represent a boolean value */
+    public static final int BooleanLiteral    = 20;
+    /** Use to represent an integer value */
+    public static final int IntegerLiteral    = 21;
+    /** Use to represent an double-precision floating point value */
+    public static final int DoubleLiteral    = 22;
+    /** Use to represent a string value */
+    public static final int StringLiteral    = 23;
+    /** Use to represent a null literal */
+    public static final int NullLiteral    = 24;
+
     /** Use to represent a variable */
-    public static final int Identifier = 20;
+    public static final int Identifier = 30;
     /** Use to represent an attribute of an object */
-    public static final int Attribute  = 21;
+    public static final int Attribute  = 31;
     /** Use to represent the name of a method */
-    public static final int Method     = 22; 
+    public static final int Method     = 32; 
     /** Use to represent the name of one of ActionScript's built-in functions.  */
-    public static final int Function   = 23;
+    public static final int Function   = 33;
     /** Use to represent new statements for creating instances of objects. */
-    public static final int NewObject  = 24;
+    public static final int NewObject  = 34;
     /** Use to represent subscript operation when accessing the elements of an array. */
-    public static final int Subscript  = 25;
+    public static final int Subscript  = 35;
 
 
     /** Use to represent a user defined function. */
-    public static final int DefineFunction  = 26; 
+    public static final int DefineFunction  = 36; 
     /** Use to represent an anonyomus array. */
-    public static final int DefineArray     = 27; 
+    public static final int DefineArray     = 37; 
     /** Use to represent a user defined object. */
-    public static final int DefineObject    = 28; 
+    public static final int DefineObject    = 38; 
     /** Use to represent a method on a user defined object. */
-    public static final int DefineMethod    = 29; 
+    public static final int DefineMethod    = 39; 
     /** Use to represent an attribute on a user defined object. */
-    public static final int DefineAttribute = 30; 
+    public static final int DefineAttribute = 40; 
     /** Use to represent a var statement */
-    public static final int DefineVariable  = 31; 
+    public static final int DefineVariable  = 41; 
     /** Add operation */
-    public static final int Add              = 32; 
+    public static final int Add              = 42; 
     /** Subtract operation */
-    public static final int Sub              = 33; 
+    public static final int Sub              = 43; 
     /** Multiply operation */
-    public static final int Mul              = 34; 
+    public static final int Mul              = 44; 
     /** Divide operation */
-    public static final int Div              = 35; 
+    public static final int Div              = 45; 
     /** Modulo operation */
-    public static final int Mod              = 36; 
+    public static final int Mod              = 46; 
     /** Logical Shift Left operation */
-    public static final int LSL              = 37; 
+    public static final int LSL              = 47; 
     /** Arithmetic Shift Right operation */
-    public static final int ASR              = 38; 
+    public static final int ASR              = 48; 
     /** Logical Shift Right operation */
-    public static final int LSR              = 39; 
+    public static final int LSR              = 49; 
     /** Bitwise AND operation */
-    public static final int BitAnd           = 40; 
+    public static final int BitAnd           = 50; 
     /** Bitwise OR operation */
-    public static final int BitOr            = 41; 
+    public static final int BitOr            = 51; 
     /** Bitwise Exclusive-OR operation */
-    public static final int BitXOr           = 42; 
+    public static final int BitXOr           = 52; 
     /** Logical AND operation */
-    public static final int And              = 43; 
+    public static final int And              = 53; 
     /** Logical OR operation */
-    public static final int Or               = 44; 
+    public static final int Or               = 54; 
     /** Equal comparison */
-    public static final int Equal            = 45; 
+    public static final int Equal            = 55; 
     /** Not Equal comparison */
-    public static final int NotEqual         = 46; 
+    public static final int NotEqual         = 56; 
     /** Greater Than comparison */
-    public static final int GreaterThan      = 47; 
+    public static final int GreaterThan      = 57; 
     /** Less Than comparison */
-    public static final int LessThan         = 48; 
+    public static final int LessThan         = 58; 
     /** Greater Than or Equal comparison */
-    public static final int GreaterThanEqual = 49; 
+    public static final int GreaterThanEqual = 59; 
     /** Less Than or Equal comparison */
-    public static final int LessThanEqual    = 50; 
+    public static final int LessThanEqual    = 60; 
     /** ternary operator. */
-    public static final int Select = 51; 
+    public static final int Select = 61; 
     /** Unary not */
-    public static final int Not      = 52; 
+    public static final int Not      = 62; 
     /** Unary bit-not */
-    public static final int BitNot   = 53; 
+    public static final int BitNot   = 63; 
     /** Unary plus */
-    public static final int Plus     = 54; 
+    public static final int Plus     = 64; 
     /** Unary minus */
-    public static final int Minus    = 55; 
+    public static final int Minus    = 65; 
     /** Pre-increment */
-    public static final int PreInc   = 56; 
+    public static final int PreInc   = 66; 
     /** Pre-decorement */
-    public static final int PreDec   = 57; 
+    public static final int PreDec   = 67; 
     /** Post-increment */
-    public static final int PostInc  = 58; 
+    public static final int PostInc  = 68; 
     /** Post-decrement */
-    public static final int PostDec  = 59; 
+    public static final int PostDec  = 69; 
     /** Assign, = */
-    public static final int Assign       = 60; 
+    public static final int Assign       = 70; 
     /** Assign add, += */
-    public static final int AssignAdd    = 61; 
+    public static final int AssignAdd    = 71; 
     /** Assign subtract, -= */
-    public static final int AssignSub    = 62; 
+    public static final int AssignSub    = 72; 
     /** Assign multiply, *= */
-    public static final int AssignMul    = 63; 
+    public static final int AssignMul    = 73; 
     /** Assign divide, /= */
-    public static final int AssignDiv    = 64; 
+    public static final int AssignDiv    = 74; 
     /** Assign modulo, %= */
-    public static final int AssignMod    = 65; 
+    public static final int AssignMod    = 75; 
     /** Assign logical shift left, <<= */
-    public static final int AssignLSL    = 66; 
+    public static final int AssignLSL    = 76; 
     /** Assign arithmetic shift right, >>= */
-    public static final int AssignASR    = 67; 
+    public static final int AssignASR    = 77; 
     /** Assign logical shift right, >>>= */
-    public static final int AssignLSR    = 68; 
+    public static final int AssignLSR    = 78; 
     /** Assign bitwise-AND, &= */
-    public static final int AssignBitAnd = 69; 
+    public static final int AssignBitAnd = 79; 
     /** Assign bitwise-OR, |= */
-    public static final int AssignBitOr  = 70; 
+    public static final int AssignBitOr  = 80; 
     /** Assign bitwise-exclusive-OR, ^= */
-    public static final int AssignBitXOr = 71; 
+    public static final int AssignBitXOr = 81; 
     /** Object identity */
-    public static final int InstanceOf = 72; 
+    public static final int InstanceOf = 82; 
     /** Object reclamation */
-    public static final int Delete = 73; 
+    public static final int Delete = 83; 
     
     /*
      * Names for each of the different types of node. Names are used in the 
@@ -1433,7 +1470,17 @@ public final class ASNode extends Object
         "Return",
         "Continue",
         "Value",
-        "Literal",
+        "",
+        "Boolean",
+        "Integer",
+        "Double",
+        "String",
+        "Null",
+        "",
+        "",
+        "",
+        "",
+        "",
         "Identifier",
         "Attribute",
         "Method",
@@ -1666,6 +1713,7 @@ public final class ASNode extends Object
         functions.put("prevScene", null);
         functions.put("print", null);
         functions.put("printAsBitmap", null);
+        functions.put("random", null);
         functions.put("removeMovieClip", null);
         functions.put("set", null);
         functions.put("setProperty", null);
@@ -1702,6 +1750,7 @@ public final class ASNode extends Object
         valueFunctions.put("localToGlobal", null);
         valueFunctions.put("parseFloat", null);
         valueFunctions.put("parseInt", null);
+        valueFunctions.put("random", null);
         valueFunctions.put("swapDepths", null);
         valueFunctions.put("targetPath", null);
         valueFunctions.put("typeof", null);
@@ -1724,6 +1773,7 @@ public final class ASNode extends Object
     private int iValue = 0;
     private double dValue = Double.NaN;
     private String sValue = null;
+    private boolean bValue = false;
     
     /*
      * the discardValue flag is used to signal to a node that the value it returns 
@@ -1852,6 +1902,29 @@ public final class ASNode extends Object
     }
     
     /**
+     * Get the boolean value assigned to a node.
+     *
+     * @return the boolean value assigned to a node.
+     */
+    public boolean getBoolValue()
+    {
+        return bValue;
+    }
+    
+    /**
+     * Set the boolean value assigned to a node.
+     *
+     * @param value a value that will be assigned to the node.
+     */
+    public void setBoolValue(boolean value)
+    {
+        bValue = value;
+        iValue = 0;
+        dValue = Double.NaN;
+        sValue = null;
+    }
+    
+    /**
      * Get the integer value assigned to a node.
      *
      * @return the integer value assigned to a node.
@@ -1868,6 +1941,7 @@ public final class ASNode extends Object
      */
     public void setIntValue(int value)
     {
+        bValue = false;
         iValue = value;
         dValue = Double.NaN;
         sValue = null;
@@ -1890,6 +1964,7 @@ public final class ASNode extends Object
      */
     public void setDoubleValue(double value)
     {
+        bValue = false;
         iValue = 0;
         dValue = value;
         sValue = null;
@@ -1932,6 +2007,7 @@ public final class ASNode extends Object
      */
     public void setStringValue(String value)
     {
+        bValue = false;
         iValue = 0;
         dValue = Double.NaN;
         sValue = value;
@@ -2112,14 +2188,25 @@ public final class ASNode extends Object
     {
         String str = nodeNames[type];
         
-        if (type == Literal)
+        if (type == BooleanLiteral)
         {
-            if (sValue != null)
-                str = str + " = \"" + sValue + "\"; ";
-            else if (Double.isNaN(dValue) == false)
-                str = str + " = " + dValue + "; ";
-            else
-                str = str + " = " + iValue + "; ";  
+            str = str + " = " + (bValue ? "true" : "false") + "; ";  
+        }
+        else if (type == IntegerLiteral)
+        {
+            str = str + " = " + iValue + "; ";  
+        }
+        else if (type == DoubleLiteral)
+        {
+            str = str + " = " + dValue + "; ";  
+        }
+        else if (type == StringLiteral)
+        {
+            str = str + " = \"" + sValue + "\"; ";
+        }
+        else if (type == NullLiteral)
+        {
+            str = str + " = null; ";  
         }
         else if (sValue != null)
         {
@@ -2163,16 +2250,19 @@ public final class ASNode extends Object
      * @param version the version of Flash that control the actions that are 
      * generated.
      *
+     * @param encoding the character set used to represent the strings parsed
+     * in the script.
+     *
      * @throws IllegalArgumentException is the version is less than 5.
      */
-    private ArrayList translate(int version)
+    private ArrayList translate(int version, String encoding)
     {    
         int count = 0;
         
         if (version < 5)
             throw new IllegalArgumentException();
 
-        ASInfo info = new ASInfo(version);
+        ASInfo info = new ASInfo(version, encoding);
         ArrayList array = new ArrayList();
         
         reorder(info);
@@ -2194,6 +2284,8 @@ public final class ASNode extends Object
      * IMPORTANT: The programming model changed with Flash version 5 to support
      * stack-based actions. Earlier versions of Flash are not support. An
      * IllegalArgumentException will be thrown if the version is earlier than 5.
+     * 
+     * Identifiers and string literals are assumed to have an encoding of UTF-8.
      *
      * @param version the version of Flash that control the actions that are 
      * generated.
@@ -2203,17 +2295,44 @@ public final class ASNode extends Object
      */ 
     public byte[] encode(int version)
     {
+        return encode(version, "UTF-8");
+    }
+    
+    /**
+     * The encode method 'compiles' the node and all child nodes into an array 
+     * of action objects which represents the sequence of actions performed by the 
+     * Flash Player. The actions are then encoded to generate the binary data that
+     * can be added to an encoded Flash file.
+     *
+     * The version of Flash for which the actions are generated is specified to 
+     * ensure compatibility with future release of Flash.
+     *
+     * IMPORTANT: The programming model changed with Flash version 5 to support
+     * stack-based actions. Earlier versions of Flash are not support. An
+     * IllegalArgumentException will be thrown if the version is earlier than 5.
+     *
+     * @param version the version of Flash that control the actions that are 
+     * generated.
+     * 
+     * @param encoding the character set used to represent the strings parsed
+     * in the script.
+     *
+     * @throws IllegalArgumentException is the version is less than 5.
+     * @return an array of bytes containing encoded action objects.  
+     */ 
+    public byte[] encode(int version, String encoding)
+    {
         int length = 0;
         
         if (version < 5)
             throw new IllegalArgumentException();
 
-        ArrayList array = translate(version);
+        ArrayList array = translate(version, encoding);
         
         for (Iterator i = array.iterator(); i.hasNext();) 
-            length += ((Coding)i.next()).length(version);        
+            length += ((Coding)i.next()).length(version, encoding);        
 
-        Coder coder = new Coder(new byte[length]);
+        Coder coder = new Coder(new byte[length], encoding);
                     
         for (Iterator i = array.iterator(); i.hasNext();) 
             ((Coding)i.next()).encode(coder);        
@@ -2278,7 +2397,7 @@ public final class ASNode extends Object
             case Function:
                 if (sValue.equals("fscommand"))
                 {
-                    if (children[0].type == Literal && children[0].sValue != null)
+                    if (children[0].type == StringLiteral)
                         children[0].sValue = "FSCommand:" + children[0].sValue;
                 }
                 else if (sValue.equals("print"))
@@ -2309,12 +2428,242 @@ public final class ASNode extends Object
                 }
                 break;
         }
-    
+        
+        /*
+         * reorder any child nodes before reordering any binary operators to 
+         * ensure any interger literals are evaluated first. 
+         */
         int count = count();
-            
+        
         for (int i=0; i<count; i++)
             children[i].reorder(info);
             
+        switch (type)
+        {
+            case Array:
+            case Add:
+            case Sub:
+            case Mul:
+            case Div:
+            case Mod:
+                if (count() == 2)
+                {
+                    if (children[0].getType() == IntegerLiteral && children[1].getType() == IntegerLiteral)
+                    {
+                        switch (type)
+                        {
+                            case Add: 
+                                type = IntegerLiteral;
+                                iValue = children[0].iValue + children[1].iValue; 
+                                break;
+                            case Sub: 
+                                type = IntegerLiteral;
+                                iValue = children[0].iValue - children[1].iValue; 
+                                break;
+                            case Mul: 
+                                type = IntegerLiteral;
+                                iValue = children[0].iValue * children[1].iValue; 
+                                break;
+                            case Div:
+                                if (children[0].iValue / children[1].iValue == 0)
+                                {
+                                    type = DoubleLiteral;
+                                    dValue = ((double)children[0].iValue) / ((double)children[1].iValue);
+                                }
+                                else if (children[0].iValue % children[1].iValue != 0)
+                                {
+                                    type = DoubleLiteral;
+                                    dValue = ((double)children[0].iValue) / ((double)children[1].iValue);
+                                }
+                                else 
+                                {
+                                    type = IntegerLiteral;
+                                    iValue = children[0].iValue/ children[1].iValue;
+                                }
+                                break;
+                            case Mod: 
+                                type = IntegerLiteral;
+                                iValue = children[0].iValue % children[1].iValue; 
+                                break;
+                        }
+                        remove(0);
+                        remove(0);
+                    }
+                    else if (children[0].getType() == DoubleLiteral && children[1].getType() == IntegerLiteral)
+                    {
+                        switch (type)
+                        {
+                            case Add: dValue = children[0].dValue + children[1].iValue; break;
+                            case Sub: dValue = children[0].dValue - children[1].iValue; break;
+                            case Mul: dValue = children[0].dValue * children[1].iValue; break;
+                            case Div: dValue = children[0].dValue / children[1].iValue; break;
+                            case Mod: dValue = children[0].dValue % children[1].iValue; break;
+                        }
+                        type = DoubleLiteral;
+                        remove(0);
+                        remove(0);
+                    }
+                    else if (children[0].getType() == IntegerLiteral && children[1].getType() == DoubleLiteral)
+                    {
+                        switch (type)
+                        {
+                            case Add: dValue = children[0].iValue + children[1].dValue; break;
+                            case Sub: dValue = children[0].iValue - children[1].dValue; break;
+                            case Mul: dValue = children[0].iValue * children[1].dValue; break;
+                            case Div: dValue = children[0].iValue / children[1].dValue; break;
+                            case Mod: dValue = children[0].iValue % children[1].dValue; break;
+                        }
+                        type = DoubleLiteral;
+                        remove(0);
+                        remove(0);
+                    }
+                    else if (children[0].getType() == DoubleLiteral && children[1].getType() == DoubleLiteral)
+                    {
+                        switch (type)
+                        {
+                            case Add: dValue = children[0].dValue + children[1].dValue; break;
+                            case Sub: dValue = children[0].dValue - children[1].dValue; break;
+                            case Mul: dValue = children[0].dValue * children[1].dValue; break;
+                            case Div: dValue = children[0].dValue / children[1].dValue; break;
+                            case Mod: dValue = children[0].dValue % children[1].dValue; break;
+                        }
+                        type = DoubleLiteral;
+                        remove(0);
+                        remove(0);
+                    }
+                }
+                break;
+            case ASR:
+            case LSL:
+            case LSR:
+            case BitAnd:
+            case BitOr:
+            case BitXOr:
+                if (count() == 2)
+                {
+                    if (children[0].getType() == IntegerLiteral && children[1].getType() == IntegerLiteral)
+                    {
+                        switch (type)
+                        {
+                            case ASR: iValue = children[0].iValue >> children[1].iValue; break;
+                            case LSL: iValue = children[0].iValue << children[1].iValue; break;
+                            case LSR: iValue = children[0].iValue >>> children[1].iValue; break;
+                            case BitAnd: iValue = children[0].iValue & children[1].iValue; break;
+                            case BitOr: iValue = children[0].iValue | children[1].iValue; break;
+                            case BitXOr: iValue = children[0].iValue ^ children[1].iValue; break;
+                        }
+                        type = IntegerLiteral;
+                        remove(0);
+                        remove(0);
+                   }
+                }
+                break;
+
+            case And:
+            case Or:
+                if (count() == 2)
+                {
+                    if (children[0].getType() == BooleanLiteral && children[1].getType() == BooleanLiteral)
+                    {
+                        switch (type)
+                        {
+                            case And:
+                                type = BooleanLiteral;
+                                bValue = children[0].bValue && children[1].bValue; 
+                                break;
+                            case Or:
+                                type = BooleanLiteral;
+                                bValue = children[0].bValue || children[1].bValue; 
+                                break;
+                        }
+                        remove(0);
+                        remove(0);
+                    }
+                    else if (children[0].getType() == BooleanLiteral && children[1].getType() == IntegerLiteral)
+                    {
+                        switch (type)
+                        {
+                            case And:
+                                type = BooleanLiteral;
+                                bValue = children[0].bValue && (children[1].iValue != 0); 
+                                break;
+                            case Or:
+                                type = IntegerLiteral;
+                                iValue = children[1].iValue; 
+                                break;
+                        }
+                        remove(0);
+                        remove(0);
+                    }
+                    else if (children[0].getType() == IntegerLiteral && children[1].getType() == BooleanLiteral)
+                    {
+                        switch (type)
+                        {
+                            case And:
+                                type = BooleanLiteral;
+                                bValue = (children[0].iValue != 0) && children[1].bValue; 
+                                break;
+                            case Or:
+                                type = IntegerLiteral;
+                                iValue = ((children[0].iValue != 0) || children[1].bValue) ? 1 : 0; 
+                                break;
+                        }
+                        remove(0);
+                        remove(0);
+                    }
+                    else if (children[0].getType() == IntegerLiteral && children[1].getType() == IntegerLiteral)
+                    {
+                        boolean a = children[0].iValue != 0;
+                        boolean b = children[1].iValue != 0;
+                        
+                        switch (type)
+                        {
+                            case And:
+                                type = IntegerLiteral;
+                                iValue = a ? children[1].iValue : 0; 
+                                break;
+                            case Or:
+                                type = IntegerLiteral;
+                                iValue = a || b ? 1 : 0; 
+                                break;
+                        }
+                        remove(0);
+                        remove(0);
+                    }
+                }
+                break;
+            case Not:
+                if (count() == 1)
+                {
+                    if (children[0].getType() == BooleanLiteral)
+                    {
+                        type = BooleanLiteral;
+                        bValue = !children[0].bValue;
+                        remove(0);
+                    }
+                    else if (children[0].getType() == IntegerLiteral)
+                    {
+                        type = BooleanLiteral;
+                        bValue = children[0].iValue == 0;
+                        remove(0);
+                    }
+                }
+                break;
+            case BitNot:
+                if (count() == 1)
+                {
+                    if (children[0].getType() == IntegerLiteral)
+                    {
+                        type = IntegerLiteral;
+                        iValue = ~children[0].iValue;
+                        remove(0);
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    
         switch (type)
         {
             case Array:
@@ -2348,12 +2697,14 @@ public final class ASNode extends Object
 
         switch (type)
         {
-            case Literal:
-                if (sValue != null)
-                {
-                    if ((sValue.equals("null") || sValue.equals("true") || sValue.equals("false")) == false)
-                        info.addString(sValue);
-                }
+            case StringLiteral:
+                sValue = sValue.replaceAll("\\\\n", "\n");
+                sValue = sValue.replaceAll("\\\\t", "\t");
+                sValue = sValue.replaceAll("\\\\b", "\b");
+                sValue = sValue.replaceAll("\\\\r", "\r");
+                sValue = sValue.replaceAll("\\\\f", "\f");
+
+                info.addString(sValue);
                 break;
             case Identifier:
                 if (constants.containsKey(sValue))
@@ -2376,13 +2727,14 @@ public final class ASNode extends Object
                 info.addString(sValue);
                 break;
             case Attribute:
-             case Method:
+            case Method:
             case NewObject:
 
                 for (int i=count-1; i>=0; i--)
                     children[i].findStrings(info);
 
-                info.addString(sValue);
+                if (sValue.length() > 0)
+                    info.addString(sValue);
                 break;
             case Function:
                  if (sValue != null && functions.containsKey(sValue) == false)
@@ -2390,7 +2742,8 @@ public final class ASNode extends Object
                     for (int i=0; i<count; i++)
                         children[i].findStrings(info);
 
-                    info.addString(sValue);
+                    if (sValue.length() > 0)
+                        info.addString(sValue);
                  }
                  else
                  {
@@ -2406,23 +2759,23 @@ public final class ASNode extends Object
                          if (count > 0)
                              children[0].findStrings(info);
 
-                        if (count > 1)
-                            children[1].findStrings(info);
+                         if (count > 1)
+                             children[1].findStrings(info);
                             
-                        if (count == 1)
-                            info.addString("");
+                         if (count == 1 && children[0].type != StringLiteral)
+                             info.addString("");
                             
-                          break;
-                    }
+                         break;
+                     }
                      else if (sValue != null && sValue.equals("gotoAndPlay"))
                      {
-                        children[1].findStrings(info);
-                          break;
-                    }
+                         children[1].findStrings(info);
+                         break;
+                     }
                      else if (sValue != null && sValue.equals("gotoAndStop"))
                      {
-                        children[1].findStrings(info);
-                          break;
+                         children[1].findStrings(info);
+                         break;
                     }
                     else if (sValue != null && sValue.equals("loadMovie"))
                     {
@@ -2572,7 +2925,11 @@ public final class ASNode extends Object
                 generateReturn(info, actions);
                 break;
              case Value:
-             case Literal:
+             case BooleanLiteral:
+             case IntegerLiteral:
+             case DoubleLiteral:
+             case StringLiteral:
+             case NullLiteral:
              case Identifier:
              case Attribute:
              case Method:
@@ -2777,7 +3134,7 @@ public final class ASNode extends Object
         {
             Action currentAction = (Action)blockActions.get(i);
             
-            currentLength += currentAction.length(info.version);
+            currentLength += currentAction.length(info.version, info.encoding);
        
             if (currentAction.type == 256)
                 blockActions.set(i, new ValueAction(Action.Jump, blockLength-currentLength+conditionLength));
@@ -2822,7 +3179,7 @@ public final class ASNode extends Object
         {
             Action currentAction = (Action)blockActions.get(i);
         
-            currentLength += currentAction.length(info.version);
+            currentLength += currentAction.length(info.version, info.encoding);
 
             if (currentAction.type == 256)
                 blockActions.set(i, new ValueAction(Action.Jump, (blockLength+conditionLength)-currentLength));
@@ -2942,7 +3299,7 @@ public final class ASNode extends Object
         {
             Action currentAction = (Action) blockActions.get(i);
         
-            currentLength += currentAction.length(info.version);
+            currentLength += currentAction.length(info.version, info.encoding);
         
             if (currentAction.type == 256)
                 blockActions.set(i, new ValueAction(Action.Jump, (blockLength+conditionLength)-currentLength+iteratorLength));
@@ -3014,7 +3371,7 @@ public final class ASNode extends Object
         {
             Action currentAction = (Action)blockActions.get(i);
             
-            currentLength += currentAction.length(info.version);
+            currentLength += currentAction.length(info.version, info.encoding);
             
             if (currentAction.type == 256)
                 blockActions.set(i, new ValueAction(Action.Jump, blockLength-currentLength));
@@ -3176,28 +3533,38 @@ public final class ASNode extends Object
                 if (discardValue)
                     addAction(actions, Action.Pop);
                 break;
-            case Literal:
-                if (sValue != null)
-                    if (sValue.equals("null"))
-                        addLiteral(actions, new Null());
-                    else if (sValue.equals("true"))
-                        addLiteral(actions, new Boolean(true));
-                    else if (sValue.equals("false"))
-                        addLiteral(actions, new Boolean(false));
-                    else
-                        addReference(actions, info, sValue);
-                else if (Double.isNaN(dValue) == false)
-                {
-                    int val = (int)dValue;
-                    
-                    if (val == dValue)
-                        addLiteral(actions, new Integer(val));
-                    else
-                        addLiteral(actions, new Double(dValue));
-                }
+            case BooleanLiteral:
+                addLiteral(actions, new Boolean(bValue));
+                
+                if (discardValue)
+                    addAction(actions, Action.Pop);
+                break;
+            case IntegerLiteral:
+                addLiteral(actions, iValue);
+                
+                if (discardValue)
+                    addAction(actions, Action.Pop);
+                break;
+            case DoubleLiteral:
+                int val = (int)dValue;
+                
+                if (val == dValue)
+                    addLiteral(actions, new Integer(val));
                 else
-                    addLiteral(actions, iValue);
-
+                    addLiteral(actions, new Double(dValue));
+                
+                if (discardValue)
+                    addAction(actions, Action.Pop);
+                break;
+            case StringLiteral:
+                addReference(actions, info, sValue);
+                
+                if (discardValue)
+                    addAction(actions, Action.Pop);
+                break;
+            case NullLiteral:
+                addLiteral(actions, new Null());
+                
                 if (discardValue)
                     addAction(actions, Action.Pop);
                 break;
@@ -3304,7 +3671,7 @@ public final class ASNode extends Object
                 children[last].discardValues();
                 children[last].generate(info, functionActions);    
                             
-                actions.add(new NewFunction(sValue, functionArguments, functionActions));
+                actions.add(new NewFunction(sValue, functionArguments, functionActions, info.version, info.encoding));
                 break;
             case DefineMethod:
                 ArrayList methodArguments = new ArrayList();
@@ -3312,14 +3679,22 @@ public final class ASNode extends Object
 
                 if (count() == 2)
                 {
-                    count = children[0].count();
+                    if (children[0].type == List)
+                    {
+                        count = children[0].count();
                     
-                    for (int i=0; i<count; i++)
-                    methodArguments.add(children[0].children[i].sValue);
+                        for (int i=0; i<count; i++)
+                            methodArguments.add(children[0].children[i].sValue);
+                    }
+                    else
+                    {
+                        methodArguments.add(children[0].sValue);
+                    }
                 }
+                children[last].discardValues();
                 children[last].generate(info, methodActions);
                                 
-                actions.add(new NewFunction("", methodArguments, methodActions));
+                actions.add(new NewFunction("", methodArguments, methodActions, info.version, info.encoding));
                 break;
             case DefineAttribute:
                 children[0].generate(info, actions);    
@@ -3409,18 +3784,27 @@ public final class ASNode extends Object
                     addAction(actions, Action.SetVariable);
                 break;
             case Plus:
-                if (children[0].type == Literal)
+                if (children[0].type == BooleanLiteral)
                 {
-                    if (children[0].sValue == null)
-                    {
-                        addLiteral(actions, children[0].iValue);
-                    }
-                    else
-                    {
-                        children[0].generate(info, actions);
-                        addLiteral(actions, 0);
-                        addAction(actions, Action.Add);
-                    }
+                    children[0].generate(info, actions);
+                    addLiteral(actions, 0);
+                    addAction(actions, Action.Add);
+                }
+                else if (children[0].type == IntegerLiteral)
+                {
+                    addLiteral(actions, children[0].iValue);
+                }
+                else if (children[0].type == StringLiteral)
+                {
+                    children[0].generate(info, actions);
+                    addLiteral(actions, 0);
+                    addAction(actions, Action.Add);
+                }
+                else if (children[0].type == NullLiteral)
+                {
+                    children[0].generate(info, actions);
+                    addLiteral(actions, 0);
+                    addAction(actions, Action.Add);
                 }
                 else
                 {
@@ -3430,18 +3814,27 @@ public final class ASNode extends Object
                     addAction(actions, Action.Pop);
                 break;
             case Minus:
-                if (children[0].type == Literal)
+                if (children[0].type == BooleanLiteral)
                 {
-                    if (children[0].sValue == null)
-                    {
-                        addLiteral(actions, -children[0].iValue);
-                    }
-                    else
-                    {
-                        addLiteral(actions, 0);
-                        children[0].generate(info, actions);
-                        addAction(actions, Action.Subtract);
-                    }
+                    addLiteral(actions, 0);
+                    children[0].generate(info, actions);
+                    addAction(actions, Action.Subtract);
+                }
+                else if (children[0].type == IntegerLiteral)
+                {
+                    addLiteral(actions, -children[0].iValue);
+                }
+                else if (children[0].type == StringLiteral)
+                {
+                    addLiteral(actions, 0);
+                    children[0].generate(info, actions);
+                    addAction(actions, Action.Subtract);
+                }
+                else if (children[0].type == NullLiteral)
+                {
+                    addLiteral(actions, 0);
+                    children[0].generate(info, actions);
+                    addAction(actions, Action.Subtract);
                 }
                 else
                 {
@@ -3751,7 +4144,7 @@ public final class ASNode extends Object
                 children[0].generate(info, actions);
                 children[1].generate(info, actions);
 
-                if (children[2].type == Literal && children[2].sValue == null)
+                if (children[2].type == IntegerLiteral && children[2].sValue == null)
                 {
                     int level = 16384;
 
@@ -3776,8 +4169,8 @@ public final class ASNode extends Object
             }
             else if (sValue.equals("fscommand"))
             {
-                boolean isCommandString = children[0].type == Literal &&  children[0].sValue != null;
-                boolean isArgumentString = children[1].type == Literal &&  children[1].sValue != null;
+                boolean isCommandString = children[0].type == StringLiteral &&  children[0].sValue != null;
+                boolean isArgumentString = children[1].type == StringLiteral &&  children[1].sValue != null;
 
                 if (isCommandString && isArgumentString)
                 {
@@ -3822,7 +4215,7 @@ public final class ASNode extends Object
                 switch(count)
                 {
                     case 1:        
-                        if (children[0].type == Literal && children[0].sValue != null)
+                        if (children[0].type == StringLiteral && children[0].sValue != null)
                         {
                             actions.add(new ValueAction(Action.GetUrl, children[0].sValue, ""));
                         }
@@ -3834,7 +4227,7 @@ public final class ASNode extends Object
                         }
                         break;
                     case 2:
-                        if (children[0].type == Literal && children[0].sValue != null && children[1].type == Literal && children[1].sValue != null)
+                        if (children[0].type == StringLiteral && children[0].sValue != null && children[1].type == StringLiteral && children[1].sValue != null)
                         {
                             actions.add(new ValueAction(Action.GetUrl, children[0].sValue, children[1].sValue));
                         }
@@ -3883,14 +4276,14 @@ public final class ASNode extends Object
                     
                     try
                     {
-                        frameNumber = Integer.valueOf(frame).intValue();
+                        frameNumber = Integer.valueOf(frame).intValue()-1;
                     }
                     catch (NumberFormatException e)
                     {
                         
                     }
    
-                    if (frameNumber == 0)
+                    if (frameNumber == 1)
                     {
                         children[index].generate(info, actions);                        
                         actions.add(new ValueAction(Action.GotoFrame2, 1));
@@ -3924,14 +4317,14 @@ public final class ASNode extends Object
                     
                     try
                     {
-                        frameNumber = Integer.valueOf(frame).intValue();
+                        frameNumber = Integer.valueOf(frame).intValue()-1;
                     }
                     catch (NumberFormatException e)
                     {
                         
                     }
    
-                    if (frameNumber == 0)
+                    if (frameNumber == 1)
                     {
                         children[index].generate(info, actions);                        
                         actions.add(new ValueAction(Action.GotoFrame2, 0));
@@ -4053,6 +4446,11 @@ public final class ASNode extends Object
                 addAction(actions, Action.GetVariable);
                 actions.add(new ValueAction(Action.GetUrl2, Action.MovieToLevel));
             }
+            else if (sValue.equals("random"))
+            {
+                children[0].generate(info, actions);
+                addAction(actions, Action.RandomNumber);
+            }
             else if (sValue.equals("removeMovieClip"))
             {
                 for (int i=0; i<count; i++)
@@ -4083,14 +4481,9 @@ public final class ASNode extends Object
                     children[5].generate(info, actions);
                     addLiteral(actions, 1);
                     
-                    if (children[1].getType() == Literal)
+                    if (children[1].getType() == BooleanLiteral)
                     {
-                        String str = children[1].getStringValue();
-                        
-                        if (str != null && str.equals("true"))
-                            addLiteral(actions, 1);
-                        if (str != null && str.equals("false"))
-                            addLiteral(actions, 0);
+                        addLiteral(actions, children[1].bValue ? 1 : 0);
                     }
                     else
                     {
@@ -4100,14 +4493,9 @@ public final class ASNode extends Object
                 else if (count == 2) {
                     addLiteral(actions, 0);
                     
-                    if (children[1].getType() == Literal)
+                    if (children[1].getType() == BooleanLiteral)
                     {
-                        String str = children[1].getStringValue();
-                        
-                        if (str != null && str.equals("true"))
-                            addLiteral(actions, 1);
-                        if (str != null && str.equals("false"))
-                            addLiteral(actions, 0);
+                        addLiteral(actions, children[1].bValue ? 1 : 0);
                     }
                     else
                     {
@@ -4215,6 +4603,12 @@ public final class ASNode extends Object
                 addLiteral(actions, count);
                 addReference(actions, info, name);
                 addAction(actions, Action.ExecuteFunction);
+
+                if (valueFunctions.containsKey(name) == false)
+                {
+                    if (discardValue)
+                        addAction(actions, Action.Pop);
+                }
             }
         }
             
@@ -4311,7 +4705,7 @@ public final class ASNode extends Object
         {
             Action action = (Action) i.next();
                 
-            length += action.length(0);
+            length += action.length(0, "");
         }
         return length;
     }
