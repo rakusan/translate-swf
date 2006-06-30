@@ -302,22 +302,6 @@ public final class ASParser extends Object implements ASParserConstants {
      */
     public ASNode parse(String script) throws ParseException
     {
-        return parse(script, "UTF-8");
-        }
-
-    /**
-     * Parses the ActionScript string, script. Any nested files specified
-     * using #include directives are loaded before the complete script is 
-     * parsed. The filenames and line numbers of #include'd scripts are 
-     * tracked so any syntax errors are reported accurately.
-     * 
-     * @param script a String containing the ActionScript code to parse.
-     * @param encoding the character encoding used in the script.
-     *
-     * @throws ParseException if a parsing error occurs.
-     */
-    public ASNode parse(String script, String encoding) throws ParseException
-    {
         ASNode root = null;
 
         files.clear();
@@ -341,7 +325,7 @@ public final class ASParser extends Object implements ASParserConstants {
 
                 try
                 {
-                    bytes = buffer.toString().getBytes(encoding);
+                    bytes = buffer.toString().getBytes("UTF-8");
                 }
                 catch(Exception e)
                 {
@@ -406,22 +390,6 @@ public final class ASParser extends Object implements ASParserConstants {
      */
     public ASNode parse(File file) throws ParseException
     {
-        return parse(file, "UTF-8");
-    }
-
-    /**
-     * Parses the file containing ActionScript. Any nested files specified
-     * using #include directives are loaded before the complete script is 
-     * parsed. The filenames and line numbers of #include'd scripts are 
-     * tracked so any syntax errors are reported accurately.
-     *
-     * @param file a File containing the ActionScript statements to parse.
-     * @param encoding the character encoding used in the script.
-     *
-     * @throws ParseException if a parsing error occurs.
-     */
-    public ASNode parse(File file, String encoding) throws ParseException
-    {
         ASNode root = null;
 
         try
@@ -431,10 +399,10 @@ public final class ASParser extends Object implements ASParserConstants {
             FileInputStream fileContents = new FileInputStream(file);
             fileContents.read(fileIn);
 
-            String script = new String(fileIn, encoding);
+            String script = new String(fileIn, "UTF-8");
             fileContents.close();
 
-            root = parse(script, encoding);
+            root = parse(script);
         }
         catch (ParseException e)
         {
@@ -2546,6 +2514,75 @@ public final class ASParser extends Object implements ASParserConstants {
     finally { jj_save(21, xla); }
   }
 
+  final private boolean jj_3_19() {
+    if (jj_3R_41()) return true;
+    if (jj_3R_42()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_53() {
+    if (jj_scan_token(78)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_19()) {
+    jj_scanpos = xsp;
+    if (jj_3R_81()) return true;
+    }
+    return false;
+  }
+
+  final private boolean jj_3R_170() {
+    if (jj_3R_77()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_172() {
+    if (jj_3R_41()) return true;
+    if (jj_scan_token(80)) return true;
+    if (jj_3R_48()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_169() {
+    if (jj_3R_172()) return true;
+    Token xsp;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_173()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  final private boolean jj_3R_171() {
+    if (jj_3R_48()) return true;
+    Token xsp;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_174()) { jj_scanpos = xsp; break; }
+    }
+    return false;
+  }
+
+  final private boolean jj_3R_162() {
+    if (jj_scan_token(75)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_169()) jj_scanpos = xsp;
+    if (jj_scan_token(76)) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_163() {
+    if (jj_scan_token(FUNCTION)) return true;
+    if (jj_scan_token(73)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_170()) jj_scanpos = xsp;
+    if (jj_scan_token(74)) return true;
+    if (jj_3R_25()) return true;
+    return false;
+  }
+
   final private boolean jj_3R_84() {
     if (jj_scan_token(78)) return true;
     if (jj_3R_48()) return true;
@@ -3797,75 +3834,6 @@ public final class ASParser extends Object implements ASParserConstants {
   final private boolean jj_3R_76() {
     if (jj_scan_token(78)) return true;
     if (jj_3R_48()) return true;
-    return false;
-  }
-
-  final private boolean jj_3_19() {
-    if (jj_3R_41()) return true;
-    if (jj_3R_42()) return true;
-    return false;
-  }
-
-  final private boolean jj_3R_53() {
-    if (jj_scan_token(78)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_19()) {
-    jj_scanpos = xsp;
-    if (jj_3R_81()) return true;
-    }
-    return false;
-  }
-
-  final private boolean jj_3R_170() {
-    if (jj_3R_77()) return true;
-    return false;
-  }
-
-  final private boolean jj_3R_172() {
-    if (jj_3R_41()) return true;
-    if (jj_scan_token(80)) return true;
-    if (jj_3R_48()) return true;
-    return false;
-  }
-
-  final private boolean jj_3R_169() {
-    if (jj_3R_172()) return true;
-    Token xsp;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_173()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  final private boolean jj_3R_171() {
-    if (jj_3R_48()) return true;
-    Token xsp;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_174()) { jj_scanpos = xsp; break; }
-    }
-    return false;
-  }
-
-  final private boolean jj_3R_162() {
-    if (jj_scan_token(75)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_169()) jj_scanpos = xsp;
-    if (jj_scan_token(76)) return true;
-    return false;
-  }
-
-  final private boolean jj_3R_163() {
-    if (jj_scan_token(FUNCTION)) return true;
-    if (jj_scan_token(73)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_170()) jj_scanpos = xsp;
-    if (jj_scan_token(74)) return true;
-    if (jj_3R_25()) return true;
     return false;
   }
 

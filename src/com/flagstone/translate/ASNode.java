@@ -2295,44 +2295,17 @@ public final class ASNode extends Object
      */ 
     public byte[] encode(int version)
     {
-        return encode(version, "UTF-8");
-    }
-    
-    /**
-     * The encode method 'compiles' the node and all child nodes into an array 
-     * of action objects which represents the sequence of actions performed by the 
-     * Flash Player. The actions are then encoded to generate the binary data that
-     * can be added to an encoded Flash file.
-     *
-     * The version of Flash for which the actions are generated is specified to 
-     * ensure compatibility with future release of Flash.
-     *
-     * IMPORTANT: The programming model changed with Flash version 5 to support
-     * stack-based actions. Earlier versions of Flash are not support. An
-     * IllegalArgumentException will be thrown if the version is earlier than 5.
-     *
-     * @param version the version of Flash that control the actions that are 
-     * generated.
-     * 
-     * @param encoding the character set used to represent the strings parsed
-     * in the script.
-     *
-     * @throws IllegalArgumentException is the version is less than 5.
-     * @return an array of bytes containing encoded action objects.  
-     */ 
-    public byte[] encode(int version, String encoding)
-    {
         int length = 0;
         
         if (version < 5)
             throw new IllegalArgumentException();
 
-        ArrayList array = translate(version, encoding);
+        ArrayList array = translate(version, "UTF-8");
         
         for (Iterator i = array.iterator(); i.hasNext();) 
-            length += ((Coding)i.next()).length(version, encoding);        
+            length += ((Coding)i.next()).length(version, "UTF-8");        
 
-        Coder coder = new Coder(new byte[length], encoding);
+        Coder coder = new Coder(new byte[length], "UTF-8");
                     
         for (Iterator i = array.iterator(); i.hasNext();) 
             ((Coding)i.next()).encode(coder);        

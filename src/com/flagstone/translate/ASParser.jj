@@ -319,22 +319,6 @@ public final class ASParser extends Object
      */
     public ASNode parse(String script) throws ParseException
     {
-        return parse(script, "UTF-8");
-	}
-	
-    /**
-     * Parses the ActionScript string, script. Any nested files specified
-     * using #include directives are loaded before the complete script is 
-     * parsed. The filenames and line numbers of #include'd scripts are 
-     * tracked so any syntax errors are reported accurately.
-     * 
-     * @param script a String containing the ActionScript code to parse.
-     * @param encoding the character encoding used in the script.
-     *
-     * @throws ParseException if a parsing error occurs.
-     */
-    public ASNode parse(String script, String encoding) throws ParseException
-    {
         ASNode root = null;
         
         files.clear();
@@ -358,7 +342,7 @@ public final class ASParser extends Object
             
                 try 
                 { 
-                    bytes = buffer.toString().getBytes(encoding); 
+                    bytes = buffer.toString().getBytes("UTF-8"); 
                 }
                 catch(Exception e) 
                 { 
@@ -423,22 +407,6 @@ public final class ASParser extends Object
      */
     public ASNode parse(File file) throws ParseException
     {
-        return parse(file, "UTF-8");
-    }
-
-    /**
-     * Parses the file containing ActionScript. Any nested files specified
-     * using #include directives are loaded before the complete script is 
-     * parsed. The filenames and line numbers of #include'd scripts are 
-     * tracked so any syntax errors are reported accurately.
-     *
-     * @param file a File containing the ActionScript statements to parse.
-     * @param encoding the character encoding used in the script.
-     *
-     * @throws ParseException if a parsing error occurs.
-     */
-    public ASNode parse(File file, String encoding) throws ParseException
-    {
         ASNode root = null;
         
         try 
@@ -448,10 +416,10 @@ public final class ASParser extends Object
             FileInputStream fileContents = new FileInputStream(file);
             fileContents.read(fileIn);
             
-            String script = new String(fileIn, encoding);
+            String script = new String(fileIn, "UTF-8");
             fileContents.close();
             
-            root = parse(script, encoding);
+            root = parse(script);
         }
         catch (ParseException e)
         {
