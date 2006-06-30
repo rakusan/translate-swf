@@ -215,10 +215,7 @@ public class ASParserTest
             FileOutputStream out = new FileOutputStream(file);
                     
             byte[] data = root.encode(5);
-                    
-            int fileLength = 47 + data.length;
-            int actionLength = data.length + 13;
-
+             
             /*
              * The signature identifies the file as containing Flash 5.
              */
@@ -226,42 +223,52 @@ public class ASParserTest
                     
             for (int i=0; i<signature.length; i++)
                 out.write(signature[i]);
+            
+            /*
+             * The rest of the header sets the frame size to 550 x 400 
+             * pixels, plays at 12 frames per second, contains 1 frame,
+             * sets the background colour to be white and writes out
+             * the first bytes of the DefineButton2 tag.
+             */
+                     
+            int[] header = {                
+                0x78, 0x00, 0x05, 0x5f, 0x00, 0x00, 0x0f, 0xa0,
+                0x00, 0x00, 0x0c, 0x01, 0x00, 0x43, 0x02, 0xff, 
+                0xff, 0xff, 0xbf, 0x00, 0x4d, 0x00, 0x00, 0x00,
+                0x01, 0x00, 0x64, 0x63, 0xb4, 0xcd, 0x21, 0x2e,
+                0x90, 0x01, 0x00, 0x00, 0xcc, 0x66, 0x01, 0x14,
+                0x00, 0x00, 0x33, 0x66, 0x11, 0x35, 0x89, 0x18,
+                0x83, 0x3d, 0x37, 0xf4, 0xd7, 0xd2, 0x70, 0x01,
+                0x4d, 0x27, 0x00, 0x17, 0xf7, 0x28, 0xd3, 0x7f,
+                0x72, 0x90, 0x00, 0xb3, 0xf4, 0x80, 0x0b, 0x3e,
+                0x80, 0xf2, 0x8d, 0x28, 0x0f, 0x29, 0x2d, 0x90,
+                0x01, 0x4a, 0xd9, 0x00, 0x08, 0x0c, 0xd7, 0x52,
+                0x80, 0xcd, 0x78, 0x00, 0x4c, 0x34, 0x80, 0x04,
+                0xc3, 0x7f, 0x4d, 0x70, 0x00, 0xbf, 0x08, 0xfd,
+                0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x0a, 0x00,
+                0x0f, 0x01, 0x00, 0x01, 0x00, 0x00, 0x04, 0x00,
+            };
+                                        
+            int[] placeObject = { 
+                0x8a, 0x06, 0x06, 0x01, 0x00, 0x02, 0x00, 0x1c,
+                0xad, 0x31, 0xd7, 0x80,
+            };
+           
+            int fileLength = 8 + header.length + data.length + placeObject.length + 4;
 
             // Write out length of file
                     
             for (int i=0; i<4; i++, fileLength >>>= 8)
                 out.write(fileLength);
                 
-            /*
-             * The rest of the header sets the frame size to 200 x 200 
-             * pixels, plays at 12 frames per second, contains 1 frame,
-             * sets the background colour to be white and writes out
-             * the first bytes of the DefineButton2 tag.
-             */
-                     
-            int[] header = { 
-                0x68, 0x00, 0x1f, 0x40, 0x00, 0x07, 0xd0, 0x00,
-                0x00, 0x0c, 0x01, 0x00, 0x43, 0x02, 0xff, 0xff,
-                0xff, 0xbf, 0x08, 
-                
-            };
-                    
             for (int i=0; i<header.length; i++)
                 out.write(header[i]);
                         
-            for (int i=0; i<4; i++, actionLength >>>= 8)
-                out.write(actionLength);
-
-            int[] body = { 
-                 0x02, 0x00, 0x00, 0x0A, 0x00, 0x0F, 0x01, 0x00,
-                 0x01, 0x00, 0x00, 0x04, 0x00,
-            };
-            
-            for (int i=0; i<body.length; i++)
-                out.write(body[i]);        
-            
             out.write(data);
                     
+            for (int i=0; i<placeObject.length; i++)
+                out.write(placeObject[i]);
+                        
             // ShowFrame
                     
             out.write(64);
@@ -291,10 +298,7 @@ public class ASParserTest
             FileOutputStream out = new FileOutputStream(file);
                     
             byte[] data = root.encode(5);
-                    
-            int fileLength = 38 + data.length;
-            int actionLength = data.length + 7;
-
+            
             /*
              * The signature identifies the file as containing Flash 5.
              */
@@ -303,11 +307,6 @@ public class ASParserTest
             for (int i=0; i<signature.length; i++)
                 out.write(signature[i]);
 
-            // Write out length of file
-                    
-            for (int i=0; i<4; i++, fileLength >>>= 8)
-                out.write(fileLength);
-                
             /*
              * The rest of the header sets the frame size to 200 x 200 
              * pixels, plays at 12 frames per second, contains 1 frame,
@@ -318,28 +317,41 @@ public class ASParserTest
             int[] header = { 
                 0x68, 0x00, 0x1f, 0x40, 0x00, 0x07, 0xd0, 0x00,
                 0x00, 0x0c, 0x01, 0x00, 0x43, 0x02, 0xff, 0xff,
-                0xff, 0xbf, 0x06, 
-                
+                0xff, 0xbf, 0x00, 0x24, 0x00, 0x00, 0x00, 0x01,
+                0x00, 0x5d, 0x93, 0x4d, 0xba, 0xd0, 0xa6, 0x80,
+                0x01, 0x00, 0xff, 0xff, 0xff, 0x01, 0x14, 0x00,
+                0x00, 0x00, 0x00, 0x11, 0x35, 0x69, 0x8c, 0xa1,
+                0xfd, 0x16, 0x75, 0xcb, 0x5e, 0xfa, 0x13, 0x1b,
+                0x95, 0x42, 0x80, 0xff, 0x09, 0x10, 0x00, 0x00,
+                0x00, 0x02, 0x00, 0x01, 0x00, 0x86, 0x06, 0x06,
+                0x01, 0x00, 0x01, 0x00, 0x00, 0x40, 0x00, 0x00,
+                0x00, 0xbf, 0x06,                
             };
                     
+            int[] body = { 
+                0x86, 0x01, 0x00, 0x02, 0x00, 0x18, 0xdf, 0x4a, 
+                0xcc,
+            };
+           
+            int actionLength = body.length + data.length;
+            int fileLength = 8 + header.length + 4 + actionLength + 4;
+
+            // Write out length of file
+                    
+            for (int i=0; i<4; i++, fileLength >>>= 8)
+                out.write(fileLength);
+                
             for (int i=0; i<header.length; i++)
                 out.write(header[i]);
                         
             for (int i=0; i<4; i++, actionLength >>>= 8)
                 out.write(actionLength);
 
-            int[] body = { 
-                 0x82, 0x01, 0x00, 0x01, 0x00, 
-            };
-            
             for (int i=0; i<body.length; i++)
                 out.write(body[i]);        
             
             out.write(data);
                     
-            out.write(0);
-            out.write(0);
-
             // ShowFrame
                     
             out.write(64);
