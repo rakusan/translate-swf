@@ -13,11 +13,8 @@ Bug Fixes
     String literals are now encoded correctly.
  
 Class Changes 
-    The encoding for characters sets can now be specified.
+    The ASNode type Literal is split for different types of literal.
   
-Package Changes 
-    
- 
 -------------
   Bug Fixes  
 -------------
@@ -37,7 +34,6 @@ var obj = new Object();
 
 obj.foo++;
 ++obj.foo;
-
 
 3. Arguments for anonymous functions are now supported.
 
@@ -76,24 +72,10 @@ can now be used in string literals and identifier.
   Class Changes  
 -----------------
 
-1. The encoding for characters sets can now be specified.
+1. The ASNode type Literal is split for different types of literal.
 
-The following methods:
-
-    ASParser.java
-        public ASNode parse(String script, String encoding) throws ParseException;
-        public ASNode parse(File file, String encoding) throws ParseException;
-
-    ASNode.java
-        public byte[] encode(int version, String encoding);
-
-
-were added to allow the character encoding used in the actionscript code to be 
-specified. Previously releases assumed that all scripts were encoded as UTF-8.
-
-
--------------------
-  Package Changes  
--------------------
-
+Literal was divided into BooleanLiteral, IntegerLiteral, DoubleLiteral, 
+StringLiteral and NullLiteral. This simplified enormously the handling of 
+expressions with only literal values, enabling '1 + 2' to be replaced with the 
+value '3'.
 

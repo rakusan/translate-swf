@@ -1,5 +1,10 @@
 2006-06-20 - smackay@flagstonesoftware.com
 
+    * Backed out the support for different character sets. UTF-8 covers 
+      everything needed for now.
+      
+2006-06-20 - smackay@flagstonesoftware.com
+
     * Updated test suites for recently added features.
     * Updated test suites to handle character set tests.
 
