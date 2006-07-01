@@ -14,7 +14,7 @@
 
     <property file="license.properties"/>
 
-    <property name="dist.name" value="${package.name}-${version}"/>
+    <property name="dist.name" value="${package.name}-as1-${version}"/>
 
     <property name="dist.root.dir" location="dist"/>
     <property name="dist.dir" value="${dist.root.dir}/${dist.name}"/>
