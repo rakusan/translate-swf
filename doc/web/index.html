@@ -1,121 +1,0 @@
-<html><head><meta http-equiv=content-type content="text/html;  charset=ISO-8859-1"><title>Flagstone Software :: Translate Overview</title><link rel="stylesheet" type="text/css" href="/flagstone.css"><script language="JavaScript" src="/js/imageload.js"></script><script language="JavaScript" src="/js/imageswap.js"></script></head><body><script type='text/javascript'>function Go(){return}</script><script type="text/javascript" src="/js/menu_var.js"></script><script type="text/javascript" src="/js/menu_com.js"></script><noscript>Your browser does not support script</noscript><div class="page"><div class="header"><img src="/images/flagstone_header.gif" alt="Flagstone Software" width=760 height=77><table cellpadding="0" cellspacing="0" border="0" class="sitemenu"><tr><td width=150 bgcolor="#9A1F31"><a href="/index.html" onmouseover="imageSwap('home', 'homeOn');" onmouseout="imageSwap('home', 'homeOff');"><img src="/images/home_off.gif" alt="[Home]" width=77 height=29 border=0 name="home"></a></td><td width=29><img src="/images/diagonal_divider.gif" alt="" width=29 height=29></td><td bgcolor="#C43F52"><div id='MenuPos' style='position:left; width:440; height:27;'><img src='/images/spacer.gif' width='440' height='27'></div></td><td bgcolor="#C43F52"><img src='/images/spacer.gif' width='141' height='27'></td></tr></table></div><div class="content">
-
-<h1>Translate AS1</h1>
-
-<div class="sidenav">
-<img src="/images/javanet_button_90.gif"><br />
-<img src="/images/spacer" width="1" height="5"><br />
-<a href="http://sourceforge.net"><IMG src="http://sourceforge.net/sflogo.php?group_id=123003&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a><br/>
-<img src="/images/spacer" width="1" height="5"><br />
-<a href="whatsnew.html">What's New</a><br />
-<a href="roadmap.html">Road Map</a><br />
-<a href="issues.html">Issues &amp; Bugs</a><br />
-<a href="/examples.html#translate">Example Code</a><br />
-</div>
-
-<p>Translate AS1 is a compiler for Macromedia's ActionScript language. Scripts 
-are compiled to generate the binary encoded actions and byte-codes that are 
-executed by the Flash Player when a frame is displayed; a button is clicked or 
-when a movie clip responds to a mouse or keyboard event. The code can be added 
-to the objects in the Transform SWF framework or integrated with a third-party 
-Flash library.</p>
-
-<P>Translate AS1 greatly reduces the level of effort required to implement 
-complex behaviours when implementing Flash files. Rather than generating 
-individual action objects programmatically high-level ActionScript can be used - 
-boosting productivity and reducing errors.</P>
-
-<h2>Features</h2>
-
-<ul>
-<li>Supports ActionScript 1.x.</li>
-<li>Create scripts for keyboard or mouse events to control movies and movie clips.</li>
-<li>Program on-screen buttons to implement complex application behaviour.</li>
-<li>Generates binary encoded actions which can be integrated with any Flash library.</li>
-<li>The simple API is easy to use and integrate into applications.</li>
-<li>Full syntax checking and accurate error reporting.</li>
-<li>Support for preprocessor directives to allow conditional compilation.</li>
-<li>Java 2 Standard Edition code easily integrates with web application servers.</li> 
-<li>Frameworks are available with <strong>Open Source</strong> licensing.</li>
-</ul>
-
-<P>Translate AS1 is currently supports ActionScript 1.x. Support for 
-ActionScript 2.0 is planned for later in the year.</P>
-
-<div class="underline"></div>
-
-<h2>Examples</h2>
-
-<p>All of the classes in the Transform SWF framework which accepts actions, 
-FSDoAction, FSDefineButton, etc. have methods that allow the compiled scripts 
-to be easily added to a movie.</P> 
-
-<pre>
-	String script = "a = b + c;"
-	int swfVersion = 5;
-	 
-	ASParser parser = new ASParser();
-	ASNode root = parser.parse(script);
-	byte[] compiledScript = root.encode(swfVersion);
-	
-	FSDoAction frameActions = new FSDoAction(compiledScript);
-	 
-	movie.add(frameActions);
-</pre>
-
-<p>Compiling scripts stored in files is easily performed using the 
-ActionScript directive #include. For example the file, script.as, 
-contains the following ActionScript statements.</p>
-
-<pre>
-    onClipEvent(mouseDown)
-    {
-        startDrag();
-    }
-    onClipEvent(mouseUp)
-    {
-        stopDrag();
-    }
-</pre>
-
-<p>#include directives may nested to any depth allowing libraries of 
-scripts to be created.</p>
-
-<pre>
-    String script = "#include script.as";
-
-    ASParser parser = new ASParser();
-    ASNode root = parser.parse(script);
-    byte[] compiledScript = root.encode(swfVersion);
-</pre>
-
-<p>Scripts can also be created by building trees of ASNodes, providing
-an alternative to dynamically generating scripts compared to processing
-strings.</P>
-
-<pre>
-    ASNode a = new ASNode(ASNode.Identifier, "a");
-    ASNode b = new ASNode(ASNode.Identifier, "b");
-    ASNode c = new ASNode(ASNode.Identifier, "c");
- 
-    ASNode add = new ASNode(ASNode.Add, a, b);
-    ASNode assign = new ASNode(a, add);
-</pre>
-
-<P>All of these examples are trivial to illustrate how the parser is used to 
-compile scripts and add them to a movie. ActionScript is a fully featured 
-programming language supporting classes and inheritance so extremely complex
-behaviours can be created for movies - allowing full featured applications 
-to be created using Flash.</p>
-
-<div class="underline"></div>
-
-<h2>Licensing</h2>
-
-<p>Translate AS1 is avialable with a dual license. The framework is covered 
-by the <a href="/licences/gpl.html">GNU General Public License</a> which allows
-free access to the source code. For commercial software development the software 
-is also offered with the <a href="/licences/flagstone.html">Flagstone Software 
-License</a> which allows you to distribute applications which make use of the 
-framework in binary form, without also releasing the source code.</p>
-</div><div class="footer">Copyright 2001-2005, Flagstone Software. All rights reserved. Please read our <a href="/privacy.html">Privacy Policy</a> and <a href="/legal.html">Legal Notices</a>.</div></div></body></html>
