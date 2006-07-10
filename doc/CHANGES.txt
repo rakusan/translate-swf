@@ -1,3 +1,15 @@
+2006-07-20 - smackay@flagstonesoftware.com
+
+    * Ant build file, build.xml now rebuilds the project after regenerating the 
+      parser from the grammar file and so ensure the code has the lastest 
+      grammar changes.
+      
+    * User-defined finctions now generate arguments in the correct order.
+    
+2006-06-30 - smackay@flagstonesoftware.com
+
+    * Released version 2.0.3
+      
 2006-06-20 - smackay@flagstonesoftware.com
 
     * Backed out the support for different character sets. UTF-8 covers 
