@@ -4570,7 +4570,7 @@ public final class ASNode extends Object
             }
             else
             {
-                for (int i=0; i<count; i++)
+                for (int i=count-1; i>=0; i--)
                     children[i].generate(info, actions);
 
                 addLiteral(actions, count);
