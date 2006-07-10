@@ -73,7 +73,9 @@
             outputdirectory="${src.dir}/${package.dir}"
             javacchome="${lib.dir}"
             static="false"
-        />    
+        />
+        
+        <antcall target="classes"/>
             
     </target>
 
