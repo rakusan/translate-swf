@@ -30,7 +30,7 @@
 <div class="content">
 <H1>Translate AS1: Known Issues &amp; Bugs</H1>
 
-<P>Version:2.0.2<br/>Updated:28th June 2006</P>
+<P>Version:2.0.3<br/>Updated:17th September 2006</P>
 
 <TABLE width="100%">
 
@@ -43,11 +43,19 @@
 </THEAD>
 
 <TBODY>
+
 <TR>
-<TD>1. Newline does not delimit statements</TD>
+<TD>1. Newline does not delimit statements.</TD>
 <TD>Open</TD>
 <TD>Open</TD>
 </TR>
+
+<TR>
+<TD>2. updateAfterEvent() cannot be called with no arguments.</TD>
+<TD>Open</TD>
+<TD>2.0.4</TD>
+</TR>
+
 </TBODY>
 </TABLE>
 
@@ -150,6 +158,35 @@ not affected.</P>
 <P>This is a tough one to fix. Several different ways of preprocessing the 
 script to replace line-breaks with semi-colons have been examined. None gave 
 simple or consistent results.</P>
+
+<div class="hr"><hr/></div>
+
+<H3>1. updateAfterEvent() cannot be called with no arguments.</H3>
+
+<P>The built-in function, updateAfterEvent() cannot be used without passing an
+argument. This is not correct.
+
+<H4>Root Cause</H4>
+
+<P>Translate performs some checking on the built-in Actionscript functions to 
+ensure that they are being called correctly. The code is checking to see that
+updateAfterEvent() is called with only one argument.</P>
+
+<H4>Workaround</H4>
+
+<P>Comment out (or delete) lines 4975-4980 in ASNode.java:
+
+<pre>
+//    else if (sValue.equals("updateAfterEvent"))
+//    {
+//        if (count != 1)
+//            reportError("IncorrectArgumentCount", number);
+//    }
+</pre>
+
+<H4>When will it be fixed?</H4>
+
+<P>This error will be fixed in the next release due out at the end of September.</P>
 
 <br/>
 

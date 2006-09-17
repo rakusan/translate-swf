@@ -5,38 +5,34 @@
 This release contains updates to the ActionScript grammar.
 
 Actionscript Fixes     
-    Add support for the #initclip directive.
-    Add #define, #ifdef compiler directives.
- 
+    None
+     
 Bug Fixes     
-    None scheduled
+    updateAfterEvent() can now be called with no arguments.
  
 Class Changes 
-    None scheduled
+    None
   
 Testing Changes 
-    None scheduled
+    None
 
 Package Changes 
-    None scheduled
+    None
 
 
 ------------------------
   Actionscript Changes  
 ------------------------
 
-1. Add support for the #initclip directive.
-
-The #initclip directive is used to initialize components.
-
-2. Add #define, #ifdef compiler directives.
-
-Although not part of the Actionscript language compiler directives such as 
-#define and #ifdef are extremely useful when dynamically generating Flash files.
-
 -------------
   Bug Fixes  
 -------------
+
+1. updateAfterEvent() can now be called with no arguments.
+
+The built-in Actionscript function, updateAfterEvent() was validated to ensure 
+that it was being called with one argument. The validation check was removed so
+the function can be correctly used with no arguments.
 
 -----------------
   Class Changes  
