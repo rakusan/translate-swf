@@ -4972,11 +4972,6 @@ public final class ASNode extends Object
                     if (count != 1)
                         reportError("IncorrectArgumentCount", number);
                 }
-                else if (sValue.equals("updateAfterEvent"))
-                {
-                    if (count != 1)
-                        reportError("IncorrectArgumentCount", number);
-                }
                 else if (sValue.equals("void"))
                 {
                     if (count != 1)
