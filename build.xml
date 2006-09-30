@@ -75,8 +75,6 @@
             static="false"
         />
         
-        <antcall target="classes"/>
-            
     </target>
 
     <target name="classes" description="Compile the classes">
