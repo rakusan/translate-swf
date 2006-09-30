@@ -332,12 +332,6 @@ public final class ASParser extends Object
                 StringBuffer buffer = new StringBuffer();
                 byte[] bytes = null;
             
-                script = script.replaceAll("\\\\n", "\n");
-                script = script.replaceAll("\\\\t", "\t");
-                script = script.replaceAll("\\\\b", "\b");
-                script = script.replaceAll("\\\\r", "\r");
-                script = script.replaceAll("\\\\f", "\f");
-
                 processDirectives("", script, buffer);
             
                 try 
