@@ -30,7 +30,7 @@
 <div class="content">
 <H1>Translate AS1: Known Issues &amp; Bugs</H1>
 
-<P>Version:2.0.3<br/>Updated:17th September 2006</P>
+<P>Version:2.0.3<br/>Updated:1st October 2006</P>
 
 <TABLE width="100%">
 
@@ -52,6 +52,12 @@
 
 <TR>
 <TD>2. updateAfterEvent() cannot be called with no arguments.</TD>
+<TD>Open</TD>
+<TD>2.0.4</TD>
+</TR>
+
+<TR>
+<TD>3. duplicate definitions in event handlers.</TD>
 <TD>Open</TD>
 <TD>2.0.4</TD>
 </TR>
@@ -161,7 +167,7 @@ simple or consistent results.</P>
 
 <div class="hr"><hr/></div>
 
-<H3>1. updateAfterEvent() cannot be called with no arguments.</H3>
+<H3>2. updateAfterEvent() cannot be called with no arguments.</H3>
 
 <P>The built-in function, updateAfterEvent() cannot be used without passing an
 argument. This is not correct.
@@ -186,7 +192,50 @@ updateAfterEvent() is called with only one argument.</P>
 
 <H4>When will it be fixed?</H4>
 
-<P>This error will be fixed in the next release due out at the end of September.</P>
+<P>This error will be fixed in the next release due out at the end of October.</P>
+
+<div class="hr"><hr/></div>
+
+<H3>3. duplicate definitions in event handlers.</H3>
+
+<P>When compiling the code for button and movie clip event handlers:
+
+<pre>
+    on(mouseDown)
+    {
+        function fn(x) {
+           return getPropery(x)+1;
+        }
+        
+        xLocation = fn("_x");
+    }
+    
+    on (mouseUp)
+    {
+    	yLocation = _y + 1;
+    }  
+</pre>
+
+<P>the definitions for functions and the table of strings defined in the handler
+for mouseDown events will be repeated in the definition of the event handler 
+for mouseUp events even though they are not used.</P>
+
+<H4>Root Cause</H4>
+
+<P>The root cause is a failure to empty the table of defined strings and 
+function each time the code for an event handler is compiled.</P>
+
+<H4>Workaround</H4>
+
+<P>There is no simple workaround. The affect is only to increase the size of the
+compiled code by including unused strings and funciton definitions. In an event 
+handler, any function or string with the same name will simply overwrite the 
+previous entry in the table so the code will be unaffected by any existing
+entries.</P>
+
+<H4>When will it be fixed?</H4>
+
+<P>A fix is planned for release 2.0.4 due at the end of October 2006.</P>
 
 <br/>
 
