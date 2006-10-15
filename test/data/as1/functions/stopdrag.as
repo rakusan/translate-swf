@@ -1,0 +1,3 @@
+// stopDrag function
+ 
+stopDrag();

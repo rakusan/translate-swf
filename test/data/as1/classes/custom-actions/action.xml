@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<customactions>
+	<actionspanel>
+		<folder version="7" id="Action" index="true" name=Action" tiptext="Custom Action">
+			<string 
+			    version="7" 
+			    id="getFleas" 
+			    name="execute" 
+			    tiptext="executes the action" 
+			    text=".execute(% action %)" />
+		</folder>
+	</actionspanel>
+	
+	<colorsyntax>
+		<identifier text=".execute" />
+	</colorsyntax>
+	
+	<codehints>
+		<typeinfo pattern="*_action" object="Action"/>
+	</codehints>
+</customactions>

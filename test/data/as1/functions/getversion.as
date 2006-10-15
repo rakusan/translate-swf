@@ -1,0 +1,3 @@
+// simple expression
+
+version = getVersion();
