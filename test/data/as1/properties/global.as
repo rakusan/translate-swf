@@ -23,4 +23,4 @@ _quality = "BEST";
 
 _global.increment = function (x) {
     return x+1;
-}
+};
