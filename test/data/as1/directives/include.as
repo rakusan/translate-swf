@@ -1,3 +1,2 @@
-#include "script.txt"
-#include "/path/to/script.txt"
-#include "C:/path/to/script.txt"
+#include "test/data/as1/directives/script.txt"
+#include "./test/data/as1/directives/script.txt"
