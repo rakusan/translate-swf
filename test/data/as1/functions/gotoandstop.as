@@ -5,3 +5,4 @@ gotoAndStop(a);
 
 gotoAndStop("Scene1", 1);
 gotoAndStop("Scene1", a);
+

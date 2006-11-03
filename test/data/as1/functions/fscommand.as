@@ -28,4 +28,4 @@ fscommand("trapallkeys", true);
     }
 */
 
-fscommand("alert", "This message sent from within Flash.")
+fscommand("alert", "This message sent from within Flash.");

@@ -1,11 +1,11 @@
 // IfFrameLoaded function
 
-ifFrameLoaded("frame") 
+ifFrameLoaded(frame) 
 {
    trace("Frame loaded");
 }
 
-ifFrameLoaded("scene", 1) 
+ifFrameLoaded(scene, frame) 
 {
    trace("Frame loaded");
 }

@@ -6,10 +6,3 @@ getProperty(_root, _xmouse);
 
 getProperty(clip, _x);
 
-// get object property
-
-a = new Object();
-a.attribute = "a";
-
-getProperty(a, attribute);
-
