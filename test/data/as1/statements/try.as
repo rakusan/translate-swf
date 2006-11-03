@@ -14,7 +14,7 @@ try
 {
     checkAddress(url);
 }
-catch (Error e)
+catch (e)
 {
     e.toString();
 }
