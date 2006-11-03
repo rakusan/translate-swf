@@ -9,9 +9,9 @@ x = a != b;
 x = a != null;
 x = a != b != c;
 
-x = a <> b;
-x = a <> null;
-x = a <> b <> c;
+// TODO x = a <> b;
+// TODO x = a <> null;
+// TODO x = a <> b <> c;
 
 // discard unused values
 
@@ -19,13 +19,13 @@ a = 0;
 b = 1;
 
 a != b;
-a <> b;
+// TODO a <> b;
 
 // literals
 
 x = 1 != 2;
 x = true != false;
 
-x = 1 <> 2;
-x = true <> false;
+// TODO x = 1 <> 2;
+// TODO x = true <> false;
 
