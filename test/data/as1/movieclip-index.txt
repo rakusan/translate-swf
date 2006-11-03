@@ -1,0 +1,11 @@
+//#include "directives/initclip.as"
+
+//#include "objects/movieclip/drawing.as"
+//#include "objects/movieclip/event-handlers.as"
+//#include "objects/movieclip/events.as"
+//#include "objects/movieclip/functions.as"
+//#include "objects/movieclip/methods.as"
+//#include "objects/movieclip/properties.as"
+
+//#include "objects/movieclip/onclipevent.as"
+
