@@ -6,7 +6,7 @@ mics = Microphone.names;               // list of installed mics
 index = Microphone.index;              // index in Microphone.names
 name = Microphone.name;                // name of mic
 
-isActive = Microphone.muted:           // is mic enabled
+isActive = Microphone.muted;           // is mic enabled
 
 rate = Microphone.rate;                // current sampling rate in KHz
 

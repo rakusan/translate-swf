@@ -7,7 +7,7 @@ videoScreen.attachVideo(camera);
 camera.onActivity = function(mode)
 {
     trace(mode);
-}
+};
 
 camera.onStatus = function(status) 
 {
@@ -15,4 +15,4 @@ camera.onStatus = function(status)
    {
        trace("Camera not available");
    }
-}
+};

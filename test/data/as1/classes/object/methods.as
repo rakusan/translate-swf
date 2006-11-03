@@ -5,12 +5,12 @@ function Ship(name)
     this.setCrew = function(crew)
     {
         this.crew = crew;
-    }
+    };
 
-    this.toString()
+    this.toString = function()
     {
-        return "Name: "+this.name+";
-    }
+        return "Name: "+this.name;
+    };
 
     this.name = name;
 }
@@ -27,11 +27,11 @@ function writeStory(author)
 {
     if (author == "Conan Doyle")
     {
-         trace("Mystery"):
+         trace("Mystery");
     }
 }
 
-a.watch("crew", writeStory, "Conan Doyle"):
+a.watch("crew", writeStory, "Conan Doyle");
 
 a.setCrew(null);
 

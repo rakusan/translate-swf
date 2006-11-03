@@ -1,0 +1,4 @@
+// Methods
+
+depth = button.getDepth();
+	

@@ -2,7 +2,7 @@
 
 clip.createTextField("title", this.getNextHighestDepth(), 100, 100, 250, 25);
 
-title._alpha = 50;.
+title._alpha = 50;
 title.autoSize = true;
 title.background = true;
 title.backgroundColor = 0xFFFFFF;

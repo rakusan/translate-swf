@@ -156,8 +156,8 @@ a.sortOn("age", Array.DESCENDING);
 a.sortOn("name", 4);
 a.sortOn("name", Array.UNIQUE);
 
-a.sortOn(["name, "age"], 2 | 16);
-a.sortOn(["name, "age"], Array.DESCENDING | Array.NUMERIC);
+a.sortOn(["name", "age"], 2 | 16);
+a.sortOn(["name", "age"], Array.DESCENDING | Array.NUMERIC);
 
 
 /*

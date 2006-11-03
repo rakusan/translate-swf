@@ -1,6 +1,6 @@
 // event handler for menu items
 
-function handler(obj, item) 
+function handler(obj, item)
 {
 	trace(item.caption);
 }

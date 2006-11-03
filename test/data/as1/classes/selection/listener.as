@@ -4,10 +4,10 @@
 
 listener = new Object();
 
-listener.onSetFocus = function(old, new) 
+listener.onSetFocus = function(previous, next) 
 {
-    old.border = false;
-    new.border = true;
+    previous.border = false;
+    next.border = true;
 };
 
 Selection.addListener(listener);

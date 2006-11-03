@@ -6,7 +6,7 @@ cameras = Camera.names;            // list of installed cameras
 index = Camera.index;              // index in Camera.names
 name = Camera.name;                // name of camera
 
-isActive = Camera.muted:           // is camera enabled
+isActive = Camera.muted;           // is camera enabled
 
 rate = Camera.currentFps;          // current frame rate
 maxRate = Camera.fps;              // maximum frame rate possible

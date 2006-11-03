@@ -33,4 +33,4 @@ stream.onStatus = function(info)
 	        trace("Cannot find file to play");
 	    }
 	}
-}
+};

@@ -18,4 +18,4 @@ share.onStatus = function(info)
 	        trace("Cannot write shared object");
 	    }
 	}
-}
+};

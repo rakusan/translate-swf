@@ -1,10 +1,10 @@
 // context menu items
 
-separatorBefore = new ContextMenuItem("Cut", menuHandler, true));
+separatorBefore = new ContextMenuItem("Cut", menuHandler, true);
 
-enabled = new ContextMenuItem("Copy", menuHandler, false, true));
+enabled = new ContextMenuItem("Copy", menuHandler, false, true);
 
-visible = new ContextMenuItem("Paste", menuHandler, false, true, false));
+visible = new ContextMenuItem("Paste", menuHandler, false, true, false);
 
 // copy a menu item
 

@@ -16,6 +16,8 @@ receiver.connect("conection");
 
 sender = new LocalConnection();
 
+// TODO
+/*
 sender.onStatus = function(status) 
 {
     switch (status.level) 
@@ -28,6 +30,7 @@ sender.onStatus = function(status)
             break;
     }
 };
+*/
 
 sender.send("connection", "methodToExecute", 5, 7);
 

@@ -7,7 +7,7 @@ soundClip.attachAudio(mic);
 mic.onActivity = function(mode)
 {
     trace(mode);
-}
+};
 
 mic.onStatus = function(status) 
 {
@@ -15,4 +15,4 @@ mic.onStatus = function(status)
    {
        trace("Microphone not available");
    }
-}
+};

@@ -12,32 +12,32 @@ function Ship(name)
     this.getName = function()
     {
         return this.name;
-    }
+    };
     
     this.getCaptain = function()
     {
         return this.captain;
-    }
+    };
     
     this.setCaptain = function(name)
     {
         this.captain = name;
-    }
+    };
     
     this.getCrew = function()
     {
         return this.crew;
-    }
+    };
     
     this.setCrew = function(crew)
     {
         this.crew = crew;
-    }
+    };
     
-    this.toString()
+    this.toString = function()
     {
         return "Name: "+this.name+"; Captain: "+captain;
-    }
+    };
     
     this.name = name;
     this.addProperty("name", this.getName, null);

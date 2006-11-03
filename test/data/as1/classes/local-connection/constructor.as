@@ -7,7 +7,7 @@ conn = new LocalConnection();
 conn.allowDomain = function(domain)
 {
     return(doman=="flagstonesoftware.com");
-}
+};
 
 
 // allow domains to create connections - flash 7
@@ -20,7 +20,7 @@ conn.allowDomain = function(domain)
     allowed = allowed || domain == "store.flagstonesoftware.com";
     
     return (allowed);
-}
+};
 
 
 // allow insecure domains to create connections - flash 7
@@ -33,4 +33,4 @@ conn.allowInsecureDomain = function(domain)
     allowed = allowed || domain == "www.sourceforge.net";
     
     return (allowed);
-}
+};

@@ -1,15 +1,16 @@
 /*
  * Sound object event handlers
-
+ */
+ 
 snd = new Sound();
 
 snd.onID3 = function() 
 {
     trace("onID3 event");
     
-    for (var prop in this.id3) 
+    for (prop in this.id3) 
     {
-        trace(prop + " = " + this.id3[prop]);
+         trace(prop + " = " + this.id3[prop]);
     }
 };
 
