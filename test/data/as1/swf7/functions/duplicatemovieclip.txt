@@ -1,0 +1,211 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 246;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 211;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 110;
+					variableCount = 7;
+					strings = Array {
+						[0] = "this";
+						[1] = "getNextHighestDepth";
+						[2] = "clip";
+						[3] = "createEmptyMovieClip";
+						[4] = "http://www.flagstonesoftware.com/clip.swf";
+						[5] = "loadMovie";
+						[6] = "copy";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[2] = GetVariable {
+					type = 28;
+				};
+				[3] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[4] = ExecuteMethod {
+					type = 82;
+				};
+				[5] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[6] = GetVariable {
+					type = 28;
+				};
+				[7] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[8] = ExecuteMethod {
+					type = 82;
+				};
+				[9] = Pop {
+					type = 23;
+				};
+				[10] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 4;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[11] = GetVariable {
+					type = 28;
+				};
+				[12] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[13] = ExecuteMethod {
+					type = 82;
+				};
+				[14] = Pop {
+					type = 23;
+				};
+				[15] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[16] = GetVariable {
+					type = 28;
+				};
+				[17] = Push {
+					type = 150;
+					length = 18;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 6;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 16384;
+						};
+						[2] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[3] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[18] = GetVariable {
+					type = 28;
+				};
+				[19] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[20] = ExecuteMethod {
+					type = 82;
+				};
+				[21] = Add {
+					type = 71;
+				};
+				[22] = CloneSprite {
+					type = 36;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

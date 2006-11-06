@@ -1,0 +1,271 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 166;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 131;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 19;
+					variableCount = 5;
+					strings = Array {
+						[0] = "a";
+						[1] = "b";
+						[2] = "x";
+						[3] = "more";
+						[4] = " less";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[2] = SetVariable {
+					type = 29;
+				};
+				[3] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+					};
+				};
+				[4] = SetVariable {
+					type = 29;
+				};
+				[5] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[6] = GetVariable {
+					type = 28;
+				};
+				[7] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[8] = GetVariable {
+					type = 28;
+				};
+				[9] = GreaterThan {
+					type = 103;
+				};
+				[10] = SetVariable {
+					type = 29;
+				};
+				[11] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[12] = SetVariable {
+					type = 29;
+				};
+				[13] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 4;
+						};
+					};
+				};
+				[14] = SetVariable {
+					type = 29;
+				};
+				[15] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[16] = GetVariable {
+					type = 28;
+				};
+				[17] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[18] = GetVariable {
+					type = 28;
+				};
+				[19] = GreaterThan {
+					type = 103;
+				};
+				[20] = SetVariable {
+					type = 29;
+				};
+				[21] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[22] = GetVariable {
+					type = 28;
+				};
+				[23] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[24] = GetVariable {
+					type = 28;
+				};
+				[25] = GreaterThan {
+					type = 103;
+				};
+				[26] = Pop {
+					type = 23;
+				};
+				[27] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[28] = SetVariable {
+					type = 29;
+				};
+				[29] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[30] = SetVariable {
+					type = 29;
+				};
+				[31] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[32] = SetVariable {
+					type = 29;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

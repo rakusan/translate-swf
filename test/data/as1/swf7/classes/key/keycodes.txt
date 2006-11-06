@@ -1,0 +1,270 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 198;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 163;
+			actions = Array {
+				[0] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 8;
+						};
+					};
+				};
+				[1] = Pop {
+					type = 23;
+				};
+				[2] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 20;
+						};
+					};
+				};
+				[3] = Pop {
+					type = 23;
+				};
+				[4] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 17;
+						};
+					};
+				};
+				[5] = Pop {
+					type = 23;
+				};
+				[6] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 46;
+						};
+					};
+				};
+				[7] = Pop {
+					type = 23;
+				};
+				[8] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 40;
+						};
+					};
+				};
+				[9] = Pop {
+					type = 23;
+				};
+				[10] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 35;
+						};
+					};
+				};
+				[11] = Pop {
+					type = 23;
+				};
+				[12] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 13;
+						};
+					};
+				};
+				[13] = Pop {
+					type = 23;
+				};
+				[14] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 27;
+						};
+					};
+				};
+				[15] = Pop {
+					type = 23;
+				};
+				[16] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 36;
+						};
+					};
+				};
+				[17] = Pop {
+					type = 23;
+				};
+				[18] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 45;
+						};
+					};
+				};
+				[19] = Pop {
+					type = 23;
+				};
+				[20] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 37;
+						};
+					};
+				};
+				[21] = Pop {
+					type = 23;
+				};
+				[22] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 34;
+						};
+					};
+				};
+				[23] = Pop {
+					type = 23;
+				};
+				[24] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 33;
+						};
+					};
+				};
+				[25] = Pop {
+					type = 23;
+				};
+				[26] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 39;
+						};
+					};
+				};
+				[27] = Pop {
+					type = 23;
+				};
+				[28] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 16;
+						};
+					};
+				};
+				[29] = Pop {
+					type = 23;
+				};
+				[30] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 32;
+						};
+					};
+				};
+				[31] = Pop {
+					type = 23;
+				};
+				[32] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 9;
+						};
+					};
+				};
+				[33] = Pop {
+					type = 23;
+				};
+				[34] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 38;
+						};
+					};
+				};
+				[35] = Pop {
+					type = 23;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

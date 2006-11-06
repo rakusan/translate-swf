@@ -1,0 +1,286 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 282;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 247;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 103;
+					variableCount = 10;
+					strings = Array {
+						[0] = "camera";
+						[1] = "Camera";
+						[2] = "get";
+						[3] = "videoScreen";
+						[4] = "attachVideo";
+						[5] = "onActivity";
+						[6] = "onStatus";
+						[7] = "code";
+						[8] = "Camera.Muted";
+						[9] = "Camera not available";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 13;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[2] = GetVariable {
+					type = 28;
+				};
+				[3] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[4] = ExecuteMethod {
+					type = 82;
+				};
+				[5] = SetVariable {
+					type = 29;
+				};
+				[6] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[7] = GetVariable {
+					type = 28;
+				};
+				[8] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[9] = GetVariable {
+					type = 28;
+				};
+				[10] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 4;
+						};
+					};
+				};
+				[11] = ExecuteMethod {
+					type = 82;
+				};
+				[12] = Pop {
+					type = 23;
+				};
+				[13] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[14] = GetVariable {
+					type = 28;
+				};
+				[15] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[16] = NewFunction2 {
+					type = 142;
+					length = 14;
+					name = "";
+					argumentCount = 1;
+					registerCount = 2;
+					optimizations = 10752;
+					registerVariables = Array {
+						[0] = RegisterVariable {
+							register = 1;
+							name = "mode";
+						};
+					};
+					actionsLength = 6;
+					actions = Array {
+						[0] = Push {
+							type = 150;
+							length = 2;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+							};
+						};
+						[1] = Trace {
+							type = 38;
+						};
+					};
+				};
+				[17] = SetAttribute {
+					type = 79;
+				};
+				[18] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[19] = GetVariable {
+					type = 28;
+				};
+				[20] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 6;
+						};
+					};
+				};
+				[21] = NewFunction2 {
+					type = 142;
+					length = 16;
+					name = "";
+					argumentCount = 1;
+					registerCount = 2;
+					optimizations = 10752;
+					registerVariables = Array {
+						[0] = RegisterVariable {
+							register = 1;
+							name = "status";
+						};
+					};
+					actionsLength = 26;
+					actions = Array {
+						[0] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 7;
+								};
+							};
+						};
+						[1] = GetAttribute {
+							type = 78;
+						};
+						[2] = Push {
+							type = 150;
+							length = 2;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 8;
+								};
+							};
+						};
+						[3] = Equals {
+							type = 73;
+						};
+						[4] = Not {
+							type = 18;
+						};
+						[5] = If {
+							type = 157;
+							length = 2;
+							offset = 6;
+						};
+						[6] = Push {
+							type = 150;
+							length = 2;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 9;
+								};
+							};
+						};
+						[7] = Trace {
+							type = 38;
+						};
+					};
+				};
+				[22] = SetAttribute {
+					type = 79;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

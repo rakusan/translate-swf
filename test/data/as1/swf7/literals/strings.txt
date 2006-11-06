@@ -1,0 +1,211 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 139;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 104;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 28;
+					variableCount = 10;
+					strings = Array {
+						[0] = "";
+						[1] = "abcd";
+						[2] = """;
+						[3] = "'";
+						[4] = "";
+						[5] = "";
+						[6] = "
+";
+						[7] = "";
+						[8] = "	";
+						[9] = "
+	";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[2] = Pop {
+					type = 23;
+				};
+				[3] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[4] = Pop {
+					type = 23;
+				};
+				[5] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[6] = Pop {
+					type = 23;
+				};
+				[7] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[8] = Pop {
+					type = 23;
+				};
+				[9] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[10] = Pop {
+					type = 23;
+				};
+				[11] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[12] = Pop {
+					type = 23;
+				};
+				[13] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 4;
+						};
+					};
+				};
+				[14] = Pop {
+					type = 23;
+				};
+				[15] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[16] = Pop {
+					type = 23;
+				};
+				[17] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 6;
+						};
+					};
+				};
+				[18] = Pop {
+					type = 23;
+				};
+				[19] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 7;
+						};
+					};
+				};
+				[20] = Pop {
+					type = 23;
+				};
+				[21] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 8;
+						};
+					};
+				};
+				[22] = Pop {
+					type = 23;
+				};
+				[23] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 9;
+						};
+					};
+				};
+				[24] = Pop {
+					type = 23;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

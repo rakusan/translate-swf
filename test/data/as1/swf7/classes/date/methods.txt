@@ -1,0 +1,809 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 766;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 731;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 218;
+					variableCount = 22;
+					strings = Array {
+						[0] = "a";
+						[1] = "Date";
+						[2] = "getFullYear";
+						[3] = "getMonth";
+						[4] = "getDate";
+						[5] = "getDay";
+						[6] = "getHours";
+						[7] = "getMinutes";
+						[8] = "getSeconds";
+						[9] = "getMilliseconds";
+						[10] = "getTime";
+						[11] = "getYear";
+						[12] = "getTimezoneOffset";
+						[13] = "setFullYear";
+						[14] = "setMonth";
+						[15] = "setDate";
+						[16] = "setHours";
+						[17] = "setMinutes";
+						[18] = "setSeconds";
+						[19] = "setMilliseconds";
+						[20] = "setTime";
+						[21] = "setYear";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 13;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[2] = NamedObject {
+					type = 64;
+				};
+				[3] = SetVariable {
+					type = 29;
+				};
+				[4] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[5] = GetVariable {
+					type = 28;
+				};
+				[6] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[7] = ExecuteMethod {
+					type = 82;
+				};
+				[8] = Pop {
+					type = 23;
+				};
+				[9] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[10] = GetVariable {
+					type = 28;
+				};
+				[11] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[12] = ExecuteMethod {
+					type = 82;
+				};
+				[13] = Pop {
+					type = 23;
+				};
+				[14] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[15] = GetVariable {
+					type = 28;
+				};
+				[16] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 4;
+						};
+					};
+				};
+				[17] = ExecuteMethod {
+					type = 82;
+				};
+				[18] = Pop {
+					type = 23;
+				};
+				[19] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[20] = GetVariable {
+					type = 28;
+				};
+				[21] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[22] = ExecuteMethod {
+					type = 82;
+				};
+				[23] = Pop {
+					type = 23;
+				};
+				[24] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[25] = GetVariable {
+					type = 28;
+				};
+				[26] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 6;
+						};
+					};
+				};
+				[27] = ExecuteMethod {
+					type = 82;
+				};
+				[28] = Pop {
+					type = 23;
+				};
+				[29] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[30] = GetVariable {
+					type = 28;
+				};
+				[31] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 7;
+						};
+					};
+				};
+				[32] = ExecuteMethod {
+					type = 82;
+				};
+				[33] = Pop {
+					type = 23;
+				};
+				[34] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[35] = GetVariable {
+					type = 28;
+				};
+				[36] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 8;
+						};
+					};
+				};
+				[37] = ExecuteMethod {
+					type = 82;
+				};
+				[38] = Pop {
+					type = 23;
+				};
+				[39] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[40] = GetVariable {
+					type = 28;
+				};
+				[41] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 9;
+						};
+					};
+				};
+				[42] = ExecuteMethod {
+					type = 82;
+				};
+				[43] = Pop {
+					type = 23;
+				};
+				[44] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[45] = GetVariable {
+					type = 28;
+				};
+				[46] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 10;
+						};
+					};
+				};
+				[47] = ExecuteMethod {
+					type = 82;
+				};
+				[48] = Pop {
+					type = 23;
+				};
+				[49] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[50] = GetVariable {
+					type = 28;
+				};
+				[51] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 11;
+						};
+					};
+				};
+				[52] = ExecuteMethod {
+					type = 82;
+				};
+				[53] = Pop {
+					type = 23;
+				};
+				[54] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[55] = GetVariable {
+					type = 28;
+				};
+				[56] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 12;
+						};
+					};
+				};
+				[57] = ExecuteMethod {
+					type = 82;
+				};
+				[58] = Pop {
+					type = 23;
+				};
+				[59] = Push {
+					type = 150;
+					length = 13;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[60] = NamedObject {
+					type = 64;
+				};
+				[61] = SetVariable {
+					type = 29;
+				};
+				[62] = Push {
+					type = 150;
+					length = 12;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 1900;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[63] = GetVariable {
+					type = 28;
+				};
+				[64] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 13;
+						};
+					};
+				};
+				[65] = ExecuteMethod {
+					type = 82;
+				};
+				[66] = Pop {
+					type = 23;
+				};
+				[67] = Push {
+					type = 150;
+					length = 16;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[68] = GetVariable {
+					type = 28;
+				};
+				[69] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 14;
+						};
+					};
+				};
+				[70] = ExecuteMethod {
+					type = 82;
+				};
+				[71] = Pop {
+					type = 23;
+				};
+				[72] = Push {
+					type = 150;
+					length = 16;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[73] = GetVariable {
+					type = 28;
+				};
+				[74] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 15;
+						};
+					};
+				};
+				[75] = ExecuteMethod {
+					type = 82;
+				};
+				[76] = Pop {
+					type = 23;
+				};
+				[77] = Push {
+					type = 150;
+					length = 16;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[78] = GetVariable {
+					type = 28;
+				};
+				[79] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 16;
+						};
+					};
+				};
+				[80] = ExecuteMethod {
+					type = 82;
+				};
+				[81] = Pop {
+					type = 23;
+				};
+				[82] = Push {
+					type = 150;
+					length = 16;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[83] = GetVariable {
+					type = 28;
+				};
+				[84] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 17;
+						};
+					};
+				};
+				[85] = ExecuteMethod {
+					type = 82;
+				};
+				[86] = Pop {
+					type = 23;
+				};
+				[87] = Push {
+					type = 150;
+					length = 16;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[88] = GetVariable {
+					type = 28;
+				};
+				[89] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 18;
+						};
+					};
+				};
+				[90] = ExecuteMethod {
+					type = 82;
+				};
+				[91] = Pop {
+					type = 23;
+				};
+				[92] = Push {
+					type = 150;
+					length = 16;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[93] = GetVariable {
+					type = 28;
+				};
+				[94] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 19;
+						};
+					};
+				};
+				[95] = ExecuteMethod {
+					type = 82;
+				};
+				[96] = Pop {
+					type = 23;
+				};
+				[97] = Push {
+					type = 150;
+					length = 12;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 1000;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[98] = GetVariable {
+					type = 28;
+				};
+				[99] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 20;
+						};
+					};
+				};
+				[100] = ExecuteMethod {
+					type = 82;
+				};
+				[101] = Pop {
+					type = 23;
+				};
+				[102] = Push {
+					type = 150;
+					length = 12;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[103] = GetVariable {
+					type = 28;
+				};
+				[104] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 21;
+						};
+					};
+				};
+				[105] = ExecuteMethod {
+					type = 82;
+				};
+				[106] = Pop {
+					type = 23;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

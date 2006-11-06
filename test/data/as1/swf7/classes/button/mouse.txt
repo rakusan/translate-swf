@@ -1,0 +1,104 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 90;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 55;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 25;
+					variableCount = 3;
+					strings = Array {
+						[0] = "button";
+						[1] = "_xmouse";
+						[2] = "_ymouse";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[2] = GetVariable {
+					type = 28;
+				};
+				[3] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[4] = GetAttribute {
+					type = 78;
+				};
+				[5] = Trace {
+					type = 38;
+				};
+				[6] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[7] = GetVariable {
+					type = 28;
+				};
+				[8] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[9] = GetAttribute {
+					type = 78;
+				};
+				[10] = Trace {
+					type = 38;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

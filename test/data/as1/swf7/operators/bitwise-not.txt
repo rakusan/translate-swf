@@ -1,0 +1,437 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 325;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 290;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 16;
+					variableCount = 4;
+					strings = Array {
+						[0] = "a";
+						[1] = "x";
+						[2] = "obj";
+						[3] = "value";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[2] = SetVariable {
+					type = 29;
+				};
+				[3] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[4] = SetVariable {
+					type = 29;
+				};
+				[5] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[6] = GetVariable {
+					type = 28;
+				};
+				[7] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 4.294967295E9;
+						};
+					};
+				};
+				[8] = BitwiseXOr {
+					type = 98;
+				};
+				[9] = SetVariable {
+					type = 29;
+				};
+				[10] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[11] = GetVariable {
+					type = 28;
+				};
+				[12] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[13] = GetVariable {
+					type = 28;
+				};
+				[14] = Add {
+					type = 71;
+				};
+				[15] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 4.294967295E9;
+						};
+					};
+				};
+				[16] = BitwiseXOr {
+					type = 98;
+				};
+				[17] = SetVariable {
+					type = 29;
+				};
+				[18] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[19] = GetVariable {
+					type = 28;
+				};
+				[20] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 4.294967295E9;
+						};
+					};
+				};
+				[21] = BitwiseXOr {
+					type = 98;
+				};
+				[22] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 4.294967295E9;
+						};
+					};
+				};
+				[23] = BitwiseXOr {
+					type = 98;
+				};
+				[24] = SetVariable {
+					type = 29;
+				};
+				[25] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[26] = SetVariable {
+					type = 29;
+				};
+				[27] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[28] = GetVariable {
+					type = 28;
+				};
+				[29] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 4.294967295E9;
+						};
+					};
+				};
+				[30] = BitwiseXOr {
+					type = 98;
+				};
+				[31] = Pop {
+					type = 23;
+				};
+				[32] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer {
+							type = 7;
+							value = -1;
+						};
+					};
+				};
+				[33] = SetVariable {
+					type = 29;
+				};
+				[34] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer {
+							type = 7;
+							value = -2;
+						};
+					};
+				};
+				[35] = SetVariable {
+					type = 29;
+				};
+				[36] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer {
+							type = 7;
+							value = -2;
+						};
+					};
+				};
+				[37] = SetVariable {
+					type = 29;
+				};
+				[38] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer {
+							type = 7;
+							value = -1;
+						};
+					};
+				};
+				[39] = SetVariable {
+					type = 29;
+				};
+				[40] = Push {
+					type = 150;
+					length = 12;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Null {
+							type = 2;
+						};
+						[2] = Double {
+							type = 6;
+							value = 4.294967295E9;
+						};
+					};
+				};
+				[41] = BitwiseXOr {
+					type = 98;
+				};
+				[42] = SetVariable {
+					type = 29;
+				};
+				[43] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer {
+							type = 7;
+							value = -1;
+						};
+					};
+				};
+				[44] = SetVariable {
+					type = 29;
+				};
+				[45] = Push {
+					type = 150;
+					length = 18;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+						[2] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[3] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[46] = NewObject {
+					type = 67;
+				};
+				[47] = SetVariable {
+					type = 29;
+				};
+				[48] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[49] = GetVariable {
+					type = 28;
+				};
+				[50] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[51] = GetAttribute {
+					type = 78;
+				};
+				[52] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 4.294967295E9;
+						};
+					};
+				};
+				[53] = BitwiseXOr {
+					type = 98;
+				};
+				[54] = SetVariable {
+					type = 29;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

@@ -1,0 +1,60 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 75;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 40;
+			actions = Array {
+				[0] = Push {
+					type = 150;
+					length = 34;
+					values = Array {
+						[0] = String {
+							type = 0;
+							value = "loader";
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[2] = String {
+							type = 0;
+							value = "MovieClipLoader";
+						};
+					};
+				};
+				[1] = NamedObject {
+					type = 64;
+				};
+				[2] = SetVariable {
+					type = 29;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

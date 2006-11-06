@@ -1,0 +1,653 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 545;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 510;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 160;
+					variableCount = 18;
+					strings = Array {
+						[0] = "getName";
+						[1] = "name";
+						[2] = "getCaptain";
+						[3] = "captain";
+						[4] = "setCaptain";
+						[5] = "getCrew";
+						[6] = "crew";
+						[7] = "setCrew";
+						[8] = "toString";
+						[9] = "Name: ";
+						[10] = "; Captain: ";
+						[11] = "addProperty";
+						[12] = "a";
+						[13] = "Object";
+						[14] = "Marie Celeste";
+						[15] = "Ship";
+						[16] = "SailingShip";
+						[17] = "registerClass";
+					};
+				};
+				[1] = NewFunction2 {
+					type = 142;
+					length = 18;
+					name = "Ship";
+					argumentCount = 1;
+					registerCount = 3;
+					optimizations = 10496;
+					registerVariables = Array {
+						[0] = RegisterVariable {
+							register = 2;
+							name = "name";
+						};
+					};
+					actionsLength = 265;
+					actions = Array {
+						[0] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 0;
+								};
+							};
+						};
+						[1] = NewFunction2 {
+							type = 142;
+							length = 8;
+							name = "";
+							argumentCount = 0;
+							registerCount = 2;
+							optimizations = 10496;
+							registerVariables = "Array";
+							actionsLength = 9;
+							actions = Array {
+								[0] = Push {
+									type = 150;
+									length = 4;
+									values = Array {
+										[0] = RegisterIndex {
+											type = 4;
+											value = 1;
+										};
+										[1] = TableIndex {
+											type = 8;
+											value = 1;
+										};
+									};
+								};
+								[1] = GetAttribute {
+									type = 78;
+								};
+								[2] = Return {
+									type = 62;
+								};
+							};
+						};
+						[2] = SetAttribute {
+							type = 79;
+						};
+						[3] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 2;
+								};
+							};
+						};
+						[4] = NewFunction2 {
+							type = 142;
+							length = 8;
+							name = "";
+							argumentCount = 0;
+							registerCount = 2;
+							optimizations = 10496;
+							registerVariables = "Array";
+							actionsLength = 9;
+							actions = Array {
+								[0] = Push {
+									type = 150;
+									length = 4;
+									values = Array {
+										[0] = RegisterIndex {
+											type = 4;
+											value = 1;
+										};
+										[1] = TableIndex {
+											type = 8;
+											value = 3;
+										};
+									};
+								};
+								[1] = GetAttribute {
+									type = 78;
+								};
+								[2] = Return {
+									type = 62;
+								};
+							};
+						};
+						[5] = SetAttribute {
+							type = 79;
+						};
+						[6] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 4;
+								};
+							};
+						};
+						[7] = NewFunction2 {
+							type = 142;
+							length = 14;
+							name = "";
+							argumentCount = 1;
+							registerCount = 3;
+							optimizations = 10496;
+							registerVariables = Array {
+								[0] = RegisterVariable {
+									register = 2;
+									name = "name";
+								};
+							};
+							actionsLength = 10;
+							actions = Array {
+								[0] = Push {
+									type = 150;
+									length = 6;
+									values = Array {
+										[0] = RegisterIndex {
+											type = 4;
+											value = 1;
+										};
+										[1] = TableIndex {
+											type = 8;
+											value = 3;
+										};
+										[2] = RegisterIndex {
+											type = 4;
+											value = 2;
+										};
+									};
+								};
+								[1] = SetAttribute {
+									type = 79;
+								};
+							};
+						};
+						[8] = SetAttribute {
+							type = 79;
+						};
+						[9] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 5;
+								};
+							};
+						};
+						[10] = NewFunction2 {
+							type = 142;
+							length = 8;
+							name = "";
+							argumentCount = 0;
+							registerCount = 2;
+							optimizations = 10496;
+							registerVariables = "Array";
+							actionsLength = 9;
+							actions = Array {
+								[0] = Push {
+									type = 150;
+									length = 4;
+									values = Array {
+										[0] = RegisterIndex {
+											type = 4;
+											value = 1;
+										};
+										[1] = TableIndex {
+											type = 8;
+											value = 6;
+										};
+									};
+								};
+								[1] = GetAttribute {
+									type = 78;
+								};
+								[2] = Return {
+									type = 62;
+								};
+							};
+						};
+						[11] = SetAttribute {
+							type = 79;
+						};
+						[12] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 7;
+								};
+							};
+						};
+						[13] = NewFunction2 {
+							type = 142;
+							length = 14;
+							name = "";
+							argumentCount = 1;
+							registerCount = 3;
+							optimizations = 10496;
+							registerVariables = Array {
+								[0] = RegisterVariable {
+									register = 2;
+									name = "crew";
+								};
+							};
+							actionsLength = 10;
+							actions = Array {
+								[0] = Push {
+									type = 150;
+									length = 6;
+									values = Array {
+										[0] = RegisterIndex {
+											type = 4;
+											value = 1;
+										};
+										[1] = TableIndex {
+											type = 8;
+											value = 6;
+										};
+										[2] = RegisterIndex {
+											type = 4;
+											value = 2;
+										};
+									};
+								};
+								[1] = SetAttribute {
+									type = 79;
+								};
+							};
+						};
+						[14] = SetAttribute {
+							type = 79;
+						};
+						[15] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 8;
+								};
+							};
+						};
+						[16] = NewFunction2 {
+							type = 142;
+							length = 8;
+							name = "";
+							argumentCount = 0;
+							registerCount = 2;
+							optimizations = 10496;
+							registerVariables = "Array";
+							actionsLength = 25;
+							actions = Array {
+								[0] = Push {
+									type = 150;
+									length = 6;
+									values = Array {
+										[0] = TableIndex {
+											type = 8;
+											value = 9;
+										};
+										[1] = RegisterIndex {
+											type = 4;
+											value = 1;
+										};
+										[2] = TableIndex {
+											type = 8;
+											value = 1;
+										};
+									};
+								};
+								[1] = GetAttribute {
+									type = 78;
+								};
+								[2] = Add {
+									type = 71;
+								};
+								[3] = Push {
+									type = 150;
+									length = 2;
+									values = Array {
+										[0] = TableIndex {
+											type = 8;
+											value = 10;
+										};
+									};
+								};
+								[4] = Add {
+									type = 71;
+								};
+								[5] = Push {
+									type = 150;
+									length = 2;
+									values = Array {
+										[0] = TableIndex {
+											type = 8;
+											value = 3;
+										};
+									};
+								};
+								[6] = GetVariable {
+									type = 28;
+								};
+								[7] = Add {
+									type = 71;
+								};
+								[8] = Return {
+									type = 62;
+								};
+							};
+						};
+						[17] = SetAttribute {
+							type = 79;
+						};
+						[18] = Push {
+							type = 150;
+							length = 6;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 1;
+								};
+								[2] = RegisterIndex {
+									type = 4;
+									value = 2;
+								};
+							};
+						};
+						[19] = SetAttribute {
+							type = 79;
+						};
+						[20] = Push {
+							type = 150;
+							length = 5;
+							values = Array {
+								[0] = Null {
+									type = 2;
+								};
+								[1] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[2] = TableIndex {
+									type = 8;
+									value = 0;
+								};
+							};
+						};
+						[21] = GetAttribute {
+							type = 78;
+						};
+						[22] = Push {
+							type = 150;
+							length = 11;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 1;
+								};
+								[1] = Integer {
+									type = 7;
+									value = 3;
+								};
+								[2] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[3] = TableIndex {
+									type = 8;
+									value = 11;
+								};
+							};
+						};
+						[23] = ExecuteMethod {
+							type = 82;
+						};
+						[24] = Pop {
+							type = 23;
+						};
+						[25] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 4;
+								};
+							};
+						};
+						[26] = GetAttribute {
+							type = 78;
+						};
+						[27] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[1] = TableIndex {
+									type = 8;
+									value = 2;
+								};
+							};
+						};
+						[28] = GetAttribute {
+							type = 78;
+						};
+						[29] = Push {
+							type = 150;
+							length = 11;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 1;
+								};
+								[1] = Integer {
+									type = 7;
+									value = 3;
+								};
+								[2] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+								[3] = TableIndex {
+									type = 8;
+									value = 11;
+								};
+							};
+						};
+						[30] = ExecuteMethod {
+							type = 82;
+						};
+						[31] = Pop {
+							type = 23;
+						};
+					};
+				};
+				[2] = Push {
+					type = 150;
+					length = 13;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 12;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 13;
+						};
+					};
+				};
+				[3] = NamedObject {
+					type = 64;
+				};
+				[4] = SetVariable {
+					type = 29;
+				};
+				[5] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 12;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 14;
+						};
+						[2] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[3] = TableIndex {
+							type = 8;
+							value = 13;
+						};
+					};
+				};
+				[6] = NamedObject {
+					type = 64;
+				};
+				[7] = SetVariable {
+					type = 29;
+				};
+				[8] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 15;
+						};
+					};
+				};
+				[9] = GetVariable {
+					type = 28;
+				};
+				[10] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 16;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 13;
+						};
+					};
+				};
+				[11] = GetVariable {
+					type = 28;
+				};
+				[12] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 17;
+						};
+					};
+				};
+				[13] = ExecuteMethod {
+					type = 82;
+				};
+				[14] = Pop {
+					type = 23;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

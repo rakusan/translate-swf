@@ -1,0 +1,723 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 416;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 381;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 8;
+					variableCount = 3;
+					strings = Array {
+						[0] = "a";
+						[1] = "b";
+						[2] = "x";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 1;
+						};
+					};
+				};
+				[2] = SetVariable {
+					type = 29;
+				};
+				[3] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[4] = SetVariable {
+					type = 29;
+				};
+				[5] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[6] = GetVariable {
+					type = 28;
+				};
+				[7] = Duplicate {
+					type = 76;
+				};
+				[8] = If {
+					type = 157;
+					length = 2;
+					offset = 7;
+				};
+				[9] = Pop {
+					type = 23;
+				};
+				[10] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[11] = GetVariable {
+					type = 28;
+				};
+				[12] = SetVariable {
+					type = 29;
+				};
+				[13] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[14] = GetVariable {
+					type = 28;
+				};
+				[15] = Duplicate {
+					type = 76;
+				};
+				[16] = If {
+					type = 157;
+					length = 2;
+					offset = 8;
+				};
+				[17] = Pop {
+					type = 23;
+				};
+				[18] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[19] = GetVariable {
+					type = 28;
+				};
+				[20] = Not {
+					type = 18;
+				};
+				[21] = SetVariable {
+					type = 29;
+				};
+				[22] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[23] = GetVariable {
+					type = 28;
+				};
+				[24] = Not {
+					type = 18;
+				};
+				[25] = Duplicate {
+					type = 76;
+				};
+				[26] = If {
+					type = 157;
+					length = 2;
+					offset = 7;
+				};
+				[27] = Pop {
+					type = 23;
+				};
+				[28] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[29] = GetVariable {
+					type = 28;
+				};
+				[30] = SetVariable {
+					type = 29;
+				};
+				[31] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[32] = GetVariable {
+					type = 28;
+				};
+				[33] = Not {
+					type = 18;
+				};
+				[34] = Duplicate {
+					type = 76;
+				};
+				[35] = If {
+					type = 157;
+					length = 2;
+					offset = 8;
+				};
+				[36] = Pop {
+					type = 23;
+				};
+				[37] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[38] = GetVariable {
+					type = 28;
+				};
+				[39] = Not {
+					type = 18;
+				};
+				[40] = SetVariable {
+					type = 29;
+				};
+				[41] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[42] = GetVariable {
+					type = 28;
+				};
+				[43] = Duplicate {
+					type = 76;
+				};
+				[44] = If {
+					type = 157;
+					length = 2;
+					offset = 7;
+				};
+				[45] = Pop {
+					type = 23;
+				};
+				[46] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[47] = GetVariable {
+					type = 28;
+				};
+				[48] = Not {
+					type = 18;
+				};
+				[49] = SetVariable {
+					type = 29;
+				};
+				[50] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[51] = SetVariable {
+					type = 29;
+				};
+				[52] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[53] = SetVariable {
+					type = 29;
+				};
+				[54] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+					};
+				};
+				[55] = SetVariable {
+					type = 29;
+				};
+				[56] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[57] = SetVariable {
+					type = 29;
+				};
+				[58] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[59] = SetVariable {
+					type = 29;
+				};
+				[60] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[61] = GetVariable {
+					type = 28;
+				};
+				[62] = Duplicate {
+					type = 76;
+				};
+				[63] = If {
+					type = 157;
+					length = 2;
+					offset = 7;
+				};
+				[64] = Pop {
+					type = 23;
+				};
+				[65] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[66] = GetVariable {
+					type = 28;
+				};
+				[67] = Pop {
+					type = 23;
+				};
+				[68] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[69] = GetVariable {
+					type = 28;
+				};
+				[70] = Duplicate {
+					type = 76;
+				};
+				[71] = If {
+					type = 157;
+					length = 2;
+					offset = 6;
+				};
+				[72] = Pop {
+					type = 23;
+				};
+				[73] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = Boolean {
+							type = 5;
+							value = 1;
+						};
+					};
+				};
+				[74] = SetVariable {
+					type = 29;
+				};
+				[75] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[76] = GetVariable {
+					type = 28;
+				};
+				[77] = Duplicate {
+					type = 76;
+				};
+				[78] = If {
+					type = 157;
+					length = 2;
+					offset = 6;
+				};
+				[79] = Pop {
+					type = 23;
+				};
+				[80] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = Boolean {
+							type = 5;
+							value = 0;
+						};
+					};
+				};
+				[81] = SetVariable {
+					type = 29;
+				};
+				[82] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 1;
+						};
+					};
+				};
+				[83] = SetVariable {
+					type = 29;
+				};
+				[84] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Boolean {
+							type = 5;
+							value = 1;
+						};
+					};
+				};
+				[85] = SetVariable {
+					type = 29;
+				};
+				[86] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[87] = GetVariable {
+					type = 28;
+				};
+				[88] = Duplicate {
+					type = 76;
+				};
+				[89] = If {
+					type = 157;
+					length = 2;
+					offset = 9;
+				};
+				[90] = Pop {
+					type = 23;
+				};
+				[91] = Push {
+					type = 150;
+					length = 5;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[92] = SetVariable {
+					type = 29;
+				};
+				[93] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[94] = GetVariable {
+					type = 28;
+				};
+				[95] = Duplicate {
+					type = 76;
+				};
+				[96] = If {
+					type = 157;
+					length = 2;
+					offset = 13;
+				};
+				[97] = Pop {
+					type = 23;
+				};
+				[98] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[99] = SetVariable {
+					type = 29;
+				};
+				[100] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[101] = SetVariable {
+					type = 29;
+				};
+				[102] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+					};
+				};
+				[103] = SetVariable {
+					type = 29;
+				};
+				[104] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[105] = SetVariable {
+					type = 29;
+				};
+				[106] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+					};
+				};
+				[107] = SetVariable {
+					type = 29;
+				};
+				[108] = Push {
+					type = 150;
+					length = 11;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Double {
+							type = 6;
+							value = 1.1;
+						};
+					};
+				};
+				[109] = SetVariable {
+					type = 29;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

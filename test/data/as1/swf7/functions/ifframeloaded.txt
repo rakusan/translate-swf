@@ -1,0 +1,133 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 118;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 83;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 21;
+					variableCount = 2;
+					strings = Array {
+						[0] = "frame";
+						[1] = "Frame loaded";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[2] = GetVariable {
+					type = 28;
+				};
+				[3] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[4] = Add {
+					type = 71;
+				};
+				[5] = WaitForFrame2 {
+					type = 141;
+					length = 1;
+					actionCount = 2;
+				};
+				[6] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[7] = Trace {
+					type = 38;
+				};
+				[8] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[9] = GetVariable {
+					type = 28;
+				};
+				[10] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = Double {
+							type = 6;
+							value = 0.0;
+						};
+					};
+				};
+				[11] = Add {
+					type = 71;
+				};
+				[12] = WaitForFrame2 {
+					type = 141;
+					length = 1;
+					actionCount = 2;
+				};
+				[13] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[14] = Trace {
+					type = 38;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

@@ -1,0 +1,258 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 153;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 118;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 10;
+					variableCount = 4;
+					strings = Array {
+						[0] = "a";
+						[1] = "b";
+						[2] = "c";
+						[3] = "x";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 1;
+						};
+					};
+				};
+				[2] = SetVariable {
+					type = 29;
+				};
+				[3] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 2;
+						};
+					};
+				};
+				[4] = SetVariable {
+					type = 29;
+				};
+				[5] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 3;
+						};
+					};
+				};
+				[6] = SetVariable {
+					type = 29;
+				};
+				[7] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[8] = GetVariable {
+					type = 28;
+				};
+				[9] = SetVariable {
+					type = 29;
+				};
+				[10] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[11] = GetVariable {
+					type = 28;
+				};
+				[12] = SetVariable {
+					type = 29;
+				};
+				[13] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[14] = GetVariable {
+					type = 28;
+				};
+				[15] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[16] = GetVariable {
+					type = 28;
+				};
+				[17] = Add {
+					type = 71;
+				};
+				[18] = SetVariable {
+					type = 29;
+				};
+				[19] = Push {
+					type = 150;
+					length = 4;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[20] = GetVariable {
+					type = 28;
+				};
+				[21] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[22] = GetVariable {
+					type = 28;
+				};
+				[23] = Add {
+					type = 71;
+				};
+				[24] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[25] = GetVariable {
+					type = 28;
+				};
+				[26] = Multiply {
+					type = 12;
+				};
+				[27] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[28] = GetVariable {
+					type = 28;
+				};
+				[29] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[30] = GetVariable {
+					type = 28;
+				};
+				[31] = Add {
+					type = 71;
+				};
+				[32] = Divide {
+					type = 13;
+				};
+				[33] = SetVariable {
+					type = 29;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

@@ -1,0 +1,353 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 361;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 326;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 137;
+					variableCount = 12;
+					strings = Array {
+						[0] = "this";
+						[1] = "getNextHighestDepth";
+						[2] = "title";
+						[3] = "clip";
+						[4] = "createTextField";
+						[5] = "listener";
+						[6] = "Object";
+						[7] = "onChanged";
+						[8] = "text field changed";
+						[9] = "onScroller";
+						[10] = "addListener";
+						[11] = "removeListener";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 31;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 25;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 250;
+						};
+						[2] = Integer {
+							type = 7;
+							value = 100;
+						};
+						[3] = Integer {
+							type = 7;
+							value = 100;
+						};
+						[4] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[5] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[2] = GetVariable {
+					type = 28;
+				};
+				[3] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 1;
+						};
+					};
+				};
+				[4] = ExecuteMethod {
+					type = 82;
+				};
+				[5] = Push {
+					type = 150;
+					length = 9;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+						[1] = Integer {
+							type = 7;
+							value = 6;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 3;
+						};
+					};
+				};
+				[6] = GetVariable {
+					type = 28;
+				};
+				[7] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 4;
+						};
+					};
+				};
+				[8] = ExecuteMethod {
+					type = 82;
+				};
+				[9] = Pop {
+					type = 23;
+				};
+				[10] = Push {
+					type = 150;
+					length = 13;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+						[1] = Double {
+							type = 6;
+							value = 0.0;
+						};
+						[2] = TableIndex {
+							type = 8;
+							value = 6;
+						};
+					};
+				};
+				[11] = NamedObject {
+					type = 64;
+				};
+				[12] = SetVariable {
+					type = 29;
+				};
+				[13] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[14] = GetVariable {
+					type = 28;
+				};
+				[15] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 7;
+						};
+					};
+				};
+				[16] = NewFunction {
+					type = 155;
+					length = 5;
+					name = "";
+					argumentCount = 0;
+					actionsLength = 6;
+					actions = Array {
+						[0] = Push {
+							type = 150;
+							length = 2;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 8;
+								};
+							};
+						};
+						[1] = Trace {
+							type = 38;
+						};
+					};
+				};
+				[17] = SetAttribute {
+					type = 79;
+				};
+				[18] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[19] = GetVariable {
+					type = 28;
+				};
+				[20] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 9;
+						};
+					};
+				};
+				[21] = NewFunction {
+					type = 155;
+					length = 11;
+					name = "";
+					argumentCount = 1;
+					arguments = Array {
+						[0] = "field";
+					};
+					actionsLength = 6;
+					actions = Array {
+						[0] = Push {
+							type = 150;
+							length = 2;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 8;
+								};
+							};
+						};
+						[1] = Trace {
+							type = 38;
+						};
+					};
+				};
+				[22] = SetAttribute {
+					type = 79;
+				};
+				[23] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[24] = GetVariable {
+					type = 28;
+				};
+				[25] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[26] = GetVariable {
+					type = 28;
+				};
+				[27] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 10;
+						};
+					};
+				};
+				[28] = ExecuteMethod {
+					type = 82;
+				};
+				[29] = Pop {
+					type = 23;
+				};
+				[30] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 5;
+						};
+					};
+				};
+				[31] = GetVariable {
+					type = 28;
+				};
+				[32] = Push {
+					type = 150;
+					length = 7;
+					values = Array {
+						[0] = Integer {
+							type = 7;
+							value = 1;
+						};
+						[1] = TableIndex {
+							type = 8;
+							value = 2;
+						};
+					};
+				};
+				[33] = GetVariable {
+					type = 28;
+				};
+				[34] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 11;
+						};
+					};
+				};
+				[35] = ExecuteMethod {
+					type = 82;
+				};
+				[36] = Pop {
+					type = 23;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};

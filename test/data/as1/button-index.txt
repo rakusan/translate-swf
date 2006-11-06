@@ -1,2 +1,2 @@
-//#include "objects/button/events.as"
+//#include "scripts/classes/button/events.as"
 

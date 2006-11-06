@@ -1,0 +1,183 @@
+Movie = Movie {
+	signature = "FWS";
+	version = 7;
+	length = 129;
+	frameSize = Bounds {
+		size = 13;
+		minX = 0;
+		maxX = 4000;
+		minY = 0;
+		maxY = 4000;
+	};
+	frameRate = 12.0;
+	frameCount = 1;
+	objects = Array {
+		[0] = SetBackgroundColor {
+			type = 9;
+			length = 3;
+			color = Color {
+				red = 255;
+				green = 255;
+				blue = 255;
+			};
+		};
+		[1] = DoAction {
+			type = 12;
+			length = 63;
+			lengthExtended = 94;
+			actions = Array {
+				[0] = Table {
+					type = 136;
+					length = 12;
+					variableCount = 4;
+					strings = Array {
+						[0] = "foo";
+						[1] = "a";
+						[2] = "b";
+						[3] = "c";
+					};
+				};
+				[1] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[2] = NewFunction2 {
+					type = 142;
+					length = 11;
+					name = "";
+					argumentCount = 1;
+					registerCount = 2;
+					optimizations = 10752;
+					registerVariables = Array {
+						[0] = RegisterVariable {
+							register = 1;
+							name = "x";
+						};
+					};
+					actionsLength = 8;
+					actions = Array {
+						[0] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 1;
+								};
+								[1] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+							};
+						};
+						[1] = SetVariable {
+							type = 29;
+						};
+					};
+				};
+				[3] = SetVariable {
+					type = 29;
+				};
+				[4] = Push {
+					type = 150;
+					length = 2;
+					values = Array {
+						[0] = TableIndex {
+							type = 8;
+							value = 0;
+						};
+					};
+				};
+				[5] = NewFunction2 {
+					type = 142;
+					length = 17;
+					name = "";
+					argumentCount = 3;
+					registerCount = 4;
+					optimizations = 10752;
+					registerVariables = Array {
+						[0] = RegisterVariable {
+							register = 3;
+							name = "x";
+						};
+						[1] = RegisterVariable {
+							register = 2;
+							name = "y";
+						};
+						[2] = RegisterVariable {
+							register = 1;
+							name = "z";
+						};
+					};
+					actionsLength = 24;
+					actions = Array {
+						[0] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 1;
+								};
+								[1] = RegisterIndex {
+									type = 4;
+									value = 3;
+								};
+							};
+						};
+						[1] = SetVariable {
+							type = 29;
+						};
+						[2] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 2;
+								};
+								[1] = RegisterIndex {
+									type = 4;
+									value = 2;
+								};
+							};
+						};
+						[3] = SetVariable {
+							type = 29;
+						};
+						[4] = Push {
+							type = 150;
+							length = 4;
+							values = Array {
+								[0] = TableIndex {
+									type = 8;
+									value = 3;
+								};
+								[1] = RegisterIndex {
+									type = 4;
+									value = 1;
+								};
+							};
+						};
+						[5] = SetVariable {
+							type = 29;
+						};
+					};
+				};
+				[6] = SetVariable {
+					type = 29;
+				};
+			};
+		};
+		[2] = ShowFrame {
+			type = 1;
+			length = 0;
+		};
+	};
+};
