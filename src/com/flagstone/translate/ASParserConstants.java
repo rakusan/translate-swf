@@ -49,26 +49,45 @@ public interface ASParserConstants {
   int MOD = 50;
   int INC = 51;
   int DEC = 52;
-  int IF = 53;
-  int ELSE = 54;
-  int WHILE = 55;
-  int DO = 56;
-  int FOR = 57;
-  int IN = 58;
-  int BREAK = 59;
-  int CONTINUE = 60;
-  int DELETE = 61;
-  int INSTANCEOF = 62;
-  int RETURN = 63;
-  int WITH = 64;
-  int NEW = 65;
-  int FUNCTION = 66;
-  int VAR = 67;
-  int ONCLIPEVENT = 68;
-  int ON = 69;
-  int IDENTIFIER = 70;
-  int LETTER = 71;
-  int DIGIT = 72;
+  int STRICT_EQ = 53;
+  int STRICT_NEQ = 54;
+  int ADD = 55;
+  int AND = 56;
+  int OR = 57;
+  int STRING_EQ = 58;
+  int STRING_NEQ = 59;
+  int STRING_LE = 60;
+  int STRING_GT = 61;
+  int STRING_GE = 62;
+  int IF = 63;
+  int ELSE = 64;
+  int WHILE = 65;
+  int DO = 66;
+  int FOR = 67;
+  int IN = 68;
+  int BREAK = 69;
+  int CONTINUE = 70;
+  int DELETE = 71;
+  int INSTANCEOF = 72;
+  int RETURN = 73;
+  int WITH = 74;
+  int NEW = 75;
+  int FUNCTION = 76;
+  int VAR = 77;
+  int ONCLIPEVENT = 78;
+  int ON = 79;
+  int TRY = 80;
+  int CATCH = 81;
+  int FINALLY = 82;
+  int THROW = 83;
+  int SWITCH = 84;
+  int CASE = 85;
+  int DEFAULT_CASE = 86;
+  int INITCLIP = 87;
+  int ENDINITCLIP = 88;
+  int IDENTIFIER = 89;
+  int LETTER = 90;
+  int DIGIT = 91;
 
   int DEFAULT = 0;
 
@@ -126,6 +145,16 @@ public interface ASParserConstants {
     "\"%\"",
     "\"++\"",
     "\"--\"",
+    "\"===\"",
+    "\"!==\"",
+    "\"add\"",
+    "\"and\"",
+    "\"or\"",
+    "\"eq\"",
+    "\"ne\"",
+    "\"le\"",
+    "\"gt\"",
+    "\"ge\"",
     "\"if\"",
     "\"else\"",
     "\"while\"",
@@ -143,6 +172,15 @@ public interface ASParserConstants {
     "\"var\"",
     "\"onClipEvent\"",
     "\"on\"",
+    "\"try\"",
+    "\"catch\"",
+    "\"finally\"",
+    "\"throw\"",
+    "\"switch\"",
+    "\"case\"",
+    "\"default\"",
+    "\"#initclip\"",
+    "\"#endinitclip\"",
     "<IDENTIFIER>",
     "<LETTER>",
     "<DIGIT>",
@@ -152,8 +190,8 @@ public interface ASParserConstants {
     "\"}\"",
     "\";\"",
     "\",\"",
-    "\"?\"",
     "\":\"",
+    "\"?\"",
     "\"[\"",
     "\"]\"",
     "\".\"",
