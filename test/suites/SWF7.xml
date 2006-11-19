@@ -1,0 +1,46 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+  
+<suite name="swf7">
+
+	<parameter name="script" value="test/data/as1/scripts"/>
+	<parameter name="template" value="test/data/as1/templates/swf7"/>
+	<parameter name="swf" value="7"/>
+
+    <test name="Reference">
+		<parameter name="source" value="test/data/as1/swf7"/>
+		<parameter name="source" value="test/data/as1/swf7"/>
+		<classes>
+      		<class name="com.flagstone.translate.test.Actionscript">
+      			<methods>
+      				<include name="toText"/>
+      			</methods>
+      		</class>
+		</classes>
+  	</test>  	
+
+    <test name="Compile">
+		<parameter name="source" value="test/data/as1/swf7"/>
+		<parameter name="result" value="test/results/as1/swf7"/>
+		<classes>
+      		<class name="com.flagstone.translate.test.Actionscript">
+      			<methods>
+      				<include name="compile"/>
+      			</methods>
+      		</class>
+		</classes>
+  	</test>  	
+
+    <test name="ResultsToText">
+		<parameter name="source" value="test/results/as1/swf7"/>
+		<parameter name="result" value="test/results/as1/swf7"/>
+		<classes>
+      		<class name="com.flagstone.translate.test.Actionscript">
+      			<methods>
+      				<include name="toText"/>
+      			</methods>
+      		</class>
+		</classes>
+  	</test>  	
+
+</suite>
+
