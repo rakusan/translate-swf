@@ -1331,7 +1331,7 @@ ASNode ConditionalExpression() : { ASNode node = null, cond = null, a = null, b 
 ASNode LogicalOrExpression() : { int type = 0; ASNode left = null, right = null; }
 {
     left=LogicalAndExpression()  (
-        ( <LOGICAL_OR> { type = ASNode.Or; }
+        ( <LOGICAL_OR> { type = ASNode.LogicalOr; }
         | <OR> { type = ASNode.Or; }
         )
         right=LogicalAndExpression()
@@ -1344,7 +1344,7 @@ ASNode LogicalOrExpression() : { int type = 0; ASNode left = null, right = null;
 ASNode LogicalAndExpression() : { int type = 0; ASNode left = null, right = null; }
 {
     left=InclusiveOrExpression()  ( 
-        ( <LOGICAL_AND> { type = ASNode.And; } 
+        ( <LOGICAL_AND> { type = ASNode.LogicalAnd; } 
         | <AND> { type = ASNode.And; } 
         )
         right=InclusiveOrExpression()
