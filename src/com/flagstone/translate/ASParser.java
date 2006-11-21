@@ -1814,7 +1814,7 @@ public final class ASParser extends Object implements ASParserConstants {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case LOGICAL_OR:
         jj_consume_token(LOGICAL_OR);
-                         type = ASNode.Or;
+                         type = ASNode.LogicalOr;
         break;
       case OR:
         jj_consume_token(OR);
@@ -1849,7 +1849,7 @@ public final class ASParser extends Object implements ASParserConstants {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case LOGICAL_AND:
         jj_consume_token(LOGICAL_AND);
-                          type = ASNode.And;
+                          type = ASNode.LogicalAnd;
         break;
       case AND:
         jj_consume_token(AND);
