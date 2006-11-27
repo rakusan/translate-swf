@@ -1,8 +1,8 @@
 // Video properties
 
-camera = Camera.get();
+cam = Camera.get();
 
-screen.attachVideo(camera);
+screen.attachVideo(cam);
 
 screen.deblocking = 0; // default, apply deblocking as required
 screen.deblocking = 1; // do not use deblocking

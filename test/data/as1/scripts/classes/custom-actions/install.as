@@ -1,12 +1,12 @@
 // Install a custom action
 
-xml = new XML();
+doc = new XML();
 
-xml.ignoreWhite = true;
+doc.ignoreWhite = true;
 
-xml.onLoad = function(success) 
+doc.onLoad = function(success) 
 {
     CustomActions.install("class", this.firstChild);
 };
 
-xml.load("action.xml");
+doc.load("action.xml");

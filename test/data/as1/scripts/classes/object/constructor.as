@@ -40,12 +40,4 @@ function Ship(name)
     };
     
     this.name = name;
-    this.addProperty("name", this.getName, null);
-    this.addProperty("name", this.getCaptain, this.setCaptain);
 }
-
-// Registering Classes
-
-Object.registerClass("SailingShip", Ship);
-
-

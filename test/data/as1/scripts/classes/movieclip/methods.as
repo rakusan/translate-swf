@@ -2,14 +2,8 @@
  * Test the methods with the specified movie clip.
  */
 
-clip.attachAudio(Microphone.get());
-
 clip.attachMovie("clipa", "subclip", this.getNextHighestDepth());
 clip.attachMovie("clipb", "subclip", this.getNextHighestDepth(), {_x:100, _y:100});
-
-clip.createEmptyMovieClip("subclip", this.getNextHighestDepth());
-
-clip.createTextField("title", this.getNextHighestDepth(), 100, 100, 250, 25);
 
 clip.duplicateMovieClip("subclip", this.getNextHighestDepth());
 clip.duplicateMovieClip("subclip", this.getNextHighestDepth(), {_x:100, _y:100});
@@ -18,12 +12,7 @@ clip.getBounds(this);
 clip.getBytesLoaded();
 clip.getBytesTotal();
 
-clip.getDepth();
-clip.getInstanceAtDepth(1);
-clip.getNextHighestDepth();
-
 clip.getSWFVersion();
-clip.getTextSnapshot();
 
 clip.getURL("http://www.flagstonesoftware.com");
 clip.getURL("http://www.flagstonesoftware.com", _self);
@@ -59,8 +48,6 @@ clip.prevFrame();
 clip.prevScene();
 
 clip.removeMovieClip();
-
-clip.setMask(mc);
 
 clip.startDrag(true);
 clip.startDrag(true, 0, 100, 100, 0);

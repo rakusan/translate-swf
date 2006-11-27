@@ -1,15 +1,15 @@
 // Handlers for responding to camera events
 
-camera = Camera.get();
+cam = Camera.get();
 
-videoScreen.attachVideo(camera);
+videoScreen.attachVideo(cam);
 
-camera.onActivity = function(mode)
+cam.onActivity = function(mode)
 {
     trace(mode);
 };
 
-camera.onStatus = function(status) 
+cam.onStatus = function(status) 
 {
    if (status.code == "Camera.Muted")
    {

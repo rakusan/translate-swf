@@ -19,9 +19,3 @@ a.start(5, 1);
 
 a.stop();
 a.stop("bell");
-
-a.getBytesLoaded();
-a.getBytesTotal();
-
-a.loadSound("event.mp3", false);
-a.loadSound("stream.mp3", true);

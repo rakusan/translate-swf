@@ -1,3 +1,8 @@
 // length function
 
-a = length("A String");
+a = "A String";
+
+x = length(a);
+
+// Length using string literals
+x = length(c);

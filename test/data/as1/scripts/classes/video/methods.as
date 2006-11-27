@@ -1,7 +1,7 @@
 // Creating video screens
 
-camera = Camera.get();
+cam = Camera.get();
 
-screen.attachVideo(camera);
+screen.attachVideo(cam);
 
 screen.clear();

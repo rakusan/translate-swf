@@ -1,3 +1,9 @@
 // convert number of ascii character
 
-a = chr(65);
+a = 65;
+
+x = chr(a);
+
+// convert literal values
+
+x = chr(65);

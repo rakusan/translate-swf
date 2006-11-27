@@ -7,7 +7,7 @@ x = 0;
 
 x = a === b;
 x = a === null;
-x = a === b === c;
+// TODO x = a === b === c;
 
 // discard unused values
 

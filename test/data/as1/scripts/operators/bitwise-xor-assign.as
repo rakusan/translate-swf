@@ -5,7 +5,7 @@ b = 3;
 c = 4;
 
 a ^= b;
-a ^= b ^= c;
+// TODO a ^= b ^= c;
 
 // using numeric literals
 

@@ -35,4 +35,4 @@ getURL("http://www.flagstonesoftware.com/cgi-bin/download", "_self", "post");
 
 // call javascript function
 
-getURL("javascript:alert('A message from Flash.')");
+// TODO getURL("javascript:alert('A message from Flash.')");

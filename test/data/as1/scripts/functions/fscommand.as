@@ -17,7 +17,7 @@ fscommand("trapallkeys", true);
 
 // Calling javascript functions
 
-/* Example Javascript function
+/* TODO Example Javascript function
 
     function playerid_DoFSCommand(command, args) 
     {
@@ -26,6 +26,7 @@ fscommand("trapallkeys", true);
             alert(args);
         }
     }
+
+	fscommand("alert", "This message sent from within Flash.");
 */
 
-fscommand("alert", "This message sent from within Flash.");

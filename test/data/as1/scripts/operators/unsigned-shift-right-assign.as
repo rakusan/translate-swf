@@ -5,7 +5,7 @@ b = 2;
 c = 3;
 
 a >>>= b;
-a >>>= b >>>= c;
+// TODO a >>>= b >>>= c;
 
 // using literals
 

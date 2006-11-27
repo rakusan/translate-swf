@@ -19,10 +19,5 @@ listener.onMouseMOve = function()
 	trace("mouse moving");
 };
 
-listener.onMouseWheel = function(delta, target) 
-{
-	trace("mouse button down");
-};
-
 Mouse.addListener(listener);
 Mouse.removeListener(listener);
