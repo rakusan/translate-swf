@@ -83,11 +83,9 @@ public interface ASParserConstants {
   int SWITCH = 84;
   int CASE = 85;
   int DEFAULT_CASE = 86;
-  int INITCLIP = 87;
-  int ENDINITCLIP = 88;
-  int IDENTIFIER = 89;
-  int LETTER = 90;
-  int DIGIT = 91;
+  int IDENTIFIER = 87;
+  int LETTER = 88;
+  int DIGIT = 89;
 
   int DEFAULT = 0;
 
@@ -179,8 +177,6 @@ public interface ASParserConstants {
     "\"switch\"",
     "\"case\"",
     "\"default\"",
-    "\"#initclip\"",
-    "\"#endinitclip\"",
     "<IDENTIFIER>",
     "<LETTER>",
     "<DIGIT>",
