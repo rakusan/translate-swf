@@ -1,9 +1,9 @@
-//#include "scripts/directives/initclip.as"
+//6 #include "scripts/classes/movieclip/initclip.as"
 
-//#include "scripts/classes/movieclip/drawing.as"
-//#include "scripts/classes/movieclip/event-handlers.as"
-//#include "scripts/classes/movieclip/events.as"
-//#include "scripts/classes/movieclip/functions.as"
-//#include "scripts/classes/movieclip/methods.as"
-//#include "scripts/classes/movieclip/properties.as"
+//5 #include "scripts/classes/movieclip/events.as"
+//5 #include "scripts/classes/movieclip/functions.as"
+//4 #include "scripts/classes/movieclip/properties-swf4.as"
+//5 #include "scripts/classes/movieclip/properties-swf5.as"
+//6 #include "scripts/classes/movieclip/properties-swf6.as"
+//7 #include "scripts/classes/movieclip/properties-swf7.as"
 
