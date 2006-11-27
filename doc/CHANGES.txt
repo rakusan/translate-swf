@@ -1,3 +1,122 @@
+2006-11-27 - smackay@flagstonesoftware.com
+
+    * Updated the grammar and ASNode to add:
+    
+        try..catch blocks
+        throw operator
+        
+    * Removed support for #initclip/#endinitclip from the parser. These are 
+      best handled by compiling scripts then adding the compiled actions to an
+      FSInitialize object. 
+      
+    * Added actions for Greater, StringGreater, Extends and EnumerateObject.
+    
+    * Added ExceptionHandler class.
+    
+    * Corrected serious bug in encode() method where Flash version number was 
+      not being set correctly - this meant that OnClipEvent() statements were
+      only being encoded correctly for Flash 5.
+      
+    * Started adding code generation for different versions of Flash.
+
+2006-11-21 - smackay@flagstonesoftware.com
+
+    * WaitForframe2 actions are now encoded with the correct length.
+    
+    * 'and' and 'or' operators now generate different code from && and ||.
+    
+    * fixed bugs in generating code in the functions printNum, printAsBitmapNum, 
+      ifFrameLoaded, === and !==.
+
+2006-11-18 - smackay@flagstonesoftware.com
+
+    Cumulative changes performed since the last release:
+    
+    * Updated the grammar and ASNode to add:
+    
+        statements:
+    
+            switch..case..default
+            try..catch..finally
+            throw
+            
+        directives:
+        
+            #initclip, #endinitclip
+        
+        operators:
+        
+            === strict equals (flash 6)
+            !== strict not equals (flash 6)
+            and logical and (flash 4)
+            or  logical or (flash 4)
+            add string add (flash 4)
+            eq  equals (flash 4)
+            ne  not equals (flash 4)
+            le  less than or equal (flash 4)
+            gt  greater than (flash 4)
+            ge  greater than or equal (flash 4)
+            
+        functions:
+        
+            ifFrameLoaded()
+            tellTarget()
+            
+            attachAudio()
+            call()
+            chr()
+            getTimer()
+            int()
+            mbchr()
+            mbord()
+            mbsubstring()
+            ord()
+            printNum()
+            printAsBitmapNum()
+            substring()
+            unloadMovieNum()
+            
+        constants:
+        
+            newline
+            undefined
+    
+    * Corrected bug in reporting line numbers and filenames when a parse 
+      exception occurs.
+      
+    * Fixed a bug in the grammar when handling negative interger literals.
+    
+    * Objects can be created without having to create an argument list:
+    
+        x = new Object;
+        
+    * fixed bug that caused an exception when decoding strings into bytes. This
+      bug only occured in simple scripts where the Table object containing 
+      strings was not used.
+              
+    * Replaced the test classes ASParserTest and ASParseReference with a single
+      class Actionscript. The corresponding test suites were replaced by 
+      individual suites for each version of flash.
+      
+    * ASNode:translate() no longer throws an IllegalArgumentException if the
+      version of Flash to encode the node tree is less than 5.
+      
+    * Delete now correctly distinguishes between an object or a member variable.
+    
+    * Arguments passed to the built-in functions gotoAndPlay and gotoAndStop are
+      now correctly added to the table of strings.
+      
+    * gotoAndPlay and gotoAndStop generate the correct action when executed 
+      in a movie clip.
+      
+    * Testing is now performed for each major version of Flash. Test suites 
+      have been added for SWF5, SWF6 and SWF7.
+      
+    * Actionscript.java now decodes existing Flash files to add the actions
+      compiled by Translate. This ensures that the test reference files and 
+      compiler generated files are identical and speeds up regression testing.
+      
+
 2006-09-17 - smackay@flagstonesoftware.com
 
     * The built-in function updateAfterEvent() can now be called with no
