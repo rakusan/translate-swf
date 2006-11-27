@@ -806,8 +806,6 @@ TOKEN : /* Commands */
     | <SWITCH: "switch">
     | <CASE: "case">
     | <DEFAULT_CASE: "default">
-    | <INITCLIP: "#initclip">
-    | <ENDINITCLIP: "#endinitclip">
 }
 
 TOKEN : /* IDENTIFIERS */
@@ -965,7 +963,6 @@ ASNode Statement() : { ASNode node = null; }
     | LOOKAHEAD(TryStatement()) node=TryStatement() { return node; }
     | LOOKAHEAD(ThrowStatement()) node=ThrowStatement() { return node; }
     | LOOKAHEAD(SwitchStatement()) node=SwitchStatement() { return node; }
-    | LOOKAHEAD(InitStatement()) node=InitStatement() { return node; }
 }
 
 
@@ -1197,15 +1194,15 @@ ASNode On() : { Token t; ASNode eventNode = new ASNode(ASNode.On), node = null; 
     { return eventNode; }
 }
 
-ASNode TryStatement() : { ASNode exceptionNode = new ASNode(ASNode.Exception), node = null;}
+ASNode TryStatement() : { ASNode exceptionNode = new ASNode(ASNode.Exception), node = null, catchNode = null;}
 {   
     <TRY>
-        node=Statement() { ASNode tryNode = new ASNode(ASNode.Try); tryNode.add(node); }
+        node=Statement() { ASNode tryNode = new ASNode(ASNode.Try); tryNode.add(node); exceptionNode.add(tryNode); }
     
-    ( LOOKAHEAD(2) <CATCH> "(" node=ConditionalExpression() ")" { ASNode catchNode = new ASNode(ASNode.Catch); catchNode.add(node);  }
+    ( LOOKAHEAD(2) <CATCH> "(" node=ConditionalExpression() ")" { catchNode = new ASNode(ASNode.Catch); exceptionNode.add(catchNode);}
         node=Statement() { catchNode.add(node); } )*
     [ LOOKAHEAD(2) <FINALLY>
-        node=Statement() { ASNode finallyNode = new ASNode(ASNode.Finally); finallyNode.add(node); } ]
+        node=Statement() { ASNode finallyNode = new ASNode(ASNode.Finally); finallyNode.add(node); exceptionNode.add(finallyNode); } ]
         
     { return exceptionNode; }
 }    
@@ -1232,12 +1229,6 @@ ASNode SwitchLabel() : { ASNode labelNode = new ASNode(ASNode.Label), node = nul
     | <DEFAULT_CASE> ":"
     )
     { return labelNode; }
-}
-
-ASNode InitStatement() : { ASNode list = new ASNode(ASNode.StatementList), node = null; }
-{
-    <INITCLIP> ( node=Statement() { list.add(node); } )* <ENDINITCLIP>
-    { return list; }
 }
 
 /*
