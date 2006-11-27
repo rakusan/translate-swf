@@ -8,7 +8,7 @@
 
     <test name="Reference">
 		<parameter name="source" value="test/data/as1/swf6"/>
-		<parameter name="source" value="test/data/as1/swf6"/>
+		<parameter name="result" value="test/data/as1/swf6"/>
 		<classes>
       		<class name="com.flagstone.translate.test.Actionscript">
       			<methods>
