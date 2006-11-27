@@ -662,6 +662,9 @@ public final class ASNode extends Object
         static final int StartDrag            = 39;
         static final int EndDrag              = 40;
         static final int StringLess           = 41;
+        static final int Throw                = 42;
+        static final int Cast                 = 43;
+        static final int Implements           = 44;
         static final int RandomNumber         = 48;
         static final int MBStringLength       = 49;
         static final int CharToAscii          = 50;
@@ -671,11 +674,11 @@ public final class ASNode extends Object
         static final int MBCharToAscii        = 54;
         static final int MBAsciiToChar        = 55;
         static final int DeleteVariable       = 58;
-        static final int Delete                  = 59;
+        static final int Delete               = 59;
         static final int InitVariable         = 60;
         static final int ExecuteFunction      = 61;
         static final int Return               = 62;
-        static final int Modulo                  = 63;
+        static final int Modulo               = 63;
         static final int NamedObject          = 64;
         static final int NewVariable          = 65;
         static final int NewArray             = 66;
@@ -697,6 +700,7 @@ public final class ASNode extends Object
         static final int ExecuteMethod        = 82;
         static final int NewMethod            = 83;
         static final int InstanceOf           = 84;
+        static final int EnumerateObject      = 85;
         static final int BitwiseAnd           = 96;
         static final int BitwiseOr            = 97;
         static final int BitwiseXOr           = 98;
@@ -704,6 +708,11 @@ public final class ASNode extends Object
         static final int ArithmeticShiftRight = 100;
         static final int LogicalShiftRight    = 101;
         static final int StrictEqual          = 102;
+        static final int Greater              = 103;
+        static final int StringGreater        = 104;
+        static final int Extends              = 105;
+        
+        static final int ExceptionHandler     = 143;
         
         /*
          * Call is represented as a byte-code however it also encodes a length field 
@@ -1257,6 +1266,119 @@ public final class ASNode extends Object
             coder.encode(actionLength, 2);
             
             for (Iterator j=actions.iterator(); j.hasNext();)
+                ((Coding)j.next()).encode(coder);
+        }
+    }
+
+    private class ExceptionHandler extends Action
+    {
+        private int register = 0;
+        private String variable = null;
+        private int tryLength = 0;
+        private int catchLength = 0;
+        private int finalLength = 0;
+        
+        private ArrayList tryActions = null;
+        private ArrayList catchActions = null;
+        private ArrayList finalActions = null;
+    
+        ExceptionHandler(int reg, String var, ArrayList tryArray, ArrayList catchArray, ArrayList finalArray)
+        {
+            super(ExceptionHandler);
+            
+            if (var != null)
+                variable = var;
+            else
+                register = reg;
+            
+            tryActions = tryArray;
+            catchActions = catchArray;
+            finalActions = finalArray;
+        }
+        
+        /*
+         * Return the length of the action when encoded to the Flash binary format.
+         *
+         * @param version the version number of Flash.
+         * @param encoding the character set used to encode strings.
+         *
+         * @return the number of bytes the object occupies when encoded.
+         */
+        int length(int version, String encoding)
+        {
+            length = 11;
+
+            try 
+            {
+                if (variable != null) {
+                    length += variable.getBytes(encoding).length+1;
+                }
+                else {
+                    length += 1;
+                }
+            }
+            catch (java.io.UnsupportedEncodingException e) 
+            {
+            }
+            
+            
+            for (Iterator i = tryActions.iterator(); i.hasNext();) 
+                    tryLength += ((Coding)i.next()).length(version, encoding);
+            
+            for (Iterator i = catchActions.iterator(); i.hasNext();) 
+                catchLength += ((Coding)i.next()).length(version, encoding);
+
+            for (Iterator i = finalActions.iterator(); i.hasNext();) 
+                finalLength += ((Coding)i.next()).length(version, encoding);
+  
+            tryLength += 5;
+            tryActions.add(new ValueAction(Action.Jump, catchLength));
+
+            return length + tryLength + catchLength + finalLength;
+        }
+    
+        /*
+         * Encodes the ExceptionHandler action to the binary representation 
+         * supported in the Flash file format.
+         *
+         * @param coder the Coder object that stores the encoded representation of 
+         * the action.
+         */
+        void encode(Coder coder)
+        {
+            coder.encode(this.type, 1);
+            coder.encode(length-3, 2);
+            
+            int flags = 0;
+            
+            if (variable != null)
+                flags = 4;
+            if (catchLength != 0)
+                flags += 2;
+            if (finalLength != 0)
+                flags += 1;
+            
+            coder.encode(flags, 1);
+            
+            coder.encode(tryLength, 2);
+            coder.encode(catchLength, 2);
+            coder.encode(finalLength, 2);
+            
+            if (variable != null) {
+                coder.encode(variable);
+            }
+            else {
+                coder.encode(register, 1);
+                coder.encode(0, 1);
+            }
+
+            for (Iterator j=tryActions.iterator(); j.hasNext();)
+                ((Coding)j.next()).encode(coder);
+            
+            for (Iterator j=catchActions.iterator(); j.hasNext();)
+                ((Coding)j.next()).encode(coder);
+            
+            for (Iterator j=finalActions.iterator(); j.hasNext();)
                 ((Coding)j.next()).encode(coder);
         }
     }
@@ -2353,6 +2475,7 @@ public final class ASNode extends Object
             length += ((Coding)i.next()).length(version, "UTF-8");        
 
         Coder coder = new Coder(new byte[length], "UTF-8");
+        coder.version = version;
                     
         for (Iterator i = array.iterator(); i.hasNext();) 
             ((Coding)i.next()).encode(coder);        
@@ -2380,11 +2503,7 @@ public final class ASNode extends Object
                     type = Identifier;
                     Object value = constants.get(sValue);
                     
-                    if (value == null) 
-                    {
-                        type = NoOp;
-                    }
-                    else if (value instanceof String)
+                    if (value != null && value instanceof String)
                     {
                         type = StringLiteral;
                         sValue = value.toString();
@@ -3036,6 +3155,14 @@ public final class ASNode extends Object
             case Label:
                 generateLabel(info, actions);
                 break;
+            case Exception:
+                generateException(info, actions);
+                break;
+            case Try:
+            case Catch:
+            case Finally:
+                generateClauses(info, actions);
+                break;
             case OnClipEvent:
                 generateOnClipEvent(info, actions);
                 break;
@@ -3080,6 +3207,7 @@ public final class ASNode extends Object
             case Not:
             case BitNot:
             case Delete:
+            case Throw:
                 generateUnary(info, actions);
                 break;
             case StringAdd:
@@ -3180,7 +3308,6 @@ public final class ASNode extends Object
         for (int i=0; i<count; i++)
             children[i].generate(info, actions);
     }
-    
     private void generateIf(ASInfo info, ArrayList actions)
     {
         int count = count();
@@ -3458,10 +3585,20 @@ public final class ASNode extends Object
         int blockLength = 0;
 
         // Push all the attributes of the specified object onto the stack
-
-        addReference(actions, info, children[1].sValue);
-        actions.add(new Action(Action.Enumerate));
-
+        
+        switch (info.version)
+        {
+            case 5:
+                children[1].generate(info, actions);
+                actions.remove(actions.size()-1);
+                actions.add(new Action(Action.Enumerate));
+                break;
+            case 6:
+            case 7:
+                children[1].generate(info, actions);
+                actions.add(new Action(Action.EnumerateObject));
+                break;
+        }
         // Set the enumerator variable with the current attribute
 
         addReference(blockActions, info, children[0].sValue);
@@ -3684,6 +3821,38 @@ public final class ASNode extends Object
         }
     }
 
+    private void generateException(ASInfo info, ArrayList actions)
+    {
+        int count = count();
+        
+        ArrayList actionArray[] = new ArrayList[count];        
+
+        for (int i=0; i<count; i++)
+            children[i].discardValues();
+
+        for (int i=0; i<count; i++)
+        {
+            actionArray[i] = new ArrayList();
+            
+            children[i].generate(info, actionArray[i]);
+        }
+        
+        actions.add(new ExceptionHandler(101, null, actionArray[0], actionArray[1], actionArray[2]));
+    }
+    
+    private void generateClauses(ASInfo info, ArrayList actions)
+    {
+        int count = count();
+        
+        for (int i=0; i<count; i++)
+            children[i].discardValues();
+
+        for (int i=0; i<count; i++)
+        {
+            children[i].generate(info, actions);
+        }
+    }
+    
     private void generateOnClipEvent(ASInfo info, ArrayList actions)
     {
         ArrayList array = new ArrayList();
@@ -3850,7 +4019,12 @@ public final class ASNode extends Object
                 break;
             case Identifier:
                 if (constants.containsKey(sValue))
-                    addLiteral(actions, constants.get(sValue));
+                {
+                    if (sValue.equals("undefined"))
+                        addLiteral(actions, new Void());
+                    else
+                        addLiteral(actions, constants.get(sValue));
+                }
                 else if (propertyNames.containsKey(sValue))
                 {
                     if (info.context.contains("With"))
@@ -4193,6 +4367,10 @@ public final class ASNode extends Object
                 if (discardValue)
                     addAction(actions, Action.Pop);
                 break;
+            case Throw:
+                children[0].generate(info, actions);
+                addAction(actions, Action.Throw);
+                break;
             default:
                 break;
         }
@@ -4212,9 +4390,8 @@ public final class ASNode extends Object
          */
         
         switch (type) 
-        {
+        {                
             // > and <= are synthesised using < and !, see below.
-            case GreaterThan:
             case LessThanEqual:
             case StringLessThanEqual:
             case StringGreaterThan:
@@ -4226,6 +4403,7 @@ public final class ASNode extends Object
             case LogicalOr:
             case StrictEqual:
             case StrictNotEqual:
+            case GreaterThan:
                 break;
             default:
                 for (int i=0; i<count; i++)
@@ -4290,7 +4468,23 @@ public final class ASNode extends Object
                 addAction(actions, Action.Less);
                 break;
             case GreaterThan:
-                addAction(actions, Action.Less);
+                switch (info.version)
+                {
+                    case 5:
+                        children[1].generate(info, actions);
+                        children[0].generate(info, actions);
+                        addAction(actions, Action.Less);
+                        
+                        if (parent.type != If)
+                            addAction(actions, Action.Not);
+                        break;
+                    case 6:
+                    case 7:
+                        children[0].generate(info, actions);
+                        children[1].generate(info, actions);
+                        addAction(actions, Action.Greater);
+                        break;
+                }
                 break;
             case LessThanEqual:
                 addAction(actions, Action.Less);
@@ -4298,7 +4492,8 @@ public final class ASNode extends Object
                 break;
             case GreaterThanEqual:
                 addAction(actions, Action.Less);
-                addAction(actions, Action.Not);
+                if (parent.type != If)
+                    addAction(actions, Action.Not);
                 break;
             case And:
                 addAction(actions, Action.And);
