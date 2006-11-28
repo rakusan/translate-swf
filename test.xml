@@ -18,7 +18,7 @@
     <import file="build.xml"/>
 
     <property name="test.dir" location="test"/>
-    <property name="test.data.dir" value="${test.dir}/data"/>
+    <property name="test.data.dir" value="${test.dir}/data/as1"/>
     <property name="test.suite.dir" value="${test.dir}/suites"/>
     <property name="test.result.dir" value="${test.dir}/results"/>
     <property name="test.report.dir" value="${test.dir}/reports"/>
@@ -35,6 +35,12 @@
     
     <target name="clean-test" 
         description="Remove all the files and reports generating during testing">
+        
+        <delete failonerror="false" includeemptydirs="true">
+            <fileset dir="${test.data.dir}/SWF5" includes="**/*.txt"/>
+            <fileset dir="${test.data.dir}/SWF6" includes="**/*.txt"/>
+            <fileset dir="${test.data.dir}/SWF7" includes="**/*.txt"/>
+        </delete>
         
         <delete failonerror="false" includeemptydirs="true">
             <fileset dir="${test.result.dir}" includes="**/*"/>
