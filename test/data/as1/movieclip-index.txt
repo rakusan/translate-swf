@@ -1,5 +1,3 @@
-//6 #include "scripts/classes/movieclip/initclip.as"
-
 //5 #include "scripts/classes/movieclip/events.as"
 //5 #include "scripts/classes/movieclip/functions.as"
 //4 #include "scripts/classes/movieclip/properties-swf4.as"
