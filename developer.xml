@@ -55,14 +55,12 @@
 
         <copy todir="${dist.dir}/test" overwrite="true">
             <fileset dir="test">
-                <include name="data/as1/*.as" />
-                <include name="data/as1/*.swf" />
-                <include name="data/as1/*.fla" />
-                <include name="data/as1/script" />
-                <include name="data/directives/*.as" />
-                <include name="data/directives/script.txt" />
-                <include name="suites/ASParserReference.xml" />
-                <include name="suites/ASParser.xml" />
+                <include name="data/as1/scripts/**/*" />
+                <include name="data/as1/swf5/**/*.swf" />
+                <include name="data/as1/swf6/**/*.swf" />
+                <include name="data/as1/swf7/**/*.swf" />
+                <include name="data/as1/templates/**/*" />
+                <include name="suites/*.xml" />
             </fileset>
         </copy>
         
@@ -79,9 +77,9 @@
              compression="gzip"
         />
         
-        <exec dir="${dist.root.dir}" executable="md5">
+        <exec dir="${dist.root.dir}" executable="md5sums" output="${dist.root.dir}/${dist.name}.tar.md5">
             <arg value="-n" />
-            <arg value="-o${dist.name}.tar.md5" />
+            <arg value="-b" />
             <arg value="${dist.name}.tar.gz" />
         </exec>
         
@@ -89,9 +87,9 @@
              basedir="${dist.dir}"
         />
 
-        <exec dir="${dist.root.dir}" executable="md5">
+        <exec dir="${dist.root.dir}" executable="md5sums" output="${dist.root.dir}/${dist.name}.zip.md5">
             <arg value="-n" />
-            <arg value="-o${dist.name}.zip.md5" />
+            <arg value="-b" />
             <arg value="${dist.name}.zip" />
         </exec>
         
