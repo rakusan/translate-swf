@@ -5,16 +5,30 @@
 This release contains updates to the ActionScript grammar.
 
 Actionscript Fixes     
-    None
-     
+    Actionscript 1.x is now fully supported.
+    Parenthesis are no longer necessary when creating objects.
+    
 Bug Fixes     
     updateAfterEvent() can now be called with no arguments.
+    Flash version is now set correctly when encoding nodes.
+    WaitForFrame2 actions are now encoded with the correct length.
+    Line numbers are correct when reporting a parse error.
+    Negative integer literals are now parsed correctly.
+    Strings not included in strings table are decoded correctly.
+    gotoAndStop and gotoAndPlay are now encoded correctly.
+    User-defined functions now generate arguments in the correct order.
  
 Class Changes 
-    None
+    Added ExceptionHandler class (private)
+    Updated list of supported actions for Flash 7.
+    Compiled actions now depend on Flash version.
+    ASNode.translate() supports all Flash versions.
+    Validation is (temporarily) disabled.
   
 Testing Changes 
-    None
+    New main test class, ActionscriptTest.java.
+    Regression test suites are now included for Flash 5, 6 & 7.
+    Templates are now used for testing to simplify regression testing.
 
 Package Changes 
     None
@@ -23,6 +37,69 @@ Package Changes
 ------------------------
   Actionscript Changes  
 ------------------------
+
+1. Actionscript is now fully supported.
+
+The grammar and ASNode was upgraded to fully support all of the functions,
+statements and operators in Actionscript 1 - as defined up to Flash 7. New 
+features include:
+
+    statements:
+
+        switch..case..default
+        try..catch..finally
+        throw
+            
+    operators:
+    
+        === strict equals
+        !== strict not equals
+        and logical and
+        or  logical or
+        add string add
+        eq  equals
+        ne  not equals
+        le  less than or equal
+        gt  greater than
+        ge  greater than or equal
+        
+    built-in functions:
+           
+        attachAudio()
+        call()
+        chr()
+        getTimer()
+        ifFrameLoaded()
+        int()
+        mbchr()
+        mbord()
+        mbsubstring()
+        ord()
+        printNum()
+        printAsBitmapNum()
+        substring()
+        tellTarget()
+        unloadMovieNum()
+        
+    constants:
+    
+        newline
+        undefined
+        
+There one exception the TextField.StyleSheet() method which returns a stylesheet
+is not supported by the Parser. This will be addressed in a future release.
+
+2. Parenthesis are no longer necessary when creating objects.
+
+Objects can now be created without the need to specify a closed set of 
+parenthesis when there are no arguments, e.g.
+
+    x = new Object();
+    
+can now be written as:
+
+    x = new Object
+    
 
 -------------
   Bug Fixes  
@@ -34,15 +111,128 @@ The built-in Actionscript function, updateAfterEvent() was validated to ensure
 that it was being called with one argument. The validation check was removed so
 the function can be correctly used with no arguments.
 
+2. Flash version is now set correctly when encoding nodes.
+
+When a tree of ASNode objects is encoded to compile a script into the actions 
+executed by the Flash Player the version of Flash is used to determine how the
+actions will be encoded. This is important for event handlers for movie clips
+where the encoded format changed between Flash 5 and Flash 6.
+
+The version was not being set correctly with the result that the encoded data
+structures for movie clip events was always being encoded for Flash 5. This 
+would result in an error when encoding actions for Flash 6 or Flash 7 movies.
+
+3. WaitForFrame2 actions are now encoded with the correct length.
+
+The WaitForFrame2 action is followed by a group of actions that are executed 
+until a specified frame number has been loaded by the Flash Player. The action
+specifies the number of actions following that should be executed, however in
+previous releases it was the encoded length of the following actions that was 
+used.
+
+4. Line numbers are correct when reporting a parse error.
+
+The number of the line in a script that triggered a parse error is now 
+specified correctly.
+
+5. Negative integer literals are now parsed correctly.
+
+When a negative integer literal was parsed the sign was being ignored. 
+
+6. Strings not included in strings table are decoded correctly.
+
+Strings literals parsed from a script are added to a table, allowing them to be
+referenced by their index into the table rather than pushing the literal value
+onto the stack each time they were used.
+
+The table is not used when a set of strings in a script appear only once or 
+when the number of strings exceeds the size of the table. In these cases the 
+string is pushed onto the stack. However when the encoded bytes of the string
+were obtained from the String object the encoding method (UTF-8) was not 
+specified and so the string would not be decoded correctly (an exception was 
+raised an caught immediately) and so now value would be pushed onto the stack.
+ 
+7. gotoAndStop and gotoAndPlay are now encoded correctly.
+
+The built-in functions, gotoAndStop() and gotoAndPlay() are now encoded 
+corerctly using the GotoLabel action when the frame passed as an argument to the
+functions is a string literal.
+
+8. User-defined functions now generate arguments in the correct order.
+
+The arguments pushed onto the stack in a user-defined function are now correctly 
+pushed in the order the are passed to the function.
+
+
 -----------------
   Class Changes  
 -----------------
+
+1. Added ExceptionHandler class (private)
+
+A new private class, ExceptionHandler was added to support try/catch blocks. 
+The functionality matches the FSExceptionHandler class in the Transform SWF 
+framework. A private class is used so that Translate can also be used with 
+third-party frameworks.
+
+2. Updated list of supported actions for Flash 7.
+
+New actions were defined for byte-code actions added in Flash 7: Greater, 
+StringGreater, Extends and EnumerateObject.
+
+3. Compiled actions now depend on Flash version.
+
+When a script is compiled the actions generate now take the target Flash version
+into account. For example when compiling the relational expression a > b the 
+Greater action is used when the target version is Flash 7. For earlier Flash
+versions the action was not available and so the operation is synthesised using
+the equivalent expression !(b <= a).
+
+4. ASNode.translate() supports all Flash versions.
+
+The ASNode method translate() would throw an IllegalArgumentException if the 
+version used to compiel a script was less than Flash 5. This is no longer the 
+case allowing scripts for any version of flash to be compiled.
+
+5. Validation is (temporarily) disabled.
+
+Validation of the node tree that make up the parsed representation of a script 
+is no longer performed. The validation will be upgraded in a later release to
+add more features and provide greater accuracy, particularly whenv validating
+calls to built-in functions.
+
 
 -------------------
   Testing Changes  
 -------------------
 
+1. New main test class, Actionscript.java.
+
+The existing test classes, ASParserTest and ASParserReference have been 
+replaced by a single class, Actionscript. This class now combines the functions
+of the replaced classes.
+
+2. Regression test suites are now included for Flash 5, 6 & 7.
+
+A suite of flash files containing the compiled scripts are now provided for 
+different Flash versions. This allows regression testing of the compiler by
+taking into account the differences in the way an expression is compiled 
+according to the actions available in a given version.
+
+3. Templates are now used for testing to simplify regression testing.
+
+Previously the test classes used hard-wired binary data to 'assemble' the final
+flash file containing the compiled script. This file was then dumped to text 
+and compared with a reference file from the regression suite. A single Flash
+(.fla) file is now used to generate the regression suite and as a template for
+the compiler. This minimises the number of differences between the two files 
+allowing errors to be quickly identified.
+
+
 -------------------
   Package Changes  
 -------------------
+
+The only changes to the package structure are the inclusion of the expanded 
+suites of scripts and teh sets of Flash files used for regression testing.
 

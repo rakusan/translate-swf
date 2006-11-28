@@ -18,6 +18,9 @@
       only being encoded correctly for Flash 5.
       
     * Started adding code generation for different versions of Flash.
+    
+    * Turned off validation of node trees until a better mechanism is 
+      implemented.
 
 2006-11-21 - smackay@flagstonesoftware.com
 
@@ -124,10 +127,6 @@
 
 2006-07-20 - smackay@flagstonesoftware.com
 
-    * Ant build file, build.xml now rebuilds the project after regenerating the 
-      parser from the grammar file and so ensure the code has the lastest 
-      grammar changes.
-      
     * User-defined functions now generate arguments in the correct order.
     
 2006-06-30 - smackay@flagstonesoftware.com
