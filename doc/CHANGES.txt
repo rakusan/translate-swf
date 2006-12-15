@@ -1,3 +1,16 @@
+2006-12-15 - smackay@flagstonesoftware.com
+
+    * Updated bug list with sourceforge identifiers. 
+    
+    * added new bug report for:
+        1616257. for..in statements do not support var keyword.
+        1616274. on() and onclipevent() statements are not interchangeable.
+        1616292. function names are case sensitive.
+
+2006-11-30 - smackay@flagstonesoftware.com
+
+    * released version 2.0.4
+
 2006-11-27 - smackay@flagstonesoftware.com
 
     * Updated the grammar and ASNode to add:

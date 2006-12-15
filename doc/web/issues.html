@@ -30,7 +30,7 @@
 <div class="content">
 <H1>Translate AS1: Known Issues &amp; Bugs</H1>
 
-<P>Version:2.0.3<br/>Updated:1st October 2006</P>
+<P>Version:2.0.4<br/>Updated: 15th December 2006</P>
 
 <TABLE width="100%">
 
@@ -45,22 +45,35 @@
 <TBODY>
 
 <TR>
-<TD>1. Newline does not delimit statements.</TD>
+<TD>1501763. Newline does not delimit statements.</TD>
 <TD>Open</TD>
 <TD>Open</TD>
 </TR>
 
 <TR>
-<TD>2. updateAfterEvent() cannot be called with no arguments.</TD>
+<TD>1616266. duplicate definitions in event handlers.</TD>
 <TD>Open</TD>
-<TD>2.0.4</TD>
+<TD>2.0.5</TD>
 </TR>
 
 <TR>
-<TD>3. duplicate definitions in event handlers.</TD>
+<TD>1616257. for..in statements do not support var keyword.</TD>
 <TD>Open</TD>
-<TD>2.0.4</TD>
+<TD>2.0.5</TD>
 </TR>
+
+<TR>
+<TD>1616274. on() and onclipevent() statements are not interchangeable.</TD>
+<TD>Open</TD>
+<TD>Open</TD>
+</TR>
+
+<TR>
+<TD>1616292. function names are case sensitive.</TD>
+<TD>Open</TD>
+<TD>Open</TD>
+</TR>
+
 
 </TBODY>
 </TABLE>
@@ -77,49 +90,55 @@
 
 <TBODY>
 <TR>
-<TD>1. Variables with local scope are not supported.</TD>
+<TD>1560065. updateAfterEvent() cannot be called with no arguments.</TD>
+<TD>Fixed</TD>
+<TD>2.0.4</TD>
+</TR>
+
+<TR>
+<TD>1465622. Variables with local scope are not supported.</TD>
 <TD>Fixed</TD>
 <TD>2.0.3</TD>
 </TR>
 
 <TR>
-<TD>2. Accented Characters not supported</TD>
+<TD>1465637. Accented Characters not supported.</TD>
 <TD>Fixed</TD>
 <TD>2.0.3</TD>
 </TR>
 
 <TR>
-<TD>3. Anonymous function arguments are not assigned to variables</TD>
+<TD>1465635. Anonymous function arguments are not assigned to variables.</TD>
 <TD>Fixed</TD>
 <TD>2.0.3</TD>
 </TR>
 
 <TR>
-<TD>4. Incrementing object attributes fails</TD>
+<TD>1465629. Incrementing object attributes fails.</TD>
 <TD>Fixed</TD>
 <TD>2.0.3</TD>
 </TR>
 
 <TR>
-<TD>5. random() function is not supported</TD>
+<TD>1465623. random() function is not supported.</TD>
 <TD>Fixed</TD>
 <TD>2.0.3</TD>
 </TR>
 
 <TR>
-<TD>6. instanceof is not currently supported.</TD>
+<TD>1465612. instanceof is not currently supported.</TD>
 <TD>Fixed</TD>
 <TD>2.0.2</TD>
 </TR>
 
 <TR>
-<TD>7. delete operator is not currently supported.</TD>
+<TD>1465613. delete operator is not currently supported.</TD>
 <TD>Fixed</TD>
 <TD>2.0.2</TD>
 </TR>
 
 <TR>
-<TD>8. Multiple assignments are not supported.</TD>
+<TD>1465620. Multiple assignments are not supported.</TD>
 <TD>Fixed</TD>
 <TD>2.0.2</TD>
 </TR>
@@ -131,7 +150,7 @@
 
 <h2>Current Issues</h2>
 
-<H3>1. Newline does not delimit statements</H3>
+<H3>1501763. Newline does not delimit statements</H3>
 
 <P>The parser in Macromedia Flash allows newline characters to delimit 
 statements. The statements:
@@ -167,36 +186,7 @@ simple or consistent results.</P>
 
 <div class="hr"><hr/></div>
 
-<H3>2. updateAfterEvent() cannot be called with no arguments.</H3>
-
-<P>The built-in function, updateAfterEvent() cannot be used without passing an
-argument. This is not correct.
-
-<H4>Root Cause</H4>
-
-<P>Translate performs some checking on the built-in Actionscript functions to 
-ensure that they are being called correctly. The code is checking to see that
-updateAfterEvent() is called with only one argument.</P>
-
-<H4>Workaround</H4>
-
-<P>Comment out (or delete) lines 4975-4980 in ASNode.java:
-
-<pre>
-//    else if (sValue.equals("updateAfterEvent"))
-//    {
-//        if (count != 1)
-//            reportError("IncorrectArgumentCount", number);
-//    }
-</pre>
-
-<H4>When will it be fixed?</H4>
-
-<P>This error will be fixed in the next release due out at the end of October.</P>
-
-<div class="hr"><hr/></div>
-
-<H3>3. duplicate definitions in event handlers.</H3>
+<H3>1616266. duplicate definitions in event handlers.</H3>
 
 <P>When compiling the code for button and movie clip event handlers:
 
@@ -228,20 +218,113 @@ function each time the code for an event handler is compiled.</P>
 <H4>Workaround</H4>
 
 <P>There is no simple workaround. The affect is only to increase the size of the
-compiled code by including unused strings and funciton definitions. In an event 
+compiled code by including unused strings and function definitions. In an event 
 handler, any function or string with the same name will simply overwrite the 
 previous entry in the table so the code will be unaffected by any existing
 entries.</P>
 
 <H4>When will it be fixed?</H4>
 
-<P>A fix is planned for release 2.0.4 due at the end of October 2006.</P>
+<P>A fix is planned for release 2.0.5 due at the end of December 2006.</P>
+
+<div class="hr"><hr/></div>
+
+<H3>1616257. for..in statements do not support var keyword.</H3>
+
+<P>for..in statements that use the var keyword will cause a parse exception to 
+be thrown.</p>
+
+<pre>
+    for (var a in b) 
+</pre>
+
+<H4>Root Cause</H4>
+
+<P>The code to support the keyword was added to the grammar in the latest 
+release (2.0.4) however the test scripts (which were also being updated) did
+not include a test to verify that the grammar change worked.</P>
+
+<H4>Workaround</H4>
+
+<P>The workaround is simply to omit the var keyword.</P>
+
+<H4>When will it be fixed?</H4>
+
+<P>A fix is planned for release 2.0.5 due at the end of December 2006.</P>
+
+<div class="hr"><hr/></div>
+
+<H3>1616274. on() and onclipevent() statements are not interchangeable.</H3>
+
+<p>The on() and onclipevents() can be used in Macromedia flash to define the 
+event handlers in buttons and movie clips. The application provides the context 
+(events are bound to a physical object) and so the statements can be used 
+interchangeable to define the event handlers for an object.</p>
+
+<p>This is not possible with Translate since the scripts are compiled as stand-alone 
+code so the different types of statement are important to determine which data 
+structures should be generated for the compiled code.</p>
+
+<H4>Root Cause</H4>
+
+<P>The root cause is the design of the ASParser class which uses a single 
+method to compile the different types of scripts.</P>
+
+<H4>Workaround</H4>
+
+<P>There is no workaround. The on() statment must be used to define event
+handlers for buttons and onClipEvent() must be used to define event handlers
+for movie clips.</P>
+
+<H4>When will it be fixed?</H4>
+
+<P>It is not clear how this can be fixed unless the API is change to provide 
+methods to explicitly compile scripts for the different types of object.</P>
+
+<div class="hr"><hr/></div>
+
+<H3>1616292. function names are case sensitive.</H3>
+
+<p>when referencing built-in functions such as gotoAndStop the name used in 
+Translate is case-sensitive. In Macromedia flash the function names are ~
+case insensitive. This means that</p>
+
+<pre>
+    gotoAndStop();
+    gotoandstop();
+</pre>
+
+<p>
+are treated a two different functions. The first function is recognized by 
+Translate as a reference to the built-in Flash function while the second is not 
+- instead it is treated as a call to a user-defined function.</p>
+
+<H4>Root Cause</H4>
+
+<P>The ASNode class contains a table of built-in function names. This table is
+searched using a case-sensitive comparison.</P>
+
+<H4>Workaround</H4>
+
+<P>There is no workaround.</P>
+
+<H4>When will it be fixed?</H4>
+
+<P>This will be fixed as soon as possible. Not release is currently set since 
+this also requires a new set of test scripts to be written.</P>
 
 <br/>
 
 <H2>Recently Fixed</H2>
 
-<H3>1. Variables with local scope are supported.</H3>
+<H3>1560065. updateAfterEvent() cannot be called with no arguments.</H3>
+
+<P>The built-in function, updateAfterEvent() can now be used without passing an
+argument.
+
+<div class="hr"><hr/></div>
+
+<H3>1465622. Variables with local scope are not supported.</H3>
 
 <P>Local variables arenow scoped correctly.</P>
 
@@ -259,7 +342,7 @@ entries.</P>
 
 <div class="hr"><hr/></div>
 
-<h3>2. Accented characters are supported.</h3>
+<h3>1465637. Accented Characters not supported.</h3>
 
 <P>Non ASCII characters in strings no longer cause errors:
 
@@ -269,7 +352,7 @@ entries.</P>
    
 <div class="hr"><hr/></div>
 
-<h3>3. Anonymous function arguments are assigned to variables</H3>
+<h3>1465635. Anonymous function arguments are not assigned to variables.</H3>
 
 <P>When an anonymous function is assigned to a variable then the arguments
 passed to the function are correctly bound to the function variables:
@@ -290,7 +373,7 @@ passed to the function are correctly bound to the function variables:
 
 <div class="hr"><hr/></div>
 
-<H3>4. Object attributes can now be used with unary operators</H3>
+<H3>1465629. Incrementing object attributes fails.</H3>
 
 <P>UNary operators such as pre/post increment and pre/post descrement can now
 be used with object attributes.</P>
@@ -302,13 +385,13 @@ be used with object attributes.</P>
  
 <div class="hr"><hr/></div>
 
-<H3>5. random() function now supported.</H3>
+<H3>1465623. random() function is not supported.</H3>
 
 <P>The function random() can now be used in scripts.</p> 
 
 <div class="hr"><hr/></div>
 
-<h3>6. instanceof operator is now supported.</H3>
+<h3>1465612. instanceof is not currently supported.</H3>
 
 <P>The instanceof operator can now be used to test class membership</P>
 
@@ -322,7 +405,7 @@ be used with object attributes.</P>
 
 <div class="hr"><hr/></div>
 
-<h3>7. delete operator is now supported.</h3>
+<h3>1465613. delete operator is not currently supported.</h3>
 
 <P>The delete operator can be used to delete an object:</P>
 
@@ -334,7 +417,7 @@ be used with object attributes.</P>
 
 <div class="hr"><hr/></div>
 
-<H3>8. Multiple assignment statements now supported.</H3>
+<H3>1465620. Multiple assignments are not supported.</H3>
 
 <P>The value of more than one variable can be set in an assignment statement:</P>
 

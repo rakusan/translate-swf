@@ -1,0 +1,42 @@
+---------------------------------------------------
+  Release Notes for Translate AS1, Version 2.0.5.
+---------------------------------------------------
+
+This release contains updates to the ActionScript grammar.
+
+Actionscript Fixes     
+    None currently scheduled.
+    
+Bug Fixes     
+    1616266. duplicate definitions in event handlers.
+    1616257. for..in statements do not support var keyword.
+ 
+Class Changes 
+    None currently scheduled.
+  
+Testing Changes
+    None currently scheduled.
+
+Package Changes 
+    None currently scheduled.
+
+
+------------------------
+  Actionscript Changes  
+------------------------
+
+-------------
+  Bug Fixes  
+-------------
+
+-----------------
+  Class Changes  
+-----------------
+
+-------------------
+  Testing Changes  
+-------------------
+
+-------------------
+  Package Changes  
+-------------------
