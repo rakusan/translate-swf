@@ -1019,7 +1019,7 @@ ASNode DoStatement() : { ASNode doNode = new ASNode(ASNode.Do), node = null; doN
 
 ASNode ForStatement() : { Token t; ASNode forNode = null, node = null; }
 {
-    LOOKAHEAD (4) // Lookahead for the <IN> token that separates for() from for..in
+    LOOKAHEAD (5) // Lookahead for the <IN> token that separates for() from for..in
     
       <FOR> 
           { 

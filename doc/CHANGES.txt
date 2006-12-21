@@ -2,6 +2,9 @@
 
     * Moved HTML tables containing information on bugs and releases into the
       code for the Flagstone web site.
+      
+    * Fixed bug 1616257 by increasing the lookahead so for..in statements are 
+      distinguished from for loops.
 
 2006-12-15 - smackay@flagstonesoftware.com
 
