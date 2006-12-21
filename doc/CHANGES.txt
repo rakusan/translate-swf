@@ -1,3 +1,8 @@
+2006-12-21 - smackay@flagstonesoftware.com
+
+    * Moved HTML tables containing information on bugs and releases into the
+      code for the Flagstone web site.
+
 2006-12-15 - smackay@flagstonesoftware.com
 
     * Updated bug list with sourceforge identifiers. 
