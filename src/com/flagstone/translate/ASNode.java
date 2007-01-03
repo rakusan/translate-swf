@@ -162,6 +162,16 @@ public final class ASNode extends Object
                 strings.add(str);
             }
         }
+        /*
+         * Clears the strings table so definitions for event handler are only
+         * defined within the scope of the event handler and not across the 
+         * entire script.
+         */
+        void clearStrings()
+        {
+            strings.clear();
+            useStrings = false;
+        }
     }
     
     /*
@@ -2891,6 +2901,12 @@ public final class ASNode extends Object
 
         switch (type)
         {
+            case On:
+            case OnClipEvent:
+                info.clearStrings();
+                for (int i=0; i<count; i++)
+                    children[i].findStrings(info);
+                break;
             case StringLiteral:
                 sValue = sValue.replaceAll("\\\\n", "\n");
                 sValue = sValue.replaceAll("\\\\t", "\t");
