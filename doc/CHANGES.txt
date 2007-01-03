@@ -1,3 +1,10 @@
+2007-01-02 - smackay@flagstonesoftware.com
+
+    * released version 2.0.5
+    
+    * added clearStrings() method to ASInfo class so that the scope of string 
+      literals is restricted to the enclosing on() or onClipEvent() statment.
+
 2006-12-21 - smackay@flagstonesoftware.com
 
     * Moved HTML tables containing information on bugs and releases into the
