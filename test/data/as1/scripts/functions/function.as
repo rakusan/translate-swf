@@ -1,5 +1,5 @@
 /*
- * Define a simple fuction
+ * Define a simple function
  */ 
 
 a = 0;
@@ -12,7 +12,7 @@ function a()
 a();
 
 /*
- * Define an empty fuction
+ * Define an empty function
  */ 
 
 a = 0;
@@ -24,7 +24,7 @@ function a()
 a();
 
 /*
- * Define a simple fuction that accepts arguments
+ * Define a simple function that accepts arguments
  */
  
 a = 1;
@@ -38,7 +38,7 @@ function addition(a, b)
 addition(a, b);
 
 /*
- * Define a simple fuction that accepts arguments and uses an empty return
+ * Define a simple function that accepts arguments and uses an empty return
  */
  
 a = 1;
@@ -54,7 +54,7 @@ function addition(a, b)
 addition(a, b);
 
 /*
- * Define a simple fuction that accepts arguments and returns a value
+ * Define a simple function that accepts arguments and returns a value
  */
  
 a = 1;
@@ -68,7 +68,7 @@ function addition(a, b)
 addition(a, b);
 
 /*
- * Define nested fuctions
+ * Define nested functions
  */
  
 a = 1;
