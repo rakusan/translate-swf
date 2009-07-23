@@ -1,3 +1,13 @@
+2009-07-23 - smackay@flagstonesoftware.com
+  
+    * Rewrote com.flagstone.translate.test.Actionscript to use JUnit.
+    
+    * Refactored the test data so only one set of .swf files (Flash 7)
+      is retained. This should simplify testing enormously and provide
+      a stable reference for checking the compiler.
+      
+    * Changed licence to BSD.
+
 2007-01-02 - smackay@flagstonesoftware.com
 
     * released version 2.0.5
