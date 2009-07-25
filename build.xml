@@ -32,11 +32,11 @@
 
     </description>
 
-    <property name="version" value="2.0.6"/>
+    <property name="version" value="2.1.0"/>
     
     <property name="src.dir" location="src"/>
     <property name="lib.dir" location="lib"/>
-    <property name="build.dir" location="build"/>
+    <property name="build.dir" location="bin"/>
     
     <property name="package.name" value="translate"/>
     <property name="package.dir" value="com/flagstone/${package.name}"/>

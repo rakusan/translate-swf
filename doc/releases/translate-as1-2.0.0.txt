@@ -1,7 +1,0 @@
-------------------------------------------------------------
-  Release Notes for Translate AS1 for Java, Version 2.0.0.
-------------------------------------------------------------
-
-Translate was completely rewritten to boost performance of the parser and to allow 
-encoded byte-codes and actions to be generated - allowing the framework to be 
-integrated with any Java-based SDK used to generate Flash files.

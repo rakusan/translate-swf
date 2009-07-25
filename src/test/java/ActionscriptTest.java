@@ -45,7 +45,7 @@ import com.flagstone.transform.FSDefineButton2;
 import junit.framework.TestCase;
 import junit.framework.Assert;
 
-public class Actionscript extends TestCase
+public class ActionscriptTest extends TestCase
 {
     private ASParser parser;
     private ASNode root;
