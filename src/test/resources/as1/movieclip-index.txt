@@ -1,0 +1,7 @@
+//5 #include "scripts/classes/movieclip/events.as"
+//5 #include "scripts/classes/movieclip/functions.as"
+//4 #include "scripts/classes/movieclip/properties-swf4.as"
+//5 #include "scripts/classes/movieclip/properties-swf5.as"
+//6 #include "scripts/classes/movieclip/properties-swf6.as"
+//7 #include "scripts/classes/movieclip/properties-swf7.as"
+

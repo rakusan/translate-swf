@@ -32,7 +32,7 @@
 
     </description>
 
-    <property name="version" value="2.1.0"/>
+    <property name="version" value="3.0"/>
     
     <property name="src.dir" location="src"/>
     <property name="lib.dir" location="lib"/>
@@ -40,7 +40,7 @@
     
     <property name="package.name" value="translate"/>
     <property name="package.dir" value="com/flagstone/${package.name}"/>
-    <property name="package.main.class" value="Translate.java"/>
+    <property name="package.main.class" value="ASCompiler.java"/>
     <property name="package.example.dir" value="${package.dir}/examples"/>
     <property name="package.tool.dir" value="${package.dir}/tools"/>
     <property name="package.test.dir" value="${package.dir}/test"/>
