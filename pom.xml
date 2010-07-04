@@ -12,7 +12,7 @@
 	<version>3.0-SNAPSHOT</version>
 
 	<name>translate</name>
-	<description>Translate is a compiler for Actionscript. Currently Version 1 is supported.</description>
+	<description>Translate is a compiler for Actionscript.</description>
 	<url>http://www.flagstonesoftware.com/translate/</url>
 
 	<licenses>
@@ -177,6 +177,11 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>2.1.1</version>
 			</plugin>
 		</plugins>
 	</build>
