@@ -12,7 +12,6 @@
       <includes>
         <include>README*</include>
         <include>LICENSE*</include>
-        <include>NOTICE*</include>
         <include>build.xml</include>
       </includes>
     </fileSet>
@@ -20,7 +19,7 @@
       <directory>${project.build.directory}</directory>
 	  <outputDirectory>/</outputDirectory>
       <includes>
-        <include>*.jar</include>
+        <include>translate-${project.version}.jar</include>
       </includes>
     </fileSet>
     <fileSet>
@@ -31,7 +30,7 @@
       </includes>
     </fileSet>
     <fileSet>
-      <directory>${project.build.directory}/site/apidocs</directory>
+      <directory>${project.build.directory}/apidocs</directory>
 	  <outputDirectory>/doc/api</outputDirectory>
       <includes>
         <include>**</include>
