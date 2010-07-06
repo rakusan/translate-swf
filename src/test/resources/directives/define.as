@@ -1,0 +1,1 @@
+#define DIRECTIVE 1
