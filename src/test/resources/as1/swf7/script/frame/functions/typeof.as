@@ -1,0 +1,3 @@
+//   typeof function
+
+typeof(a);
