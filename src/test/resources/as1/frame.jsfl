@@ -1,4 +1,4 @@
-var doc = fl.openDocument("file:///../../frame.fla");
+var doc = fl.openDocument("file:///../../../frame.fla");
 doc.importPublishProfile("file:///../publish.xml");
 doc.currentPublishProfile = "compile";
 
@@ -9,13 +9,17 @@ var files = new Array();
 listFiles(folder, fileMask, files);
 
 var script;
+var dirOut;
 var fileOut;
 
 for (i in files) {
     script = files[i].substring(folder.length + 1);
-	fileOut = script.slice(0, -fileMask.length) + ".swf";
     fl.actionsPanel.setText("#include \"" + script + "\"");
-	fl.trace("file:///" + fileOut);
+	fileOut = "../../compiled/" + script.slice(0, -fileMask.length) + ".swf";
+	dirOut = "file:///" + fileOut.substring(0, fileOut.lastIndexOf("/"));
+	if (!FLfile.exists(dirOut)){
+		FLfile.createFolder(dirOut);
+	}
     doc.exportSWF("file:///" + fileOut, true);
 }
 

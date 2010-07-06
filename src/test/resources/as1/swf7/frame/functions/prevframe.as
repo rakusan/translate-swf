@@ -1,3 +1,0 @@
-//  prevFrame function
-
-prevFrame();

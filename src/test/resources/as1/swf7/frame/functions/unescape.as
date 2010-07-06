@@ -1,3 +1,0 @@
-//  unescape function
-
-unescape(a);

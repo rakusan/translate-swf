@@ -1,3 +1,0 @@
-// toggleHighQuality function;
-
-toggleHighQuality();

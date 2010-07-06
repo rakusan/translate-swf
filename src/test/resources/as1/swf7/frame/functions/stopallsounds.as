@@ -1,3 +1,0 @@
-// stopAllSounds function
-
-stopAllSounds();
