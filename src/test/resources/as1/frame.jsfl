@@ -15,7 +15,7 @@ var fileOut;
 for (i in files) {
     script = files[i].substring(folder.length + 1);
     fl.actionsPanel.setText("#include \"" + script + "\"");
-	fileOut = "../../compiled/" + script.slice(0, -fileMask.length) + ".swf";
+	fileOut = "../../compiled/frame/" + script.slice(0, -fileMask.length) + ".swf";
 	dirOut = "file:///" + fileOut.substring(0, fileOut.lastIndexOf("/"));
 	if (!FLfile.exists(dirOut)){
 		FLfile.createFolder(dirOut);
