@@ -1,0 +1,3 @@
+//  targetPath function
+
+targetPath(clip);

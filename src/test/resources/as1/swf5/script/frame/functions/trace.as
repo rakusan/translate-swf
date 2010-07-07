@@ -1,0 +1,3 @@
+//  trace function
+
+trace(a);
