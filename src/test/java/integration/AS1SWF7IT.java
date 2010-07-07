@@ -125,6 +125,8 @@ public class AS1SWF7IT {
 
     public AS1SWF7IT(final String path) {
         compiler = new ASCompiler();
+        compiler.setActionscriptVersion(1);
+        compiler.setFlashVersion(7);
         script = new File(SCRIPTDIR, path);
         reference = new File(REFDIR, path.replace(".as", ".swf"));
         expected = new ArrayList<Object>();

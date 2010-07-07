@@ -156,19 +156,50 @@ public final class ASCompiler {
     private final List<Integer> lines = new ArrayList<Integer>();
     private final List<String> codes = new ArrayList<String>();
 
-    /*
-     * The pathNames array allows multiple directories to be searched when
-     * looking for a file specified in a #include directive.
-     */
+    /** Version of actionscript to be compiled. */
+    private int actionscriptVersion;
+    /** Version of Flash to generate objects for. */
+    private int flashVersion;
+    /** List directories searched when looking for am included file. */
     private ArrayList<String> pathNames = new ArrayList<String>();
 
     /**
-     * Constructs a new parser object. The current working directory "." is added
-     * to the list of directories that will be searched when looking for a file.
+     * Constructs a new compiler object.
      */
-    public ASCompiler()
-    {
-        pathNames.add(".");
+    public ASCompiler() {
+    }
+
+    /**
+     * Get the version of actionscript that the script will be in.
+     * @return the version of actionscript used in the code to be compiled.
+     */
+    public int getActionscriptVersion() {
+        return actionscriptVersion;
+    }
+
+    /**
+     * Set the version of actionscript that the script will be in.
+     * @param version the version of actionscript used in the code.
+     */
+    public void setActionscriptVersion(int version) {
+        actionscriptVersion = version;
+    }
+
+    /**
+     * Get the version of Flash that the compiled actions will be generated for.
+     * @return the target version of Flash that the code will be compiled for.
+     */
+    public int getFlashVersion() {
+        return flashVersion;
+    }
+
+    /**
+     * Set the version of Flash that the compiled actions will be generated for.
+     * @param version the target version of Flash that the code will be compiled
+     * for.
+     */
+    public void setFlashVersion(int version) {
+        flashVersion = version;
     }
 
     /**
@@ -192,42 +223,40 @@ public final class ASCompiler {
     }
 
     /**
-     * Sets the array of path names used when searching for a file. The string should
-     * contains paths which contain the system-dependent separator and pathSeparator
-     * characters.
+     * Sets the array of path names used when searching for a file. The string
+     * should contains paths which contain the system-dependent separator and
+     * pathSeparator characters.
      *
-     * @param paths a string containing the names of directories to search.
+     * @param paths
+     *            a string containing the names of directories to search.
      */
-    public void setPaths(String paths)
-    {
-        StringTokenizer pathTokenizer = new StringTokenizer(paths, File.pathSeparator, false);
-
+    public void setPaths(String paths) {
+        StringTokenizer pathTokenizer = new StringTokenizer(paths,
+                File.pathSeparator, false);
         pathNames.clear();
-
         while (pathTokenizer.hasMoreTokens())
             pathNames.add(pathTokenizer.nextToken());
     }
 
     /**
-     * Add a path to the array of pathnames. The path should contain the system-dependent
-     * separator.
+     * Add a path to the array of pathnames. The path should contain the
+     * system-dependent separator.
      *
-     * @param path a string containing the path to a directory.
+     * @param path
+     *            a string containing the path to a directory.
      */
-    public void add(String path)
-    {
+    public void add(String path) {
         pathNames.add(path);
     }
 
     /**
-     * Returns the name of the file that contained the line of code that generated
-     * an error while parsing a script.
+     * Returns the name of the file that contained the line of code that
+     * generated an error while parsing a script.
      *
      * @return the name of the file which contained the line of code or an empty
-     * string if the line was in the 'root' script.
+     *         string if the line was in the 'root' script.
      */
-    public String getFilename()
-    {
+    public String getFilename() {
         return _filename;
     }
 
@@ -237,8 +266,7 @@ public final class ASCompiler {
      *
      * @return the number of the line which that triggered the error.
      */
-    public int getLineNumber()
-    {
+    public int getLineNumber() {
         return _lineNumber;
     }
 
@@ -247,8 +275,7 @@ public final class ASCompiler {
      *
      * @return the line which that triggered the error.
      */
-    public String getLine()
-    {
+    public String getLine() {
         return _line;
     }
 
