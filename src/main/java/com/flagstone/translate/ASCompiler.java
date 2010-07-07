@@ -40,7 +40,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import com.flagstone.transform.coder.Context;
-import com.flagstone.transform.coder.SWFEncodeable;
 
 public final class ASCompiler {
 
@@ -276,9 +275,9 @@ public final class ASCompiler {
      *
      * @throws ParseException if a parsing error occurs.
      */
-    public List<SWFEncodeable> compile(String script) throws ParseException
+    public List<Object> compile(String script) throws ParseException
     {
-        List<SWFEncodeable> list = new ArrayList<SWFEncodeable>();
+        List<Object> list = new ArrayList<Object>();
         ASParser parser = new ASParser();
         ASContext info = new ASContext();
         info.setEncoding("UTF-8");
@@ -354,9 +353,9 @@ public final class ASCompiler {
      *
      * @throws ParseException if a parsing error occurs.
      */
-    public List<SWFEncodeable> compile(File file) throws ParseException
+    public List<Object> compile(File file) throws ParseException
     {
-        List<SWFEncodeable> list = new ArrayList<SWFEncodeable>();
+        List<Object> list = new ArrayList<Object>();
 
         try
         {

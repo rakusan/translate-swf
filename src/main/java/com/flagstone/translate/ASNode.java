@@ -1046,8 +1046,8 @@ public final class ASNode extends Object {
      * @param encoding the character set used to represent the strings parsed in
      * the script.
      */
-    public List<SWFEncodeable> compile(ASContext info) {
-        ArrayList<SWFEncodeable> array = new ArrayList<SWFEncodeable>();
+    public List<Object> compile(ASContext info) {
+        ArrayList<Object> array = new ArrayList<Object>();
 
         reorder(info);
         findStrings(info);
@@ -1059,7 +1059,7 @@ public final class ASNode extends Object {
         return array;
     }
 
-    private void generateScript(ASContext info, List<SWFEncodeable> list) {
+    private void generateScript(ASContext info, List<Object> list) {
         List<Action> array = new ArrayList<Action>();
         int count = count();
 
@@ -1087,7 +1087,7 @@ public final class ASNode extends Object {
         }
     }
 
-    private void generateEvent(ASContext info, List<SWFEncodeable> list) {
+    private void generateEvent(ASContext info, List<Object> list) {
         List<Action> array = new ArrayList<Action>();
         int count = count();
 
