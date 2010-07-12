@@ -67,15 +67,18 @@ import com.flagstone.translate.ASCompiler;
 @RunWith(Parameterized.class)
 public class AS1SWF7IT {
 
-    private static final File SCRIPTDIR =
-        new File("src/test/resources/as1/swf7/script");
-    private static final File REFDIR =
-        new File("src/test/resources/as1/swf7/compiled");
-
     @Parameters
     public static Collection<Object[]> files() {
 
-        FilenameFilter filter = new FilenameFilter() {
+        final File srcDir;
+
+        if (System.getProperty("test.suite") == null) {
+            srcDir = new File("src/test/resources/as1/swf7");
+        } else {
+            srcDir = new File(System.getProperty("test.suite"));
+        }
+
+       FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 boolean accept = false;
 
@@ -92,7 +95,7 @@ public class AS1SWF7IT {
         };
 
         List<String> files = new ArrayList<String>();
-        findFiles(files, SCRIPTDIR, filter);
+        findFiles(files, srcDir, filter);
 
         Object[][] collection = new Object[files.size()][1];
         for (int i = 0; i < files.size(); i++) {
@@ -111,7 +114,7 @@ public class AS1SWF7IT {
             if (file.isDirectory()) {
                 findFiles(list, file, filter);
             } else {
-                list.add(file.getPath().replace(SCRIPTDIR.getPath(), ""));
+                list.add(file.getPath());
             }
         }
     }
@@ -127,8 +130,8 @@ public class AS1SWF7IT {
         compiler = new ASCompiler();
         compiler.setActionscriptVersion(1);
         compiler.setFlashVersion(7);
-        script = new File(SCRIPTDIR, path);
-        reference = new File(REFDIR, path.replace(".as", ".swf"));
+        script = new File(path);
+        reference = new File(path.replace(".as", ".swf"));
         expected = new ArrayList<Object>();
     }
 
