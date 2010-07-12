@@ -1,4 +1,4 @@
-var doc = fl.openDocument("file:///../../event.fla");
+var doc = fl.openDocument("file:///../../button.fla");
 doc.importPublishProfile("file:///../publish.xml");
 doc.currentPublishProfile = "compile";
 

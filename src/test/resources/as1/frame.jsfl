@@ -1,4 +1,4 @@
-var doc = fl.openDocument("file:///../../../frame.fla");
+var doc = fl.openDocument("file:///../../frame.fla");
 doc.importPublishProfile("file:///../publish.xml");
 doc.currentPublishProfile = "compile";
 
@@ -15,7 +15,7 @@ var fileOut;
 for (i in files) {
     script = files[i].substring(folder.length + 1);
     fl.actionsPanel.setText("#include \"" + script + "\"");
-	fileOut = "../../compiled/frame/" + script.slice(0, -fileMask.length) + ".swf";
+	fileOut = script.slice(0, -fileMask.length) + ".swf";
 	dirOut = "file:///" + fileOut.substring(0, fileOut.lastIndexOf("/"));
 	if (!FLfile.exists(dirOut)){
 		FLfile.createFolder(dirOut);
