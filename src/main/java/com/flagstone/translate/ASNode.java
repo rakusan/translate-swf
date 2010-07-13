@@ -37,7 +37,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.flagstone.transform.DoAction;
-import com.flagstone.transform.EventHandler;
 import com.flagstone.transform.action.Action;
 import com.flagstone.transform.action.ActionObject;
 import com.flagstone.transform.action.ActionTypes;
@@ -100,7 +99,7 @@ import com.flagstone.transform.coder.SWFEncodeable;
  * in the framework and dump out the structure of the parsed code.
  *
  */
-public final class ASNode extends Object {
+public class ASNode extends Object {
     /**
      * Array nodes are used to represent any list of ActionScript statements.
      * Use this type of node when constructing trees to represent sequences of
@@ -496,51 +495,52 @@ public final class ASNode extends Object {
         functions.put("call", new Boolean(false));
         functions.put("chr", new Boolean(true));
         functions.put("delete", new Boolean(false));
-        functions.put("duplicateMovieClip", new Boolean(false));
+        functions.put("duplicatemovieclip", new Boolean(false));
         functions.put("eval", new Boolean(true));
         functions.put("fscommand", new Boolean(false));
-        functions.put("getProperty", new Boolean(true));
-        functions.put("getTimer", new Boolean(true));
-        functions.put("getURL", new Boolean(false));
-        functions.put("getVersion", new Boolean(true));
-        functions.put("gotoAndPlay", new Boolean(false));
-        functions.put("gotoAndStop", new Boolean(false));
-        functions.put("ifFrameLoaded", new Boolean(false));
+        functions.put("getproperty", new Boolean(true));
+        functions.put("gettimer", new Boolean(true));
+        functions.put("geturl", new Boolean(false));
+        functions.put("getversion", new Boolean(true));
+        functions.put("gotoandplay", new Boolean(false));
+        functions.put("gotoandstop", new Boolean(false));
+        functions.put("ifframeloaded", new Boolean(false));
         functions.put("int", new Boolean(true));
-        functions.put("loadMovie", new Boolean(false));
-        functions.put("loadVariables", new Boolean(false));
+        functions.put("loadmovie", new Boolean(false));
+        functions.put("loadmovienum", new Boolean(false));
+        functions.put("loadvariables", new Boolean(false));
         functions.put("length", new Boolean(true));
         functions.put("mbchr", new Boolean(true));
         functions.put("mbord", new Boolean(true));
         functions.put("mbsubstring", new Boolean(true));
-        functions.put("nextFrame", new Boolean(false));
-        functions.put("nextScene", new Boolean(false));
-        functions.put("Number", new Boolean(false));
+        functions.put("nextframe", new Boolean(false));
+        functions.put("nextscene", new Boolean(false));
+        functions.put("number", new Boolean(false));
         functions.put("ord", new Boolean(true));
         functions.put("play", new Boolean(false));
-        functions.put("prevFrame", new Boolean(false));
-        functions.put("prevScene", new Boolean(false));
+        functions.put("prevframe", new Boolean(false));
+        functions.put("prevscene", new Boolean(false));
         functions.put("print", new Boolean(false));
-        functions.put("printNum", new Boolean(false));
-        functions.put("printAsBitmap", new Boolean(false));
-        functions.put("printAsBitmapNum", new Boolean(false));
+        functions.put("printnum", new Boolean(false));
+        functions.put("printasbitmap", new Boolean(false));
+        functions.put("printasbitmapnum", new Boolean(false));
         functions.put("random", new Boolean(true));
-        functions.put("removeMovieClip", new Boolean(false));
+        functions.put("removemovieclip", new Boolean(false));
         functions.put("set", new Boolean(false));
-        functions.put("setProperty", new Boolean(false));
-        functions.put("startDrag", new Boolean(false));
+        functions.put("setproperty", new Boolean(false));
+        functions.put("startdrag", new Boolean(false));
         functions.put("stop", new Boolean(false));
-        functions.put("stopAllSounds", new Boolean(false));
-        functions.put("stopDrag", new Boolean(false));
-        functions.put("String", new Boolean(false));
+        functions.put("stopallsounds", new Boolean(false));
+        functions.put("stopdrag", new Boolean(false));
+        functions.put("string", new Boolean(false));
         functions.put("substring", new Boolean(true));
-        functions.put("targetPath", new Boolean(false));
-        functions.put("tellTarget", new Boolean(false));
-        functions.put("toggleHighQuality", new Boolean(false));
+        functions.put("targetpath", new Boolean(false));
+        functions.put("telltarget", new Boolean(false));
+        functions.put("togglehighquality", new Boolean(false));
         functions.put("trace", new Boolean(false));
         functions.put("typeof", new Boolean(true));
-        functions.put("unloadMovie", new Boolean(false));
-        functions.put("unloadMovieNum", new Boolean(false));
+        functions.put("unloadmovie", new Boolean(false));
+        functions.put("unloadmovienum", new Boolean(false));
         functions.put("void", new Boolean(true));
 
         /*
@@ -548,24 +548,24 @@ public final class ASNode extends Object {
          * return a value to determine whether a pop action should be generated
          * if the value returned by the function is not assigned to a variable.
          */
-        valueFunctions.put("attachAudio", null);
-        valueFunctions.put("attachMovie", null);
+        valueFunctions.put("attachaudio", null);
+        valueFunctions.put("attachmovie", null);
         valueFunctions.put("escape", null);
-        valueFunctions.put("getBounds", null);
-        valueFunctions.put("getBytesLoaded", null);
-        valueFunctions.put("getBytesTotal", null);
-        valueFunctions.put("getVersion", null);
-        valueFunctions.put("globalToLocal", null);
-        valueFunctions.put("hitTest", null);
-        valueFunctions.put("isFinite", null);
-        valueFunctions.put("isNaN", null);
-        valueFunctions.put("localToGlobal", null);
-        valueFunctions.put("parseFloat", null);
-        valueFunctions.put("parseInt", null);
-        valueFunctions.put("swapDepths", null);
-        valueFunctions.put("targetPath", null);
+        valueFunctions.put("getbounds", null);
+        valueFunctions.put("getbytesloaded", null);
+        valueFunctions.put("getbytestotal", null);
+        valueFunctions.put("getversion", null);
+        valueFunctions.put("globaltolocal", null);
+        valueFunctions.put("hittest", null);
+        valueFunctions.put("isfinite", null);
+        valueFunctions.put("isnan", null);
+        valueFunctions.put("localtoglobal", null);
+        valueFunctions.put("parsefloat", null);
+        valueFunctions.put("parseint", null);
+        valueFunctions.put("swapdepths", null);
+        valueFunctions.put("targetpath", null);
         valueFunctions.put("unescape", null);
-        valueFunctions.put("updateAfterEvent", null);
+        valueFunctions.put("updateafterevent", null);
 
         classes.put("Math", null);
         classes.put("Clip", null);
@@ -1004,7 +1004,7 @@ public final class ASNode extends Object {
         } else if (type == DoubleLiteral) {
             str = str + " = " + dValue + "; ";
         } else if (type == StringLiteral) {
-            str = str + " = \"" + sValue + "\"; ";
+            str = str + " = " + sValue + "; ";
         } else if (type == NullLiteral) {
             str = str + " = null; ";
         } else if (sValue != null) {
@@ -1080,29 +1080,11 @@ public final class ASNode extends Object {
         case Button:
         case MovieClip:
             for (int i = 0; i < count; i++)
-                children[i].generateEvent(info, list);
+                ((EventNode)children[i]).generateEvent(info, list);
             break;
         default:
             break;
         }
-    }
-
-    private void generateEvent(ASContext info, List<Object> list) {
-        List<Action> array = new ArrayList<Action>();
-        int count = count();
-
-        if (info.useStrings)
-            array.add(new Table(info.strings));
-
-        for (int i = 0; i < count; i++)
-            children[i].discardValues();
-
-        for (int i = 0; i < count; i++)
-            children[i].generate(info, array);
-
-        array.add(BasicAction.END);
-        list.add(new EventHandler(EventHandler.getMovieClipEvents(iValue),
-                array));
     }
 
     /*
@@ -1331,6 +1313,30 @@ public final class ASNode extends Object {
                     type = DoubleLiteral;
                     remove(0);
                     remove(0);
+                } else if (children[0].getType() == StringLiteral
+                        || children[1].getType() == StringLiteral) {
+                    String aValue = null;
+                    String bValue = null;
+                    switch (type) {
+                    case Add:
+                        if (children[0].getType() == StringLiteral) {
+                            aValue = children[0].sValue;
+                        } else if (children[0].getType() == IntegerLiteral) {
+                            aValue = String.valueOf(children[0].iValue);
+                        }
+                        if (children[1].getType() == StringLiteral) {
+                            bValue = children[1].sValue;
+                        } else if (children[1].getType() == IntegerLiteral) {
+                            bValue = String.valueOf(children[1].iValue);
+                        }
+                        break;
+                    }
+                    if (aValue != null && bValue != null) {
+                        sValue = aValue + bValue;
+                        type = StringLiteral;
+                        remove(0);
+                        remove(0);
+                    }
                 }
             }
             break;
@@ -1372,9 +1378,28 @@ public final class ASNode extends Object {
 
         case And:
         case LogicalAnd:
-        case Or:
-        case LogicalOr:
             if (count() == 2) {
+//                if (children[0].getType() == IntegerLiteral) {
+//                    children[0].type = BooleanLiteral;
+//                    children[0].bValue = children[0].iValue != 0;
+//                    children[0].iValue = 0;
+//                }
+//                if (children[1].getType() == IntegerLiteral) {
+//                    children[1].type = BooleanLiteral;
+//                    children[1].bValue = children[1].iValue != 0;
+//                    children[1].iValue = 0;
+//                }
+//                if (children[0].getType() == DoubleLiteral) {
+//                    children[0].type = BooleanLiteral;
+//                    children[0].bValue = children[0].dValue != 0.0;
+//                    children[0].dValue = 0.0;
+//                }
+//                if (children[1].getType() == DoubleLiteral) {
+//                    children[1].type = BooleanLiteral;
+//                    children[1].bValue = children[1].dValue != 0;
+//                    children[1].dValue = 0.0;
+//                }
+
                 if (children[0].getType() == BooleanLiteral
                         && children[1].getType() == BooleanLiteral) {
                     switch (type) {
@@ -1382,11 +1407,6 @@ public final class ASNode extends Object {
                     case And:
                         type = BooleanLiteral;
                         bValue = children[0].bValue && children[1].bValue;
-                        break;
-                    case LogicalOr:
-                    case Or:
-                        type = BooleanLiteral;
-                        bValue = children[0].bValue || children[1].bValue;
                         break;
                     }
                     remove(0);
@@ -1400,11 +1420,6 @@ public final class ASNode extends Object {
                         bValue = children[0].bValue
                                 && (children[1].iValue != 0);
                         break;
-                    case LogicalOr:
-                    case Or:
-                        type = IntegerLiteral;
-                        iValue = children[1].iValue;
-                        break;
                     }
                     remove(0);
                     remove(0);
@@ -1416,12 +1431,6 @@ public final class ASNode extends Object {
                         type = BooleanLiteral;
                         bValue = (children[0].iValue != 0)
                                 && children[1].bValue;
-                        break;
-                    case LogicalOr:
-                    case Or:
-                        type = IntegerLiteral;
-                        iValue = ((children[0].iValue != 0) || children[1].bValue) ? 1
-                                : 0;
                         break;
                     }
                     remove(0);
@@ -1437,6 +1446,55 @@ public final class ASNode extends Object {
                         type = IntegerLiteral;
                         iValue = a ? children[1].iValue : 0;
                         break;
+                    }
+                    remove(0);
+                    remove(0);
+                }
+            }
+            break;
+        case Or:
+        case LogicalOr:
+            if (count() == 2) {
+                if (children[0].getType() == BooleanLiteral
+                        && children[1].getType() == BooleanLiteral) {
+                    switch (type) {
+                    case LogicalOr:
+                    case Or:
+                        type = BooleanLiteral;
+                        bValue = children[0].bValue || children[1].bValue;
+                        break;
+                    }
+                    remove(0);
+                    remove(0);
+                } else if (children[0].getType() == BooleanLiteral
+                        && children[1].getType() == IntegerLiteral) {
+                    switch (type) {
+                    case LogicalOr:
+                    case Or:
+                        type = IntegerLiteral;
+                        iValue = children[1].iValue;
+                        break;
+                    }
+                    remove(0);
+                    remove(0);
+                } else if (children[0].getType() == IntegerLiteral
+                        && children[1].getType() == BooleanLiteral) {
+                    switch (type) {
+                    case LogicalOr:
+                    case Or:
+                        type = IntegerLiteral;
+                        iValue = ((children[0].iValue != 0) || children[1].bValue) ? 1
+                                : 0;
+                        break;
+                    }
+                    remove(0);
+                    remove(0);
+                } else if (children[0].getType() == IntegerLiteral
+                        && children[1].getType() == IntegerLiteral) {
+                    boolean a = children[0].iValue != 0;
+                    boolean b = children[1].iValue != 0;
+
+                    switch (type) {
                     case LogicalOr:
                     case Or:
                         type = IntegerLiteral;
@@ -1550,19 +1608,19 @@ public final class ASNode extends Object {
                 info.addString(sValue);
             break;
         case Function:
-            if (sValue != null && functions.containsKey(sValue) == false) {
+            if (sValue != null && functions.containsKey(sValue.toLowerCase()) == false) {
                 for (int i = 0; i < count; i++)
                     children[i].findStrings(info);
 
                 if (sValue.length() > 0)
                     info.addString(sValue);
             } else {
-                if (sValue != null && sValue.equals("fscommand")) {
+                if (sValue != null && sValue.toLowerCase().equals("fscommand")) {
                     info.addString("FSCommand:");
 
                     for (int i = 0; i < count; i++)
                         children[i].findStrings(info);
-                } else if (sValue != null && sValue.equals("getURL")) {
+                } else if (sValue != null && sValue.toLowerCase().equals("getURL")) {
                     if (count > 0)
                         children[0].findStrings(info);
 
@@ -1573,21 +1631,21 @@ public final class ASNode extends Object {
                         info.addString("");
 
                     break;
-                } else if (sValue != null && sValue.equals("gotoAndPlay")) {
+                } else if (sValue != null && sValue.toLowerCase().equals("gotoAndPlay")) {
                     if (count == 1)
                         children[0].findStrings(info);
                     else if (count == 2)
                         children[1].findStrings(info);
 
                     break;
-                } else if (sValue != null && sValue.equals("gotoAndStop")) {
+                } else if (sValue != null && sValue.toLowerCase().equals("gotoAndStop")) {
                     if (count == 1)
                         children[0].findStrings(info);
                     else if (count == 2)
                         children[1].findStrings(info);
 
                     break;
-                } else if (sValue != null && sValue.equals("loadMovie")) {
+                } else if (sValue != null && sValue.toLowerCase().equals("loadMovie")) {
                     if (count > 0)
                         children[0].findStrings(info);
 
@@ -1598,7 +1656,7 @@ public final class ASNode extends Object {
                         info.addString("");
 
                     break;
-                } else if (sValue != null && sValue.equals("loadVariables")) {
+                } else if (sValue != null && sValue.toLowerCase().equals("loadVariables")) {
                     if (count > 0)
                         children[0].findStrings(info);
 
@@ -1609,14 +1667,14 @@ public final class ASNode extends Object {
                         info.addString("");
 
                     break;
-                } else if (sValue != null && sValue.equals("printNum")) {
+                } else if (sValue != null && sValue.toLowerCase().equals("printNum")) {
                     children[1].findStrings(info);
 
                     if (children[0].type == Identifier)
                         info.addString("_level");
 
                     children[0].findStrings(info);
-                } else if (sValue != null && sValue.equals("printAsBitmapNum")) {
+                } else if (sValue != null && sValue.toLowerCase().equals("printAsBitmapNum")) {
                     children[1].findStrings(info);
 
                     if (children[0].type == Identifier)
@@ -1697,7 +1755,7 @@ public final class ASNode extends Object {
      * preprocessing modes.
      * @param actions an array that the compiled actions will be added to.
      */
-    private void generate(ASContext info, List<Action> actions) {
+    protected void generate(ASContext info, List<Action> actions) {
         if (type == Function)
             info.context.push(sValue);
         else
@@ -1890,6 +1948,13 @@ public final class ASNode extends Object {
                         offsetToNext -= 5;
                 }
             }
+        }
+
+        // Special case
+        if (count == 3 && trueActions.isEmpty() && falseActions.isEmpty()) {
+            trueActions.add(new Jump(0));
+            offsetToNext = 0;
+            addJump = true;
         }
 
         if (addJump)
@@ -2371,10 +2436,10 @@ public final class ASNode extends Object {
 
         switch (type) {
         case Break:
-            actions.add(new ActionObject(256));
+            actions.add(new ActionObject(256, new byte[2]));
             break;
         case Continue:
-            actions.add(new ActionObject(257));
+            actions.add(new ActionObject(257, new byte[2]));
             break;
         case Return:
             if (count == 0) {
@@ -2459,10 +2524,13 @@ public final class ASNode extends Object {
         case DoubleLiteral:
             int val = (int) dValue;
 
-            if (val == dValue)
-                addLiteral(actions, new Integer(val));
-            else
+            if (dValue == -0.0) {
                 addLiteral(actions, new Double(dValue));
+            } else if (val == dValue) {
+                addLiteral(actions, new Integer(val));
+            } else {
+                addLiteral(actions, new Double(dValue));
+            }
 
             if (discardValue)
                 actions.add(BasicAction.fromInt(ActionTypes.POP));
@@ -2736,7 +2804,11 @@ public final class ASNode extends Object {
                 children[0].generate(info, actions);
                 actions.add(BasicAction.fromInt(ActionTypes.SUBTRACT));
             } else if (children[0].type == IntegerLiteral) {
-                addLiteral(actions, -children[0].iValue);
+                if (children[0].iValue == 0) {
+                    addLiteral(actions, -0.0);
+                } else {
+                    addLiteral(actions, -children[0].iValue);
+                }
             } else if (children[0].type == StringLiteral) {
                 addLiteral(actions, 0);
                 children[0].generate(info, actions);
@@ -2883,9 +2955,9 @@ public final class ASNode extends Object {
                 children[1].generate(info, actions);
                 children[0].generate(info, actions);
                 actions.add(BasicAction.fromInt(ActionTypes.LESS));
-
-                if (parent.type != If)
-                    actions.add(BasicAction.fromInt(ActionTypes.LOGICAL_NOT));
+//
+//                if (parent.type != If)
+//                    actions.add(BasicAction.fromInt(ActionTypes.LOGICAL_NOT));
                 break;
             case 6:
             case 7:
@@ -3116,8 +3188,8 @@ public final class ASNode extends Object {
         String name = (value == null) ? "" : (String) value;
         int count = count();
 
-        if (functions.containsKey(name)) {
-            if (sValue.equals("call")) {
+        if (functions.containsKey(name.toLowerCase())) {
+            if (sValue.toLowerCase().equals("call")) {
                 children[0].generate(info, actions);
 
                 Action lastAction = actions.get(actions.size() - 1);
@@ -3126,10 +3198,10 @@ public final class ASNode extends Object {
                     actions.remove(actions.size() - 1);
 
                 actions.add(Call.getInstance());
-            } else if (sValue.equals("chr")) {
+            } else if (sValue.toLowerCase().equals("chr")) {
                 children[0].generate(info, actions);
                 actions.add(BasicAction.fromInt(ActionTypes.ASCII_TO_CHAR));
-            } else if (sValue.equals("delete")) {
+            } else if (sValue.toLowerCase().equals("delete")) {
                 children[0].generate(info, actions);
 
                 Action lastAction = actions.get(actions.size() - 1);
@@ -3138,7 +3210,7 @@ public final class ASNode extends Object {
                     actions.remove(actions.size() - 1);
 
                 actions.add(BasicAction.fromInt(ActionTypes.DELETE));
-            } else if (sValue.equals("duplicateMovieClip")) {
+            } else if (sValue.toLowerCase().equals("duplicatemovieclip")) {
                 children[0].generate(info, actions);
                 children[1].generate(info, actions);
 
@@ -3157,14 +3229,17 @@ public final class ASNode extends Object {
                     actions.add(BasicAction.fromInt(ActionTypes.ADD));
                 }
                 actions.add(BasicAction.fromInt(ActionTypes.CLONE_SPRITE));
-            } else if (sValue.equals("eval")) {
+            } else if (sValue.toLowerCase().equals("eval")) {
                 children[0].generate(info, actions);
                 actions.add(BasicAction.fromInt(ActionTypes.GET_VARIABLE));
-            } else if (sValue.equals("fscommand")) {
+            } else if (sValue.toLowerCase().equals("fscommand")) {
                 boolean isCommandString = children[0].type == StringLiteral
                         && children[0].sValue != null;
                 boolean isArgumentString = false;
 
+                if (count == 1) {
+                    isArgumentString = true;
+                }
                 if (count > 1) {
                     isArgumentString = children[1].type == StringLiteral
                             && children[1].sValue != null;
@@ -3172,8 +3247,12 @@ public final class ASNode extends Object {
 
                 if (isCommandString && isArgumentString) {
                     String url = children[0].sValue;
-                    String target = children[1].sValue;
-
+                    String target;
+                    if (count == 1) {
+                        target = "";
+                    } else {
+                        target = children[1].sValue;
+                    }
                     actions.add(new GetUrl(url, target));
                 } else {
                     if (isCommandString) {
@@ -3192,7 +3271,7 @@ public final class ASNode extends Object {
 
                     actions.add(new GetUrl2(GetUrl2.Request.MOVIE_TO_LEVEL));
                 }
-            } else if (sValue.equals("getProperty")) {
+            } else if (sValue.toLowerCase().equals("getproperty")) {
                 String propertyName = children[1].sValue;
                 int pVal = (propertyNames.get(propertyName)).intValue();
 
@@ -3204,12 +3283,12 @@ public final class ASNode extends Object {
                 else
                     addLiteral(actions, new Property(pVal));
                 actions.add(BasicAction.fromInt(ActionTypes.GET_PROPERTY));
-            } else if (sValue.equals("getTimer")) {
+            } else if (sValue.toLowerCase().equals("gettimer")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.GET_TIME));
-            } else if (sValue.equals("getURL")) {
+            } else if (sValue.toLowerCase().equals("geturl")) {
                 switch (count) {
                 case 1:
                     if (children[0].type == StringLiteral
@@ -3253,10 +3332,10 @@ public final class ASNode extends Object {
                 default:
                     break;
                 }
-            } else if (sValue.equals("getVersion")) {
+            } else if (sValue.toLowerCase().equals("getversion")) {
                 addLiteral(actions, "/:$version");
                 actions.add(BasicAction.fromInt(ActionTypes.GET_VARIABLE));
-            } else if (sValue.equals("gotoAndPlay")) {
+            } else if (sValue.toLowerCase().equals("gotoandplay")) {
                 int index = count - 1;
 
                 if (info.context.firstElement().toString().equals("MovieClip")) {
@@ -3287,17 +3366,17 @@ public final class ASNode extends Object {
 
                         if (frameNumber == 1) {
                             children[index].generate(info, actions);
-                            actions.add(new GotoFrame2(1, true));
+                            actions.add(new GotoFrame2(0, true));
                         } else {
-                            actions.add(new GotoFrame(frameNumber));
+                            actions.add(new GotoLabel(children[index].sValue));
                             actions.add(BasicAction.fromInt(ActionTypes.PLAY));
                         }
                     } else {
                         children[index].generate(info, actions);
-                        actions.add(new GotoFrame2(1, true));
+                        actions.add(new GotoFrame2(0, true));
                     }
                 }
-            } else if (sValue.equals("gotoAndStop")) {
+            } else if (sValue.toLowerCase().equals("gotoandstop")) {
                 int index = count - 1;
 
                 if (info.context.firstElement().toString().equals("MovieClip")) {
@@ -3328,7 +3407,7 @@ public final class ASNode extends Object {
                             children[index].generate(info, actions);
                             actions.add(new GotoFrame2(0, false));
                         } else {
-                            actions.add(new GotoFrame(frameNumber));
+                            actions.add(new GotoLabel(children[index].sValue));
                         }
                     } else {
                         children[index].generate(info, actions);
@@ -3336,17 +3415,17 @@ public final class ASNode extends Object {
                         actions.add(new GotoFrame2(0, false));
                     }
                 }
-            } else if (sValue.equals("int")) {
+            } else if (sValue.toLowerCase().equals("int")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.TO_INTEGER));
-            } else if (sValue.equals("length")) {
+            } else if (sValue.toLowerCase().equals("length")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.STRING_LENGTH));
-            } else if (sValue.equals("loadMovie")) {
+            } else if (sValue.toLowerCase().equals("loadmovie")) {
                 switch (count) {
                 case 2:
                     if (children[0].sValue != null
@@ -3378,7 +3457,7 @@ public final class ASNode extends Object {
                 default:
                     break;
                 }
-            } else if (sValue.equals("loadVariables")) {
+            } else if (sValue.toLowerCase().equals("loadvariables")) {
                 switch (count) {
                 case 2:
                     children[0].generate(info, actions);
@@ -3402,53 +3481,53 @@ public final class ASNode extends Object {
                 default:
                     break;
                 }
-            } else if (sValue.equals("mbchr")) {
+            } else if (sValue.toLowerCase().equals("mbchr")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.MB_ASCII_TO_CHAR));
-            } else if (sValue.equals("mbord")) {
+            } else if (sValue.toLowerCase().equals("mbord")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.MB_CHAR_TO_ASCII));
-            } else if (sValue.equals("mbsubstring")) {
+            } else if (sValue.toLowerCase().equals("mbsubstring")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.MB_STRING_EXTRACT));
-            } else if (sValue.equals("nextFrame")) {
+            } else if (sValue.toLowerCase().equals("nextframe")) {
                 actions.add(BasicAction.fromInt(ActionTypes.NEXT_FRAME));
-            } else if (sValue.equals("nextScene")) {
+            } else if (sValue.toLowerCase().equals("nextscene")) {
                 actions.add(new GotoFrame(0));
-            } else if (sValue.equals("Number")) {
+            } else if (sValue.toLowerCase().equals("number")) {
                 children[0].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.TO_NUMBER));
-            } else if (sValue.equals("ord")) {
+            } else if (sValue.toLowerCase().equals("ord")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.CHAR_TO_ASCII));
-            } else if (sValue.equals("parseInt")) {
+            } else if (sValue.toLowerCase().equals("parseint")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
                 addLiteral(actions, count);
                 addReference(actions, info, name);
                 actions.add(BasicAction.fromInt(ActionTypes.EXECUTE_FUNCTION));
-            } else if (sValue.equals("play")) {
+            } else if (sValue.toLowerCase().equals("play")) {
                 actions.add(BasicAction.fromInt(ActionTypes.PLAY));
-            } else if (sValue.equals("prevFrame")) {
+            } else if (sValue.toLowerCase().equals("prevframe")) {
                 actions.add(BasicAction.fromInt(ActionTypes.PREV_FRAME));
-            } else if (sValue.equals("prevScene")) {
+            } else if (sValue.toLowerCase().equals("prevscene")) {
                 actions.add(new GotoFrame(0));
-            } else if (sValue.equals("print")) {
+            } else if (sValue.toLowerCase().equals("print")) {
                 children[0].generate(info, actions);
                 addReference(actions, info, children[1].sValue);
                 actions.add(BasicAction.fromInt(ActionTypes.GET_VARIABLE));
                 actions.add(new GetUrl2(GetUrl2.Request.MOVIE_TO_LEVEL));
-            } else if (sValue.equals("printNum")) {
+            } else if (sValue.toLowerCase().equals("printnum")) {
                 addReference(actions, info, children[1].sValue);
 
                 if (children[0].type == Identifier) {
@@ -3459,12 +3538,12 @@ public final class ASNode extends Object {
                     children[0].generate(info, actions);
                 }
                 actions.add(new GetUrl2(GetUrl2.Request.MOVIE_TO_LEVEL));
-            } else if (sValue.equals("printAsBitmap")) {
+            } else if (sValue.toLowerCase().equals("printasbitmap")) {
                 children[0].generate(info, actions);
                 addReference(actions, info, children[1].sValue);
                 actions.add(BasicAction.fromInt(ActionTypes.GET_VARIABLE));
                 actions.add(new GetUrl2(GetUrl2.Request.MOVIE_TO_LEVEL));
-            } else if (sValue.equals("printAsBitmapNum")) {
+            } else if (sValue.toLowerCase().equals("printasbitmapnum")) {
                 addReference(actions, info, children[1].sValue);
 
                 if (children[0].type == Identifier) {
@@ -3475,25 +3554,25 @@ public final class ASNode extends Object {
                     children[0].generate(info, actions);
                 }
                 actions.add(new GetUrl2(GetUrl2.Request.MOVIE_TO_LEVEL));
-            } else if (sValue.equals("random")) {
+            } else if (sValue.toLowerCase().equals("random")) {
                 children[0].generate(info, actions);
                 actions.add(BasicAction.fromInt(ActionTypes.RANDOM_NUMBER));
-            } else if (sValue.equals("removeMovieClip")) {
+            } else if (sValue.toLowerCase().equals("removemovieclip")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.REMOVE_SPRITE));
-            } else if (sValue.equals("set")) {
+            } else if (sValue.toLowerCase().equals("set")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.SET_VARIABLE));
-            } else if (sValue.equals("setProperty")) {
+            } else if (sValue.toLowerCase().equals("setproperty")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.SET_PROPERTY));
-            } else if (sValue.equals("startDrag")) {
+            } else if (sValue.toLowerCase().equals("startdrag")) {
                 if (count > 2) {
                     children[2].generate(info, actions);
                     children[3].generate(info, actions);
@@ -3521,39 +3600,39 @@ public final class ASNode extends Object {
                 children[0].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.START_DRAG));
-            } else if (sValue.equals("stop")) {
+            } else if (sValue.toLowerCase().equals("stop")) {
                 actions.add(BasicAction.fromInt(ActionTypes.STOP));
-            } else if (sValue.equals("stopAllSounds")) {
+            } else if (sValue.toLowerCase().equals("stopallsounds")) {
                 actions.add(BasicAction.fromInt(ActionTypes.STOP_SOUNDS));
-            } else if (sValue.equals("stopDrag")) {
+            } else if (sValue.toLowerCase().equals("stopdrag")) {
                 actions.add(BasicAction.fromInt(ActionTypes.END_DRAG));
-            } else if (sValue.equals("String")) {
+            } else if (sValue.toLowerCase().equals("string")) {
                 children[0].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.TO_STRING));
-            } else if (sValue.equals("substring")) {
+            } else if (sValue.toLowerCase().equals("substring")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.STRING_EXTRACT));
-            } else if (sValue.equals("targetPath")) {
+            } else if (sValue.toLowerCase().equals("targetpath")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.GET_TARGET));
-            } else if (sValue.equals("toggleHighQuality")) {
+            } else if (sValue.toLowerCase().equals("togglehighquality")) {
                 actions.add(BasicAction.fromInt(ActionTypes.TOGGLE_QUALITY));
-            } else if (sValue.equals("trace")) {
+            } else if (sValue.toLowerCase().equals("trace")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.TRACE));
-            } else if (sValue.equals("typeof")) {
+            } else if (sValue.toLowerCase().equals("typeof")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
                 actions.add(BasicAction.fromInt(ActionTypes.GET_TYPE));
-            } else if (sValue.equals("unloadMovie")) {
+            } else if (sValue.toLowerCase().equals("unloadmovie")) {
                 if (children[0].sValue == null) {
                     actions.add(new GetUrl("", "_level" + children[0].iValue));
                 } else {
@@ -3561,7 +3640,7 @@ public final class ASNode extends Object {
                     children[0].generate(info, actions);
                     actions.add(new GetUrl2(GetUrl2.Request.MOVIE_TO_TARGET));
                 }
-            } else if (sValue.equals("unloadMovieNum")) {
+            } else if (sValue.toLowerCase().equals("unloadmovienum")) {
                 if (children[0].sValue == null) {
                     actions.add(new GetUrl("", "_level" + children[0].iValue));
                 } else {
@@ -3569,7 +3648,7 @@ public final class ASNode extends Object {
                     children[0].generate(info, actions);
                     actions.add(new GetUrl2(GetUrl2.Request.MOVIE_TO_TARGET));
                 }
-            } else if (sValue.equals("void")) {
+            } else if (sValue.toLowerCase().equals("void")) {
                 for (int i = 0; i < count; i++)
                     children[i].generate(info, actions);
 
@@ -3583,19 +3662,19 @@ public final class ASNode extends Object {
                 actions.add(BasicAction.fromInt(ActionTypes.EXECUTE_FUNCTION));
             }
 
-            if ((functions.get(name)).booleanValue()) {
+            if ((functions.get(name.toLowerCase())).booleanValue()) {
                 if (discardValue)
                     actions.add(BasicAction.fromInt(ActionTypes.POP));
             }
         } else {
-            if (sValue.equals("parseInt")) {
+            if (sValue.toLowerCase().equals("parseint")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
                 addLiteral(actions, count);
                 addReference(actions, info, name);
                 actions.add(BasicAction.fromInt(ActionTypes.EXECUTE_FUNCTION));
-            } else if (sValue.equals("updateAfterEvent")) {
+            } else if (sValue.toLowerCase().equals("updateafterevent")) {
                 for (int i = count - 1; i >= 0; i--)
                     children[i].generate(info, actions);
 
@@ -3610,14 +3689,14 @@ public final class ASNode extends Object {
                 addReference(actions, info, name);
                 actions.add(BasicAction.fromInt(ActionTypes.EXECUTE_FUNCTION));
 
-                if (valueFunctions.containsKey(name) == false) {
+                if (valueFunctions.containsKey(name.toLowerCase()) == false) {
                     if (discardValue)
                         actions.add(BasicAction.fromInt(ActionTypes.POP));
                 }
             }
         }
 
-        if (valueFunctions.containsKey(name)) {
+        if (valueFunctions.containsKey(name.toLowerCase())) {
             if (discardValue)
                 actions.add(BasicAction.fromInt(ActionTypes.POP));
         }
@@ -3709,7 +3788,7 @@ public final class ASNode extends Object {
         return length;
     }
 
-    private void discardValues() {
+    protected void discardValues() {
         discardValue = true;
 
         if (type == List || type == StatementList) {
@@ -3794,124 +3873,124 @@ public final class ASNode extends Object {
              * functions. Some addition checking of attributes is also carried
              * out on a per function basis.
              */
-            if (sValue.equals("delete")) {
+            if (sValue.toLowerCase().equals("delete")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("duplicateMovieClip")) {
+            } else if (sValue.toLowerCase().equals("duplicatemovieclip")) {
                 if (count != 3)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("escape")) {
+            } else if (sValue.toLowerCase().equals("escape")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("eval")) {
+            } else if (sValue.toLowerCase().equals("eval")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("fscommand")) {
+            } else if (sValue.toLowerCase().equals("fscommand")) {
                 if (count < 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("getProperty")) {
+            } else if (sValue.toLowerCase().equals("getproperty")) {
                 if (count != 2)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("getURL")) {
+            } else if (sValue.toLowerCase().equals("geturl")) {
                 if (count < 1 || count > 3)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("getVersion")) {
+            } else if (sValue.toLowerCase().equals("getversion")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("gotoAndPlay")) {
+            } else if (sValue.toLowerCase().equals("gotoandplay")) {
                 if (count < 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("gotoAndStop")) {
+            } else if (sValue.toLowerCase().equals("gotoandstop")) {
                 if (count < 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("hitTest")) {
+            } else if (sValue.toLowerCase().equals("hittest")) {
                 if (count < 1 || count > 3)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("isFinite")) {
+            } else if (sValue.toLowerCase().equals("isfinite")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("isNaN")) {
+            } else if (sValue.toLowerCase().equals("isnan")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("loadMovie")) {
+            } else if (sValue.toLowerCase().equals("loadmovie")) {
                 if (count < 1 || count > 3)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("loadVariables")) {
+            } else if (sValue.toLowerCase().equals("loadvariables")) {
                 if (count < 1 || count > 3)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("nextFrame")) {
+            } else if (sValue.toLowerCase().equals("nextframe")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("nextScene")) {
+            } else if (sValue.toLowerCase().equals("nextscene")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("Number")) {
+            } else if (sValue.toLowerCase().equals("number")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("parseInt")) {
+            } else if (sValue.toLowerCase().equals("parseint")) {
                 if (count < 1 || count > 2)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("parseFloat")) {
+            } else if (sValue.toLowerCase().equals("parsefloat")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("play")) {
+            } else if (sValue.toLowerCase().equals("play")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("prevFrame")) {
+            } else if (sValue.toLowerCase().equals("prevframe")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("prevScene")) {
+            } else if (sValue.toLowerCase().equals("prevscene")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("print")) {
+            } else if (sValue.toLowerCase().equals("print")) {
                 if (count != 2)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("printAsBitmap")) {
+            } else if (sValue.toLowerCase().equals("printasbitmap")) {
                 if (count != 2)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("removeMovieClip")) {
+            } else if (sValue.toLowerCase().equals("removemovieclip")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("set")) {
+            } else if (sValue.toLowerCase().equals("set")) {
                 if (count != 2)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("setProperty")) {
+            } else if (sValue.toLowerCase().equals("setproperty")) {
                 if (count != 3)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("startDrag")) {
+            } else if (sValue.toLowerCase().equals("startdrag")) {
                 if ((count == 1 || count == 2 || count == 6) == false)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("stop")) {
+            } else if (sValue.toLowerCase().equals("stop")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("stopAllSounds")) {
+            } else if (sValue.toLowerCase().equals("stopallsounds")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("stopDrag")) {
+            } else if (sValue.toLowerCase().equals("stopdrag")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("String")) {
+            } else if (sValue.toLowerCase().equals("string")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("targetPath")) {
+            } else if (sValue.toLowerCase().equals("targetpath")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("toggleHighQuality")) {
+            } else if (sValue.toLowerCase().equals("togglehighquality")) {
                 if (count != 0)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("trace")) {
+            } else if (sValue.toLowerCase().equals("trace")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("typeof")) {
+            } else if (sValue.toLowerCase().equals("typeof")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("unescape")) {
+            } else if (sValue.toLowerCase().equals("unescape")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("unloadMovie")) {
+            } else if (sValue.toLowerCase().equals("unloadmovie")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
-            } else if (sValue.equals("void")) {
+            } else if (sValue.toLowerCase().equals("void")) {
                 if (count != 1)
                     reportError("IncorrectArgumentCount", number);
             }

@@ -40,6 +40,7 @@ PARSER_BEGIN(ASParser)
 package com.flagstone.translate;
 
 import java.io.*;
+import com.flagstone.transform.Event;
 
 public final class ASParser extends Object
 {
@@ -376,6 +377,7 @@ ASNode Statement() : { ASNode node = null; }
       LOOKAHEAD(BlockStatement()) node=BlockStatement() { return node; }
     | LOOKAHEAD(FunctionDefinition()) node=FunctionDefinition() { return node; }
     | LOOKAHEAD(ExpressionStatement()) node=ExpressionStatement() { return node; }
+    | LOOKAHEAD(EmptyStatement()) node=EmptyStatement() { return node; }
     | LOOKAHEAD(IfStatement()) node=IfStatement() { return node; }
     | LOOKAHEAD(WithStatement()) node=WithStatement() { return node; }
     | LOOKAHEAD(WhileStatement()) node=WhileStatement() { return node; }
@@ -407,7 +409,12 @@ ASNode BlockStatement() : { ASNode list = new ASNode(ASNode.StatementList), node
 
 ASNode ExpressionStatement() : { Token t; ASNode node = new ASNode(ASNode.NoOp); }
 {
-    [ node=ExpressionList() ] ";" { return node; }
+    node=ExpressionList() (LOOKAHEAD(2) ";")? { return node; }
+}
+
+ASNode EmptyStatement() : { Token t; ASNode node = new ASNode(ASNode.NoOp); }
+{
+    ";" { return node; }
 }
 
 ASNode IfStatement() : { Token t; ASNode ifnode = new ASNode(ASNode.If), node = null;  ifnode.add(new ASNode(ASNode.NoOp)); }
@@ -438,7 +445,7 @@ ASNode WhileStatement() : { ASNode whileNode = new ASNode(ASNode.While), node = 
 ASNode DoStatement() : { ASNode doNode = new ASNode(ASNode.Do), node = null; doNode.add(new ASNode(ASNode.NoOp)); }
 {
     <DO> node=Statement() { doNode.set(0, node); }
-    <WHILE> "(" node=ConditionalExpression() ")" ";" { doNode.add(node); }
+    <WHILE> "(" node=ConditionalExpression() ")" { doNode.add(node); }
     
     { return doNode; }
 }    
@@ -468,7 +475,7 @@ ASNode ForStatement() : { Token t; ASNode forNode = null, node = null; }
 
 ASNode BreakStatement() : { Token t; ASNode node = new ASNode(ASNode.Break); }
 {
-    t=<BREAK> ";"
+    t=<BREAK> (LOOKAHEAD(";") ";")?
     { 
         node.setNumber(t.beginLine);
         return node; 
@@ -477,7 +484,7 @@ ASNode BreakStatement() : { Token t; ASNode node = new ASNode(ASNode.Break); }
 
 ASNode ContinueStatement() : { Token t; ASNode node = new ASNode(ASNode. Continue); }
 {
-    t=<CONTINUE> ";"
+    t=<CONTINUE> (LOOKAHEAD(";") ";")?
     { 
         node.setNumber(t.beginLine);
         return node; 
@@ -486,91 +493,35 @@ ASNode ContinueStatement() : { Token t; ASNode node = new ASNode(ASNode. Continu
 
 ASNode ReturnStatement() : { Token t; ASNode returnNode = new ASNode(ASNode.Return), node = null; }
 {
-    t=<RETURN> [ node=ConditionalExpression() { returnNode.add(node); } ] ";"
+    t=<RETURN> [ node=ConditionalExpression() { returnNode.add(node); } ] (LOOKAHEAD(";") ";")?
     { 
         returnNode.setNumber(t.beginLine);
         return returnNode; 
     }
 }
 
-ASNode OnClipEvent() : { Token t; ASNode eventNode = new ASNode(ASNode.OnClipEvent), node = null; }
+EventNode OnClipEvent() : { Token t; EventNode eventNode = new EventNode(ASNode.OnClipEvent); ASNode node = null; }
 {
-    t=<ONCLIPEVENT> "(" node=Identifier() 
+    t=<ONCLIPEVENT> "(" ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
     {
         if (node.getType() == ASNode.Identifier)
         {
-            if (ASNode.clipEvents.containsKey(node.getStringValue()))
-            {
-                int eventCode = ((Integer)ASNode.clipEvents.get(node.getStringValue())).intValue();
-                
-                eventNode.setIntValue(eventCode); 
+            Event event = EventNode.getEvent(node.getStringValue().toLowerCase());
+            if (event != null) {
+                eventNode.addEvent(event); 
             }
-            else
-            {
-                reportError("UnknownMovieClipEvent", t);
-            }
-        }
-        else
-        {
-            reportError("UnknownMovieClipEvent", t);
-        }
-       } 
-    ( "," node=Identifier() 
-    {
-        if (node.getType() == ASNode.Identifier)
-        {
-            if (ASNode.clipEvents.containsKey(node.getStringValue()))
-            {
-                int allEvents = eventNode.getIntValue();
-                int event = ((Integer)ASNode.clipEvents.get(node.getStringValue())).intValue();
-                
-                eventNode.setIntValue(allEvents + event); 
-            }
-            else
-            {
-                reportError("UnknownMovieClipEvent", t);
-            }
-        }
-        else
-        {
-            reportError("UnknownMovieClipEvent", t);
-        }
-    } 
-    )* ")" node=Statement() { eventNode.add(node); }
-        
-    { return eventNode; }
-}
-
-ASNode On() : { Token t; ASNode eventNode = new ASNode(ASNode.On), node = null; }
-{
-    t=<ON> "(" ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
-    {
-        if (node.getType() == ASNode.Identifier)
-        {
-            if (ASNode.buttonEvents.containsKey(node.getStringValue()))
-            {
-                int event = ((Integer)ASNode.buttonEvents.get(node.getStringValue())).intValue();
-                eventNode.setIntValue(event); 
-            }
-            else
-            {
+            else {
                 reportError("UnknownButtonEvent", t);
             }
         }
         else if (node.getType() == ASNode.StringLiteral)
         {
-            String key = node.getStringValue();
-            int event = 0;
+            Integer key = EventNode.getKey(node.getStringValue().toLowerCase());
             
-            if (ASNode.buttonEvents.containsKey(key))
-            {
-                event = ((Integer)ASNode.buttonEvents.get(key)).intValue();
+            if (key == null) {
+                key =  Integer.valueOf(node.getStringValue().charAt(0));
             }
-            else
-            {
-                event = key.charAt(0) << 9;
-            }
-            eventNode.setIntValue(event); 
+            eventNode.setKey(key); 
         }
         else
         {
@@ -581,33 +532,81 @@ ASNode On() : { Token t; ASNode eventNode = new ASNode(ASNode.On), node = null; 
     {
         if (node.getType() == ASNode.Identifier)
         {
-            if (ASNode.buttonEvents.containsKey(node.getStringValue()))
-            {
-                int allEvents = eventNode.getIntValue();
-                int event = ((Integer)ASNode.buttonEvents.get(node.getStringValue())).intValue();
-                
-                eventNode.setIntValue(allEvents + event); 
+            Event event = EventNode.getEvent(node.getStringValue());
+            if (event != null) {
+                eventNode.addEvent(event); 
             }
-            else
-            {
+            else {
                 reportError("UnknownButtonEvent", t);
             }
         }
         else if (node.getType() == ASNode.StringLiteral)
         {
-            String key = node.getStringValue();
-            int allEvents = eventNode.getIntValue();
-            int event = 0;
+           Integer key = EventNode.getKey(node.getStringValue());
             
-            if (ASNode.buttonEvents.containsKey(key))
-            {
-                event = ((Integer)ASNode.buttonEvents.get(key)).intValue();
+            if (key == null) {
+                key = Integer.valueOf(node.getStringValue().charAt(0));
             }
-            else
-            {
-                event = key.charAt(0) << 9;
+            eventNode.setKey(key); 
+        }
+        else
+        {
+            reportError("UnknownButtonEvent", t);
+        }
+    } 
+    )* ")" node=Statement() { eventNode.add(node); }
+        
+    { return eventNode; }
+}
+
+EventNode On() : { Token t; EventNode eventNode = new EventNode(ASNode.On); ASNode node = null; }
+{
+    t=<ON> "(" ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
+    {
+        if (node.getType() == ASNode.Identifier)
+        {
+            Event event = EventNode.getEvent(node.getStringValue().toLowerCase());
+            if (event != null) {
+                eventNode.addEvent(event); 
             }
-            eventNode.setIntValue(allEvents + event); 
+            else {
+                reportError("UnknownButtonEvent", t);
+            }
+        }
+        else if (node.getType() == ASNode.StringLiteral)
+        {
+            Integer key = EventNode.getKey(node.getStringValue().toLowerCase());
+            
+            if (key == null) {
+                key =  Integer.valueOf(node.getStringValue().charAt(0));
+            }
+            eventNode.setKey(key); 
+        }
+        else
+        {
+            reportError("UnknownButtonEvent", t);
+        }
+       } 
+    ( ","  ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
+    {
+        if (node.getType() == ASNode.Identifier)
+        {
+            Event event = EventNode.getEvent(node.getStringValue());
+            if (event != null) {
+                eventNode.addEvent(event); 
+            }
+            else {
+                reportError("UnknownButtonEvent", t);
+            }
+        }
+        else if (node.getType() == ASNode.StringLiteral)
+        {
+           Integer key = EventNode.getKey(node.getStringValue());
+            
+            if (key == null) {
+                key = Integer.valueOf(node.getStringValue().charAt(0));
+            }
+            eventNode.setKey(key); 
         }
         else
         {
@@ -635,7 +634,7 @@ ASNode TryStatement() : { ASNode exceptionNode = new ASNode(ASNode.Exception), n
 
 ASNode ThrowStatement() : { Token t; ASNode throwNode = new ASNode(ASNode.Throw), node = null; }
 {
-    <THROW> node=ConditionalExpression() { throwNode.add(node); } ";"
+    <THROW> node=ConditionalExpression() { throwNode.add(node); } (LOOKAHEAD(";") ";")?
 
     { return throwNode; }
 }
