@@ -1,5 +1,5 @@
 /*
- * AndGenerator.java
+ * ParserRegistry.java
  * Translate
  *
  * Copyright (c) 2010 Flagstone Software Ltd. All rights reserved.
@@ -29,29 +29,37 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.flagstone.translate.as1;
+package com.flagstone.translate;
 
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-import com.flagstone.transform.action.Action;
-import com.flagstone.translate.ASContext;
-import com.flagstone.translate.AbstractCodeGenerator;
-import com.flagstone.translate.Node;
-import com.flagstone.translate.Generator;
+import com.flagstone.translate.as1.AS1Parser;
 
-final class AndGenerator extends AbstractCodeGenerator {
+public final class ParserRegistry {
 
-    @Override
-    public void search(final Generator registry, final ASContext context, final Node node) {
+    private static Map<Integer, ParserProvider> providers =
+        new LinkedHashMap<Integer, ParserProvider>();
+
+    static {
+    	providers.put(1, new AS1Parser());
     }
 
-    @Override
-    public void reorder(final Generator registry, final ASContext context, final Node node) {
+    public static void registerProvider(final int version,
+            final ParserProvider provider) {
+        providers.put(version, provider);
     }
 
-    @Override
-    public void generate(final Generator registry, final ASContext context, final Node node,
-    	    final List<Action> actions) {
+    public static Parser getParser(final int version) {
+        if (providers.containsKey(version)) {
+            return providers.get(version).newParser();
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /** Private constructor for the image registry. */
+    private ParserRegistry() {
+        // Registry is shared.
     }
 }
-

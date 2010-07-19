@@ -37,11 +37,11 @@ import com.flagstone.transform.action.Action;
 import com.flagstone.translate.ASContext;
 import com.flagstone.translate.AbstractCodeGenerator;
 import com.flagstone.translate.Node;
-import com.flagstone.translate.Registry;
+import com.flagstone.translate.Generator;
 
 final class NullGenerator extends AbstractCodeGenerator {
     @Override
-    public void generate(final Registry registry, final ASContext context,
+    public void generate(final Generator registry, final ASContext context,
     		final Node node, List<Action> actions) {
     }
 }

@@ -35,8 +35,8 @@ import java.util.List;
 import com.flagstone.transform.action.Action;
 
 public interface CodeGenerator {
-    void search(final Registry registry, final ASContext context, final Node node);
-    void reorder(final Registry registry, final ASContext context, final Node node);
-    void generate(final Registry registry, final ASContext context, final Node node,
+    void search(final Generator registry, final ASContext context, final Node node);
+    void reorder(final Generator registry, final ASContext context, final Node node);
+    void generate(final Generator registry, final ASContext context, final Node node,
     	    final List<Action> actions);
 }

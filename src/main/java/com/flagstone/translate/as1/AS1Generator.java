@@ -1,5 +1,5 @@
 /*
- * AndGenerator.java
+ * AS1Registry.java
  * Translate
  *
  * Copyright (c) 2010 Flagstone Software Ltd. All rights reserved.
@@ -31,27 +31,42 @@
 
 package com.flagstone.translate.as1;
 
-import java.util.List;
+import java.util.EnumSet;
+import java.util.Set;
 
-import com.flagstone.transform.action.Action;
-import com.flagstone.translate.ASContext;
-import com.flagstone.translate.AbstractCodeGenerator;
-import com.flagstone.translate.Node;
+import com.flagstone.translate.CodeGenerator;
 import com.flagstone.translate.Generator;
+import com.flagstone.translate.GeneratorProvider;
+import com.flagstone.translate.NodeType;
 
-final class AndGenerator extends AbstractCodeGenerator {
+/**
+ * AS1Registry is used to provide a directory for registering the different
+ * CodeGenerators used to compile Actionscript into Actions.
+ */
+public final class AS1Generator implements GeneratorProvider, Generator {
 
-    @Override
-    public void search(final Generator registry, final ASContext context, final Node node) {
-    }
+	/** The table of generators for each of the node types. */
+	private final CodeGenerator[] generators;
 
-    @Override
-    public void reorder(final Generator registry, final ASContext context, final Node node) {
-    }
+	public AS1Generator() {
+		Set<NodeType> types = EnumSet.allOf(NodeType.class);
+		generators = new CodeGenerator[types.size()];
+		for (NodeType type : types) {
+			generators[type.ordinal()] = new NullGenerator();
+		}
+	}
 
-    @Override
-    public void generate(final Generator registry, final ASContext context, final Node node,
-    	    final List<Action> actions) {
-    }
+	@Override
+	public Generator newGenerator() {
+		return new AS1Generator();
+	}
+
+	public CodeGenerator getGenerator(final NodeType type) {
+		return generators[type.ordinal()];
+	}
+
+	public void setGenerator(final NodeType type,
+			final CodeGenerator generator) {
+		generators[type.ordinal()] = generator;
+	}
 }
-

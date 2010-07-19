@@ -65,6 +65,12 @@ import com.flagstone.transform.coder.Context;
          */
         Stack<String> context = new Stack<String>();
 
+        public ASContext(final String encoding, final int version) {
+        	super();
+        	setEncoding(encoding);
+        	put(Context.VERSION, version);
+        }
+
         /*
          * Adds a string to the table if it has not been added previously. Only
          * the first 256 strings are stored in the table. This should rarely be

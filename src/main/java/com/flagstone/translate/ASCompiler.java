@@ -41,42 +41,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.flagstone.transform.action.Action;
-import com.flagstone.transform.coder.Context;
 import com.flagstone.translate.as.ASParser;
 import com.flagstone.translate.as.ParseException;
 import com.flagstone.translate.as.Token;
-import com.flagstone.translate.as1.AS1Parser;
-import com.flagstone.translate.as1.AS1Registry;
 
 public final class ASCompiler {
-
-	private static final Map<Integer, Registry>registries =
-		new LinkedHashMap<Integer,Registry>();
-
-	private static final Map<Integer, Parser>parsers =
-		new LinkedHashMap<Integer,Parser>();
-
-	static {
-		registries.put(1, new AS1Registry());
-
-		parsers.put(1, new AS1Parser());
-	}
-
-	public static Registry getRegistry(final int version) {
-		return registries.get(version);
-	}
-
-	public static void setRegistry(final int version, final Registry registry) {
-		registries.put(version, registry);
-	}
-
-	public static Parser getParser(final int version) {
-		return parsers.get(version);
-	}
-
-	public static void setParser(final int version, final Parser parser) {
-		parsers.put(version, parser);
-	}
 
 	/** Version of actionscript to be compiled. */
 	private transient int scriptVersion = 1;
@@ -185,14 +154,10 @@ public final class ASCompiler {
 		List<Action> list = new ArrayList<Action>();
 
 		try {
-			ASContext context = new ASContext();
-			context.setEncoding(encoding);
-			context.put(Context.VERSION, flashVersion);
-
+			ASContext context = new ASContext(encoding, flashVersion);
 			ASParser parser = new ASParser();
 			ASNode node = parser.parse(script);
 			list = node.compile(context);
-
 		} catch (ParseException e) {
 			Token token = e.currentToken;
 			errors.add(new ScriptError(ScriptError.Type.SCRIPT_PARSE_ERROR,
@@ -236,12 +201,9 @@ public final class ASCompiler {
 			throws IOException, ScriptException {
 		List<Action> list = new ArrayList<Action>();
 
-		ASContext context = new ASContext();
-		context.setEncoding(encoding);
-		context.put(Context.VERSION, flashVersion);
-
-		Registry registry = getRegistry(scriptVersion);
-		Parser parser = getParser(scriptVersion);
+		ASContext context = new ASContext(encoding, flashVersion);
+		Generator registry = GeneratorRegistry.getGenerator(scriptVersion);
+		Parser parser = ParserRegistry.getParser(scriptVersion);
 
 		try {
 			errors.clear();
@@ -294,7 +256,7 @@ public final class ASCompiler {
 		}
 	}
 
-	private void compile(final List<Action> actions, final Registry registry,
+	private void compile(final List<Action> actions, final Generator registry,
 			final ASContext context, final Node node) {
 		CodeGenerator generator = registry.getGenerator(node.getType());
 		generator.search(registry, context, node);

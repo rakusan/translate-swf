@@ -1,5 +1,5 @@
 /*
- * AS1Registry.java
+ * GeneratorRegistry.java
  * Translate
  *
  * Copyright (c) 2010 Flagstone Software Ltd. All rights reserved.
@@ -29,39 +29,37 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.flagstone.translate.as1;
+package com.flagstone.translate;
 
-import java.util.EnumSet;
-import java.util.Set;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-import com.flagstone.translate.CodeGenerator;
-import com.flagstone.translate.NodeType;
-import com.flagstone.translate.Registry;
+import com.flagstone.translate.as1.AS1Generator;
 
-/**
- * AS1Registry is used to provide a directory for registering the different
- * CodeGenerators used to compile Actionscript into Actions.
- */
-public final class AS1Registry implements Registry {
+public final class GeneratorRegistry {
 
-	/** The table of generators for each of the node types. */
-	private final CodeGenerator[] generators;
+    private static Map<Integer, GeneratorProvider> providers =
+        new LinkedHashMap<Integer, GeneratorProvider>();
 
-	/** Private constructor for the image registry. */
-	public AS1Registry() {
-		Set<NodeType> types = EnumSet.allOf(NodeType.class);
-		generators = new CodeGenerator[types.size()];
-		for (NodeType type : types) {
-			generators[type.ordinal()] = new NullGenerator();
-		}
-	}
+    static {
+    	providers.put(1, new AS1Generator());
+    }
 
-	public CodeGenerator getGenerator(final NodeType type) {
-		return generators[type.ordinal()];
-	}
+    public static void registerProvider(final int version,
+            final GeneratorProvider provider) {
+        providers.put(version, provider);
+    }
 
-	public void setGenerator(final NodeType type,
-			final CodeGenerator generator) {
-		generators[type.ordinal()] = generator;
-	}
+    public static Generator getGenerator(final int version) {
+        if (providers.containsKey(version)) {
+            return providers.get(version).newGenerator();
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /** Private constructor for the registry. */
+    private GeneratorRegistry() {
+        // Registry is shared.
+    }
 }
