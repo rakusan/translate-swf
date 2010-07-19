@@ -36,7 +36,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.flagstone.transform.DoAction;
 import com.flagstone.transform.action.Action;
 import com.flagstone.transform.action.ActionObject;
 import com.flagstone.transform.action.ActionTypes;
@@ -64,6 +63,8 @@ import com.flagstone.transform.action.WaitForFrame2;
 import com.flagstone.transform.action.With;
 import com.flagstone.transform.coder.Context;
 import com.flagstone.transform.coder.SWFEncodeable;
+import com.flagstone.translate.as.ParseException;
+import com.flagstone.translate.as.Token;
 
 /**
  * ASNode is the class used by the parser to construct a tree representation of
@@ -129,188 +130,188 @@ public class ASNode extends Object {
      * initialisation and iteration part of the for statement and body of the
      * loop.
      */
-    static final int StatementList = 4;
-    static final int List = 5;
+    public static final int StatementList = 4;
+    public static final int List = 5;
     /**
      * NoOp is used as a place-holder for child nodes with resorting to using
      * null. No actions will be generated when the node is translated.
      */
-    static final int NoOp = 6;
+    public static final int NoOp = 6;
 
     /** Use to represent if statements */
-    static final int If = 7;
+    public static final int If = 7;
     /** Use to represent for loops */
-    static final int For = 8;
+    public static final int For = 8;
     /** Use to represent for..in statements */
-    static final int ForIn = 9;
+    public static final int ForIn = 9;
     /** Use to represent while loops */
-    static final int While = 10;
+    public static final int While = 10;
     /** Use to represent do..while loops */
-    static final int Do = 11;
+    public static final int Do = 11;
     /** Use to represent with statements */
-    static final int With = 12;
+    public static final int With = 12;
     /** Use to represent onClipEvent statements */
-    static final int OnClipEvent = 13;
+    public static final int OnClipEvent = 13;
     /** Use to represent on statements */
-    static final int On = 14;
+    public static final int On = 14;
     /** Use to represent break statements */
-    static final int Break = 15;
+    public static final int Break = 15;
     /** Use to represent return statements */
-    static final int Return = 16;
+    public static final int Return = 16;
     /** < Use to represent continue statements */
-    static final int Continue = 17;
+    public static final int Continue = 17;
     /**
      * Value is an abstract node type used to group together nodes that will
      * result in a value being generated such as subscripting an array variable
      * or dereferencing an object's attribute.
      */
-    static final int Value = 18;
+    public static final int Value = 18;
 
     /** Use to represent a boolean value */
-    static final int BooleanLiteral = 20;
+    public static final int BooleanLiteral = 20;
     /** Use to represent an integer value */
-    static final int IntegerLiteral = 21;
+    public static final int IntegerLiteral = 21;
     /** Use to represent an double-precision floating point value */
-    static final int DoubleLiteral = 22;
+    public static final int DoubleLiteral = 22;
     /** Use to represent a string value */
-    static final int StringLiteral = 23;
+    public static final int StringLiteral = 23;
     /** Use to represent a null literal */
-    static final int NullLiteral = 24;
+    public static final int NullLiteral = 24;
 
     /** Use to represent a variable */
-    static final int Identifier = 30;
+    public static final int Identifier = 30;
     /** Use to represent an attribute of an object */
-    static final int Attribute = 31;
+    public static final int Attribute = 31;
     /** Use to represent the name of a method */
-    static final int Method = 32;
+    public static final int Method = 32;
     /** Use to represent the name of one of ActionScript's built-in functions. */
-    static final int Function = 33;
+    public static final int Function = 33;
     /** Use to represent new statements for creating instances of objects. */
-    static final int NewObject = 34;
+    public static final int NewObject = 34;
     /**
      * Use to represent subscript operation when accessing the elements of an
      * array.
      */
-    static final int Subscript = 35;
+    public static final int Subscript = 35;
 
     /** Use to represent a user defined function. */
-    static final int DefineFunction = 36;
+    public static final int DefineFunction = 36;
     /** Use to represent an anonyomus array. */
-    static final int DefineArray = 37;
+    public static final int DefineArray = 37;
     /** Use to represent a user defined object. */
-    static final int DefineObject = 38;
+    public static final int DefineObject = 38;
     /** Use to represent a method on a user defined object. */
-    static final int DefineMethod = 39;
+    public static final int DefineMethod = 39;
     /** Use to represent an attribute on a user defined object. */
-    static final int DefineAttribute = 40;
+    public static final int DefineAttribute = 40;
     /** Use to represent a var statement */
-    static final int DefineVariable = 41;
+    public static final int DefineVariable = 41;
     /** Add operation */
-    static final int Add = 42;
+    public static final int Add = 42;
     /** Subtract operation */
-    static final int Sub = 43;
+    public static final int Sub = 43;
     /** Multiply operation */
-    static final int Mul = 44;
+    public static final int Mul = 44;
     /** Divide operation */
-    static final int Div = 45;
+    public static final int Div = 45;
     /** Modulo operation */
-    static final int Mod = 46;
+    public static final int Mod = 46;
     /** Logical Shift Left operation */
-    static final int LSL = 47;
+    public static final int LSL = 47;
     /** Arithmetic Shift Right operation */
-    static final int ASR = 48;
+    public static final int ASR = 48;
     /** Logical Shift Right operation */
-    static final int LSR = 49;
+    public static final int LSR = 49;
     /** Bitwise AND operation */
-    static final int BitAnd = 50;
+    public static final int BitAnd = 50;
     /** Bitwise OR operation */
-    static final int BitOr = 51;
+    public static final int BitOr = 51;
     /** Bitwise Exclusive-OR operation */
-    static final int BitXOr = 52;
+    public static final int BitXOr = 52;
     /** Logical AND operation */
-    static final int LogicalAnd = 53;
+    public static final int LogicalAnd = 53;
     /** Logical OR operation */
-    static final int LogicalOr = 54;
+    public static final int LogicalOr = 54;
     /** Equal comparison */
-    static final int Equal = 55;
+    public static final int Equal = 55;
     /** Not Equal comparison */
-    static final int NotEqual = 56;
+    public static final int NotEqual = 56;
     /** Greater Than comparison */
-    static final int GreaterThan = 57;
+    public static final int GreaterThan = 57;
     /** Less Than comparison */
-    static final int LessThan = 58;
+    public static final int LessThan = 58;
     /** Greater Than or Equal comparison */
-    static final int GreaterThanEqual = 59;
+    public static final int GreaterThanEqual = 59;
     /** Less Than or Equal comparison */
-    static final int LessThanEqual = 60;
+    public static final int LessThanEqual = 60;
     /** ternary operator. */
-    static final int Select = 61;
+    public static final int Select = 61;
     /** Unary not */
-    static final int Not = 62;
+    public static final int Not = 62;
     /** Unary bit-not */
-    static final int BitNot = 63;
+    public static final int BitNot = 63;
     /** Unary plus */
-    static final int Plus = 64;
+    public static final int Plus = 64;
     /** Unary minus */
-    static final int Minus = 65;
+    public static final int Minus = 65;
     /** Pre-increment */
-    static final int PreInc = 66;
+    public static final int PreInc = 66;
     /** Pre-decrement */
-    static final int PreDec = 67;
+    public static final int PreDec = 67;
     /** Post-increment */
-    static final int PostInc = 68;
+    public static final int PostInc = 68;
     /** Post-decrement */
-    static final int PostDec = 69;
+    public static final int PostDec = 69;
     /** Assign, = */
-    static final int Assign = 70;
+    public static final int Assign = 70;
     /** Assign add, += */
-    static final int AssignAdd = 71;
+    public static final int AssignAdd = 71;
     /** Assign subtract, -= */
-    static final int AssignSub = 72;
+    public static final int AssignSub = 72;
     /** Assign multiply, *= */
-    static final int AssignMul = 73;
+    public static final int AssignMul = 73;
     /** Assign divide, /= */
-    static final int AssignDiv = 74;
+    public static final int AssignDiv = 74;
     /** Assign modulo, %= */
-    static final int AssignMod = 75;
+    public static final int AssignMod = 75;
     /** Assign logical shift left, <<= */
-    static final int AssignLSL = 76;
+    public static final int AssignLSL = 76;
     /** Assign arithmetic shift right, >>= */
-    static final int AssignASR = 77;
+    public static final int AssignASR = 77;
     /** Assign logical shift right, >>>= */
-    static final int AssignLSR = 78;
+    public static final int AssignLSR = 78;
     /** Assign bitwise-AND, &= */
-    static final int AssignBitAnd = 79;
+    public static final int AssignBitAnd = 79;
     /** Assign bitwise-OR, |= */
-    static final int AssignBitOr = 80;
+    public static final int AssignBitOr = 80;
     /** Assign bitwise-exclusive-OR, ^= */
-    static final int AssignBitXOr = 81;
+    public static final int AssignBitXOr = 81;
     /** Object identity */
-    static final int InstanceOf = 82;
+    public static final int InstanceOf = 82;
     /** Object reclamation */
-    static final int Delete = 83;
+    public static final int Delete = 83;
     /** Strict Equal comparison */
-    static final int StrictEqual = 84;
+    public static final int StrictEqual = 84;
     /** Strict Not Equal comparison */
-    static final int StrictNotEqual = 85;
+    public static final int StrictNotEqual = 85;
     /** Strict Not Equal comparison */
-    static final int StringAdd = 86;
-    static final int StringEqual = 87;
-    static final int StringNotEqual = 88;
-    static final int StringLessThanEqual = 89;
-    static final int StringGreaterThan = 90;
-    static final int StringGreaterThanEqual = 91;
-    static final int Exception = 92;
-    static final int Try = 93;
-    static final int Catch = 94;
-    static final int Finally = 95;
-    static final int Switch = 96;
-    static final int Throw = 97;
-    static final int Label = 98;
-    static final int InitClip = 99;
-    static final int EndInitClip = 100;
-    static final int And = 101;
-    static final int Or = 102;
+    public static final int StringAdd = 86;
+    public static final int StringEqual = 87;
+    public static final int StringNotEqual = 88;
+    public static final int StringLessThanEqual = 89;
+    public static final int StringGreaterThan = 90;
+    public static final int StringGreaterThanEqual = 91;
+    public static final int Exception = 92;
+    public static final int Try = 93;
+    public static final int Catch = 94;
+    public static final int Finally = 95;
+    public static final int Switch = 96;
+    public static final int Throw = 97;
+    public static final int Label = 98;
+    public static final int InitClip = 99;
+    public static final int EndInitClip = 100;
+    public static final int And = 101;
+    public static final int Or = 102;
 
     /*
      * Names for each of the different types of node. Names are used in the
@@ -1046,8 +1047,8 @@ public class ASNode extends Object {
      * @param encoding the character set used to represent the strings parsed in
      * the script.
      */
-    public List<Object> compile(ASContext info) {
-        ArrayList<Object> array = new ArrayList<Object>();
+    public List<Action> compile(ASContext info) {
+        ArrayList<Action> array = new ArrayList<Action>();
 
         reorder(info);
         findStrings(info);
@@ -1059,28 +1060,26 @@ public class ASNode extends Object {
         return array;
     }
 
-    private void generateScript(ASContext info, List<Object> list) {
-        List<Action> array = new ArrayList<Action>();
+    private void generateScript(ASContext info, List<Action> list) {
         int count = count();
 
         switch (type) {
         case Array:
             if (type == Array && info.useStrings)
-                array.add(new Table(info.strings));
+                list.add(new Table(info.strings));
 
             for (int i = 0; i < count; i++)
                 children[i].discardValues();
 
             for (int i = 0; i < count; i++)
-                children[i].generate(info, array);
+                children[i].generate(info, list);
 
-            array.add(BasicAction.END);
-            list.add(new DoAction(array));
+            list.add(BasicAction.END);
             break;
         case Button:
         case MovieClip:
             for (int i = 0; i < count; i++)
-                ((EventNode)children[i]).generateEvent(info, list);
+                ((ASEventNode)children[i]).generateEvent(info, list);
             break;
         default:
             break;
@@ -3803,7 +3802,7 @@ public class ASNode extends Object {
      * validate is used to provide additional error checking not covered in the
      * parser grammar.
      */
-    void validate() throws ParseException {
+    public void validate() throws ParseException {
         boolean reportError = false;
         int count = count();
         ASNode node = this;

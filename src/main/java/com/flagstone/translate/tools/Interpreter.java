@@ -30,6 +30,7 @@
  */
 package com.flagstone.translate.tools;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -37,7 +38,6 @@ import java.util.Map;
 
 import com.flagstone.translate.ASCompiler;
 import com.flagstone.translate.ASNode;
-import com.flagstone.translate.ParseException;
 
 /**
  * Interpreter.java - provides a simple command-line interpreter that allows the
@@ -106,13 +106,13 @@ public final class Interpreter
 
                 System.out.println("Reading ActionScript from " + scriptFile);
 
-                compiler.compile(scriptFile); // TODO
+                compiler.compile(new File(scriptFile)); // TODO
             }
             else
             {
-                System.out.println("Type in ActionScript statements, type Ctrl-D to finish.");
-
-                compiler.compile((String)null); // TODO
+//TODO                System.out.println("Type in ActionScript statements, type Ctrl-D to finish.");
+//
+//                compiler.compile((String)null); // TODO
             }
 
             if (showNodes)
@@ -134,11 +134,12 @@ public final class Interpreter
                     movieClipScript(swfFile);
             }
         }
-        catch (ParseException e)
+        catch (Exception e)
         {
-            System.err.println(compiler.getError());
-            System.err.println("    File: " + compiler.getFilename() + ", Line: " + compiler.getLineNumber());
-            System.err.println("    " + compiler.getLine());
+
+//TODO        System.err.println(compiler.getError());
+//            System.err.println("    File: " + compiler.getFilename() + ", Line: " + compiler.getLineNumber());
+//            System.err.println("    " + compiler.getLine());
         }
     }
 

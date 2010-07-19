@@ -1,9 +1,9 @@
 /*
- * ASPArser.jj
+ * AS1PArser.jj
  * Translate SWF
  *
  * A compiler for ActionScript
- * Copyright (c) 2003-2009 Flagstone Software Ltd. All rights reserved.
+ * Copyright (c) 2010 Flagstone Software Ltd. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -33,52 +33,62 @@
 options {
     STATIC = false;
 	JAVA_UNICODE_ESCAPE = true;
+	FORCE_LA_CHECK = true;
 }
 
-PARSER_BEGIN(ASParser)
+PARSER_BEGIN(AS1Parser)
 
-package com.flagstone.translate.as;
+package com.flagstone.translate.as1;
 
 import java.io.*;
-import com.flagstone.translate.ASNode;
-import com.flagstone.translate.ASEventNode;
-import com.flagstone.translate.NodeType;
-import com.flagstone.transform.Event;
+import java.util.List;
+import java.util.ArrayList;
 
-public final class ASParser extends Object
-{
+import com.flagstone.transform.Event;
+import com.flagstone.translate.Parser;
+import com.flagstone.translate.Node;
+import com.flagstone.translate.EventNode;
+import com.flagstone.translate.NodeType;
+import com.flagstone.translate.ScriptError;
+
+public final class AS1Parser implements Parser {
+
+    private transient String path;
+    private transient List<ScriptError>errors;
+    
     /**
      * Constructs a new parser object. The current working directory "." is added 
      * to the list of directories that will be searched when looking for a file.
      */
-    public ASParser() {
+    public AS1Parser() {
         this(System.in);
+    }
+    
+    public void setPath(final String str) {
+        path = str;
+    }
+    
+    public void setErrors(final List<ScriptError> list) {
+        errors = list;
     }
 
     /**
-     * Parses the ActionScript string, script. Any nested files specified
-     * using #include directives are loaded before the complete script is 
-     * parsed. The filenames and line numbers of #include'd scripts are 
-     * tracked so any syntax errors are reported accurately.
+     * Parses Actionscript from a stream.
      *
-     * The character used used in the script is assumed to be UTF-8.
-     *
-     * @param script a String containing the ActionScript code to parse.
+     * @param stream an InputStream containing the ActionScript code to parse.
      *
      * @throws ParseException if a parsing error occurs.
      */
-    public ASNode parse(String script) throws ParseException {
-        byte[] bytes;
-        
-        try { 
-            bytes = script.getBytes("UTF-8"); 
-        } catch(Exception e) { 
-            throw new ParseException();
+    public Node parse(final InputStream stream) {
+    	Node root = null;
+        try {
+            ReInit(stream);
+        	root = Script();
+        } catch (ParseException e) {
+            errors.add(new ScriptError(ScriptError.Type.SCRIPT_PARSE_ERROR,
+                        path, token.beginLine, token.endLine,
+                        token.beginColumn, token.endColumn));
         }
-            
-        ReInit(new ByteArrayInputStream(bytes));
-        ASNode root = Script();
-        root.validate();
         return root;
     }
     
@@ -100,7 +110,7 @@ public final class ASParser extends Object
     }
 }
 
-PARSER_END(ASParser)
+PARSER_END(AS1Parser)
 
 SKIP : /* WHITE SPACE */
 {
@@ -245,83 +255,37 @@ TOKEN : /* IDENTIFIERS */
     |     < #DIGIT: [ "0"-"9"] >
 }
 
-ASNode Literal() : { Token t; ASNode node = new ASNode(ASNode.Value);  }
+TOKEN : /* PUNCTUATION */
 {
-    t=<BOOLEAN_LITERAL>
-    {
-        node.setType(ASNode.BooleanLiteral);
-        if (t.image.toLowerCase().equals("true"))
-            node.setBoolValue(true);
-        else if (t.image.toLowerCase().equals("false"))
-            node.setBoolValue(false);
-        return node;
+      <SEMICOLON: ";" >
+    | <LBRACE: "{" >
+    | <RBRACE: "}" >
+}
+
+Node Literal() : {}
+{
+    <BOOLEAN_LITERAL> {
+        return new Node(NodeType.BOOLEAN, token.image.toLowerCase());
     }
     
-    | t=<INTEGER_LITERAL>
-    {
-        Integer i;
-        boolean negative = false;
-        
-        try {
-            if (token.image.toLowerCase().startsWith("0x"))
-            {
-                i = Integer.valueOf(t.image.substring(2), 16); 
-            }
-            else
-            {
-                if (token.image.startsWith("+")) {
-                    i = Integer.valueOf(token.image.substring(1));
-                }
-                else if (token.image.startsWith("-")) {
-                    i = Integer.valueOf(token.image.substring(1));
-                    negative = true;
-                }
-                else {
-                    i = Integer.valueOf(token.image);
-                }
-            } 
-        }
-        catch (NumberFormatException e) {
-            i = new Integer(0);
-        }
-        node.setType(ASNode.IntegerLiteral);
-        node.setIntValue(negative ? -i.intValue() : i.intValue());
-        return node;
+    | <INTEGER_LITERAL> {
+        return new Node(NodeType.INTEGER, token.image);
     }
     
-    | t=<FLOATING_POINT_LITERAL>
-    {
-        Double d;
-        
-        try {
-            if (token.image.endsWith("e"))
-            	d = Double.valueOf(token.image+"0");
-            else
-            	d = Double.valueOf(token.image);
-        }
-        catch (NumberFormatException e) {
-            d = new Double(0);
-        }
-        node.setType(ASNode.DoubleLiteral);
-        node.setDoubleValue(d.doubleValue());
-        return node;
+    | <FLOATING_POINT_LITERAL> {
+        return new Node(NodeType.DOUBLE, token.image);
     }
 
-    | t=<STRING_LITERAL>
-    {
-        node.setType(ASNode.StringLiteral);
-        node.setStringValue(t.image.substring(1, t.image.length()-1));
-        return node;
+    | <STRING_LITERAL> {
+        return new Node(NodeType.STRING, token.image.substring(1, token.image.length()-1));
     }
 
-    | t=<NULL_LITERAL>
-    {
-        node.setType(ASNode.NullLiteral);
-        return node;
+    | <NULL_LITERAL> {
+        return new Node(NodeType.NULL);
     }
 }
 
-ASNode Identifier() : { Token t; ASNode node = null; }
+Node Identifier() : {}
 {
     /* Identifier() now looks ahead to see whether an identifier is followed 
      * by a Function() node. This allows 'named' functions to be diferentiated, 
@@ -332,40 +296,39 @@ ASNode Identifier() : { Token t; ASNode node = null; }
      * The Identifier() node short-circuits any PrimarySuffix() rule that might
      * follow by consuming the following tokens.
      */
-      LOOKAHEAD(<IDENTIFIER> Function()) t=<IDENTIFIER> node=Function() 
-      { 
-          node.setStringValue(t.image);
-          node.setNumber(t.beginLine);
-          return node; 
+      LOOKAHEAD(<IDENTIFIER> Function()) <IDENTIFIER> { 
+          return Function(); 
       }
-    | LOOKAHEAD(<IDENTIFIER>) t=<IDENTIFIER> 
-      { 
-          node = new ASNode(ASNode.Identifier, t.image); 
-          return node; 
+    | LOOKAHEAD(<IDENTIFIER>) <IDENTIFIER> {
+		  return new Node(NodeType.IDENTIFIER, token.image); 
       }
+}
+
+JAVACODE
+void error_skipto(int kind) {
+
+    ParseException e = generateParseException();
+    errors.add(new ScriptError(ScriptError.Type.SCRIPT_PARSE_ERROR, path, 
+        token.beginLine, token.endLine, token.beginColumn, token.endColumn));
+    
+    Token t;
+  
+    do {
+        t = getNextToken();
+    } while (t.kind != kind);
 }
 
 /*
  * Statements
  */
  
-ASNode Script() : { ASNode root = new ASNode(ASNode.Array), node = null; }
+Node Script() : { Node root = new Node(NodeType.LIST), node; } 
 {
-    ( node=Statement()
-        { 
-            if (node.getType() == ASNode.OnClipEvent)
-                root.setType(ASNode.MovieClip);
-            else if (node.getType() == ASNode.On)
-                root.setType(ASNode.Button);
-                
-            root.setNumber(token.beginLine);
-              root.add(node); 
-        }
-       )*
+    ( node=Statement() { root.add(node); } )*
     { return root; }
 }
 
-ASNode Statement() : { ASNode node = null; }
+Node Statement() : { Node node = null; }
 {
     /*
      * Lookaheads are required on each different type of statements to allow
@@ -377,6 +340,7 @@ ASNode Statement() : { ASNode node = null; }
      * The ambiguities are a result of syntax choices in the design of the ActionScript
      * languages rather than shortcomings in the design of the parser.
      */
+    try {
       LOOKAHEAD(BlockStatement()) node=BlockStatement() { return node; }
     | LOOKAHEAD(FunctionDefinition()) node=FunctionDefinition() { return node; }
     | LOOKAHEAD(ExpressionStatement()) node=ExpressionStatement() { return node; }
@@ -394,33 +358,35 @@ ASNode Statement() : { ASNode node = null; }
     | LOOKAHEAD(TryStatement()) node=TryStatement() { return node; }
     | LOOKAHEAD(ThrowStatement()) node=ThrowStatement() { return node; }
     | LOOKAHEAD(SwitchStatement()) node=SwitchStatement() { return node; }
+    } catch (ParseException e) {
+        error_skipto(SEMICOLON);
+    }
 }
 
-
-ASNode FunctionDefinition() : { Token t; ASNode node = new ASNode(ASNode.DefineFunction), name = null, args = null, body = null; }
+Node FunctionDefinition() : { Token t; Node node = new Node(NodeType.DEFINE_FUNCTION), name = null, args = null, body = null; }
 {
-    [<FUNCTION>] t=<IDENTIFIER> { node.setStringValue(t.image); } "(" [ args=ArgumentList() { node.add(args); } ] ")" body=BlockStatement() { node.add(body); }
+    [<FUNCTION>] t=<IDENTIFIER> { node = new Node(NodeType.DEFINE_FUNCTION, t.image); } "(" [ args=ArgumentList() { node.add(args); } ] ")" body=BlockStatement() { node.add(body); }
 
     { return node; }
 }
 
-ASNode BlockStatement() : { ASNode list = new ASNode(ASNode.StatementList), node = null; }
+Node BlockStatement() : { Node list = new Node(NodeType.STATEMENT_LIST), node = null; }
 {
     "{" ( node=Statement() { list.add(node); } )* "}"
     { return list; }
 }
 
-ASNode ExpressionStatement() : { Token t; ASNode node = new ASNode(ASNode.NoOp); }
+Node ExpressionStatement() : { Node node; }
 {
     node=ExpressionList() (LOOKAHEAD(2) ";")? { return node; }
 }
 
-ASNode EmptyStatement() : { Token t; ASNode node = new ASNode(ASNode.NoOp); }
+Node EmptyStatement() : {}
 {
-    ";" { return node; }
+    ";" { return new Node(NodeType.NO_OP); }
 }
 
-ASNode IfStatement() : { Token t; ASNode ifnode = new ASNode(ASNode.If), node = null;  ifnode.add(new ASNode(ASNode.NoOp)); }
+Node IfStatement() : { Token t; Node ifnode = new Node(NodeType.IF), node = null;  ifnode.add(new Node(NodeType.NO_OP)); }
 {
     t=<IF> "(" node=ConditionalExpression() ")" { ifnode.set(0, node); } 
         node=Statement() { ifnode.add(node); } 
@@ -429,15 +395,13 @@ ASNode IfStatement() : { Token t; ASNode ifnode = new ASNode(ASNode.If), node = 
     { return ifnode; } 
 }
 
-ASNode WithStatement() : { ASNode withNode = new ASNode(ASNode.With), node = null; }
+Node WithStatement() : { Node expr; Node body; }
 {
-    <WITH> "(" node=ConditionalExpression() ")" { withNode.add(node); } 
-        node=Statement() { withNode.add(node); }
-        
-    { return withNode; }
+    <WITH> "(" expr=ConditionalExpression() ")" body=Statement()        
+    { return new Node(NodeType.WITH).add(expr).add(body); }
 }
 
-ASNode WhileStatement() : { ASNode whileNode = new ASNode(ASNode.While), node = null; whileNode.add(new ASNode(ASNode.NoOp)); }
+Node WhileStatement() : { Node whileNode = new Node(NodeType.WHILE), node = null; whileNode.add(new Node(NodeType.NO_OP)); }
 {
     <WHILE> "(" node=ConditionalExpression() ")" { whileNode.set(0, node); }
         node=Statement() { whileNode.add(node); }
@@ -445,7 +409,7 @@ ASNode WhileStatement() : { ASNode whileNode = new ASNode(ASNode.While), node = 
     { return whileNode; }
 }    
 
-ASNode DoStatement() : { ASNode doNode = new ASNode(ASNode.Do), node = null; doNode.add(new ASNode(ASNode.NoOp)); }
+Node DoStatement() : { Node doNode = new Node(NodeType.DO), node = null; doNode.add(new Node(NodeType.NO_OP)); }
 {
     <DO> node=Statement() { doNode.set(0, node); }
     <WHILE> "(" node=ConditionalExpression() ")" { doNode.add(node); }
@@ -453,63 +417,56 @@ ASNode DoStatement() : { ASNode doNode = new ASNode(ASNode.Do), node = null; doN
     { return doNode; }
 }    
 
-ASNode ForStatement() : { Token t; ASNode forNode = null, node = null; }
+Node ForStatement() : { Token t; Node forNode = null, node = null; }
 {
     LOOKAHEAD (5) // Lookahead for the <IN> token that separates for() from for..in
     
       <FOR> 
           { 
-              forNode = new ASNode(ASNode.For); 
-              forNode.add(new ASNode(ASNode.NoOp)); 
-              forNode.add(new ASNode(ASNode.NoOp)); 
-              forNode.add(new ASNode(ASNode.NoOp)); 
-              forNode.add(new ASNode(ASNode.NoOp)); 
+              forNode = new Node(NodeType.FOR); 
+              forNode.add(new Node(NodeType.NO_OP)); 
+              forNode.add(new Node(NodeType.NO_OP)); 
+              forNode.add(new Node(NodeType.NO_OP)); 
+              forNode.add(new Node(NodeType.NO_OP)); 
           } "(" 
           [ node=ExpressionList() { forNode.set(0, node); } ] ";" 
           [ node=ConditionalExpression() { forNode.set(1, node); } ] ";" 
           [ node=ExpressionList() { forNode.set(2, node); } ] ")" 
           node=Statement() { forNode.set(3, node); return forNode; }
           
-    | <FOR> { forNode = new ASNode(ASNode.ForIn); } "(" 
-          ["var"] t=<IDENTIFIER> { forNode.add(new ASNode(ASNode.Identifier, t.image)); }
+    | <FOR> { forNode = new Node(NodeType.FORIN); } "(" 
+          ["var"] t=<IDENTIFIER> { forNode.add(new Node(NodeType.IDENTIFIER, t.image)); }
           <IN> node=ConditionalExpression() ")"  { forNode.add(node); }
           node=Statement() { forNode.add(node); return forNode; }
 }
 
-ASNode BreakStatement() : { Token t; ASNode node = new ASNode(ASNode.Break); }
+Node BreakStatement() : {}
 {
-    t=<BREAK> (LOOKAHEAD(";") ";")?
-    { 
-        node.setNumber(t.beginLine);
-        return node; 
+    <BREAK> (LOOKAHEAD(";") ";")? { 
+        return new Node(NodeType.BREAK); 
     }
 }
 
-ASNode ContinueStatement() : { Token t; ASNode node = new ASNode(ASNode. Continue); }
+Node ContinueStatement() : {}
 {
-    t=<CONTINUE> (LOOKAHEAD(";") ";")?
-    { 
-        node.setNumber(t.beginLine);
-        return node; 
+    <CONTINUE> (LOOKAHEAD(";") ";")? { 
+        return new Node(NodeType.CONTINUE); 
     }
 }
 
-ASNode ReturnStatement() : { Token t; ASNode returnNode = new ASNode(ASNode.Return), node = null; }
+Node ReturnStatement() : { Node returnNode = new Node(NodeType.RETURN), node = null; }
 {
-    t=<RETURN> [ node=ConditionalExpression() { returnNode.add(node); } ] (LOOKAHEAD(";") ";")?
-    { 
-        returnNode.setNumber(t.beginLine);
-        return returnNode; 
-    }
+    <RETURN> [ node=ConditionalExpression() { returnNode.add(node); } ] (LOOKAHEAD(";") ";")?
+    { return returnNode; }
 }
 
-ASEventNode OnClipEvent() : { Token t; ASEventNode eventNode = new ASEventNode(ASNode.OnClipEvent); ASNode node = null; }
+EventNode OnClipEvent() : { Token t; EventNode eventNode = new EventNode(NodeType.ONCLIPEVENT); Node node = null; }
 {
     t=<ONCLIPEVENT> "(" ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
     {
-        if (node.getType() == ASNode.Identifier)
+        if (node.getType() == NodeType.IDENTIFIER)
         {
-            Event event = ASEventNode.getEvent(node.getStringValue().toLowerCase());
+            Event event = EventNode.getEvent(node.getValue().toLowerCase());
             if (event != null) {
                 eventNode.addEvent(event); 
             }
@@ -517,12 +474,12 @@ ASEventNode OnClipEvent() : { Token t; ASEventNode eventNode = new ASEventNode(A
                 reportError("UnknownButtonEvent", t);
             }
         }
-        else if (node.getType() == ASNode.StringLiteral)
+        else if (node.getType() == NodeType.STRING)
         {
-            Integer key = ASEventNode.getKey(node.getStringValue().toLowerCase());
+            Integer key = EventNode.getKey(node.getValue().toLowerCase());
             
             if (key == null) {
-                key =  Integer.valueOf(node.getStringValue().charAt(0));
+                key =  Integer.valueOf(node.getValue().charAt(0));
             }
             eventNode.setKey(key); 
         }
@@ -533,9 +490,9 @@ ASEventNode OnClipEvent() : { Token t; ASEventNode eventNode = new ASEventNode(A
        } 
     ( ","  ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
     {
-        if (node.getType() == ASNode.Identifier)
+        if (node.getType() == NodeType.IDENTIFIER)
         {
-            Event event = ASEventNode.getEvent(node.getStringValue());
+            Event event = EventNode.getEvent(node.getValue());
             if (event != null) {
                 eventNode.addEvent(event); 
             }
@@ -543,12 +500,12 @@ ASEventNode OnClipEvent() : { Token t; ASEventNode eventNode = new ASEventNode(A
                 reportError("UnknownButtonEvent", t);
             }
         }
-        else if (node.getType() == ASNode.StringLiteral)
+        else if (node.getType() == NodeType.STRING)
         {
-           Integer key = ASEventNode.getKey(node.getStringValue());
+           Integer key = EventNode.getKey(node.getValue());
             
             if (key == null) {
-                key = Integer.valueOf(node.getStringValue().charAt(0));
+                key = Integer.valueOf(node.getValue().charAt(0));
             }
             eventNode.setKey(key); 
         }
@@ -562,13 +519,13 @@ ASEventNode OnClipEvent() : { Token t; ASEventNode eventNode = new ASEventNode(A
     { return eventNode; }
 }
 
-ASEventNode On() : { Token t; ASEventNode eventNode = new ASEventNode(ASNode.On); ASNode node = null; }
+EventNode On() : { Token t; EventNode eventNode = new EventNode(NodeType.ON); Node node = null; }
 {
     t=<ON> "(" ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
     {
-        if (node.getType() == ASNode.Identifier)
+        if (node.getType() == NodeType.IDENTIFIER)
         {
-            Event event = ASEventNode.getEvent(node.getStringValue().toLowerCase());
+            Event event = EventNode.getEvent(node.getValue().toLowerCase());
             if (event != null) {
                 eventNode.addEvent(event); 
             }
@@ -576,12 +533,12 @@ ASEventNode On() : { Token t; ASEventNode eventNode = new ASEventNode(ASNode.On)
                 reportError("UnknownButtonEvent", t);
             }
         }
-        else if (node.getType() == ASNode.StringLiteral)
+        else if (node.getType() == NodeType.STRING)
         {
-            Integer key = ASEventNode.getKey(node.getStringValue().toLowerCase());
+            Integer key = EventNode.getKey(node.getValue().toLowerCase());
             
             if (key == null) {
-                key =  Integer.valueOf(node.getStringValue().charAt(0));
+                key =  Integer.valueOf(node.getValue().charAt(0));
             }
             eventNode.setKey(key); 
         }
@@ -592,9 +549,9 @@ ASEventNode On() : { Token t; ASEventNode eventNode = new ASEventNode(ASNode.On)
        } 
     ( ","  ( LOOKAHEAD(2) node=Identifier() node=Literal() | node=Identifier() )
     {
-        if (node.getType() == ASNode.Identifier)
+        if (node.getType() == NodeType.IDENTIFIER)
         {
-            Event event = ASEventNode.getEvent(node.getStringValue());
+            Event event = EventNode.getEvent(node.getValue());
             if (event != null) {
                 eventNode.addEvent(event); 
             }
@@ -602,12 +559,12 @@ ASEventNode On() : { Token t; ASEventNode eventNode = new ASEventNode(ASNode.On)
                 reportError("UnknownButtonEvent", t);
             }
         }
-        else if (node.getType() == ASNode.StringLiteral)
+        else if (node.getType() == NodeType.STRING)
         {
-           Integer key = ASEventNode.getKey(node.getStringValue());
+           Integer key = EventNode.getKey(node.getValue());
             
             if (key == null) {
-                key = Integer.valueOf(node.getStringValue().charAt(0));
+                key = Integer.valueOf(node.getValue().charAt(0));
             }
             eventNode.setKey(key); 
         }
@@ -622,48 +579,47 @@ ASEventNode On() : { Token t; ASEventNode eventNode = new ASEventNode(ASNode.On)
     { return eventNode; }
 }
 
-ASNode TryStatement() : { ASNode exceptionNode = new ASNode(ASNode.Exception), node = null, catchNode = null;}
+Node TryStatement() : { Node exceptionNode = new Node(NodeType.EXCEPTION), node = null, catchNode = null;}
 {   
     <TRY>
-        node=Statement() { ASNode tryNode = new ASNode(ASNode.Try); tryNode.add(node); exceptionNode.add(tryNode); }
+        node=Statement() { Node tryNode = new Node(NodeType.TRY); tryNode.add(node); exceptionNode.add(tryNode); }
     
-    ( LOOKAHEAD(2) <CATCH> "(" node=ConditionalExpression() ")" { catchNode = new ASNode(ASNode.Catch); exceptionNode.add(catchNode);}
+    ( LOOKAHEAD(2) <CATCH> "(" node=ConditionalExpression() ")" { catchNode = new Node(NodeType.CATCH); exceptionNode.add(catchNode);}
         node=Statement() { catchNode.add(node); } )*
     [ LOOKAHEAD(2) <FINALLY>
-        node=Statement() { ASNode finallyNode = new ASNode(ASNode.Finally); finallyNode.add(node); exceptionNode.add(finallyNode); } ]
+        node=Statement() { Node finallyNode = new Node(NodeType.FINALLY); finallyNode.add(node); exceptionNode.add(finallyNode); } ]
         
     { return exceptionNode; }
 }    
 
-ASNode ThrowStatement() : { Token t; ASNode throwNode = new ASNode(ASNode.Throw), node = null; }
+Node ThrowStatement() : { Node node; }
 {
-    <THROW> node=ConditionalExpression() { throwNode.add(node); } (LOOKAHEAD(";") ";")?
-
-    { return throwNode; }
+    <THROW> node=ConditionalExpression() (LOOKAHEAD(";") ";")?
+    { return new Node(NodeType.THROW).add(node); }
 }
 
-ASNode SwitchStatement() : { ASNode switchNode = new ASNode(ASNode.Switch), label = null, list = null, node = null; }
+Node SwitchStatement() : { Node switchNode = new Node(NodeType.SWITCH), label = null, list = null, node = null; }
 {
     <SWITCH> "(" node=ConditionalExpression() ")" { switchNode.add(node); } "{"
-        (label=SwitchLabel() { switchNode.add(label); list = new ASNode (ASNode.List); } (node=Statement() {list.add(node); } )* { if (list.count() > 0) switchNode.add(list); } )*
+        (label=SwitchLabel() { switchNode.add(label); list = new Node (NodeType.LIST); } (node=Statement() {list.add(node); } )* { if (list.count() > 0) switchNode.add(list); } )*
     "}"
     
     { return switchNode; }
 }    
 
-ASNode SwitchLabel() : { ASNode labelNode = new ASNode(ASNode.Label), node = null; }
+Node SwitchLabel() : { Node node = new Node(NodeType.LABEL), expr = null; }
 {
-    ( <CASE> node=Expression() ":" { labelNode.add(node); }
+    ( <CASE> expr=Expression() ":" { node.add(expr); }
     | <DEFAULT_CASE> ":"
     )
-    { return labelNode; }
+    { return node; }
 }
 
 /*
  * Define lists
  */
 
-ASNode ExpressionList() : { ASNode block = new ASNode(ASNode.List), node = null; }
+Node ExpressionList() : { Node block = new Node(NodeType.LIST), node = null; }
 {
     node=Expression() { block.add(node); } ( "," node=Expression() { block.add(node); } )*
     { 
@@ -674,7 +630,7 @@ ASNode ExpressionList() : { ASNode block = new ASNode(ASNode.List), node = null;
     }
 }
 
-ASNode ArgumentList() : { ASNode block = new ASNode(ASNode.List), node = null; }
+Node ArgumentList() : { Node block = new Node(NodeType.LIST), node = null; }
 {
     node=ConditionalExpression() { block.add(node); } ( "," node=ConditionalExpression() { block.add(node); } )*
     { 
@@ -689,34 +645,37 @@ ASNode ArgumentList() : { ASNode block = new ASNode(ASNode.List), node = null; }
  * Expression Syntax
  */
  
-ASNode Expression() : { ASNode node = null; }
+Node Expression() : { Node node; }
 {
       node=AssignmentExpression() { return node; }
- //   | LOOKAHEAD(ConditionalExpression()) node=ConditionalExpression() { return node; }
 }
 
-ASNode AssignmentExpression() : { boolean isVar = false; int type = 0; ASNode node = null, left = null, right = null; }
+Node AssignmentExpression() : { boolean isVar = false; NodeType type; Node node = null, left = null, right = null; }
 {
-    ( "var" { isVar = true; } ) ? node=ConditionalExpression()  { if (isVar) node.setType(ASNode.DefineVariable); }
+    ( "var" { isVar = true; } ) ? node=ConditionalExpression()  
+    { if (isVar) {
+        node = new Node(NodeType.DEFINE_VARIABLE).addAll(node.getChildren()); 
+        }
+    }
     [
-        ( <ASSIGN> { type = ASNode.Assign; }
-        | <ASSIGN_ADD> { type = ASNode.AssignAdd; }
-        | <ASSIGN_SUB> { type = ASNode.AssignSub; }
-        | <ASSIGN_MUL> { type = ASNode.AssignMul; }
-        | <ASSIGN_DIV> { type = ASNode.AssignDiv; }
-        | <ASSIGN_MOD> { type = ASNode.AssignMod; }
-        | <ASSIGN_LSL> { type = ASNode.AssignLSL; }
-        | <ASSIGN_ASR> { type = ASNode.AssignASR; }
-        | <ASSIGN_LSR> { type = ASNode.AssignLSR; }
-        | <ASSIGN_AND> { type = ASNode.AssignBitAnd; }
-        | <ASSIGN_OR> { type = ASNode.AssignBitOr; }
-        | <ASSIGN_XOR> { type = ASNode.AssignBitXOr; }
+        ( <ASSIGN> { type = NodeType.ASSIGN; }
+        | <ASSIGN_ADD> { type = NodeType.ASSIGN_ADD; }
+        | <ASSIGN_SUB> { type = NodeType.ASSIGN_SUB; }
+        | <ASSIGN_MUL> { type = NodeType.ASSIGN_MUL; }
+        | <ASSIGN_DIV> { type = NodeType.ASSIGN_DIV; }
+        | <ASSIGN_MOD> { type = NodeType.ASSIGN_MOD; }
+        | <ASSIGN_LSL> { type = NodeType.ASSIGN_LSL; }
+        | <ASSIGN_ASR> { type = NodeType.ASSIGN_ASR; }
+        | <ASSIGN_LSR> { type = NodeType.ASSIGN_LSR; }
+        | <ASSIGN_AND> { type = NodeType.ASSIGN_BIT_AND; }
+        | <ASSIGN_OR> { type = NodeType.ASSIGN_BIT_OR; }
+        | <ASSIGN_XOR> { type = NodeType.ASSIGN_BIT_XOR; }
         )  
         
         right=AssignmentExpression() 
     
         { 
-            node = new ASNode(type, node, right);
+            node = new Node(type).add(node).add(right);
         }
     
     ]
@@ -729,16 +688,16 @@ ASNode AssignmentExpression() : { boolean isVar = false; int type = 0; ASNode no
  * the different types of operators. The left branch of the tree descends down one level.
  * The right branch parses the remaining part of the expression starting at the same level. 
  * This allows statements such as a + b * c to be correctly parsed as a + (b * c) which takes
- * into account the level of precendence assigned to different operations. If the right brach 
+ * into account the level of precedence assigned to different operations. If the right branch 
  * also descended down the tree then the expression would be parsed as (a + b) * c.
  */
  
-ASNode ConditionalExpression() : { ASNode node = null, cond = null, a = null, b = null; }
+Node ConditionalExpression() : { Node node = null, cond = null, a = null, b = null; }
 {
     node=LogicalOrExpression() (  
         "?" a=Expression() ":" b=ConditionalExpression() 
         { cond = node; 
-          node = new ASNode(ASNode.Select); 
+          node = new Node(NodeType.SELECT); 
           node.add(cond);
           node.add(a);
           node.add(b);
@@ -747,169 +706,158 @@ ASNode ConditionalExpression() : { ASNode node = null, cond = null, a = null, b 
     { return node; }
 }
 
-ASNode LogicalOrExpression() : { int type = 0; ASNode left = null, right = null; }
+Node LogicalOrExpression() : { NodeType type; Node left, right; }
 {
     left=LogicalAndExpression()  (
-        ( <LOGICAL_OR> { type = ASNode.LogicalOr; }
-        | <OR> { type = ASNode.Or; }
+        ( <LOGICAL_OR> { type = NodeType.LOGICAL_OR; }
+        | <OR> { type = NodeType.OR; }
         )
         right=LogicalAndExpression()
         
-        { left = new ASNode(type, left, right); }
+        { left = new Node(type).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode LogicalAndExpression() : { int type = 0; ASNode left = null, right = null; }
+Node LogicalAndExpression() : { NodeType type; Node left, right; }
 {
     left=InclusiveOrExpression()  ( 
-        ( <LOGICAL_AND> { type = ASNode.LogicalAnd; } 
-        | <AND> { type = ASNode.And; } 
+        ( <LOGICAL_AND> { type = NodeType.LOGICAL_AND; } 
+        | <AND> { type = NodeType.AND; } 
         )
         right=InclusiveOrExpression()
         
-        { left = new ASNode(type, left, right); }
+        { left = new Node(type).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode InclusiveOrExpression() : { int type = 0; ASNode left = null, right = null; }
+Node InclusiveOrExpression() : { Node left, right; }
 {
     left=ExclusiveOrExpression() ( 
-        <BIT_OR> { type = ASNode.BitOr; }
-        right=ExclusiveOrExpression()
-        
-        { left = new ASNode(type, left, right); }
+        <BIT_OR> right=ExclusiveOrExpression()
+        { left = new Node(NodeType.BIT_OR).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode ExclusiveOrExpression() : { int type = 0; ASNode left = null, right = null; }
+Node ExclusiveOrExpression() : { Node left, right; }
 {
     left=AndExpression() ( 
-        <BIT_XOR> { type = ASNode.BitXOr; }
-        right=AndExpression()
-        
-        { left = new ASNode(type, left, right); }
+        <BIT_XOR> right=AndExpression()
+        { left = new Node(NodeType.BIT_XOR).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode AndExpression() : { int type = 0; ASNode left = null, right = null; }
+Node AndExpression() : { Node left, right; }
 {
     left=EqualityExpression() ( 
-        <BIT_AND> { type = ASNode.BitAnd; }
-        right=EqualityExpression()
-        
-        { left = new ASNode(type, left, right); }
+        <BIT_AND> right=EqualityExpression()
+        { left = new Node(NodeType.BIT_AND).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode EqualityExpression() : { int type = 0; ASNode left = null, right = null; }
+Node EqualityExpression() : { NodeType type; Node left, right; }
 {
     left=RelationalExpression() ( 
-        ( <EQ> { type = ASNode.Equal; }
-        | <NE> { type = ASNode.NotEqual; }
-        | <STRICT_EQ> { type = ASNode.StrictEqual; }
-        | <STRICT_NEQ> { type = ASNode.StrictNotEqual; }
-        | <STRING_EQ> { type = ASNode.StringEqual; }
-        | <STRING_NEQ> { type = ASNode.StringNotEqual; }
+        ( <EQ> { type = NodeType.EQUAL; }
+        | <NE> { type = NodeType.NOT_EQUAL; }
+        | <STRICT_EQ> { type = NodeType.STRICT_EQUAL; }
+        | <STRICT_NEQ> { type = NodeType.STRICT_NOT_EQUAL; }
+        | <STRING_EQ> { type = NodeType.STRING_EQUAL; }
+        | <STRING_NEQ> { type = NodeType.STRING_NOT_EQUAL; }
         ) 
         right=RelationalExpression()
  
-        { left = new ASNode(type, left, right); }
+        { left = new Node(type).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode RelationalExpression() : { int type = 0; ASNode left = null, right = null; }
+Node RelationalExpression() : { NodeType type; Node left, right; }
 {
     left=InstanceExpression() ( 
-        ( <LT> { type = ASNode.LessThan; }
-        | <GT> { type = ASNode.GreaterThan; }
-        | <LTE> { type = ASNode.LessThanEqual; }
-        | <GTE> { type = ASNode.GreaterThanEqual; }
-        | <STRING_GT> { type = ASNode.StringGreaterThan; }
-        | <STRING_LE> { type = ASNode.StringLessThanEqual; }
-        | <STRING_GE> { type = ASNode.StringGreaterThanEqual; }
+        ( <LT> { type = NodeType.LESS_THAN; }
+        | <GT> { type = NodeType.GREATER_THAN; }
+        | <LTE> { type = NodeType.LESS_THAN_EQUAL; }
+        | <GTE> { type = NodeType.GREATER_THAN_EQUAL; }
+        | <STRING_GT> { type = NodeType.STRING_GREATER_THAN; }
+        | <STRING_LE> { type = NodeType.STRING_LESS_THAN_EQUAL; }
+        | <STRING_GE> { type = NodeType.STRING_GREATER_THAN_EQUAL; }
         ) 
         right=InstanceExpression()
  
-        { left = new ASNode(type, left, right); }
+        { left = new Node(type).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode InstanceExpression() : { int type = 0; ASNode left = null, right = null; }
+Node InstanceExpression() : { Node left, right; }
 {
     left=ShiftExpression() ( 
-        ( <INSTANCEOF> { type = ASNode.InstanceOf; }
-        ) right=ShiftExpression()
-        
-       { left = new ASNode(type, left, right); }
+        <INSTANCEOF> right=ShiftExpression()
+        { left = new Node(NodeType.INSTANCEOF).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode ShiftExpression() : { int type = 0; ASNode left = null, right = null; }
+Node ShiftExpression() : { NodeType type; Node left, right; }
 {
     left=AdditiveExpression() ( 
-        ( <LSL> { type = ASNode.LSL; }
-        | <LSR> { type = ASNode.LSR; }
-        | <ASR> { type = ASNode.ASR; }
+        ( <LSL> { type = NodeType.LSL; }
+        | <LSR> { type = NodeType.LSR; }
+        | <ASR> { type = NodeType.ASR; }
         ) right=AdditiveExpression()
-        
-        { left = new ASNode(type, left, right); }
+        { left = new Node(type).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode AdditiveExpression() : { int type = 0; ASNode left = null, right = null; }
+Node AdditiveExpression() : { NodeType type; Node left, right; }
 {
     left=MultiplicativeExpression() ( 
-        ( <PLUS> { type = ASNode.Add; }
-        | <MINUS> { type = ASNode.Sub; }
-        | <ADD> { type = ASNode.StringAdd; }
+        ( <PLUS> { type = NodeType.ADD; }
+        | <MINUS> { type = NodeType.SUB; }
+        | <ADD> { type = NodeType.STRING_ADD; }
         ) right=MultiplicativeExpression()
-        
-       { left = new ASNode(type, left, right); }
+        { left = new Node(type).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode MultiplicativeExpression() : { int type = 0; ASNode left = null, right = null; }
+Node MultiplicativeExpression() : { NodeType type; Node left, right; }
 {
     left=UnaryExpression() ( 
-        ( <MULTIPLY> { type = ASNode.Mul; }
-        | <DIVIDE> { type = ASNode.Div; }
-        | <MOD> { type = ASNode.Mod; }
+        ( <MULTIPLY> { type = NodeType.MUL; }
+        | <DIVIDE> { type = NodeType.DIV; }
+        | <MOD> { type = NodeType.MOD; }
         ) right=UnaryExpression()
-        
-       { left = new ASNode(type, left, right); }
+        { left = new Node(type).add(left).add(right); }
     )*
     { return left; }
 }
 
-ASNode UnaryExpression() : { int type = 0; ASNode node = null; }
+Node UnaryExpression() : { NodeType type; Node node; }
 {
-      ( <PLUS> { type = ASNode.Plus; } | <MINUS> { type = ASNode.Minus; } ) node=UnaryExpression() 
-      { return new ASNode(type, node); }
-    | ( <INC> { type = ASNode.PreInc; } | <DEC> { type = ASNode.PreDec; } ) node=PrimaryExpression()  
-      { return new ASNode(type, node); }
-    | ( <BIT_NOT> { type = ASNode.BitNot; } | <LOGICAL_NOT> { type = ASNode.Not; } ) node=UnaryExpression() 
-      { return new ASNode(type, node); }
-    | <DELETE> { type = ASNode.Delete; } node=UnaryExpression()  
-      { return new ASNode(type, node); }
+      ( <PLUS> { type = NodeType.PLUS; } | <MINUS> { type = NodeType.MINUS; } ) node=UnaryExpression() 
+      { return new Node(type).add(node); }
+    | ( <INC> { type = NodeType.PRE_INC; } | <DEC> { type = NodeType.PRE_DEC; } ) node=PrimaryExpression()  
+      { return new Node(type).add(node); }
+    | ( <BIT_NOT> { type = NodeType.BIT_NOT; } | <LOGICAL_NOT> { type = NodeType.NOT; } ) node=UnaryExpression() 
+      { return new Node(type).add(node); }
+    | <DELETE> node=UnaryExpression()  
+      { return new Node(NodeType.DELETE).add(node); }
     | node=PostfixExpression() { return node; }
 }
 
-ASNode PostfixExpression() : { int type = 0; ASNode node = null; }
+Node PostfixExpression() : { NodeType type; Node node; }
 {
     node=PrimaryExpression() (
-        ( <INC> { type = ASNode.PostInc; } 
-        | <DEC> { type = ASNode.PostDec; } 
-        ) { node = new ASNode(type, node); }
+        ( <INC> { type = NodeType.POST_INC; } 
+        | <DEC> { type = NodeType.POST_DEC; } 
+        ) { node = new Node(type).add(node); }
     )*
     { return node; }
 }
@@ -917,17 +865,17 @@ ASNode PostfixExpression() : { int type = 0; ASNode node = null; }
 /*
  * Primary expressions are split into a prefix/suffix pair. This allows some of the more 
  * esoteric features of ActionScript to be handled cleanly, specifically variables and 
- * array elments can contain objects and even functions. The statement a[1](arg) is 
+ * array elements can contain objects and even functions. The statement a[1](arg) is 
  * valid ActionScript - the first element of the array contains a function which is 
  * executed passing the argument, arg.
  *
  * Suffixing also allows object path names, e.g. a.b.c() to be correctly parsed.
  *
- * IMPORTANT: The Identifier() node looks ahead to see whether the indentifier is 
- * actually the name of a function. The node looksahead to see if the identifier 
+ * IMPORTANT: The Identifier() node looks ahead to see whether the identifier is 
+ * actually the name of a function. The node looks ahead to see if the identifier 
  * token is followed by a Function() node. If so the tokens are consumed.
  */
-ASNode PrimaryExpression() : { ASNode list = new ASNode(ASNode.Value), node = null; }
+Node PrimaryExpression() : { Node list = new Node(NodeType.VALUE), node; }
 {
     node=PrimaryPrefix() { list.add(node); } ( node=PrimarySuffix() { list.add(node); } )*
     { 
@@ -938,7 +886,7 @@ ASNode PrimaryExpression() : { ASNode list = new ASNode(ASNode.Value), node = nu
     }
 }
 
-ASNode PrimaryPrefix() : { ASNode node = null; }
+Node PrimaryPrefix() : { Node node; }
 {
     LOOKAHEAD(6)
     
@@ -951,7 +899,7 @@ ASNode PrimaryPrefix() : { ASNode node = null; }
     | "(" node=ConditionalExpression() ")" { return node; }
 }
 
-ASNode PrimarySuffix() : { Token t; ASNode node = null, name = null; }
+Node PrimarySuffix() : { Token t; Node node = null, name = null; }
 {
     /*
      * Lookahead using the <IDENTIFIER> token when separating fetching an 
@@ -960,32 +908,34 @@ ASNode PrimarySuffix() : { Token t; ASNode node = null, name = null; }
      * is the case.
      */
       "[" node=ConditionalExpression() "]" 
-      { return new ASNode(ASNode.Subscript, node); }
+      { return new Node(NodeType.SUBSCRIPT).add(node); }
     | LOOKAHEAD ("." <IDENTIFIER> "(" ) "." t=<IDENTIFIER> node=Function() 
-      { node.setType(ASNode.Method); node.setStringValue(t.image); return node; }
+      { return new Node(NodeType.METHOD, t.image).addAll(node.getChildren()); }
     | LOOKAHEAD ("." <IDENTIFIER>) "." t=<IDENTIFIER> 
-      { node = new ASNode(ASNode.Attribute); node.setStringValue(t.image); return node; }
+      { return new Node(NodeType.ATTRIBUTE, t.image); }
     | node=Function() 
       { return node; }
 }
 
-ASNode Function() : { ASNode node = new ASNode(ASNode.Function, ""), arg = null; }
+Node Function() : { Node node = new Node(NodeType.FUNCTION, ""), arg; }
 {
     "(" [ arg=ConditionalExpression() { node.add(arg); } ( "," arg=ConditionalExpression() { node.add(arg); } )* ] ")"
     
     { return node; }
 }
 
-ASNode Constructor() : { Token t; ASNode node = new ASNode(ASNode.NewObject), arg = null; }
+Node Constructor() : { Token t; List<Node>list = new ArrayList<Node>(); Node arg; }
 {
     <NEW> 
-    ( LOOKAHEAD(t=<IDENTIFIER> "(") t=<IDENTIFIER> "(" [ arg=ConditionalExpression() { node.add(arg); } ( "," arg=ConditionalExpression() { node.add(arg); } )* ] ")" 
+    ( LOOKAHEAD(t=<IDENTIFIER> "(") t=<IDENTIFIER> "(" 
+        [ arg=ConditionalExpression() { list.add(arg); } 
+            ( "," arg=ConditionalExpression() { list.add(arg); } )* ] ")" 
     | LOOKAHEAD(t=<IDENTIFIER>) t=<IDENTIFIER>
     )
-    { node.setStringValue(t.image); return node; }
+    { return new Node(NodeType.NEW_OBJECT, t.image).addAll(list); }
 }
 
-ASNode AnonymousArray() : { ASNode node = new ASNode(ASNode.DefineArray), element = null; }
+Node AnonymousArray() : { Node node = new Node(NodeType.DEFINE_ARRAY), element = null; }
 {
     "[" [ element=ConditionalExpression() { node.add(element); } 
         ( "," element=ConditionalExpression() { node.add(element); } )*
@@ -995,23 +945,23 @@ ASNode AnonymousArray() : { ASNode node = new ASNode(ASNode.DefineArray), elemen
     { return node; }
 }
 
-ASNode MethodDefinition() : { ASNode node = new ASNode(ASNode.DefineMethod), args = null, body = null; }
+Node MethodDefinition() : { Node node = new Node(NodeType.DEFINE_METHOD), args = null, body = null; }
 {
     <FUNCTION> "(" [ args=ArgumentList() { node.add(args); } ] ")" body=BlockStatement() { node.add(body); }
 
     { return node; }
 }
 
-ASNode AnonymousObject() : { ASNode node = new ASNode(ASNode.DefineObject), attribute = null; }
+Node AnonymousObject() : { Node node = new Node(NodeType.DEFINE_OBJECT), attribute = null; }
 {
     "{" [ attribute=Attribute() { node.add(attribute); } ( "," attribute=Attribute() { node.add(attribute); } )* ] "}"
     
     { return node; }
 }
 
-ASNode Attribute() : { ASNode key = null, value = null; }
+Node Attribute() : { Node key = null, value = null; }
 {
     key=Identifier() ":" value=ConditionalExpression()
     
-    { return new ASNode(ASNode.DefineAttribute, key, value); }
+    { return new Node(NodeType.DEFINE_ATTRIBUTE).add(key).add(value); }
 }

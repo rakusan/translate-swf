@@ -34,567 +34,304 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.StringTokenizer;
+import java.util.Map;
 
+import com.flagstone.transform.action.Action;
 import com.flagstone.transform.coder.Context;
+import com.flagstone.translate.as.ASParser;
+import com.flagstone.translate.as.ParseException;
+import com.flagstone.translate.as.Token;
+import com.flagstone.translate.as1.AS1Parser;
+import com.flagstone.translate.as1.AS1Registry;
 
 public final class ASCompiler {
 
-    private final boolean DEBUG = false;
+	private static final Map<Integer, Registry>registries =
+		new LinkedHashMap<Integer,Registry>();
 
-    /**
-     * Keys that identify the different types of error generated while #include
-     * directives are being processed and the script is being parsed. The key
-     * can be used with a ResourceBundle object to generate a localized string
-     * that describes the error in detail.
-     */
-    public static String[] ERRORS =  {
-        /**
-        * A FileNotFound error is reported when the file referenced in  a #include
-        * directive cannot be opened.
-        */
-        "FileNotFound",
-        /**
-         * ReadError is reported when an error occurs while reading the file referenced
-         * in a #include directive.
-         */
-           "ReadError",
-        /**
-         * A #include directive must be the only ActionScript present on a given line
-         * (though the directive may be split over two lines). If other statements or
-         * directives are present then a SingleDirective error is reported.
-         */
-        "SingleDirective",
-        /**
-         * A QuoteFileName error is reported if the filename refernced in a #include
-         * directive is not enclosed in double quotes.
-         */
-        "QuoteFileName",
-           /**
-         * A ParseError error is used to report any exception thrown by the parser
-         * while parsing a script.
-         */
-        "ParseError",
-        /**
-         * An OnOnly error occurs when on statements are mixed with other statements
-         * in a script.
-         */
-        "OnOnly",
-        /**
-         * An OnClipEventOnly error occurs when onClipEvent statements are mixed with
-         * other statements in a script.
-         */
-        "OnClipEventOnly",
-        /**
-         * An UnknownMovieClipEvent error occurs when an unknown movie clip event
-         * name is found in an OnClipEvent() statement.
-         */
-        "UnknownMovieClipEvent",
-        /**
-         * An UnknownButtonEvent error occurs when an unknown button event name is
-         * in an On() statement.
-         */
-        "UnknownButtonEvent",
-        /**
-         * A IncorrectArgumentCount error occurs when the wrong number of arguments are
-         * supplied to one of the built-in functions in Flash.
-         */
-        "IncorrectArgumentCount",
-        /**
-         * A CannotUseBreak error occurs when a break statement is used outside of a
-         * loop statement.
-         */
-           "CannotUseBreak",
-        /**
-         * A CannotUseContinue error occurs when a continue statement is used outside of a
-         * loop statement.
-         */
-        "CannotUseContinue",
-        /**
-         * A CannotUseReturn error occurs when a return statement is used outside of a
-         * function definition.
-         */
-        "CannotUseReturn",
-    };
+	private static final Map<Integer, Parser>parsers =
+		new LinkedHashMap<Integer,Parser>();
 
-    private final static String separator = System.getProperty("line.separator");
+	static {
+		registries.put(1, new AS1Registry());
 
-    /*
-     * The following attributes are used to report errors that occur while processing
-     * directives or parsing a script.
-     *
-     * _filename contains the name of the file which contains the line of code that
-     * triggered the error. Note if an error occurs because the file specified in the
-     * #include directive cannot be found or an error occurs then _filename is the
-     * name of the file containing the directive and not the name of the file being
-     * included.
-     *
-     * _lineNumber is the line in the file referenced in _filename which contains the
-     * code that triggered the error.
-     *
-     * _line is the line of code that triggered the error.
-     *
-     * _error is a keyword that identifies the type of error reported. The key may be
-     * used with a ResourceBundle to generate a localized description, reporting the
-     * error in full.
-     */
-    private String _filename = "";
-    private int _lineNumber = 0;
-    private String _line = "";
-    private String _error = "";
+		parsers.put(1, new AS1Parser());
+	}
 
-    /*
-     * The following arrays are used to map the line number reported when a
-     * parseException is thrown (after all #include directives have been processed)
-     * to the original file, line number and line of code. The arrays are updated
-     * using the processDirectives method.
-     */
-    private final List<String> files = new ArrayList<String>();
-    private final List<Integer> lines = new ArrayList<Integer>();
-    private final List<String> codes = new ArrayList<String>();
+	public static Registry getRegistry(final int version) {
+		return registries.get(version);
+	}
 
-    /** Version of actionscript to be compiled. */
-    private int actionscriptVersion;
-    /** Version of Flash to generate objects for. */
-    private int flashVersion;
-    /** List directories searched when looking for am included file. */
-    private ArrayList<String> pathNames = new ArrayList<String>();
+	public static void setRegistry(final int version, final Registry registry) {
+		registries.put(version, registry);
+	}
 
-    /**
-     * Constructs a new compiler object.
-     */
-    public ASCompiler() {
-    }
+	public static Parser getParser(final int version) {
+		return parsers.get(version);
+	}
 
-    /**
-     * Get the version of actionscript that the script will be in.
-     * @return the version of actionscript used in the code to be compiled.
-     */
-    public int getActionscriptVersion() {
-        return actionscriptVersion;
-    }
+	public static void setParser(final int version, final Parser parser) {
+		parsers.put(version, parser);
+	}
 
-    /**
-     * Set the version of actionscript that the script will be in.
-     * @param version the version of actionscript used in the code.
-     */
-    public void setActionscriptVersion(int version) {
-        actionscriptVersion = version;
-    }
+	/** Version of actionscript to be compiled. */
+	private transient int scriptVersion = 1;
+	/** Version of Flash to generate objects for. */
+	private transient int flashVersion = 5;
+	/** The character encoding used in the scripts. */
+	private transient String encoding = "UTF-8";
+	/** List directories searched when looking for included file. */
+	private transient final ArrayList<String> pathNames =
+		new ArrayList<String>();
+	/** List of errors that occurred while compiling the scripts. */
+	private transient final List<ScriptError> errors =
+		new ArrayList<ScriptError>();
+	/** Table of parsed scripts, indexed by source file name. */
+	private transient final Map<String, Node> scripts =
+		new LinkedHashMap<String, Node>();
+	/** Table of definitions, indexed by name. */
+	private transient final Map<String, Node> defines =
+		new LinkedHashMap<String, Node>();
 
-    /**
-     * Get the version of Flash that the compiled actions will be generated for.
-     * @return the target version of Flash that the code will be compiled for.
-     */
-    public int getFlashVersion() {
-        return flashVersion;
-    }
+	private transient String path = "";
 
-    /**
-     * Set the version of Flash that the compiled actions will be generated for.
-     * @param version the target version of Flash that the code will be compiled
-     * for.
-     */
-    public void setFlashVersion(int version) {
-        flashVersion = version;
-    }
+	/**
+	 * Set the version of actionscript that the script will be in.
+	 *
+	 * @param version
+	 *            the version of actionscript used in the code.
+	 */
+	public void setScriptVersion(int version) {
+		if (version != 1) {
+			throw new IllegalArgumentException(
+					"Unsupported actionscript version.");
+		}
+		scriptVersion = version;
+	}
 
-    /**
-     * Returns the array of path names used when searching for a file.
-     *
-     * @return an array of strings containing the names of directories to search.
-     */
-    public ArrayList<String> getPaths()
-    {
-        return pathNames;
-    }
+	/**
+	 * Set the version of Flash that the compiled actions will be generated for.
+	 *
+	 * @param version
+	 *            the target version of Flash that the code will be compiled
+	 *            for.
+	 */
+	public void setFlashVersion(int version) {
+		flashVersion = version;
+	}
 
-    /**
-     * Sets the array of path names used when searching for a file.
-     *
-     * @param paths an array of strings containing the names of directories to search.
-     */
-    public void setPaths(ArrayList<String> paths)
-    {
-        pathNames = paths;
-    }
+	/**
+	 * Sets the encoding scheme used in scripts.
+	 *
+	 * @param enc the character encoding used for strings.
+	 */
+	public void setEncoding(final String enc) {
+		encoding = enc;
+	}
 
-    /**
-     * Sets the array of path names used when searching for a file. The string
-     * should contains paths which contain the system-dependent separator and
-     * pathSeparator characters.
-     *
-     * @param paths
-     *            a string containing the names of directories to search.
-     */
-    public void setPaths(String paths) {
-        StringTokenizer pathTokenizer = new StringTokenizer(paths,
-                File.pathSeparator, false);
-        pathNames.clear();
-        while (pathTokenizer.hasMoreTokens())
-            pathNames.add(pathTokenizer.nextToken());
-    }
+	/**
+	 * Add a directory to the list that will be searched for #included
+	 * files.
+	 *
+	 * @param dir
+	 *            the path to a directory.
+	 */
+	public void add(File dir) {
+		if (!dir.exists()) {
+			throw new IllegalArgumentException("Directory does not exist.");
+		} else if (!dir.isDirectory()) {
+			throw new IllegalArgumentException("Not a directory.");
+		}
+		pathNames.add(path);
+	}
 
-    /**
-     * Add a path to the array of pathnames. The path should contain the
-     * system-dependent separator.
-     *
-     * @param path
-     *            a string containing the path to a directory.
-     */
-    public void add(String path) {
-        pathNames.add(path);
-    }
+	/**
+	 * Compiles ActionScript read from a file.
+	 *
+	 * @param file
+	 *            a File containing the ActionScript statements to parse.
+	 *
+	 * @return list of Actions that the script compiles to.
+	 *
+	 * @throws IOException
+	 *             if the file cannot be found, opened or if the file cannot be
+	 *             read.
+	 *
+	 * @throws ScriptException
+	 *             if one or more errors are found in the script.
+	 */
+	public List<Action> compile(File file) throws IOException, ScriptException {
+		List<Action> list = new ArrayList<Action>();
+		FileInputStream stream = null;
+		try {
+			path = file.getPath();
+//			stream = new FileInputStream(file);
+//			list = compile(stream);
+			list = compile(contentsOfFile(file));
+		} finally {
+			if (stream != null) {
+				stream.close();
+			}
+			path = "";
+		}
+		return list;
+	}
 
-    /**
-     * Returns the name of the file that contained the line of code that
-     * generated an error while parsing a script.
-     *
-     * @return the name of the file which contained the line of code or an empty
-     *         string if the line was in the 'root' script.
-     */
-    public String getFilename() {
-        return _filename;
-    }
+	private List<Action> compile(final String script) throws ScriptException {
+		List<Action> list = new ArrayList<Action>();
 
-    /**
-     * Returns the number of the the line of code that generated an error
-     * parsing a script.
-     *
-     * @return the number of the line which that triggered the error.
-     */
-    public int getLineNumber() {
-        return _lineNumber;
-    }
+		try {
+			ASContext context = new ASContext();
+			context.setEncoding(encoding);
+			context.put(Context.VERSION, flashVersion);
 
-    /**
-     * Returns the line of code that generated an error while parsing a script.
-     *
-     * @return the line which that triggered the error.
-     */
-    public String getLine() {
-        return _line;
-    }
+			ASParser parser = new ASParser();
+			ASNode node = parser.parse(script);
+			list = node.compile(context);
 
-    /**
-     * Returns the key identifying the type of error that occurred while
-     * of parsing a script.
-     *
-     * @return the line which that triggered the error.
-     */
-    public String getError()
-    {
-        return _error;
-    }
+		} catch (ParseException e) {
+			Token token = e.currentToken;
+			errors.add(new ScriptError(ScriptError.Type.SCRIPT_PARSE_ERROR,
+					path, token.beginLine, token.endLine,
+					token.beginColumn, token.endColumn));
+		}
 
-    /**
-     * Parses the ActionScript string, script. Any nested files specified
-     * using #include directives are loaded before the complete script is
-     * parsed. The filenames and line numbers of #include'd scripts are
-     * tracked so any syntax errors are reported accurately.
-     *
-     * The character used used in the script is assumed to be UTF-8.
-     *
-     * @param script a String containing the ActionScript code to parse.
-     *
-     * @throws ParseException if a parsing error occurs.
-     */
-    public List<Object> compile(String script) throws ParseException
-    {
-        List<Object> list = new ArrayList<Object>();
-        ASParser parser = new ASParser();
-        ASContext info = new ASContext();
-        info.setEncoding("UTF-8");
-        info.put(Context.VERSION, 5);
-        ASNode root;
+		if (!errors.isEmpty()) {
+			throw new ScriptException(errors);
+		}
 
-        files.clear();
-        lines.clear();
-        codes.clear();
+		return list;
+	}
 
-        try
-        {
-            if (script != null && script.length() > 0)
-            {
-                StringBuffer buffer = new StringBuffer();
-
-                processDirectives("", script, buffer);
-                root = parser.parse(script);
-                list = root.compile(info);
-            }
-        }
-        catch (ParseException e)
-        {
-            /*
-             * Check the correct error key was used.
-             */
-            if (DEBUG)
-            {
-                boolean foundKey = false;
-                String errorKey = (e.tokenImage != null) ? "ParseError" : e.getMessage();
-
-                for (int i=0; i<ERRORS.length; i++)
-                {
-                    if (errorKey.equals(ERRORS[i]))
-                        foundKey = true;
-                }
-                if (foundKey == false)
-                    System.err.println("Cannot find error key: " + errorKey);
-
-                e.printStackTrace();
-            }
-
-            int errorLine = e.currentToken.beginLine;
-
-            if (errorLine == 0)
-                errorLine = 1;
-
-            /*
-             * If the exception was generated by the parser then the arrays
-             * of tokens encountered and tokens expected will not be null,
-             * allowing them to be differentiated from exceptions reported
-             * using the reportError() method.
-             */
-            _error = (e.tokenImage != null) ? "ParseError" : e.getMessage();
-            _filename = files.get(errorLine-1);
-            _lineNumber = (lines.get(errorLine-1)).intValue();
-            _line = codes.get(errorLine-1);
-
-            throw e;
-        }
-        return list;
-    }
-
-    /**
-     * Compiles the file containing ActionScript. Any nested files specified
-     * using #include directives are loaded before the complete script is
-     * parsed. The filenames and line numbers of #include'd scripts are
-     * tracked so any syntax errors are reported accurately.
-     *
-     * The character used used in the script is assumed to be UTF-8.
-     *
-     * @param file a File containing the ActionScript statements to parse.
-     *
-     * @throws ParseException if a parsing error occurs.
-     */
-    public List<Object> compile(File file) throws ParseException
-    {
-        List<Object> list = new ArrayList<Object>();
-
-        try
-        {
-            byte[] fileIn = new byte[(int)file.length()];
-
-            FileInputStream fileContents = new FileInputStream(file);
-            fileContents.read(fileIn);
-
-            String script = new String(fileIn, "UTF-8");
-            fileContents.close();
-
-            list = compile(script);
-        }
-        catch (FileNotFoundException e)
-        {
-            _error = "FileNotFound";
-            _filename = file.getPath();
-
-            throw new ParseException("FileNotFound");
-        }
-        catch (IOException e)
-        {
-            _error = "ReadError";
-            _filename = file.getPath();
-
-            throw new ParseException("ReadError");
-        }
-        return list;
-    }
-
-    /*
-     * processDirectives is used to resolve #include directives defined in a set of
-     * ActionScript statements.
-     *
-     * If an error occurs when including files the name of the file, the line number
-     * and the code which triggered the error is recorded. These may be retrieved
-     * using the getFilename(), getLineNumber() and getLine() methods respectively.
-     * Depending on the type of error either an IOException or ParseException is
-     * thrown. The exception message contains a key that identifies the exact error
-     * that occurs. The key may be used in conjunction with an instance of the
-     * ResourceBundle class to generated a localized string describing the error.
-     *
-     * @param fileName is the name of file from which the script was loaded or an
-     * empty string if the script was entered directly.
-     *
-     * @param script a string containing the ActionScript statements to be parsed.
-     *
-     * @param out a StringBuffer which will contain the 'flattened' scripts with all
-     * #include directives replaced by the contents of the file they reference.
-     *
-     * @throws ParseException unless a line contains a single #include directive.
-     *
-     * @throws IOException if a #included file cannot be found or an error occurs when
-     * including it.
-     */
-    private void processDirectives(String fileName, String script, StringBuffer out)
-        throws ParseException
-    {
-        String[] statements = script.split("\u005c\u005cr?\u005c\u005cn|\u005c\u005cr\u005c\u005cn?");
-
-        int currentLine = 1;
-        int lineNumber = 0;
-
-        /*
-         * Boolean flags are used to signal when a directive has been found rather
-         * immediately reading the following token to process the directive. This
-         * allows a directive to be split over two lines (valid ActionScript) and
-         * still be processed correctly.
-         */
-        boolean includeFile = false;
-
-        for (int i=0; i<statements.length; i++)
-        {
-            String line = statements[i];
-
-            if (line.indexOf("#include") != -1 || includeFile)
-            {
-                /*
-                 * Split the line containing a directive into individual words
-                 */
-                String[] words = line.split("\u005c\u005cs");
-
-                for (int j=0; j<words.length; j++)
-                {
-                    String token = words[j];
-
-                    if (token.equals("#include"))
-                    {
-                        includeFile = true;
-                        lineNumber = currentLine;
-                    }
-                    else
-                    {
-                        if (includeFile)
-                        {
-                            /*
-                             * #include directives can only be followed by a string literal
-                             * containing the name of a file. For all practical purposes
-                             * having multiple directives on the same line is not a problem
-                             * however Macromedia's Flash reports this as an error when
-                             * encoding  Flash file, so this behaviour is maintained just to
-                             * be compatible.
-                             */
-                            if (words.length > 2)
-                                reportError("SingleDirective", fileName, lineNumber, line);
-
-                            /*
-                             * filenames must be enclosed in quotes.
-                             */
-                            if (token.startsWith("\u005c"") == false || token.endsWith("\u005c"") == false)
-                                reportError("QuoteFileName", fileName, lineNumber, line);
-
-
-                            /*
-                             * If the contentsOfFile() method throws an IOException then
-                             * change it into a ParseException so the filename, line number
-                             * and line of code that triggered the error can be cirrectly
-                             * reported.
-                             */
-                            try {
-                                String filename = token.substring(1, token.length()-1);
-                                processDirectives(filename, contentsOfFile(filename), out);
-                            }
-                            catch (FileNotFoundException e) {
-                                reportError("FileNotFound", fileName, lineNumber, line);
-                            }
-                            catch (IOException e) {
-                                reportError("ReadError", fileName, lineNumber, line);
-                            }
-                            includeFile = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                out.append(line);
-                out.append(separator);
-
-                files.add(fileName);
-                lines.add(new Integer(currentLine++));
-                codes.add(line);
-            }
-        }
-    }
-
-    /*
-     * reportError is used to report any errors found when processing a directive. A
-     * ParseException is created containing the key which identifies the error and the
-     * line number which triggered it. The line mapping arrays are updated so that when
-     * the exception is reported to the code using the parser the method: getFileName(),
-     * getLineNumber() and getLine() return the correct information.
-     *
-     * @param errorKey a String that idenfities the type of error that occurred.
-     * @param fileName the name of the file which contains the line that triggered the error.
-     * @param lineNumber the number of the line that triggered the error.
-     * @param line the line of code that triggered the error.
-     *
-     * @throws ParseException containing the errorKey and line number.
-     */
-    private void reportError(String errorKey, String fileName, int lineNumber, String line) throws ParseException
-    {
-        ParseException parseError = new ParseException(errorKey);
-
-        parseError.currentToken = new Token();
-        parseError.currentToken.beginLine = lineNumber;
-
-        files.add(fileName);
-        lines.add(new Integer(lineNumber));
-        codes.add(line);
-
-        throw parseError;
-    }
-
-    /*
-     * Returns the contents of the file as a single string. The list of directories
-     * in the pathNames attribute is searched for the file.
-     *
-     * @param fileName the name of the file to read.
-     *
-     * @return a String containing the contents of the file.
-     *
-     * @throws FileNotFoundException if the file could not be found.
-     * @throws IOException if an error occurred while reading the file.
-     */
-    private String contentsOfFile(String fileName) throws FileNotFoundException, IOException
-    {
+    private String contentsOfFile(File file)
+    		throws FileNotFoundException, IOException {
         String script = "";
-
-        boolean fileFound = false;
-
-        for (Iterator<String> i = pathNames.iterator(); i.hasNext();)
-        {
-            File aFile = new File(i.next() + File.separator + fileName);
-
-            if (aFile.exists())
-            {
-                byte[] fileIn = new byte[(int)aFile.length()];
-
-                FileInputStream fileContents = new FileInputStream(aFile);
-                fileContents.read(fileIn);
-
-                script = new String(fileIn);
-
-                fileContents.close();
-                fileFound = true;
-            }
-        }
-
-        if (fileFound == false)
-            throw new FileNotFoundException();
-
+        byte[] fileIn = new byte[(int)file.length()];
+        FileInputStream fileContents = new FileInputStream(file);
+        fileContents.read(fileIn);
+        script = new String(fileIn);
+        fileContents.close();
         return script;
     }
+
+	/**
+	 * Compiles ActionScript read from a stream.
+	 *
+	 * @param file
+	 *            a File containing the ActionScript statements to parse.
+	 *
+	 * @return list of Actions that the script compiles to.
+	 *
+	 * @throws IOException
+	 *             if an error occurs while reading the stream.
+	 *
+	 * @throws ScriptException
+	 *             if one or more errors are found in the script.
+	 */
+	public List<Action> compile(final InputStream stream)
+			throws IOException, ScriptException {
+		List<Action> list = new ArrayList<Action>();
+
+		ASContext context = new ASContext();
+		context.setEncoding(encoding);
+		context.put(Context.VERSION, flashVersion);
+
+		Registry registry = getRegistry(scriptVersion);
+		Parser parser = getParser(scriptVersion);
+
+		try {
+			errors.clear();
+			scripts.clear();
+
+			parser.setErrors(errors);
+
+			loadScript(parser, scripts, path, stream);
+			compile(list, registry, context, scripts.get(path));
+		} finally {
+			path = "";
+		}
+
+		if (!errors.isEmpty()) {
+			throw new ScriptException(errors);
+		}
+		return list;
+	}
+
+	private void loadScript(final Parser parser,
+			final Map<String, Node>map,
+			final String key,
+			final InputStream stream) {
+
+		parser.setPath(path);
+		Node node = parser.parse(stream);
+	    map.put(key, node);
+
+	    List<Node> includes = new ArrayList<Node>();
+	    findNodes(includes, node, NodeType.INCLUDE);
+
+	    String path;
+	    File file;
+
+	    for (Node include : includes) {
+	    	path = include.get(0).getValue();
+
+		    if (!map.containsKey(path)) {
+		    	try {
+		            file = findFile(path);
+			        loadScript(parser, map, path, new FileInputStream(file));
+		    	} catch (FileNotFoundException e) {
+		    		errors.add(new ScriptError(
+		    				ScriptError.Type.SCRIPT_NOT_FOUND, path));
+		    	} catch (IOException e) {
+		    		errors.add(new ScriptError(
+		    				ScriptError.Type.SCRIPT_READ_ERROR, path));
+		    	}
+			}
+		}
+	}
+
+	private void compile(final List<Action> actions, final Registry registry,
+			final ASContext context, final Node node) {
+		CodeGenerator generator = registry.getGenerator(node.getType());
+		generator.search(registry, context, node);
+		generator.reorder(registry, context, node);
+		generator.generate(registry, context, node, actions);
+	}
+
+	private void findNodes(final List<Node> list, final Node node, final NodeType type) {
+		int count = node.count();
+
+		if (node.getType() == type) {
+			list.add(node);
+		}
+
+		for (int i = 0; i < count; i++) {
+			findNodes(list, node.get(i), type);
+		}
+	}
+
+	private File findFile(String fileName)
+			throws FileNotFoundException, IOException {
+
+		boolean fileFound = false;
+		File file = null;
+
+		for (String path : pathNames) {
+			file = new File(path, fileName);
+
+			if (file.exists()) {
+				fileFound = true;
+				break;
+			}
+		}
+
+		if (fileFound == false)
+			throw new FileNotFoundException(fileName);
+
+		return file;
+	}
 }
