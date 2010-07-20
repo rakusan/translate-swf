@@ -51,19 +51,19 @@ import com.flagstone.transform.coder.Context;
          * The stack used to track nodes where function definitions are
          * inserted.
          */
-        Stack<ASNode> nodes = new Stack<ASNode>();
+        public Stack<ASNode> nodes = new Stack<ASNode>();
 
         /*
          * Array of strings found in a script. The useStrings flag is set when
          * whenever a string is referenced more than once.
          */
-        ArrayList<String> strings = new ArrayList<String>(256);
-        boolean useStrings = false;
+        public ArrayList<String> strings = new ArrayList<String>(256);
+        public boolean useStrings = false;
 
         /*
          * The context stack used to support conditional generation of actions.
          */
-        Stack<String> context = new Stack<String>();
+        public Stack<String> context = new Stack<String>();
 
         public ASContext(final String encoding, final int version) {
         	super();
@@ -78,7 +78,7 @@ import com.flagstone.transform.coder.Context;
          * @param str a string representing a string literal, identifier, the
          * name of a property or function.
          */
-        void addString(String str) {
+        public void addString(String str) {
             if (strings.contains(str))
                 useStrings = true;
             else if (strings.size() < 256) {

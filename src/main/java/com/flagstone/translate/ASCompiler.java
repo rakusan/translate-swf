@@ -138,9 +138,9 @@ public final class ASCompiler {
 		FileInputStream stream = null;
 		try {
 			path = file.getPath();
-//			stream = new FileInputStream(file);
-//			list = compile(stream);
-			list = compile(contentsOfFile(file));
+			stream = new FileInputStream(file);
+			list = compile(stream);
+//			list = compile(contentsOfFile(file));
 		} finally {
 			if (stream != null) {
 				stream.close();
@@ -201,7 +201,7 @@ public final class ASCompiler {
 			throws IOException, ScriptException {
 		List<Action> list = new ArrayList<Action>();
 
-		ASContext context = new ASContext(encoding, flashVersion);
+		Context context = new Context(encoding, flashVersion);
 		Generator registry = GeneratorRegistry.getGenerator(scriptVersion);
 		Parser parser = ParserRegistry.getParser(scriptVersion);
 
@@ -257,7 +257,7 @@ public final class ASCompiler {
 	}
 
 	private void compile(final List<Action> actions, final Generator registry,
-			final ASContext context, final Node node) {
+			final Context context, final Node node) {
 		CodeGenerator generator = registry.getGenerator(node.getType());
 		generator.search(registry, context, node);
 		generator.reorder(registry, context, node);

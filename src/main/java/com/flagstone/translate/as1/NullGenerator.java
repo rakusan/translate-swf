@@ -34,15 +34,15 @@ package com.flagstone.translate.as1;
 import java.util.List;
 
 import com.flagstone.transform.action.Action;
-import com.flagstone.translate.ASContext;
 import com.flagstone.translate.AbstractCodeGenerator;
-import com.flagstone.translate.Node;
+import com.flagstone.translate.Context;
 import com.flagstone.translate.Generator;
+import com.flagstone.translate.Node;
 
 final class NullGenerator extends AbstractCodeGenerator {
     @Override
-    public void generate(final Generator registry, final ASContext context,
-    		final Node node, List<Action> actions) {
+    public void generate(final Generator registry, final Context context,
+    		final Node node, final List<Action> actions) {
     }
 }
 

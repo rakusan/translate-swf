@@ -1,5 +1,5 @@
 /*
- * AbstractGenerator.java
+ * AbstractCodeGenerator.java
  * Translate
  *
  * Copyright (c) 2010 Flagstone Software Ltd. All rights reserved.
@@ -37,7 +37,7 @@ import com.flagstone.transform.action.Action;
 
 public abstract class AbstractCodeGenerator implements CodeGenerator {
 
-    public void search(final Generator registry, final ASContext context, final Node node) {
+    public void search(final Generator registry, final Context context, final Node node) {
         final int count = node.count();
         CodeGenerator generator;
         Node child;
@@ -49,7 +49,7 @@ public abstract class AbstractCodeGenerator implements CodeGenerator {
         }
     }
 
-    public void reorder(final Generator registry, final ASContext context, final Node node) {
+    public void reorder(final Generator registry, final Context context, final Node node) {
         final int count = node.count();
         CodeGenerator generator;
         Node child;
@@ -61,7 +61,7 @@ public abstract class AbstractCodeGenerator implements CodeGenerator {
         }
     }
 
-	public abstract void generate(final Generator registry, final ASContext context, final Node node,
+	public abstract void generate(final Generator registry, final Context context, final Node node,
     	    final List<Action> actions);
 }
 

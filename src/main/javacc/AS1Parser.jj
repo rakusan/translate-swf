@@ -46,12 +46,13 @@ import java.util.ArrayList;
 
 import com.flagstone.transform.Event;
 import com.flagstone.translate.Parser;
+import com.flagstone.translate.ParserProvider;
 import com.flagstone.translate.Node;
 import com.flagstone.translate.EventNode;
 import com.flagstone.translate.NodeType;
 import com.flagstone.translate.ScriptError;
 
-public final class AS1Parser implements Parser {
+public final class AS1Parser implements ParserProvider, Parser {
 
     private transient String path;
     private transient List<ScriptError>errors;
@@ -63,6 +64,10 @@ public final class AS1Parser implements Parser {
     public AS1Parser() {
         this(System.in);
     }
+    
+    public Parser newParser() {
+		return new AS1Parser();
+	}
     
     public void setPath(final String str) {
         path = str;
@@ -285,7 +290,7 @@ Node Literal() : {}
     }
 }
 
-Node Identifier() : {}
+Node Identifier() : { Token t; Node node = null; }
 {
     /* Identifier() now looks ahead to see whether an identifier is followed 
      * by a Function() node. This allows 'named' functions to be diferentiated, 
@@ -296,8 +301,9 @@ Node Identifier() : {}
      * The Identifier() node short-circuits any PrimarySuffix() rule that might
      * follow by consuming the following tokens.
      */
-      LOOKAHEAD(<IDENTIFIER> Function()) <IDENTIFIER> { 
-          return Function(); 
+      LOOKAHEAD(<IDENTIFIER> Function()) t=<IDENTIFIER> node=Function() { 
+          node.setValue(t.image);
+          return node; 
       }
     | LOOKAHEAD(<IDENTIFIER>) <IDENTIFIER> {
 		  return new Node(NodeType.IDENTIFIER, token.image); 
@@ -322,9 +328,18 @@ void error_skipto(int kind) {
  * Statements
  */
  
-Node Script() : { Node root = new Node(NodeType.LIST), node; } 
+Node Script() : { Node root = new Node(NodeType.ARRAY), node; } 
 {
-    ( node=Statement() { root.add(node); } )*
+    ( node=Statement() 
+    { 
+        if (node.getType() == NodeType.ONCLIPEVENT) {
+            root.setType(NodeType.MOVIE_CLIP);
+        } else if (node.getType() == NodeType.ON) {
+            root.setType(NodeType.BUTTON);
+        }
+        root.add(node); 
+    }
+    )*
     { return root; }
 }
 
@@ -653,10 +668,7 @@ Node Expression() : { Node node; }
 Node AssignmentExpression() : { boolean isVar = false; NodeType type; Node node = null, left = null, right = null; }
 {
     ( "var" { isVar = true; } ) ? node=ConditionalExpression()  
-    { if (isVar) {
-        node = new Node(NodeType.DEFINE_VARIABLE).addAll(node.getChildren()); 
-        }
-    }
+    { if (isVar) { node.setType(NodeType.DEFINE_VARIABLE); } }
     [
         ( <ASSIGN> { type = NodeType.ASSIGN; }
         | <ASSIGN_ADD> { type = NodeType.ASSIGN_ADD; }

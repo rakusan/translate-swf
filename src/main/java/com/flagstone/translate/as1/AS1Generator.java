@@ -52,7 +52,7 @@ public final class AS1Generator implements GeneratorProvider, Generator {
 		Set<NodeType> types = EnumSet.allOf(NodeType.class);
 		generators = new CodeGenerator[types.size()];
 		for (NodeType type : types) {
-			generators[type.ordinal()] = new NullGenerator();
+			generators[type.ordinal()] = new NodeGenerator();
 		}
 	}
 
