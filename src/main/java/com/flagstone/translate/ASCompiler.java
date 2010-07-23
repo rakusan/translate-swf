@@ -51,6 +51,8 @@ public final class ASCompiler {
 	private transient int scriptVersion = 1;
 	/** Version of Flash to generate objects for. */
 	private transient int flashVersion = 5;
+	/** Runtime platform targetted. */
+	private transient PlayerType player = PlayerType.DEFAULT;
 	/** The character encoding used in the scripts. */
 	private transient String encoding = "UTF-8";
 	/** List directories searched when looking for included file. */
@@ -91,6 +93,17 @@ public final class ASCompiler {
 	 */
 	public void setFlashVersion(int version) {
 		flashVersion = version;
+	}
+
+	/**
+	 * Set the target runtime environment that the actions will be generated
+	 * for.
+	 *
+	 * @param player
+	 *            the runtime environment that code will be compiled for.
+	 */
+	public void setPlayer(PlayerType type) {
+		player = type;
 	}
 
 	/**
