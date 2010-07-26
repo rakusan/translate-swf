@@ -1,0 +1,42 @@
+- description: Verify the properties of the Math class.
+  name: math_property
+  profiles:
+    - "1:5:Default"
+  type: frame
+  values:
+    - value: E
+    - value: LN2
+    - value: LOG2E
+    - value: LN10
+    - value: PI
+    - value: SQRT1_2
+    - value: SQRT2
+    # TODO - value LOG10E // Rounded to 16 places in Flash but Java rounds to 17.
+  script: |
+    a = Math.%value%;
+- description: Verify the methods of the Math class.
+  name: math_method
+  profiles:
+    - "1:5:Default"
+  type: frame
+  values:
+    - value: abs(b)
+    - value: acos(b)
+    - value: asin(b)
+    - value: atan(b)
+    - value: atan2(b, c)
+    - value: ceil(b)
+    - value: cos(b)
+    - value: exp(b)
+    - value: floor(b)
+    - value: log(b)
+    - value: max(b, c)
+    - value: min(b, c)
+    - value: pow(b, c)
+    - value: random()
+    - value: round(b)
+    - value: sin(b)
+    - value: sqrt(b)
+    - value: tan(b)
+  script: |
+    a = Math.%value%;

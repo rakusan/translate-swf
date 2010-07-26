@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<flash_profile version="1.0" name="compile">
+  <PublishFlashProperties enabled="true">
+    <TopDown>0</TopDown>
+    <Protect>0</Protect>
+    <Quality>50</Quality>
+    <Version>%flash%</Version>
+    <ActionScriptVersion>%actionscript%</ActionScriptVersion>
+    <ExternalPlayer>%player%</ExternalPlayer>
+    <CompressMovie>0</CompressMovie>
+  </PublishFlashProperties>
+</flash_profile>
