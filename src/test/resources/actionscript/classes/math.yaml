@@ -1,42 +1,93 @@
-- description: Verify the properties of the Math class.
-  name: math_property
+- test: Verify the properties of the Math class.
   profiles:
-    - "1:5:Default"
+    - DEFAULT_1_5
   type: frame
-  values:
+  parameters:
     - value: E
+      refid: math_e
+      file: math_e.as
     - value: LN2
+      refid: math_ln2
+      file: math_ln2.as
     - value: LOG2E
+      refid: math_log2e
+      file: math_log2e.as
     - value: LN10
+      refid: math_ln10
+      file: math_ln10.as
     - value: PI
+      refid: math_pi
+      file: math_pi.as
     - value: SQRT1_2
+      refid: math_sqrt_12
+      file: math_sqrt_12.as
     - value: SQRT2
-    # TODO - value LOG10E // Rounded to 16 places in Flash but Java rounds to 17.
+      refid: math_sqrt2
+      file: math_sqrt2.as
+    - value: LOG10E
+      refid: math_log10e
+      file: math_log10e.as
+      ignore: Rounded to 16 places in Flash but Java rounds to 17.
   script: |
     a = Math.%value%;
-- description: Verify the methods of the Math class.
-  name: math_method
+- test: Verify the methods of the Math class.
   profiles:
-    - "1:5:Default"
+    - DEFAULT_1_5
   type: frame
-  values:
+  parameters:
     - value: abs(b)
+      refid: math_abs
+      file: math_abs.as
     - value: acos(b)
+      refid: math_acos
+      file: math_acos.as
     - value: asin(b)
+      refid: math_acos
+      file: math_sin.as
     - value: atan(b)
+      refid: math_atan
+      file: math_atan.as
     - value: atan2(b, c)
+      refid: math_atan2
+      file: math_atan2.as
     - value: ceil(b)
+      refid: math_ceil
+      file: math_ceil.as
     - value: cos(b)
+      refid: math_cos
+      file: math_cos.as
     - value: exp(b)
+      refid: math_exp
+      file: math_exp.as
     - value: floor(b)
+      refid: math_floor
+      file: math_floor.as
     - value: log(b)
+      refid: math_log
+      file: math_log.as
     - value: max(b, c)
+      refid: math_max
+      file: math_max.as
     - value: min(b, c)
+      refid: math_min
+      file: math_min.as
     - value: pow(b, c)
+      refid: math_pow
+      file: math_pow.as
     - value: random()
+      refid: math_random
+      file: math_random.as
     - value: round(b)
+      refid: math_round
+      file: math_round.as
     - value: sin(b)
+      refid: math_sin
+      file: math_sin.as
     - value: sqrt(b)
+      refid: math_sqrt
+      file: math_sqrt.as
     - value: tan(b)
+      refid: math_tan
+      file: math_tan.as
   script: |
     a = Math.%value%;
