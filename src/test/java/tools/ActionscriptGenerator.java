@@ -11,16 +11,19 @@ import java.util.Map;
 
 import org.yaml.snakeyaml.Yaml;
 
+import com.flagstone.translate.Profile;
+
 public class ActionscriptGenerator {
 
     private static final String RESOURCE_DIR = "src/test/resources/actionscript";
     private static final String DEST_DIR = "resources";
 
-    private static final String NAME = "name";
     private static final String PROFILES = "profiles";
     private static final String TYPE = "type";
-    private static final String VALUES = "values";
+    private static final String PARAMETERS = "parameters";
     private static final String SCRIPT = "script";
+    private static final String IGNORE = "ignore";
+    private static final String FILE = "file";
 
     @SuppressWarnings("unchecked")
     public static void main(final String[] args) {
@@ -41,11 +44,10 @@ public class ActionscriptGenerator {
 		int index;
 
 		Map<String,Object>test;
-		String name;
 		String script;
 		String type;
 	    List<String>profiles;
-	    List<Object>values;
+	    List<Object>parameters;
 	    Map<String, Object> vars;
 
 	    File dir;
@@ -59,19 +61,20 @@ public class ActionscriptGenerator {
 	                test = (Map<String,Object>)tests;
 			        index = 0;
 
-	                name = (String)test.get(NAME);
 	                type = (String)test.get(TYPE);
 	                script = (String)test.get(SCRIPT);
 	                profiles = (List<String>)test.get(PROFILES);
-                	values = (List<Object>)test.get(VALUES);
+                	parameters = (List<Object>)test.get(PARAMETERS);
 
 	                for (String profile : profiles) {
 	                	dir = dirForTest(profile, type);
-	                	for (Object set : values) {
+	                	for (Object set : parameters) {
 		                	vars = (Map<String, Object>)set;
-		                	file = fileForTest(dir, name, index++);
-		                	script = replaceTokens(vars, script);
-		                	writeScript(file, script);
+		                	if (!vars.containsKey(IGNORE)) {
+			                	file = new File(dir, vars.get(FILE).toString());
+			                	script = replaceTokens(vars, script);
+			                	writeScript(file, script);
+		                	}
 	                	}
 	                }
 		        }
@@ -82,22 +85,18 @@ public class ActionscriptGenerator {
 		}
     }
 
-    private static File dirForTest(String profile, String type)
+    private static File dirForTest(String name, String type)
     		throws IOException {
-    	String[] items = profile.split(":");
+    	Profile profile = Profile.fromName(name);
 		String path = String.format(
-				"as%s/swf%s/%s/%s", items[0], items[1], items[2], type);
+				"as%d/swf%d/%s/%s", profile.getScriptVersion(),
+				profile.getFlashVersion(), profile.getPlayer(), type);
 		File dir = new File(DEST_DIR, path);
 
-		if (!dir.exists() && !dir.mkdir()) {
+		if (!dir.exists() && !dir.mkdirs()) {
 			throw new IOException("Cannot create directory: " + dir.getPath());
 		}
 		return dir;
-    }
-
-    private static File fileForTest(File dir, String prefix, int number) {
-		String name = String.format("%s_%d.as", prefix, number);
-		return new File(dir, name);
     }
 
     private static FilenameFilter getFilter() {
@@ -146,6 +145,11 @@ public class ActionscriptGenerator {
 
 	private static void writeScript(final File file, final String script)
 	   		throws IOException {
+		File dir = file.getParentFile();
+
+		if (!dir.exists() && !dir.mkdirs()) {
+			throw new IOException("Cannot create directory: " + dir.getPath());
+		}
 		PrintWriter writer = new PrintWriter(file);
 		writer.write(script);
 		writer.flush();

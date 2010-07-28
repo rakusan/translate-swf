@@ -42,6 +42,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.DataFormatException;
@@ -64,6 +65,7 @@ import com.flagstone.transform.button.DefineButton2;
 import com.flagstone.transform.tools.MovieWriter;
 import com.flagstone.translate.ASCompiler;
 import com.flagstone.translate.PlayerType;
+import com.flagstone.translate.Profile;
 
 @RunWith(Parameterized.class)
 public class ASCompilerIT {
@@ -86,19 +88,24 @@ public class ASCompilerIT {
 	    File yamlFile = new File(PROFILE_DIR, "profiles.yaml");
 		FileInputStream stream = new FileInputStream(yamlFile);
 		Yaml yaml = new Yaml();
+		Map<String,Object>map = new LinkedHashMap<String, Object>();
 
 		List<String> files = new ArrayList<String>();
 		List<Object[]>collection = new ArrayList<Object[]>();
-		Map<String,Object>profile;
+		Profile profile;
 
         for (Object list : (List<Object>)yaml.load(stream)) {
-            profile = (Map<String,Object>)list;
-         	for (String type : TYPES) {
-        		profile.put(TYPE, type);
-        		findFiles(files, dirForProfile(profile));
+            profile = Profile.fromName(list.toString());
+            map.put(ACTIONSCRIPT, profile.getScriptVersion());
+            map.put(FLASH, profile.getFlashVersion());
+            map.put(PLAYER, profile.getPlayer());
+
+            for (String type : TYPES) {
+        		map.put(TYPE, type);
+        		findFiles(files, dirForProfile(map));
         		for (String file : files) {
-        			profile.put(FILE, file);
-        			collection.add(parametersForProfile(profile));
+        			map.put(FILE, file);
+        			collection.add(parametersForProfile(map));
         		}
         	}
         }
@@ -109,12 +116,12 @@ public class ASCompilerIT {
     private static File dirForProfile(Map<String,Object> profile)
     		throws IOException {
 
-        String actionscript = (String)profile.get(ACTIONSCRIPT);
-        String flash = (String)profile.get(FLASH);
+        int actionscript = (Integer)profile.get(ACTIONSCRIPT);
+        int flash = (Integer)profile.get(FLASH);
         String player = (String)profile.get(PLAYER);
         String type = (String)profile.get(TYPE);
 
-		String path = String.format("as%s/swf%s/%s/%s",
+		String path = String.format("as%d/swf%d/%s/%s",
 				actionscript, flash, player, type);
 		File dir = new File(RESOURCE_DIR, path);
 
@@ -125,8 +132,8 @@ public class ASCompilerIT {
     }
 
     private static Object[] parametersForProfile(Map<String,Object> profile) {
-        String actionscript = (String)profile.get(ACTIONSCRIPT);
-        String flash = (String)profile.get(FLASH);
+        int actionscript = (Integer)profile.get(ACTIONSCRIPT);
+        int flash = (Integer)profile.get(FLASH);
         String player = (String)profile.get(PLAYER);
         String file = (String)profile.get(FILE);
         return new Object[] {actionscript, flash, player, file};
@@ -138,11 +145,11 @@ public class ASCompilerIT {
 	private final List<Action> expected;
 	private final List<Action> actual;
 
-	public ASCompilerIT(final String actionscript, final String flash,
+	public ASCompilerIT(final int actionscript, final int flash,
 			final String player, final String path) {
 		compiler = new ASCompiler();
-		compiler.setScriptVersion(Integer.valueOf(actionscript));
-		compiler.setFlashVersion(Integer.valueOf(flash));
+		compiler.setScriptVersion(actionscript);
+		compiler.setFlashVersion(flash);
 		compiler.setPlayer(PlayerType.fromName(player));
 
 		script = new File(path);

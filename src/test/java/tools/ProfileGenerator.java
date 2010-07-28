@@ -8,10 +8,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.yaml.snakeyaml.Yaml;
+
+import com.flagstone.translate.Profile;
 
 public class ProfileGenerator {
 
@@ -27,16 +30,10 @@ public class ProfileGenerator {
 
     @SuppressWarnings("unchecked")
     public static void main(final String[] args) {
-
-		File jsFile;
-
-		Map<String,Object>profile;
-		String actionscript;
-		String flash;
-		String player;
-
+		Profile profile;
 		String publish;
 		String script;
+		File jsFile;
 
 	    File dir;
 	    File file;
@@ -46,30 +43,30 @@ public class ProfileGenerator {
 			File publishFile = new File(RESOURCE_DIR, "publish.xml");
 			FileInputStream stream = new FileInputStream(yamlFile);
 			Yaml yaml = new Yaml();
+			Map<String,Object>map = new LinkedHashMap<String, Object>();
 
 	        for (Object list : (List<Object>)yaml.load(stream)) {
-                profile = (Map<String,Object>)list;
-
-                actionscript = (String)profile.get(ACTIONSCRIPT);
-                flash = (String)profile.get(FLASH);
-                player = (String)profile.get(PLAYER);
+                profile = Profile.fromName(list.toString());
+                map.put(ACTIONSCRIPT, profile.getScriptVersion());
+                map.put(FLASH, profile.getFlashVersion());
+                map.put(PLAYER, profile.getPlayer());
 
                 publish = contentsOfFile(publishFile);
-            	publish = replaceTokens(profile, publish);
+            	publish = replaceTokens(map, publish);
 
         		jsFile = new File(RESOURCE_DIR, "publish.jsfl");
         		script = contentsOfFile(jsFile);
 
             	for (String type : TYPES) {
-            		profile.put(TYPE, type);
+            		map.put(TYPE, type);
 
-            		dir = dirForTest(actionscript, flash, player, type);
+            		dir = dirForTest(map);
 
             		file = new File(dir, "publish.xml");
             		writeScript(file, publish);
 
             		file = new File(dir, type+".jsfl");
-            		writeScript(file, replaceTokens(profile, script));
+            		writeScript(file, replaceTokens(map, script));
 
             		copyfile(new File(RESOURCE_DIR, type + ".fla"),
             				new File(dir, type + ".fla"));
@@ -81,13 +78,9 @@ public class ProfileGenerator {
 		}
     }
 
-    private static File dirForTest(String actionscript, String flash, String player, String type)
-    		throws IOException {
-    	if (player.length() == 0) {
-    		player = "default";
-    	}
-		String path = String.format(
-				"as%s/swf%s/%s/%s", actionscript, flash, player, type);
+    private static File dirForTest(Map<String, Object> map) throws IOException {
+		String path = String.format( "as%d/swf%d/%s/%s", map.get(ACTIONSCRIPT),
+				map.get(FLASH), map.get(PLAYER), map.get(TYPE));
 		File dir = new File(DEST_DIR, path);
 
 		if (!dir.exists() && !dir.mkdirs()) {
