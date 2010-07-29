@@ -6,28 +6,26 @@ import java.util.List;
 
 public class FindFiles {
 
-	private static FilenameFilter filter = new FilenameFilter() {
-		@Override
-		public boolean accept(File dir, String name) {
-			boolean accept = false;
+	public static FilenameFilter getFilter(final String extension) {
+		return new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String name) {
+				boolean accept = false;
 
-			File file = new File(dir, name);
+				File file = new File(dir, name);
 
-			if (name.endsWith(".as")) {
-				accept = true;
-			} else if (file.isDirectory() && name.equals("..") == false
-					&& name.equals(".") == false) {
-				accept = true;
+				if (name.endsWith(extension)) {
+					accept = true;
+				} else if (file.isDirectory() && name.equals("..") == false
+						&& name.equals(".") == false) {
+					accept = true;
+				}
+				return accept;
 			}
-			return accept;
-		}
-	};
-
-	public static void findFiles(List<String> list, File directory) {
-		findFiles(list, directory, filter);
+		};
 	}
 
-    private static void findFiles(List<String> list, File directory,
+    public static void findFiles(List<String> list, File directory,
 			FilenameFilter filter) {
 		String[] files = directory.list(filter);
 
