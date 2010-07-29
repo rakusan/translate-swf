@@ -1,8 +1,10 @@
 package tools;
 
+import static utils.FindFiles.findFiles;
+import static utils.FindFiles.getFilter;
+
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,11 +17,12 @@ import com.flagstone.translate.Profile;
 
 public class ActionscriptGenerator {
 
-    private static final String RESOURCE_DIR = "src/test/resources/actionscript";
+    private static final String RESOURCE_DIR =
+    	"src/test/resources/actionscript/models";
     private static final String DEST_DIR = "resources";
 
     private static final String PROFILES = "profiles";
-    private static final String TYPE = "type";
+    private static final String REFID = "refid";
     private static final String PARAMETERS = "parameters";
     private static final String SCRIPT = "script";
     private static final String IGNORE = "ignore";
@@ -38,51 +41,79 @@ public class ActionscriptGenerator {
 
 		Yaml yaml = new Yaml();
 		List<String> files = new ArrayList<String>();
-		findFiles(files, srcDir, getFilter());
+		findFiles(files, srcDir, getFilter(".yaml"));
 
 		FileInputStream stream = null;
-		int index;
 
-		Map<String,Object>test;
-		String script;
-		String type;
-	    List<String>profiles;
-	    List<Object>parameters;
-	    Map<String, Object> vars;
-
-	    File dir;
-	    File file;
-
-		try {
-			for (String yamlFile : files) {
+		for (String yamlFile : files) {
+			try {
 		        stream = new FileInputStream(yamlFile);
-
 		        for (Object tests : (List<Object>)yaml.load(stream)) {
-	                test = (Map<String,Object>)tests;
-			        index = 0;
-
-	                type = (String)test.get(TYPE);
-	                script = (String)test.get(SCRIPT);
-	                profiles = (List<String>)test.get(PROFILES);
-                	parameters = (List<Object>)test.get(PARAMETERS);
-
-	                for (String profile : profiles) {
-	                	dir = dirForTest(profile, type);
-	                	for (Object set : parameters) {
-		                	vars = (Map<String, Object>)set;
-		                	if (!vars.containsKey(IGNORE)) {
-			                	file = new File(dir, vars.get(FILE).toString());
-			                	script = replaceTokens(vars, script);
-			                	writeScript(file, script);
-		                	}
-	                	}
-	                }
+		        	generateTest((Map<String,Object>) tests);
 		        }
 		        stream.close();
+			} catch (Exception e) {
+				System.err.println(yamlFile + ": " + e.getMessage());
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
+    }
+
+    @SuppressWarnings("unchecked")
+    private static void generateTest(final Map<String,Object>list)
+    		throws IOException {
+        String script = (String)list.get(SCRIPT);
+        List<String> profiles = (List<String>)list.get(PROFILES);
+        List<Object> parameters = (List<Object>)list.get(PARAMETERS);
+
+        String path;
+        String type;
+
+        if (list.containsKey(FILE)) {
+        	path = (String)list.get(FILE);
+        } else if (list.containsKey(REFID)) {
+        	path = (String)list.get(REFID) + ".as";
+        } else {
+        	throw new IllegalArgumentException("No file specified");
+        }
+
+        if (script.startsWith("onClipEvent")) {
+        	type = "button";
+        } else if (script.startsWith("on")) {
+        	type = "event";
+        } else {
+        	type = "frame";
+        }
+
+        File dir;
+        File file;
+        int index;
+
+        Map<String, Object> vars;
+
+        for (String profile : profiles) {
+        	dir = dirForTest(profile, type);
+	        index = 0;
+
+        	if (parameters == null) {
+            	writeScript(new File(dir, path), script);
+        	} else {
+            	for (Object set : parameters) {
+                	vars = (Map<String, Object>)set;
+                	if (vars.containsKey(IGNORE)) {
+                		continue;
+                	}
+            		if (vars.containsKey(FILE)) {
+	                	file = new File(dir, (String)vars.get(FILE));
+            		} else if (vars.containsKey(REFID)) {
+	                	file = new File(dir, (String)vars.get(REFID) + ".as");
+            		} else {
+				        file = new File(dir, String.format(path, index++));
+            		}
+                	script = replaceTokens(vars, script);
+                	writeScript(file, script);
+            	}
+        	}
+        }
     }
 
     private static File dirForTest(String name, String type)
@@ -98,40 +129,6 @@ public class ActionscriptGenerator {
 		}
 		return dir;
     }
-
-    private static FilenameFilter getFilter() {
-		return new FilenameFilter() {
-			@Override
-			public boolean accept(File dir, String name) {
-				boolean accept = false;
-
-				File file = new File(dir, name);
-
-				if (name.endsWith(".yaml")) {
-					accept = true;
-				} else if (file.isDirectory() && name.equals("..") == false
-						&& name.equals(".") == false) {
-					accept = true;
-				}
-				return accept;
-			}
-		};
-    }
-
-	private static void findFiles(List<String> list, File directory,
-			FilenameFilter filter) {
-		String[] files = directory.list(filter);
-
-		for (int i = 0; i < files.length; i++) {
-			File file = new File(directory, files[i]);
-
-			if (file.isDirectory()) {
-				findFiles(list, file, filter);
-			} else {
-				list.add(file.getPath());
-			}
-		}
-	}
 
 	private static String replaceTokens(final Map<String,Object>values,
 			final String script) {
