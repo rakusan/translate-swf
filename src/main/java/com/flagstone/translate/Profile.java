@@ -39,6 +39,8 @@ import java.util.Map;
  * support Flash content.
  */
 public enum Profile {
+	/** Profile for standard Flash Player, Actionscript 1, Flash Version 4. */
+	DEFAULT_1_4("Default", 1, 4),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 5. */
 	DEFAULT_1_5("Default", 1, 5),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 6. */
