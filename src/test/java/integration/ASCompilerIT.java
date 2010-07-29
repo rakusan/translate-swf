@@ -33,6 +33,7 @@ package integration;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import static utils.FindFiles.findFiles;
+import static utils.FindFiles.getFilter;
 import static utils.ReplaceReferences.replaceReferences;
 
 import java.io.File;
@@ -102,7 +103,7 @@ public class ASCompilerIT {
 
             for (String type : TYPES) {
         		map.put(TYPE, type);
-        		findFiles(files, dirForProfile(map));
+        		findFiles(files, dirForProfile(map), getFilter(".as"));
         		for (String file : files) {
         			map.put(FILE, file);
         			collection.add(parametersForProfile(map));
