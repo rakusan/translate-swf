@@ -1,0 +1,30 @@
+- test: fscommand function
+  refid: function_fscommand
+  file: function_fscommand_%d.as
+  profiles:
+    - DEFAULT_1_4
+  parameters:
+    - a: a
+      b: 1
+    - a: a 
+      b: "1"
+    - a: a
+      b: b
+    - a: "a"
+      b: b
+    - a: "a"
+      b: "b"
+    - a: "quit"
+      b: ""
+    - a: "fullscreen"
+      b: "true"
+    - a: "allowscale"
+      b: "true"
+    - a: "showmenu"
+      b: "true"
+    - a: "exec" 
+      b: "my_application"
+    - a: "trapallkeys"
+      b: "true"
+  script: |
+    a = fscommand(%a%, %b%);

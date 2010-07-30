@@ -1,0 +1,19 @@
+- test: return
+  refid: return
+  file: return.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    function addition(a, b) {
+        c = a + b;    
+        return;
+    }
+- test: return value
+  refid: return
+  file: return_value.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    function addition(a, b) {
+        return a + b;    
+    }

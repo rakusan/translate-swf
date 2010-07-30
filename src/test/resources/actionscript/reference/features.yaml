@@ -1,0 +1,1094 @@
+<html>
+<head>
+<link rel="stylesheet" href="reference.css" type="text/css">
+</head>
+<body>
+
+<h1>Actionscript 1.0 Language Support In Translate 3.0.</h1>
+
+<table>
+<tr><th>Element</th><th>Description</th><th>Added In Flash</th><th>Supported</th><tr>
+<tr><td colspan="4" class="title"><a name="directives">Directives</a></td></tr>
+- id: #include
+  name: #include
+  description: Include the contents of a file.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: #initclip
+  name: #initclip
+  description: Start of a block of initialization actions.
+  profile: DEFAULT_1_6
+<img src="uncheck.png"/></td></tr>
+- id: #endinitclip
+  name: #endinitclip
+  description: End of a block of initialization actions.
+  profile: DEFAULT_1_6
+<img src="uncheck.png"/></td></tr>
+<tr><td colspan="4" class="title"><a name="constants">Constants</a></td></tr>
+- id: true
+  name: true
+  description: Boolean true.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: false
+  name: false
+  description: Boolean false.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: Infinity
+  name: Infinity
+  description: Positive infinity.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: -Infinity
+  name: -Infinity
+  description: Negative infinity.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: NaN
+  name: NaN
+  description: Not a number.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: newline
+  name: newline
+  description: Carriage return character.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: null
+  name: null
+  description: No value available.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: undefined
+  name: undefined
+  description: No value assigned.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+<tr><td colspan="4" class="title"><a name="functions">Global Functions</a></td></tr>
+- id: Array()
+  name: Array()
+  description: Creates a new array.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: asfunction()
+  name: asfunction()
+  description: Allows a link in a textfield to call an actionscript function.
+  profile: DEFAULT_1_5
+<img src="uncheck.png"/></td></tr>
+- id: Boolean()
+  name: Boolean()
+  description: Convert a value to a boolean.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: call()
+  name: call()
+  description: Execute the actions in a frame.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: chr()
+  name: chr()
+  description: Converts an ASCII code to a character.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: clearInterval
+  name: clearInterval
+  description: Clears the call made to setInterval().
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: duplicateMovieClip()
+  name: duplicateMovieClip()
+  description: Create a copy of a movieclip.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: escape()
+  name: escape()
+  description: urlencodes a string.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: eval()
+  name: eval()
+  description: Evaluates an actionscript expression.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: fscommand()
+  name: fscommand()
+  description: Send a command to the Flash Player or web browser.
+  profile: DEFAULT_1_3
+<img src="check.png"/></td></tr>
+- id: getProperty()
+  name: getProperty()
+  description: Return a property of a movieclip.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: getTimer()
+  name: getTimer()
+  description: Returns the number of milliseconds since the movie started playing.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: getURL()
+  name: getURL()
+  description: Execute an HTTP GET or POST request.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: getVersion()
+  name: getVersion()
+  description: Return a string containing the Flash Player version.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: gotoAndPlay()
+  name: gotoAndPlay()
+  description: Move the timeline to the specified frame.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: gotoAndStop()
+  name: gotoAndStop()
+  description: Move the timeline to the specified frame and stop.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: ifFrameLoaded()
+  name: ifFrameLoaded()
+  description: Test whether the frame has been loaded.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: int()
+  name: int()
+  description: Converts a number to an integer.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: isFinite()
+  name: isFinite()
+  description: Is a number finitie, i.e. not Infinity or -Infinity.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: isNaN()
+  name: isNaN()
+  description: Is a number equal to NaN.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: length()
+  name: length()
+  description: Returns the length of a string.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: loadMovie()
+  name: loadMovie()
+  description: Load movie or JPEG image.
+  profile: DEFAULT_1_3
+<img src="check.png"/></td></tr>
+- id: loadMovieNum()
+  name: loadMovieNum()
+  description: Load movie or JPEG image to the specified level.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: loadVariables()
+  name: loadVariables()
+  description: Load a set of variable values.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: loadVariablesNum()
+  name: loadVariablesNum()
+  description: Load a set of variable values to the specified level.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: mbchr()
+  name: mbchr()
+  description: Convert an ASCII code to a multi-byte character.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: mblength()
+  name: mblength()
+  description: Returns the length of a multi-byte string.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: mbord()
+  name: mbord()
+  description: Converts a multi-byte character to a number.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: mbsubstring()
+  name: mbsubstring()
+  description: Extracts a string from a multi-byte string.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: MMExecute()
+  name: MMExecute()
+  description: Executes a Flash Javascript API command.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: nextFrame()
+  name: nextFrame()
+  description: Move the timeline to next frame.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: nextScene()
+  name: nextScene()
+  description: Move the timeline to the first frame of the next scene.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: Number()
+  name: Number()
+  description: Convert a value to a number.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: Object()
+  name: Object()
+  description: Create a new Object or convert an argument to an Object.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: on()
+  name: on()
+  description: Define an event handler for a button.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: onClipEvent()
+  name: onClipEvent()
+  description: Define an eventhandler for a movieclip.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: ord()
+  name: ord()
+  description: Convert an ASCII character to a number.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: parseFloat()
+  name: parseFloat()
+  description: Convert a string to a floating-point number.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: parseInt()
+  name: parseInt()
+  description: Convert a string to an integer.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: play()
+  name: play()
+  description: Start playing the movie or movieclip.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: prevFrame()
+  name: prevFrame()
+  description: Move the timeline to the previous frame.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: prevScene()
+  name: prevScene()
+  description: Move the timeline to the first frame of the previous scene.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: print()
+  name: print()
+  description: Prints a movieclip.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: printAsBitmap()
+  name: printAsBitmap()
+  description: Prints a movieclip as a bitmap.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: printAsBitmapNum()
+  name: printAsBitmapNum()
+  description: Prints the specified level.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: printNum()
+  name: printNum()
+  description: Prints the specified level as a bitmap.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: random()
+  name: random()
+  description: Return a random number from the specified range.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: removeMovieClip()
+  name: removeMovieClip()
+  description: Delete a movieclip.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: set()
+  name: set()
+  description: Set a variable.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: setInterval()
+  name: setInterval()
+  description: Create an interval timer to call a function or method.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: setProperty()
+  name: setProperty()
+  description: Set a property.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: showRedrawRegions()
+  name: showRedrawRegions()
+  description: Display the regions that ill be redrawn (for debugging).
+  profile: DEFAULT_1_8
+<img src="check.png"/></td></tr>
+- id: startDrag()
+  name: startDrag()
+  description: Make a movieclip draggable.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: stop()
+  name: stop()
+  description: Stop playing a movie or movieclip.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: stopAllSounds()
+  name: stopAllSounds()
+  description: Stop playing sounds.
+  profile: DEFAULT_1_3
+<img src="check.png"/></td></tr>
+- id: stopDrag()
+  name: stopDrag()
+  description: Stop dragging a movieclip.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: String()
+  name: String()
+  description: Convert an object to a string.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: substring()
+  name: substring()
+  description: Extracts a string from a string.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: targetPath()
+  name: targetPath()
+  description: Returns the path to a movieclip.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: tellTarget()
+  name: tellTarget()
+  description: Executes a statement in the target movieclip.
+  profile: DEFAULT_1_3
+<img src="check.png"/></td></tr>
+- id: toggleHighQuality()
+  name: toggleHighQuality()
+  description: Turn anti-aliasing on or off.
+  profile: DEFAULT_1_2
+<img src="check.png"/></td></tr>
+- id: trace()
+  name: trace()
+  description: Display a value on the Flash Console (for debugging).
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: unescape()
+  name: unescape()
+  description: urldecode a string.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: unloadMovie()
+  name: unloadMovie()
+  description: Delete a movieclip loaded using loadMovie().
+  profile: DEFAULT_1_3
+<img src="check.png"/></td></tr>
+- id: unloadMovieNum()
+  name: unloadMovieNum()
+  description: Delete a movieclip loaded using loadMovieNum().
+  profile: DEFAULT_1_3
+<img src="check.png"/></td></tr>
+- id: updateAfterEvent()
+  name: updateAfterEvent()
+  description: Refresh the screen after an event handler has finished.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+<tr><td colspan="4" class="title"><a name="properties">Global Properties</a></td></tr>
+- id: _accProps
+  name: _accProps
+  description: Accessibility properties.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: _focusrect
+  name: _focusrect
+  description: Identify which object has keyboard focus.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: _global
+  name: _global
+  description: The global object which contains core actionscript classes.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: _highquality
+  name: _highquality
+  description: The level of anti-aliasing.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: _level
+  name: _level
+  description: The level of a movie or movieclip.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: maxscroll
+  name: maxscroll
+  description: The minimum number of lines to display when scrolling a text field.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: _parent
+  name: _parent
+  description: The parent movieclip or object of the current object.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: _quality
+  name: _quality
+  description: The quality used when rendering a movieclip.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: _root
+  name: _root
+  description: A reference to the main timeline of a movie.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: scroll
+  name: scroll
+  description: The current line in a scrolling text field.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: _soundbuftime
+  name: _soundbuftime
+  description: The length (in seconds) of the buffer for streaming sounds.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: this
+  name: this
+  description: A reference to the current object or movieclip.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+<tr><td colspan="4" class="title"><a name="operators">Operators</a></td></tr>
+- id: +
+  name: +
+  description: addition, string concatentation, unary plus.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: -
+  name: -
+  description: Subtract, unary minus.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: *
+  name: *
+  description: multiply.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: /
+  name: /
+  description: divide.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: %
+  name: %
+  description: remainder.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: &amp;
+  name: &amp;
+  description: bitwise and.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: |
+  name: |
+  description: bitwise or.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: ~
+  name: ~
+  description: bitwise not.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: ^
+  name: ^
+  description: bitwise xor.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+
+- id: =
+  name: =
+  description: assign.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: +=
+  name: +=
+  description: add and assign.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: -=
+  name: -=
+  description: Subtract and assign.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: *=
+  name: *=
+  description: multiply and assign.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: /=
+  name: /=
+  description: divide and assign.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: %=
+  name: %=
+  description: remainder and assign.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: &amp;=
+  name: &amp;=
+  description: bitwise add and assign.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: |=
+  name: |=
+  description: bitwise or and assign.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: ^=
+  name: ^=
+  description: bitwise xor and assign.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+
+- id: --
+  name: --
+  description: decrement (pre and post).
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: ++
+  name: ++
+  description: increment (pre and post).
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+
+- id: &lt;&lt;
+  name: &lt;&lt;
+  description: shift left.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: &gt;&gt;
+  name: &gt;&gt;
+  description: shift right.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: &gt;&gt;&gt;
+  name: &gt;&gt;&gt;
+  description: unsigned shift right.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: &lt;&lt;=
+  name: &lt;&lt;=
+  description: shift left and assign.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: &gt;&gt;=
+  name: &gt;&gt;=
+  description: shift right and assign.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: &gt;&gt;&gt;=
+  name: &gt;&gt;&gt;=
+  description: unsigned shift right and assign.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+
+- id: &&
+  name: &&
+  description: logical and.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: ||
+  name: ||
+  description: logical or.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: !
+  name: !
+  description: logical not.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+
+- id: ==
+  name: ==
+  description: equal.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: !=
+  name: !=
+  description: not equal.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: &lt;
+  name: &lt;
+  description: less than.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: &lt;=
+  name: &lt;=
+  description: less than or equal.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: &gt;
+  name: &gt;
+  description: greater than.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: &gt;=
+  name: &gt;=
+  description: greater than or equal.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: ===
+  name: ===
+  description: Strict equal.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: !==
+  name: !==
+  description: Strict not equal.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+
+- id: ,
+  name: ,
+  description: expression separator.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: .
+  name: .
+  description: dereference.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: ()
+  name: ()
+  description: Grouping.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: []
+  name: []
+  description: subscript, array initialiser.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: {}
+  name: {}
+  description: Object initializer.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: ?:
+  name: ?:
+  description: conditional.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: new
+  name: new
+  description: Create new object.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: instanceof
+  name: instanceof
+  description: type checking.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: typeof
+  name: typeof
+  description: Return type.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: void
+  name: void
+  description: Evaluate and return undefined.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: "
+  name: "
+  description: String delimiter
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+
+- id: //
+  name: //
+  description: Single line comment.
+  profile: DEFAULT_1_1
+<img src="check.png"/></td></tr>
+- id: /* .. */
+  name: /* .. */
+  description: Block comment.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+<tr><td>(.+)</td><td>(.+)</td><td>(\d)</td><td><img src="check.png"></td></tr>
+<tr><td colspan="4" class="title"><a name="deprecated">Operators (Deprecated)</a></td></tr>
+- id: add
+  name: add
+  description: string concatenation.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: eq
+  name: eq
+  description: string equal.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: &lt;&gt;
+  name: &lt;&gt;
+  description: inequality.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: gt
+  name: gt
+  description: string greater than.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: ge
+  name: ge
+  description: string greater than or equal.
+  profile: DEFAULT_1_4<img src="check.png"/></td></tr>
+- id: lt
+  name: lt
+  description: string less than.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: le
+  name: le
+  description: string less than or equal.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: and
+  name: and
+  description: logical and.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: not
+  name: not
+  description: logical not.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: ne
+  name: ne
+  description: not equal.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: or
+  name: or
+  description: logical or.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+<tr><td colspan="4" class="title"><a name="statements">Statements</a></td></tr>
+- id: var
+  name: var
+  description: Define a variable.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: if
+  name: if
+  description: Statements to execute if a condition is true.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: else if
+  name: else if
+  description: Statements to evaluate and execute when an if statement is false.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: else
+  name: else
+  description: Statements to execute when an if statement is false.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: switch
+  name: switch
+  description: Multiple-choice conditional.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: case
+  name: case
+  description: Condition for switch statement.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: default
+  name: default
+  description: Default condition for a switch statement.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: do..while
+  name: do..while
+  description: Loop at least once.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: for
+  name: for
+  description: Iterate over a range.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: for..in
+  name: for..in
+  description: Iterate over the properties of an object.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: while
+  name: while
+  description: Loop while a condition is true.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: break
+  name: break
+  description: Break out of a loop.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: continue
+  name: continue
+  description: Start next iteration of a loop.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: function
+  name: function
+  description: Define a function.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: return
+  name: return
+  description: Return a value from a function.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: delete
+  name: delete
+  description: Delete an object.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: throw
+  name: throw
+  description: Throw an exception.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: try .. catch .. finally
+  name: try .. catch .. finally
+  description: Create an exception hanlder for a block of code.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: with
+  name: with
+  description: Specify a target movieclip or object for the following actions.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+<tr><td colspan="4" class="title"><a name="classes">Classes</a></td></tr>
+- id: <a href="as1classes.html#Accessibility" target="_blank">Accessibility</a>
+  name: <a href="as1classes.html#Accessibility" target="_blank">Accessibility</a>
+  description: Manages communication with screen readers for the visually impaired.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Arguments" target="_blank">Arguments</a>
+  name: <a href="as1classes.html#Arguments" target="_blank">Arguments</a>
+  description: Access a function's arguments.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Array target="_blank">Array</a>
+  name: <a href="as1classes.html#Array target="_blank">Array</a>
+  description: An indexed array.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#AsBroadcaster" target="_blank">AsBroadcaster</a>
+  name: <a href="as1classes.html#AsBroadcaster" target="_blank">AsBroadcaster</a>
+  description: Messaging and notification.
+  profile: DEFAULT_1_6
+<img src="uncheck.png"/></td></tr>
+- id: <a href="as1classes.html#Boolean" target="_blank">Boolean</a>
+  name: <a href="as1classes.html#Boolean" target="_blank">Boolean</a>
+  description: Wrapper class for boolean values.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Button"target="_blank">Button</a>
+  name: <a href="as1classes.html#Button"target="_blank">Button</a>
+  description: Wrapper class for buttons.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Camera"target="_blank">Camera</a>
+  name: <a href="as1classes.html#Camera"target="_blank">Camera</a>
+  description: Access an attached video (web) camera.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Color"target="_blank">Color</a>
+  name: <a href="as1classes.html#Color"target="_blank">Color</a>
+  description: Represents colours.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#ContextMenu"target="_blank">ContextMenu</a>
+  name: <a href="as1classes.html#ContextMenu"target="_blank">ContextMenu</a>
+  description: Access the context menu displayed when right-clicking the mouse.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#ContextMenuItem"target="_blank">ContextMenuItem</a>
+  name: <a href="as1classes.html#ContextMenuItem"target="_blank">ContextMenuItem</a>
+  description: Define entries in the ContextMenu.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#CustomActions"target="_blank">CustomActions</a>
+  name: <a href="as1classes.html#CustomActions"target="_blank">CustomActions</a>
+  description: Define extensions to the Flash authoring tool.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Date"target="_blank">Date</a>
+  name: <a href="as1classes.html#Date"target="_blank">Date</a>
+  description: Represents dates.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Error"target="_blank">Error</a>
+  name: <a href="as1classes.html#Error"target="_blank">Error</a>
+  description: Access information about a script error.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Function"target="_blank">Function</a>
+  name: <a href="as1classes.html#Function"target="_blank">Function</a>
+  description: Wrapper class for functions.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Key"target="_blank">Key</a>
+  name: <a href="as1classes.html#Key"target="_blank">Key</a>
+  description: Access the keyboard.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#LoadVars"target="_blank">LoadVars</a>
+  name: <a href="as1classes.html#LoadVars"target="_blank">LoadVars</a>
+  description: Wrapper class for loading variable values.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#LocalConnection"target="_blank">LocalConnection</a>
+  name: <a href="as1classes.html#LocalConnection"target="_blank">LocalConnection</a>
+  description: Create a connection between movies running on the same host.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Math"target="_blank">Math</a>
+  name: <a href="as1classes.html#Math"target="_blank">Math</a>
+  description: Math constants and functions.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Microphone"target="_blank">Microphone</a>
+  name: <a href="as1classes.html#Microphone"target="_blank">Microphone</a>
+  description: Access an attached microphone.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Mouse"target="_blank">Mouse</a>
+  name: <a href="as1classes.html#Mouse"target="_blank">Mouse</a>
+  description: Access the mouse.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#MovieClip"target="_blank">MovieClip</a>
+  name: <a href="as1classes.html#MovieClip"target="_blank">MovieClip</a>
+  description: Dynamically create a movieclip.
+  profile: DEFAULT_1_4
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#MovieClipLoader"target="_blank">MovieClipLoader</a>
+  name: <a href="as1classes.html#MovieClipLoader"target="_blank">MovieClipLoader</a>
+  description: Load movieclips.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#NetConnection"target="_blank">NetConnection</a>
+  name: <a href="as1classes.html#NetConnection"target="_blank">NetConnection</a>
+  description: Open a connection to a server or local file system.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#NetStream"target="_blank">NetStream</a>
+  name: <a href="as1classes.html#NetStream"target="_blank">NetStream</a>
+  description: Stream a Flash Video file from a server or local file system.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Number"target="_blank">Number</a>
+  name: <a href="as1classes.html#Number"target="_blank">Number</a>
+  description: Wrapper for numbers.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Object"target="_blank">Object</a>
+  name: <a href="as1classes.html#Object"target="_blank">Object</a>
+  description: Root class for the actionscript class hierarchy.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#PrintJob"target="_blank">PrintJob</a>
+  name: <a href="as1classes.html#PrintJob"target="_blank">PrintJob</a>
+  description: Access a local printer.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Selection"target="_blank">Selection</a>
+  name: <a href="as1classes.html#Selection"target="_blank">Selection</a>
+  description: Control the insertion point for text fields.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#SharedObject"target="_blank">SharedObject</a>
+  name: <a href="as1classes.html#SharedObject"target="_blank">SharedObject</a>
+  description: Read and write data on the host (similar to cookies).
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Sound"target="_blank">Sound</a>
+  name: <a href="as1classes.html#Sound"target="_blank">Sound</a>
+  description: Control the sounds in a movie.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Stage"target="_blank">Stage</a>
+  name: <a href="as1classes.html#Stage"target="_blank">Stage</a>
+  description: Access the Flash Player's screen.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#String"target="_blank">String</a>
+  name: <a href="as1classes.html#String"target="_blank">String</a>
+  description: Wrapper for string values.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#System"target="_blank">System</a></td><td>Access the host player.</td><td>6</td><td><img src="check.png"/><tr><td><a href="as1classes.html#System.Capabilities" target="_blank">System.Capabilities</a>
+  name: <a href="as1classes.html#System"target="_blank">System</a></td><td>Access the host player.</td><td>6</td><td><img src="check.png"/><tr><td><a href="as1classes.html#System.Capabilities" target="_blank">System.Capabilities</a>
+  description: Access properties of the host player.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#System.IME" target="_blank">System.IME</a>
+  name: <a href="as1classes.html#System.IME" target="_blank">System.IME</a>
+  description: Access the host Input Method Editor.
+  profile: DEFAULT_1_6
+<img src="uncheck.png"/></td></tr>
+- id: <a href="as1classes.html#System.Security" target="_blank">System.Security</a>
+  name: <a href="as1classes.html#System.Security" target="_blank">System.Security</a>
+  description: Control how movies from different domains communicate.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#TextField"target="_blank">TextField</a>
+  name: <a href="as1classes.html#TextField"target="_blank">TextField</a>
+  description: Dynamically create text fields.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#TextField.StyleSheet" target="_blank">TextField.StyleSheet</a>
+  name: <a href="as1classes.html#TextField.StyleSheet" target="_blank">TextField.StyleSheet</a>
+  description: Create a stylesheet for formatting HTML in a textfield.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#TextFormat"target="_blank">TextFormat</a>
+  name: <a href="as1classes.html#TextFormat"target="_blank">TextFormat</a>
+  description: Define formatting for text fields.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#TextSnapshot"target="_blank">TextSnapshot</a>
+  name: <a href="as1classes.html#TextSnapshot"target="_blank">TextSnapshot</a>
+  description: Access the static text defined in a movieclip.
+  profile: DEFAULT_1_7
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#Video"target="_blank">Video</a>
+  name: <a href="as1classes.html#Video"target="_blank">Video</a>
+  description: Display streaming video.
+  profile: DEFAULT_1_6
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#XML"target="_blank">XML</a>
+  name: <a href="as1classes.html#XML"target="_blank">XML</a>
+  description: Manipulate XML documents.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#XMLNode"target="_blank">XMLNode</a>
+  name: <a href="as1classes.html#XMLNode"target="_blank">XMLNode</a>
+  description: An element in an XML document.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#XMLSocket"target="_blank">XMLSocket</a>
+  name: <a href="as1classes.html#XMLSocket"target="_blank">XMLSocket</a>
+  description: Socket connection to a server.
+  profile: DEFAULT_1_5
+<img src="check.png"/></td></tr>
+- id: <a href="as1classes.html#XMLUI"target="_blank">XMLUI</a>
+  name: <a href="as1classes.html#XMLUI"target="_blank">XMLUI</a>
+  description: Communicate with user interface extensions.
+  profile: DEFAULT_1_7
+<img src="uncheck.png"/></td></tr>
+</table>
+
+</body>
+</html>

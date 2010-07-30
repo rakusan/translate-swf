@@ -1,3 +1,0 @@
-//   typeof function
-
-typeof(a);

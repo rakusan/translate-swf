@@ -1,0 +1,14 @@
+- test: Anonymous function with single argument
+  refid: function_anonynous
+  file: function_anonynous_%d.as
+  profiles:
+    - DEFAULT_1_4
+  parameters:
+    - value: x
+    - value: "x, y, z"
+  script: |
+    foo = function(%value%) {
+        a = 1;
+    };
+
+

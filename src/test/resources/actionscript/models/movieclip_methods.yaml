@@ -1,0 +1,172 @@
+- test: Movieclip method attachMovie()
+  refid: movieclip_attachmovie
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        attachMovie(1, "Clip1", 1);
+    }
+- test: Movieclip method getBounds()
+  refid: movieclip_getbounds
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        getBounds(_root);
+    }
+- test: Movieclip method getBytesLoaded()
+  refid: movieclip_getbytesloaded
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        getBytesLoaded();
+    }
+- test: Movieclip method getBytesTotal()
+  refid: movieclip_getbytestotal
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        getBytesTotal();
+    }
+- test: Movieclip method getURL()
+  refid: movieclip_geturl
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        getURL("http://www.flagstonesoftware.com");
+        getURL("http://www.flagstonesoftware.com", _self);
+        getURL("http://www.flagstonesoftware.com", _self, "get");
+        getURL("http://www.flagstonesoftware.com/cgi-bin/issue", _self, "post");
+    }
+- test: Movieclip method globalToLocal()
+  refid: movieclip_globaltolocal
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        a = {x : _root._xmouse, y : _root._ymouse};
+        globalToLocal(a);
+    }
+- test: Movieclip method gotoAndPlay()
+  refid: movieclip_gotoandplay
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        gotoAndPlay("Scene1", 1);
+        gotoAndPlay("Scene1", "Frame 1");
+    }
+- test: Movieclip method gotoAndStop()
+  refid: movieclip_gotoandstop
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        gotoAndStop("Scene1", 1);
+        gotoAndStop("Scene1", "Frame 1");
+    }
+- test: Movieclip method hitTest()
+  refid: movieclip_hittest
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    onClipEvent (mouseDown) {
+        hitTest(100, 100, true);
+        hitTest(100, 100, false);
+        hitTest(Clip2);
+    }
+- test: Movieclip method loadMovie()
+  refid: movieclip_loadmovie
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        loadMovie("Data.swf", "get");
+        loadMovie("Data.swf", "POST");
+    }
+- test: Movieclip method loadVariables()
+  refid: movieclip_loadvariables
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        loadVariables("variables.txt", "get");
+        loadVariables("variables.txt", "POST");
+    }
+- test: Movieclip method localToGlobal()
+  refid: movieclip_localtoglobal
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        a = {x : this._xmouse, y : this._ymouse};
+        localToGlobal(a);
+    }
+- test: Movieclip method nextFrame()
+  refid: movieclip_nextframe
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        nextFrame();
+    }
+- test: Movieclip method nextScene()
+  refid: movieclip_nextscene
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        nextScene();
+    }
+- test: Movieclip method play()
+  refid: movieclip_play
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        play();
+    }
+- test: Movieclip method prevFrame()
+  refid: movieclip_prevframe
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        prevFrame();
+    }
+- test: Movieclip method prevScene()
+  refid: movieclip_prevscene
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        prevScene();
+    }
+- test: Movieclip method stop()
+  refid: movieclip_stop
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        stop();
+    }
+- test: Movieclip method stopDrag()
+  refid: movieclip_stopdrag
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        stopDrag();
+    }
+- test: Movieclip method swapDepths()
+  refid: movieclip_swapdepths
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    onClipEvent (mouseDown) {
+        swapDepths(2);
+        swapDepths(Clip2);
+    }

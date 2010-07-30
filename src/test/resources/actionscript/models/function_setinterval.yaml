@@ -1,0 +1,10 @@
+- test: setInterval function
+  refid: function_setinterval
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    function handler() {
+        a += 1;
+    }    
+    id = setInterval(handler, 1000);
+

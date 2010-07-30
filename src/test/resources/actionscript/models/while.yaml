@@ -1,0 +1,41 @@
+- test: while
+  refid: while
+  file: while.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    a = 0;
+    while (a < 10) {
+        a += 1;
+    }
+- test: while with single statement
+  refid: while
+  file:  while_single.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    a = 0;
+    while (a < 10)
+        a += 1;
+- test: while with empty statement
+  refid: while
+  file:  while_empty.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    a = 0;
+    while (a++ < 10);
+- test: while nested
+  refid: while
+  file:  while_nested.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    a = 0;
+    while (a < 10) {
+        b = 0;
+        while (b < 10) {
+            b += 1;
+        }
+        a += 1;
+    }

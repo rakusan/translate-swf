@@ -1,3 +1,0 @@
-// simple expressions
-
-timeSinceStart = getTimer();

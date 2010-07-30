@@ -1,0 +1,8 @@
+- test: delete operator
+  refid: delete
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    a = new Object();
+    delete a;
+

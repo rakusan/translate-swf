@@ -1,3 +1,0 @@
-//  trace function
-
-trace(a);

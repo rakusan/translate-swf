@@ -1,0 +1,48 @@
+- test: operate on two variables
+  profiles:
+    - DEFAULT_1_4
+  parameters:
+    - operator: "+"
+      refid: addition
+    - operator: "-"
+      refid: subtract
+    - operator: "*"
+      refid: multiply
+    - operator: "/"
+      refid: divide
+    - operator: "%"
+      refid: modulo
+    - operator: "&&"
+      refid: logical_and
+    - operator: "||"
+      refid: logical_or
+    - operator: "&"
+      refid: bitwise_and
+    - operator: "|"
+      refid: bitwise_or
+    - operator: "<<"
+      refid: shift_left
+    - operator: ">>"
+      refid: shift_right
+    - operator: ">>>"
+      refid: unsigned_shift_right
+    - operator: "^"
+      refid: bitwise_xor
+    - operator: "=="
+      refid: logical_equal
+    - operator: "==="
+      refid: strict_equal
+    - operator: "!="
+      refid: logical_not_equal
+    - operator: "!=="
+      refid: strict_not_equal
+    - operator: ">"
+      refid: logical_greater_than
+    - operator: ">="
+      refid: logical_greater_than_equal
+    - operator: "<"
+      refid: logical_less_than
+    - operator: "<="
+      refid: logical_less_than_equal
+  script: |
+    a = b %operator% c;

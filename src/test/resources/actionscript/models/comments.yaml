@@ -1,0 +1,64 @@
+- test: single line comment
+  refid: comment
+  file: comment_single.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    // This is a single line comment
+    a = 1;
+- test: doxygen-style single line comment
+  refid: comment
+  file: comment_triple.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    /// This is a single line comment
+    a = 1;
+- test: double single line comment
+  refid: comment
+  file: comment_quad.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    //// This is a single line comment
+    a = 1;
+- test: block comment on single line
+  refid: comment
+  file: comment_block_single.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    /* This is a block comment on a single line comment */
+    a = 1;
+- test: block comment
+  refid: comment
+  file: comment_block_multiple.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    /* 
+     * This is a block comment on a single line comment 
+     */
+    a = 1;
+- test: javadoc-style block comment
+  refid: comment
+  file: comment_block_javadoc.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    /** 
+     * This is a block comment on a single line comment 
+     */
+    a = 1;
+- test: block comment with blank lines
+  refid: comment
+  file: comment_block_blank.as
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    /*
+        
+    This is a block comment on a single line comment 
+        
+    */
+    a = 1;

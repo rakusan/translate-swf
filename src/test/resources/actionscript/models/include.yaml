@@ -1,0 +1,21 @@
+# The list of tests is generated sequentially so the first test is used to 
+# generate the script that is included in the next and so on.
+
+- test: Generate file to be included.
+  file: include_target.as
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    a = 1;
+- test: Include a file.
+  file: include_child.as
+  profiles: 
+    - DEFAULT_1_5
+  script: |
+    #include "include_target.as"
+- test: Nested include
+  file: include_parent.as
+  profiles:
+    - DEFAULT_1_5
+  script: |
+    #include "include_child.as"

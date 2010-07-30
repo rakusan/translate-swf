@@ -1,0 +1,22 @@
+- test: Verify the each Button event handler is supported
+  profiles:
+    - DEFAULT_1_5
+  parameters:
+    - value: press
+      refid: button_event_press
+    - value: release
+      refid: button_event_release
+    - value: releaseOutside
+      refid: button_event_releaseoutside
+    - value: rollOver
+      refid: button_event_rollover
+    - value: rollOut
+      refid: button_event_rollout
+    - value: dragOver
+      refid: button_event_dragover
+    - value: "keyPress \"a\""
+      refid: button_event_keypress
+  script: |
+    on (%event%) {
+        a = 1;
+    }

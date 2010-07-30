@@ -1,0 +1,6 @@
+- test: Call function
+  refid: function_call
+  profiles:
+    - DEFAULT_1_4
+  script: |
+    call(fn);
