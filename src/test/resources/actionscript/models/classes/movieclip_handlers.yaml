@@ -1,0 +1,63 @@
+- test: load
+  refid: movieclip_event_load
+  file: classes/movieclip/movieclip_event_load.as
+  script: |
+    onClipEvent (load) {
+        a = 1;
+    }
+- test: unload
+  refid: movieclip_event_unload
+  file: classes/movieclip/movieclip_event_unload.as
+  script: |
+    onClipEvent (unload) {
+        a = 1;
+    }
+- test: enterFrame
+  refid: movieclip_event_enterframe
+  file: classes/movieclip/movieclip_event_enterframe.as
+  script: |
+    onClipEvent (enterFrame) {
+        a = 1;
+    }
+- test: mouseMove
+  refid: movieclip_event_mousemove
+  file: classes/movieclip/movieclip_event_mousemove.as
+  script: |
+    onClipEvent (mouseMove) {
+        a = 1;
+    }
+- test: mouseDown
+  refid: movieclip_event_mousedown
+  file: classes/movieclip/movieclip_event_mousedown.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = 1;
+    }
+- test: mouseUp
+  refid: movieclip_event_mouseup
+  file: classes/movieclip/movieclip_event_mouseup.as
+  script: |
+    onClipEvent (mouseUp) {
+        a = 1;
+    }
+- test: keyDown
+  refid: movieclip_event_keydown
+  file: classes/movieclip/movieclip_event_keydown.as
+  script: |
+    onClipEvent (keyDown) {
+        a = 1;
+    }
+- test: keyUp
+  refid: movieclip_event_keyup
+  file: classes/movieclip/movieclip_event_keyup.as
+  script: |
+    onClipEvent (keyUp) {
+        a = 1;
+    }
+- test: data
+  refid: movieclip_event_data
+  file: classes/movieclip/movieclip_event_data.as
+  script: |
+    onClipEvent (data) {
+        a = 1;
+    }

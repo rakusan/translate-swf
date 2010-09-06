@@ -1,0 +1,30 @@
+- test: trace()
+  refid: trace
+  file: functions/trace.as
+  script: |
+    trace(a);
+- test: typeof()
+  refid: typeof
+  file: functions/typeof.as
+  script: |
+    typeof(a);
+- test: getVersion()
+  refid: getversion
+  file: functions/getversion.as
+  script: |
+    x = getVersion(a);
+- test: random()
+  refid: random
+  file: functions/random.as
+  script: |
+    x = random(a);
+- test: stopAllSounds()
+  refid: stopallsounds
+  file: functions/stopallsounds.as
+  script: |
+    stopAllSounds();
+- test: toggleHighQuality()
+  refid: togglehighquality
+  file: functions/togglehighquality.as
+  script: |
+    toggleHighQuality();

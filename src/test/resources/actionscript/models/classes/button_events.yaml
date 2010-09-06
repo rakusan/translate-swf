@@ -1,0 +1,49 @@
+- test: press
+  refid: button_event_press
+  file: classes/button/event_press.as
+  script: |
+    on (press) {
+        a = 1;
+    }
+- test: release
+  refid: button_event_release
+  file: classes/button/event_release.as
+  script: |
+    on (release) {
+        a = 1;
+    }
+- test: releaseOutside
+  refid: button_event_releaseoutside
+  file: classes/button/event_releaseoutside.as
+  script: |
+    on (releaseOutside) {
+        a = 1;
+    }
+- test: rollOver
+  refid: button_event_rollover
+  file: classes/button/event_rollover.as
+  script: |
+    on (rollOver) {
+        a = 1;
+    }
+- test: rollOut
+  refid: button_event_rollout
+  file: classes/button/event_rollout.as
+  script: |
+    on (rollOut) {
+        a = 1;
+    }
+- test: dragOver
+  refid: button_event_dragover
+  file: classes/button/event_dragover.as
+  script: |
+    on (dragOver) {
+        a = 1;
+    }
+- test: keypress
+  refid: button_event_keypress
+  file: classes/button/event_keypress.as
+  script: |
+    on (keyPress "a") {
+        a = 1;
+    }

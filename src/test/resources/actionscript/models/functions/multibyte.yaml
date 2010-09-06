@@ -1,0 +1,18 @@
+- test: mbchr()
+  refid: mbchr
+  file: functions/mbchr_%d.as
+  parameters:
+    - args: 0x0132
+    - args: "\"A multibyte String\""
+  script: |
+    x = mbchr(%args%);
+- test: mbord()
+  refid: mbord
+  file: functions/mbord.as
+  script: |
+    x = mbord("A");
+- test: mbsubstring()
+  refid: mbsubstring
+  file: functions/mbsubstring.as
+  script: |
+    x = mbsubstring("A String", 0, 1);

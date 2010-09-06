@@ -1,0 +1,12 @@
+- test: array subscript
+  refid: subscript
+  file: operators/subscript.as
+  parameters:
+    - expr: a[0]
+    - expr: a[0][0]
+    - expr: object[field]
+    - expr: [1, 2, 3, 4][2]
+    - expr: a()[0]
+    - expr: {tree : "oak", bush : "laurel" }[tree] 
+  script: |
+    x = %expr%;

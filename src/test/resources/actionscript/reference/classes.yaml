@@ -1,7 +1,7 @@
 - name: Accessibility
   type: class
   elements:
-    - id: accessibility_isActive
+    - id: accessibility_isactive
       name: isActive()
       type: method
       description: Returns true if the screen reader is currently active, false if inactive.
@@ -10,7 +10,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: accessibility_updateProperties
+    - id: accessibility_updateproperties
       name: updateProperties()
       type: method
       description: Register all changes to _accProps objects.

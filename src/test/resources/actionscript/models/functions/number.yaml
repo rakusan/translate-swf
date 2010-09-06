@@ -1,0 +1,53 @@
+- test: parseFloat()
+  refid: parsefloat
+  file: functions/parsefloat_%d.as
+  parameters:
+    - expr: parseFloat(a)
+    - expr: getURL(a)
+    - expr: parseFloat("3.5e6")
+  script: |
+    x = %expr%;
+- test: parseInt()
+  refid: parseint
+  file: functions/parseint_%d.as
+  parameters:
+    - expr: parseInt(a, 10)
+    - expr: parseInt(a)
+    - expr: parseInt("011")
+    - expr: parseInt("0xFF")
+    - expr: parseInt(1111, 2)
+  script: |
+    x = %expr%;
+- test: Number()
+  refid: number
+  file: functions/number_%d.as
+  parameters:
+    - expr: Number(a)
+    - expr: Number("1")
+  script: |
+    x = %expr%;
+- test: int()
+  refid: int
+  file: functions/int_%d.as
+  parameters:
+    - expr: int(a)
+    - expr: int(3.4)
+    - expr: int("1")
+  script: |
+    x = %expr%;
+- test: isFinite()
+  refid: isfinite
+  file: functions/isfinite_%d.as
+  parameters:
+    - expr: isFinite(a)
+    - expr: isFinite(56)
+  script: |
+    x = %expr%;
+- test: isNaN()
+  refid: isnan
+  file: functions/isnan_%d.as
+  parameters:
+    - expr: isNaN(a)
+    - expr: isNaN(56)
+  script: |
+    x = %expr%;

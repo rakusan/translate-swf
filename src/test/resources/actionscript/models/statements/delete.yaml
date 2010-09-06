@@ -1,0 +1,7 @@
+- test: delete operator
+  refid: delete
+  file: statements/delete.as
+  script: |
+    a = new Object();
+    delete a;
+

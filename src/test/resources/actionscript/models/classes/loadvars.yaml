@@ -1,0 +1,79 @@
+- test: LoadVars()
+  refid: loadvars_constructor
+  file: classes/loadvars/loadvars_constructor.as
+  script: |
+    a = new LoadVars();
+- test: LoadVars contentType
+  file: loadvars_contenttype
+  file: classes/loadvars/loadvars_contenttype.as
+  script: |
+    a = new LoadVars();
+    b = a.contentType;
+- test: LoadVars addRequestHeader()
+  refid: loadvars_addrequestheader
+  file: classes/loadvars/loadvars_addrequestheader.as
+  script: |
+    a = new LoadVars();
+    a.addRequestHeader("Content-Type", "text/plain");
+- test: LoadVars addRequestHeader() array
+  file: loadvars_addrequestheader_array
+  file: classes/loadvars/loadvars_addrequestheader_array.as
+  script: |
+    headers = ["Content-Type", "text/plain", "X-Client-Version", "2.1.4"];
+    a = new LoadVars();
+    a.addRequestHeader(headers);
+- test: LoadVars onData
+  refid: loadvars_ondata
+  file: classes/loadvars/loadvars_ondata.as
+  script: |
+    a = new LoadVars();
+    a.onData = function(source) {
+        if (source == undefined) {
+		    trace("Error loading variables.");
+        }
+    };
+    a.load("http://www.flagstonesoftware.com/variables.txt");
+- test: LoadVars onData
+  refid: loadvars_ondata
+  file: classes/loadvars/loadvars_ondata.as
+  script: |
+    a = new LoadVars();
+    a.onLoad = function(result) {
+        if (result == true) {
+		    trace("Variables loaded.");
+        }
+    };
+    a.load("http://www.flagstonesoftware.com/variables.txt");
+- test: LoadVars decode()
+  refid: loadvars_decode
+  file: classes/loadvars/loadvars_decode.as
+  script: |
+    a = new LoadVars();
+    a.decode("name=John&age=29");
+- test: LoadVars send()
+  refid: loadvars_send
+  file: classes/loadvars/loadvars_send.as
+  script: |
+    a = new LoadVars();
+    a.name = "John";
+    a.age = "29";
+    a.send("http://www.flagstonesoftware.com", "_self", "GET");
+- test: LoadVars sendAndLoad()
+  refid: loadvars_sendandload
+  file: classes/loadvars/loadvars_sendandload.as
+  script: |
+    a = new LoadVars();
+    a.name = "John";
+    a.age = "29";
+    a.sendAndLoad("http://www.flagstonesoftware.com", result, "POST");
+- test: LoadVars toString()
+  refid: loadvars_tostring
+  file: classes/loadvars/loadvars_tostring.as
+  script: |
+    a = new LoadVars();
+    a.name = "John";
+    a.age = "29";
+    a.toString();
+
+
+    

@@ -1,0 +1,16 @@
+- test: getTimer()
+  refid: gettimer
+  script: |
+    getTimer();
+- test: clearInterval()
+  refid: clearinterval
+  script: |
+    clearInterval(id);
+- test: setInterval()
+  refid: setinterval
+  script: |
+    function handler() {
+        a += 1;
+    }    
+    id = setInterval(handler, 1000);
+

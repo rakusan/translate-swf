@@ -1,7 +1,0 @@
-- test: duplicateMovieClip function
-  refid: function_duplicatemovieclip
-  profiles:
-    - DEFAULT_1_4
-  script: |
-    duplicateMovieClip(clip, "copy", clip.getNextHighestDepth());
-

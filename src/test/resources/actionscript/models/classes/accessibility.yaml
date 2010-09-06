@@ -1,0 +1,23 @@
+- test: Accessibility isAction()
+  refid: accessibility_isaction
+  file classes/accessibility/isaction.as
+  script: |
+    Accessibility.isAction();
+- test: Accessibility updateProperties() for movie
+  refid: accessibility_updateproperties
+  file classes/accessibility/updateproperties_movie.as
+  script: |
+    _accProps.silent = false;
+    _accProps.forceSimple = false;
+    _accProps.name = "Accessibility";
+    _accProps.description = "Test script for Accessbility class."; 
+    Accessbility.updateProperties();
+- test: Accessibility updateProperties() for movie clip
+  refid: accessibility_updateproperties
+  file classes/accessibility/updateproperties_clip.as
+  script: |
+    button._accProps.silent = false;
+    button._accProps.name = "Load";
+    button._accProps.description = "Load a new movie clip.";
+    button._accProps.shortcut = "Ctrl+L";   
+    Accessbility.updateProperties();

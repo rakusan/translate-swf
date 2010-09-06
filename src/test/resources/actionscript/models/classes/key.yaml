@@ -1,0 +1,97 @@
+- test: BACKSPACE
+  refid: key_backspace
+  file: classes/key/key_backspace.as
+  script: |
+    x = Key.BACKSPACE;
+- test: CAPSLOCK
+  refid: key_capslock
+  file: classes/key/key_capslock.as
+  script: |
+    x = Key.CAPSLOCK;
+- test: CONTROL
+  refid: key_control
+  file: classes/key/key_control.as
+  script: |
+    x = Key.CONTROL;
+- test: DELETEKEY
+  refid: key_deletekey
+  file: classes/key/key_deletekey.as
+  script: |
+    x = Key.DELETEKEY;
+- test: DOWN
+  refid: key_down
+  file: classes/key/key_down.as
+  script: |
+    x = Key.DOWN;
+- test: END
+  refid: key_end
+  file: classes/key/key_end.as
+  script: |
+    x = Key.END;
+- test: ENTER
+  refid: key_enter
+  file: classes/key/key_enter.as
+  script: |
+    x = Key.ENTER;
+- test: ESCAPE
+  refid: key_escape
+  file: classes/key/key_escape.as
+  script: |
+    x = Key.ESCAPE;
+- test: HOME
+  refid: key_home
+  file: classes/key/key_home.as
+  script: |
+    x = Key.HOME;
+- test: INSERT
+  refid: key_insert
+  file: classes/key/key_insert.as
+  script: |
+    x = Key.INSERT;
+- test: LEFT
+  refid: key_left
+  file: classes/key/key_left.as
+  script: |
+    x = Key.LEFT;
+- test: PGDN
+  refid: key_pgdn
+  file: classes/key/key_pgdn.as
+  script: |
+    x = Key.PGDN;
+- test: PGUP
+  refid: key_pgup
+  file: classes/key/key_pgup.as
+  script: |
+    x = Key.PGUP;
+- test: RIGHT
+  refid: key_right
+  file: classes/key/key_right.as
+  script: |
+    x = Key.RIGHT;
+- test: TAB
+  refid: key_tab
+  file: classes/key/key_tab.as
+  script: |
+    x = Key.TAB;
+- test: UP
+  refid: key_up
+  file: classes/key/key_up.as
+  script: |
+    x = Key.UP;
+- test: addListener()
+  refid: key_addlistener
+  file: classes/key/addlistener.as
+  script: |
+    listener = new Object();
+    listener.onKeyDown = function() {};
+    listener.onKeyUp = function() {};   
+    Key.addListener(listener);
+- test: remnoveListener()
+  refid: key_removelistener
+  file: classes/key/removelistener.as
+  script: |
+    listener = new Object();
+    listener.onKeyDown = function() {};
+    listener.onKeyUp = function() {};   
+    Key.addListener(listener);
+    Key.removeListener(listener);

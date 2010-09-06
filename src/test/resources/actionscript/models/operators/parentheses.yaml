@@ -1,0 +1,12 @@
+- test: parentheses
+  refid: parentheses
+  file: operators/parentheses_%d.as
+  parameters:
+    - expr: (a)
+    - expr: ((a))
+    - expr: ((a)+(b))
+    - expr: ((a + b) * c) / (a + b)
+    - expr: void(a)
+    - expr: new(Object)
+  script: |
+    x = %expr%;

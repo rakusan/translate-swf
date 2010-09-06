@@ -1,0 +1,70 @@
+- test: onDragOut
+    refid: button_ondragout
+    file: classes/button/event_ondragout.as
+    script: |
+      button.onDragOut = function() {
+        x = 1;
+    };
+- test: onDragOver
+    refid: button_ondragover
+    file: classes/button/event_ondragover.as
+    script: |
+      button.onDragOver = function() {
+        x = 1;
+    };
+- test: onKeyUp
+    refid: button_onkeyup
+    file: classes/button/event_onkeyup.as
+    script: |
+      button.onKeyUp = function() {
+        x = 1;
+    };
+- test: onKillFocus
+    refid: button_onkillfocus
+    file: classes/button/event_onkillfocus.as
+    script: |
+      button.onKillFocus = function() {
+        x = 1;
+    };
+- test: onPress
+    refid: button_onpress
+    file: classes/button/event_onpress.as
+    script: |
+      button.onPress = function() {
+        x = 1;
+    };
+- test: onRelease
+    refid: button_onrelease
+    file: classes/button/event_onrelease.as
+    script: |
+      button.onRelease = function() {
+        x = 1;
+    };
+- test: onReleaseOutside
+    refid: button_onreleaseoutside
+    file: classes/button/event_onreleaseoutside.as
+    script: |
+      button.onReleaseOutside = function() {
+        x = 1;
+    };
+- test: onRollOut
+    refid: button_onrollout
+    file: classes/button/event_onrollout.as
+    script: |
+      button.onRollOut = function() {
+        x = 1;
+    };
+- test: onRollOver
+    refid: button_onrollover
+    file: classes/button/event_onrollover.as
+    script: |
+      button.onRollOver = function() {
+        x = 1;
+    };
+- test: onSetFocus
+    refid: button_onsetfocus
+    file: classes/button/event_onsetfocus.as
+    script: |
+      button.onSetFocus = function() {
+        x = 1;
+    };

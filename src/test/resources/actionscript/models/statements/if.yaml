@@ -1,0 +1,91 @@
+- test: if
+  refid: if
+  file: statements/if_block.as
+  script: |
+    a = 1;
+    b = 2;
+    if (a != b) {
+        a += 1;
+    }
+- test: if with single statement
+  refid: if
+  file: statements/if_single.as
+  script: |
+    a = 1;
+    b = 2;
+    if (a != b)
+        a += 1;
+- test: for loop with empty statement
+  refid: if
+  file: statements/if_empty.as
+  script: |
+    a = 1;
+    b = 2;
+    if (a != b);
+- test: if..else with block statements
+  refid: else
+  file: statements/if_else_block.as
+  script: |
+    a = 1;
+    b = 2;
+    if (a != b) {
+        a += 1;
+    } else {
+        b += 1;
+    }
+- test: if..else with single statements
+  refid: else
+  file: statements/if_else_single.as
+  script: |
+    a = 1;
+    b = 2;
+    if (a != b)
+        a += 1;
+    else
+        b += 1;
+- test: if..else with empty statements
+  refid: else
+  file: statements/if_else_empty.as
+  script: |
+    a = 1;
+    b = 2;
+    if (a != b) ;
+    else ;
+- test: if else if
+  refid: elseif
+  file: statements/if_else_if.as
+  script: |
+    a = 1;
+    if (a == 1)
+        a += 1;
+    else if (a == 2)
+        a += 2;
+    else
+        a += 3;
+- test: nested if else
+  refid: else
+  file: statements/if_nested.as
+  script: |
+    a = 1;
+    b = 2;
+    if (a != b) {
+        if (a < b)
+            a += 1;
+        else
+            b += 1;
+    }
+- test: nested if else
+  refid: else
+  file: statements/if_else_nested.as
+  script: |
+    a = 1;
+    b = 2;
+    if (a != b) {
+        if (a < b)
+            a += 1;
+        else
+            b += 1;
+    } else {
+        a += 2;
+        b += 2;
+    }

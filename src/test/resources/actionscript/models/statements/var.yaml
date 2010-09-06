@@ -1,0 +1,17 @@
+- test: var
+  refid: var
+  file: statements/var_literal.as
+  script: |
+    var a = 3;
+- test: var
+  refid: var
+  file: statements/var_variable.as
+  script: |
+    var b = a + 1;
+- test: var
+  refid: var
+  file: statements/var_multiple.as
+  script: |
+    var a = 1, b = 1;
+
+

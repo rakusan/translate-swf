@@ -1,0 +1,156 @@
+- test: textformat
+  refid: textformat_constructor
+  file: classes/textformat/textformat_%d.as
+  parameters:
+    - expr: TextFormat();
+    - expr: TextFormat("Arial");
+    - expr: TextFormat("Arial", 12);
+    - expr: TextFormat("Arial", 12, 0x000000);
+    - expr: TextFormat("Arial", 12, 0x000000, true);
+    - expr: TextFormat("Arial", 12, 0x000000, true, true);
+    - expr: TextFormat("Arial", 12, 0x000000, true, true);
+    - expr: TextFormat("Arial", 12, 0x000000, true, true, "http://www.flagstonesoftware.com");
+    - expr: TextFormat("Arial", 12, 0x000000, true, true, "http://www.flagstonesoftware.com", "_self");
+    - expr: TextFormat("Arial", 12, 0x000000, true, true, "http://www.flagstonesoftware.com", "_self", "left");
+    - expr: TextFormat("Arial", 12, 0x000000, true, true, "http://www.flagstonesoftware.com", "_self", "left", 20);
+    - expr: TextFormat("Arial", 12, 0x000000, true, true, "http://www.flagstonesoftware.com", "_self", "left", 20, 20);
+    - expr: TextFormat("Arial", 12, 0x000000, true, true, "http://www.flagstonesoftware.com", "_self", "left", 20, 20, 20);
+    - expr: TextFormat("Arial", 12, 0x000000, true, true, "http://www.flagstonesoftware.com", "_self", "left", 20, 20, 20, 10);
+  script: |
+    format = new %expr%;
+- test: wrapWidth
+  refid: textformat_wrapwidth
+  file: classes/textformat/textformat_wrapwidth.as
+  script: |
+    format = new TextFormat();
+    format.wrapWidth = 50;
+- test: getTextExtent()
+  refid: textformat_gettextextent
+  file: classes/textformat/textformat_gettextextent.as
+  script: |
+    properties = format.getTextExtent("This is a string");
+- test: getTextExtent(string, string)
+  refid: textformat_gettextextent
+  file: classes/textformat/textformat_gettextextent_string_string.as
+  script: |
+    properties = format.getTextExtent("This is a string", wrapWidth);
+- test: ascent
+  refid: textformat_ascent
+  file: classes/textformat/textformat_ascent.as
+  script: |
+    format = new TextFormat();
+    format.ascent;
+- test: descent
+  refid: textformat_descent
+  file: classes/textformat/textformat_descent.as
+  script: |
+    format = new TextFormat();
+    format.descent;
+- test: textFieldHeight
+  refid: textformat_textfieldheight
+  file: classes/textformat/textformat_textfieldheight.as
+  script: |
+    format = new TextFormat();
+    properties.textFieldHeight; 
+- test: textFieldWidth
+  refid: textformat_textfieldwidth
+  file: classes/textformat/textformat_textfieldwidth.as
+  script: |
+    format = new TextFormat();
+    properties.textFieldWidth;
+- test: align
+  refid: textformat_align
+  file: classes/textformat/textformat_align.as
+  script: |
+    format = new TextFormat();
+    format.align = "left";
+- test: blockIndent
+  refid: textformat_blockindent
+  file: classes/textformat/textformat_blockindent.as
+  script: |
+    format = new TextFormat();
+    format.blockIndent = 20;
+- test: bold
+  refid: textformat_bold
+  file: classes/textformat/textformat_bold.as
+  script: |
+    format = new TextFormat();
+    format.bold = true;
+- test: bullet
+  refid: textformat_bullet
+  file: classes/textformat/textformat_bullet.as
+  script: |
+    format = new TextFormat();
+    format.bullet = true;
+- test: color
+  refid: textformat_color
+  file: classes/textformat/textformat_color.as
+  script: |
+    format = new TextFormat();
+    format.color = ox000000;
+- test: font
+  refid: textformat_font
+  file: classes/textformat/textformat_font.as
+  script: |
+    format = new TextFormat();
+    format.font = "Arial";
+- test: indent
+  refid: textformat_indent
+  file: classes/textformat/textformat_indent.as
+  script: |
+    format = new TextFormat();
+    format.indent = 20;
+- test: italic
+  refid: textformat_italic
+  file: classes/textformat/textformat_italic.as
+  script: |
+    format = new TextFormat();
+    format.italic = true;
+- test: leading
+  refid: textformat_leading
+  file: classes/textformat/textformat_leading.as
+  script: |
+    format = new TextFormat();
+    format.leading = 10;
+- test: leftMargin
+  refid: textformat_leftmargin
+  file: classes/textformat/textformat_leftmargin.as
+  script: |
+    format = new TextFormat();
+    format.leftMargin = 20;
+- test: rightMargin
+  refid: textformat_rightmargin
+  file: classes/textformat/textformat_rightmargin.as
+  script: |
+    format = new TextFormat();
+    format.rightMargin = 20;
+- test: size
+  refid: textformat_size
+  file: classes/textformat/textformat_size.as
+  script: |
+    format = new TextFormat();
+    format.size = 12;
+- test: tabStops
+  refid: textformat_tabstops
+  file: classes/textformat/textformat_tabstops.as
+  script: |
+    format = new TextFormat();
+    format.tabStops = [25,50,75,100, 125, 150];
+- test: target
+  refid: textformat_target
+  file: classes/textformat/textformat_target.as
+  script: |
+    format = new TextFormat();
+    format.target = "_self";
+- test: underline
+  refid: textformat_underline
+  file: classes/textformat/textformat_underline.as
+  script: |
+    format = new TextFormat();
+    format.underline = true;
+- test: url
+  refid: textformat_url
+  file: classes/textformat/textformat_url.as
+  script: |
+    format = new TextFormat();
+    format.url = "http://www.flagstonesoftware.com";

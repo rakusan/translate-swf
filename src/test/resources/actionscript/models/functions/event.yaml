@@ -1,0 +1,12 @@
+- test: updateAfterEvent()
+  refid: updateafterevent
+  file: functions/updateafterevent_%d.as
+  parameters:
+    - expr: updateAfterEvent(mouseMove);
+    - expr: updateAfterEvent(mouseDown);
+    - expr: updateAfterEvent(mouseUp);
+    - expr: updateAfterEvent(keyDown);
+    - expr: updateAfterEvent(keyUp);
+  script: |
+    %expr%;
+  

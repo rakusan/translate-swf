@@ -1,0 +1,10 @@
+- test: 
+  refid: comma
+  file: operators/comma_expression.as
+  script: |
+    a = 1, b = 2, c = 3;
+- test: 
+  refid: comma
+  file: operators/comma_for.as
+  script: |
+    for (i=0, a=0; i<10; i++, a++) ;

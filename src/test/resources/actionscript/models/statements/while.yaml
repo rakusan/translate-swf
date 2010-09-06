@@ -1,0 +1,33 @@
+- test: while
+  refid: while
+  file: statements/while.as
+  script: |
+    a = 0;
+    while (a < 10) {
+        a += 1;
+    }
+- test: while with single statement
+  refid: while
+  file: statements/while_single.as
+  script: |
+    a = 0;
+    while (a < 10)
+        a += 1;
+- test: while with empty statement
+  refid: while
+  file: statements/while_empty.as
+  script: |
+    a = 0;
+    while (a++ < 10);
+- test: while nested
+  refid: while
+  file: statements/while_nested.as
+  script: |
+    a = 0;
+    while (a < 10) {
+        b = 0;
+        while (b < 10) {
+            b += 1;
+        }
+        a += 1;
+    }

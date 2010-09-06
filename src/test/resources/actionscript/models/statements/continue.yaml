@@ -1,0 +1,27 @@
+- test: while with continue
+  refid: continue
+  file: statements/continue.as
+  script: |
+    a = 0;
+    while (a++ < 10) {
+        if (a == 5) {
+            break;
+        } else {
+            continue;
+        }
+    }
+- test: nested while with continue
+  refid: continue
+  file: statements/continue_nested.as
+  script: |
+    a = 0;
+    while (a++ < 10) {
+        b = 0;
+        while (b++ < 10) {
+            if (b == 5) {
+                break;
+            } else {
+                continue;
+            }
+        }
+    }

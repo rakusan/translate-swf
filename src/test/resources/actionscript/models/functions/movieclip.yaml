@@ -1,0 +1,39 @@
+- test: duplicateMovieClip()
+  refid: duplicatemovieclip
+  file: functions/duplicatemovieclip_%d.as
+  parameters:
+    - expr: duplicateMovieClip(clip, "copy", clip.getNextHighestDepth())
+  script: |
+    x = %expr%;
+- test: removeMovieClip()
+  refid: removemovieclip
+  file: functions/removemovieclip_%d.as
+  parameters:
+    - expr: removeMovieClip(_level1.Clip)
+  script: |
+    x = %expr%;
+- test: targetPath()
+  refid: targetpath
+  file: functions/targetpath_%d.as
+  parameters:
+    - expr: targetPath(clip)
+  script: |
+    x = %expr%;
+- test: tellTarget()
+  refid: telltarget
+  file: functions/telltarget_%d.as
+  script: |
+    tellTarget("clip") {
+        gotoAndPlay(1);
+    }
+- test: ifFrameLoaded()
+  refid: ifframeloaded
+  file: functions/ifframeloaded_%d.as
+  script: |
+    ifFrameLoaded(frame) {
+        trace("Frame loaded");
+    }
+    ifFrameLoaded(scene, frame)  {
+        trace("Frame loaded");
+    }
+

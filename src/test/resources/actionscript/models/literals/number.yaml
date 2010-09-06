@@ -1,0 +1,15 @@
+- test: positive infinity
+  refid: positive_infinity
+  file: literals/positive_infinity.as
+  script: |
+    a = Infinity;
+- test: negative infinity
+  refid: negative_infinity
+  file: literals/negative_infinity.as
+  script: |
+    a = -Infinity;
+- test: NaN
+  refid: nan
+  file: literals/nan.as
+  script: |
+    a = NaN;

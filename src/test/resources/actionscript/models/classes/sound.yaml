@@ -1,0 +1,124 @@
+- test: Sound
+  refid: sound_constructor
+  file: classes/sound/sound_constructor.as
+  script: |
+    a = new Sound(Clip);
+- test: onID3
+  refid: sound_onid3
+  file: classes/sound/sound_onid3.as
+  script: |
+    a = new Sound();
+    a.onID3 = function() {
+        trace("onID3 event");
+    };
+- test: onLoad
+  refid: sound_onload
+  file: classes/sound/sound_onload.as
+  script: |
+    a = new Sound();
+    a.onLoad = function(loaded) {
+        if (loaded) {
+            snd.start();
+        } else {
+            trace("Could not load sound");
+        }
+    };
+- test: onSoundComplete
+  refid: sound_onsoundcomplete
+  file: classes/sound/sound_onsoundcomplete.as
+  script: |
+    a = new Sound();
+    a.onSoundComplete = function() {
+        trace("Sound finished");
+    };
+- test: attachSound
+  refid: sound_attachsound
+  file: classes/sound/sound_attachsound.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+- test: getBytesLoaded()
+  refid: sound_getbytesloaded
+  file: classes/sound/sound_getbytesloaded.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.getBytesLoaded();
+- test: getBytesTotal()
+  refid: sound_getbytestotal
+  file: classes/sound/sound_getbytestotal.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.getBytesTotal();
+- test: loadSound
+  refid: sound_loadsound
+  file: classes/sound/sound_loadsound.as
+  script: |
+    a = new Sound();
+    a.loadSound("event.mp3", false);
+- test: getPan()
+  refid: sound_getpan
+  file: classes/sound/sound_getpan.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.getPan();
+- test: getTransform()
+  refid: sound_gettransform
+  file: classes/sound/sound_gettransform.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.getTransform();
+- test: getVolume()
+  refid: sound_getvolume
+  file: classes/sound/sound_getvolume.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.getVolume();
+- test: setPan()
+  refid: sound_setpan
+  file: classes/sound/sound_setpan.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.setPan(0);
+- test: setTransform
+  refid: sound_settransform
+  file: classes/sound/sound_settransform.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.setTransform({ll:100, lr:30, rr:40, rl:-50});
+- test: setVolume()
+  refid: sound_setvolume
+  file: classes/sound/sound_setvolume.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.setVolume(50);
+- test: start
+  refid: sound_start
+  file: classes/sound/sound_start.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.start(5, 1);
+- test: stop()
+  refid: sound_stop
+  file: classes/sound/sound_stop.as
+  script: |
+    a = new Sound();
+    a.attachSound("bell");
+    a.stop("bell");
+- test: MP3 Properties
+  refid: 
+  file: classes/sound/sound.as
+  script: |
+    a = new Sound();
+    a.loadSound("stream.mp3");
+    a.duration;
+    a.id3;
+    a.position;

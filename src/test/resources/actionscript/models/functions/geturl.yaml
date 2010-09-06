@@ -1,0 +1,21 @@
+- test: getURL()
+  refid: geturl
+  file: functions/geturl_%d.as
+  parameters:
+    - expr: getURL("http://www.flagstonesoftware.com")
+    - expr: getURL(a)
+    - expr: getURL("http://www.flagstonesoftware.com", _self)
+    - expr: getURL("http://www.flagstonesoftware.com", "_self")
+    - expr: getURL("http://www.flagstonesoftware.com", _blank)
+    - expr: getURL("http://www.flagstonesoftware.com", "_blank")
+    - expr: getURL("http://www.flagstonesoftware.com", _parent)
+    - expr: getURL("http://www.flagstonesoftware.com", "_parent")
+    - expr: getURL("http://www.flagstonesoftware.com", _top)
+    - expr: getURL("http://www.flagstonesoftware.com", "_top")
+    - expr: getURL("http://www.flagstonesoftware.com/cgi-bin/issue", _self, "GET")
+    - expr: getURL("http://www.flagstonesoftware.com/cgi-bin/issue", "_self", "get")
+    - expr: getURL("http://www.flagstonesoftware.com/cgi-bin/download", _self, "POST")
+    - expr: getURL("http://www.flagstonesoftware.com/cgi-bin/download", "_self", "post")
+    - expr: getURL("javascript:alert('A message from Flash.')")
+  script: |
+    %expr%;

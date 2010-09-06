@@ -1,0 +1,39 @@
+# The list of tests is generated sequentially so the first test is used to 
+# generate the script that is included in the next and so on.
+
+- test: Generate file to be included.
+  refid: include
+  file: directives/include_target.as
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+  script: |
+    a = 1;
+- test: Include a file.
+  refid: include
+  file: directives/include_child.as
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+  script: |
+    #include "include_target.as"
+- test: Nested include
+  refid: include
+  file: directives/include_parent.as
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+  script: |
+    #include "include_child.as"

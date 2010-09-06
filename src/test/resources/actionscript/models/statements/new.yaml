@@ -1,0 +1,11 @@
+- test: new
+  refid: new
+  file: statements/new.as
+  script: |
+    x = new Object();
+- test: new class name in variable
+  refid: new
+  file: statements/new_variable.as
+  script: |
+    a = "Object";
+    x = new a;

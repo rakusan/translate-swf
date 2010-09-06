@@ -1,0 +1,10 @@
+- test: case insensitive function names
+  refid: geturl
+  file: functions/case_insensitive_%d.as
+  parameters:
+    - expr: getURL("http://www.flagstonesoftware.com");
+    - expr: getUrl("http://www.flagstonesoftware.com");
+    - expr: geturl("http://www.flagstonesoftware.com");
+    - expr: GETURL("http://www.flagstonesoftware.com");
+  script: |
+    %expr%;

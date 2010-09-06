@@ -1,0 +1,5 @@
+- test: Array()
+  refid: array
+  file: functions/array.as
+  script: |
+    a = Array(1, 2, 3);

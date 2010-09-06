@@ -1,0 +1,5 @@
+- test: void
+  refid: void
+  file: statements/void.as
+  script: |
+    x = void a;

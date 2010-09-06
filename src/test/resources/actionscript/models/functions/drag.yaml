@@ -1,0 +1,16 @@
+- test: startDrag()
+  refid: startdrag
+  file: functions/startdrag_%d.as
+  parameters:
+    - expr: startDrag(clip)
+    - expr: startDrag(clip, true)
+    - expr: startDrag(clip, false)
+    - expr: startDrag(clip, true, 200, 400, 400, 200)
+    - expr: startDrag(clip, false, 200, 400, 400, 200)
+  script: |
+    %expr%;
+- test: stopDrag()
+  refid: stopdrag
+  file: functions/stopdrag_%d.as
+  script: |
+    stopDrag();

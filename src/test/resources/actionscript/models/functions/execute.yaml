@@ -1,0 +1,57 @@
+- test: call()
+  refid: call
+  file: functions/call_%d.as
+  parameters:
+    - expr: call(a);
+  script: |
+    x = %expr%;
+- test: eval function
+  refid: eval
+  file: functions/eval.as
+  script: |
+    a = eval("b");
+- test: eval function discards value
+  refid: eval_discard
+  file: functions/eval_discard.as
+  script: |
+    eval("b");
+- test: fscommand()
+  refid: fscommand
+  file: functions/fscommand_%d.as
+  parameters:
+    - a: a
+      b: 1
+    - a: a 
+      b: "1"
+    - a: a
+      b: b
+    - a: "a"
+      b: b
+    - a: "a"
+      b: "b"
+    - a: "quit"
+      b: ""
+    - a: "fullscreen"
+      b: "true"
+    - a: "allowscale"
+      b: "true"
+    - a: "showmenu"
+      b: "true"
+    - a: "exec" 
+      b: "my_application"
+    - a: "trapallkeys"
+      b: "true"
+  script: |
+    a = fscommand(%a%, %b%);
+    /* TODO Example Javascript function
+    
+        function playerid_DoFSCommand(command, args) 
+        {
+            if (command == "alert") 
+            {
+                alert(args);
+            }
+        }
+    
+        fscommand("alert", "This message sent from within Flash.");
+    */

@@ -1,0 +1,64 @@
+- test: LocalConnection()
+  refid: localconnection_constructor
+  file: classes/localconnection/local_connection_constructor.as
+  script: |
+    conn = new LocalConnection();
+- test: allowDomain
+  refid: localconnection_allowdomain
+  file: classes/localconnection/allowdomain.as
+  script: |
+    conn = new LocalConnection();
+    conn.allowDomain = function(domain) {
+        allowed = false;
+        allowed = allowed || domain == "www.flagstonesoftware.com";
+        allowed = allowed || domain == "store.flagstonesoftware.com"; 
+        return (allowed);
+    };
+- test: allowInsecureDomain
+  refid: localconnection_allowinsecuredomain
+  file: classes/localconnection/allowinsecuredomain.as
+  script: |
+    conn = new LocalConnection();
+    conn.allowInsecureDomain = function(domain) {
+        allowed = false;
+        allowed = allowed || domain == this.domain();
+        allowed = allowed || domain == "www.sourceforge.net";
+        return (allowed);
+    };
+- test: methodToExecute
+  refid: localconnection_methodtoexecute
+  file: classes/localconnection/methodtoexecute.as
+  script: |
+    conn = new LocalConnection();
+    receiver.methodToExecute = function(a, b) {
+        trace("a = "+a);
+        trace("b = "+b);
+    };
+- test: methodToExecute
+  refid: localconnection_methodtoexecute
+  file: classes/localconnection/methodtoexecute.as
+  script: |
+    conn = new LocalConnection();
+    conn.methodToExecute = function(a, b) {
+        trace("a = "+a);
+        trace("b = "+b);
+    };
+- test: connect
+  refid: localconnection_connect
+  file: classes/localconnection/connect.as
+  script: |
+    conn = new LocalConnection();   
+    conn.connect("conection");
+- test: send
+  refid: localconnection_send
+  file: classes/localconnection/send.as
+  script: |
+    conn = new LocalConnection();   
+    sender.send("connection", "methodToExecute", 5, 7);
+- test: close
+  refid: localconnection_close
+  file: classes/localconnection/send.as
+  script: |
+    conn = new LocalConnection();   
+    conn.connect("conection");
+    conn.close();

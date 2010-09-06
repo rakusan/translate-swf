@@ -1,0 +1,10 @@
+- test: undefined
+  refid: undefined
+  file: literals/undefined.as
+  script: |
+    a = undefined;
+- test: undefined string
+  refid: undefined
+  file: literals/undefined_string.as
+  script: |
+    a = "undefined";

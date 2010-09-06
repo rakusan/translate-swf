@@ -1,0 +1,49 @@
+- test: Color constructor
+  refid: color_constructor
+  file: classes/color/constructor.as
+  script: |
+    a = new Color(clip);
+- test: Color getRGB()
+  refid: color_getrgb
+  file: classes/color/getrgb.as
+  script: |
+    a = new Color(clip);
+    b = a.getRGB();
+- test: Color setRGB()
+  refid: color_setrgb
+  file: classes/color/setrgb.as
+  script: |
+    a = new Color(clip);
+    a.setRGB(0x00FF00);
+- test: Color getTransform()
+  refid: color_gettransform
+  file: classes/color/gettransform.as
+  script: |
+    a = new Color(clip);
+    transform = a.getTransform();
+    
+    ra = transform.ra;
+    rb = transform.rb;
+    ga = transform.ga;
+    gb = transform.gb;
+    ba = transform.ba;
+    bb = transform.bb;
+    aa = transform.aa;
+    ab = transform.ab;
+- test: Color setTransform()
+  refid: color_settransform
+  file: classes/color/settransform.as
+  script: |
+    transform = new Object();
+    
+    transform.ra = 100;
+    transform.rb = 255;
+    transform.ga = 30;
+    transform.gb = 7;
+    transform.ba = -50;
+    transform.bb = -200;
+    transform.aa = 100;
+    transform.ab = 25;
+     
+    a = new Color(clip);
+    a.setTransform(transform);

@@ -1,0 +1,51 @@
+- test: Selection addlistener()
+  refid: selection_addlistener
+  file: classes/selection/selection_addlistener.as
+  script: |
+    listener = new Object();
+    listener.onSetFocus = function(previous, next) {
+        previous.border = false;
+        next.border = true;
+    };
+    Selection.addListener(listener);
+- test: Selection removelistener()
+  refid: selection_removelistener
+  file: classes/selection/selection_removelistener.as
+  script: |
+    listener = new Object();
+    listener.onSetFocus = function(previous, next) {
+        previous.border = false;
+        next.border = true;
+    };
+    Selection.addListener(listener);
+    Selection.removeListener(listener);
+- test: Selection getBeginIndex()
+  refid: selection_getbeginindex
+  file: classes/selection/selection_getbeginindex.as
+  script: |
+    a = Selection.getBeginIndex();
+- test: Selection getCaretIndex()
+  refid: selection_getcaretindex
+  file: classes/selection/.as
+  script: |
+    a = Selection.getCaretIndex();
+- test: Selection getEndIndex()
+  refid: selection_getendindex
+  file: classes/selection/selection_getendindex.as
+  script: |
+    a = Selection.getEndIndex();
+- test: Selection getFocus()
+  refid: selection_getfocus
+  file: classes/selection/selection_getfocus.as
+  script: |
+    a = Selection.getFocus();
+- test: Selection setFocus()
+  refid: selection_setfocus
+  file: classes/selection/selection_setfocus.as
+  script: |
+    Selection.setFocus(a);
+- test: Selection setSelection()
+  refid: selection_setselection
+  file: classes/selection/selection_setselection.as
+  script: |
+    Selection.setSelection(0, 5);

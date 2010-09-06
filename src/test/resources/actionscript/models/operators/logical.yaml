@@ -1,0 +1,99 @@
+- test: "&&"
+  refid: logical_and
+  file: operators/logical_and_%d.as
+  parameters:
+    - expr: a && b
+    - expr: a && b && c
+    - expr: a && 0
+    - expr: a && 0.0
+    - expr: a && "0"
+    - expr: 0 && a
+    - expr: 1 && a
+    - expr: 1 && "0"
+    - expr: 1 && 1
+    - expr: 1.0 && 1.0
+    - expr: 1 && "1"
+    - expr: "1" && "1"
+  script: |
+    x = %expr%;
+- test: "||"
+  refid: logical_or
+  file: operators/logical_or_%d.as
+  parameters:
+    - expr: a || b
+    - expr: a || b || c
+    - expr: a || 0
+    - expr: a || 0.0
+    - expr: a || "0"
+    - expr: 0 || a
+    - expr: 1 || a
+    - expr: 1 || "0"
+    - expr: 0 || 1
+    - expr: 1 || 0
+    - expr: 1 || 1
+    - expr: 1.0 || 1.0
+    - expr: 1 || "1"
+    - expr: "1" || "1"
+  script: |
+    x = %expr%;
+- test: "!"
+  refid: logical_not
+  file: operators/logical_not_%d.as
+  parameters:
+    - expr: !a
+    - expr: !0
+    - expr: !0.0
+    - expr: !"0"
+    - expr: !1
+    - expr: !-1
+    - expr: !0.0
+  script: |
+    x = %expr%;
+- test: and
+  refid: and
+  file: operators/and_%d.as
+  parameters:
+    - expr: a and b
+    - expr: a and 1
+    - expr: a and 1.0
+    - expr: a and "1.0"
+    - expr: 0 and a
+    - expr: a and 0
+    - expr: 1 and a
+    - expr: a and 1
+    - expr: 0 and 1
+    - expr: 0 and "1"
+    - expr: "0" and "1"
+    - expr: "1" and "0"
+  script: |
+    x = %expr%; 
+- test: or
+  refid: or
+  file: operators/or_%d.as
+  parameters:
+    - expr: a or b
+    - expr: a or 1
+    - expr: a or 1.0
+    - expr: a or "1.0"
+    - expr: 0 or a
+    - expr: a or 0
+    - expr: 1 or a
+    - expr: a or 1
+    - expr: 0 or 1
+    - expr: 0 or "1"
+    - expr: "0" or "1"
+    - expr: "1" or "0"
+  script: |
+    x = %expr%; 
+- test: not
+  refid: not
+  file: operators/not_%d.as
+  parameters:
+    - expr: not a
+    - expr: not 1
+    - expr: not 1.0
+    - expr: not "1.0"
+    - expr: not true
+    - expr: not false
+  script: |
+    x = %expr%; 

@@ -1,0 +1,23 @@
+- test: while with break
+  refid: break
+  file: statements/break.as
+  script: |
+    a = 0;
+    while (a++ < 10) {
+        if (a == 5) {
+            break;
+        }
+    }
+- test: nested while with break
+  refid: break
+  file: statements/break_nested.as
+  script: |
+    a = 0;
+    while (a++ < 10) {
+        b = 0;
+        while (b++ < 10) {
+            if (b == 5) {
+                break;
+            }
+        }
+    }

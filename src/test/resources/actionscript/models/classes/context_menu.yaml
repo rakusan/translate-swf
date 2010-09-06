@@ -1,0 +1,65 @@
+- test: ContextMenu()
+  refid: context_menu_constructor
+  file: classes/context_menu/constructor.as
+  script: |
+    function copy(menu, obj) {
+        x = 1;
+    }
+    
+    function cut(menu, obj) {
+        x = 2;
+    }
+    
+    function paste(menu, obj) {
+        x = 3;
+    }
+    
+    menu = new ContextMenu();
+    menu.customItems.push(new ContextMenuItem("Cut", cut));
+    menu.customItems.push(new ContextMenuItem("Copy", copy));
+    menu.customItems.push(new ContextMenuItem("Paste", paste));
+    button.menu = menu;
+- test onSelect
+  refid: context_menu_onselect
+  file: classes/context_menu/onselect.as
+  script: |
+    function menuHandler(obj, menu) {
+        if(obj instanceof MovieClip) {
+            trace("Movie clip: " + obj);
+        }
+        else if(obj instanceof TextField) {
+            trace("Text field: " + obj);
+        }
+        else if(obj instanceof Button) {
+            trace("Button: " + obj);
+        }
+    }
+    
+    menu.onSelect = menuHandler;
+    
+- test hideBuiltInItems()
+  refid: context_menu_hidebuiltinitems
+  file: classes/context_menu/hidebuiltinitems.as
+  script: |
+    menu = new ContextMenu();
+    menu.hideBuiltInItems();
+- test builtInItems()
+  refid: context_menu_builtinitems
+  file: classes/context_menu/builtinitems.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
+    properties.save = true;
+    properties.zoom = true;
+    properties.quality = true;
+    properties.play = true;
+    properties.loop = true;
+    properties.rewind = true;
+    properties.forward_back = true;
+    properties.print = true;
+- test copy()
+  refid: context_menu_copy
+  file: classes/context_menu/copy.as
+  script: |
+    menu = new ContextMenu();
+    copy = menu.copy();

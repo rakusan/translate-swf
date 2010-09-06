@@ -1,0 +1,5 @@
+- test: Button getDepth()
+  refid: button_getdepth
+  file: classes/button/getdepth.as
+  script: |
+    a = button.getDepth();

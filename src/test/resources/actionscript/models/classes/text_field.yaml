@@ -1,0 +1,348 @@
+- test: createTextField
+  refid: textfield_createtextfield
+  file: classes/textfield/createtextfield.as
+  script: |
+    clip.createTextField("title", this.getNextHighestDepth(), 100, 100, 250, 25);
+- test: onChanged
+  refid: textfield_onchanged
+  file: classes/textfield/textfield_onchanged.as
+  script: |
+    title.onChanged = function() {
+        trace("text field changed");
+    };
+- test: onScroller
+  refid: textfield_onscroller
+  file: classes/textfield/textfield_onscroller.as
+  script: |
+    title.onScroller = function(field) {
+        trace("text field changed");
+    };
+- test: onSetFocus
+  refid: textfield_onsetfocus
+  file: classes/textfield/textfield_onsetfocus.as
+  script: |
+    title.onSetFocus = function(field) {
+        trace("text field has focus");
+    };
+- test: onKillFocus
+  refid: textfield_onkillfocus
+  file: classes/textfield/textfield_onkillfocus.as
+  script: |
+    title.onKillFocus = function(field) {
+        trace("text field lost focus");
+    };
+- test: onChanged
+  refid: textfield_onchanged
+  file: classes/textfield/textfield_onchanged.as
+  script: |
+    listener = new Object();
+    listener.onChanged = function() {
+        trace("text field changed");
+    };
+- test: onScroller
+  refid: textfield_onscroller
+  file: classes/textfield/textfield_onscroller.as
+  script: |
+    listener.onScroller = function(field) {
+        trace("text field changed");
+    };
+- test: addListener
+  refid: textfield_addlistener
+  file: classes/textfield/textfield_addlistener.as
+  script: |
+    title.addListener(listener);
+- test: removeListener
+  refid: textfield_removelistener
+  file: classes/textfield/textfield_removelistener.as
+  script: |
+    title.removeListener(listener);
+- test: getFontList()
+  refid: textfield_getfontlist
+  file: classes/textfield/textfield_getfontlist.as
+  script: |
+    fonts = title.getFontList();
+- test: getDepth()
+  refid: textfield_getdepth
+  file: classes/textfield/textfield_getdepth.as
+  script: |
+    depth = title.getDepth();
+- test: getNewTextFormat()
+  refid: textfield_getnewtextformat
+  file: classes/textfield/textfield_getnewtextformat.as
+  script: |
+    format = title.getNewTextFormat();
+- test: getTextFormat()
+  refid: textfield_gettextformat
+  file: classes/textfield/textfield_gettextformat.as
+  script: |
+    format = title.getTextFormat();
+- test: getTextFormat(num)
+  refid: textfield_gettextformat
+  file: classes/textfield/textfield_gettextformat_num.as
+  script: |
+    format = title.getTextFormat(3);
+- test: getTextFormat(num, num)
+  refid: textfield_gettextformat
+  file: classes/textfield/textfield_gettextformat_num_num.as
+  script: |
+    format = title.getTextFormat(0, 5);
+- test: removeTextField()
+  refid: textfield_removetextfield
+  file: classes/textfield/textfield_removetextfield.as
+  script: |
+    title.removeTextField();
+- test: replaceSel()
+  refid: textfield_replacesel
+  file: classes/textfield/textfield_replacesel.as
+  script: |
+    title.replaceSel("New Characters");
+- test: replaceText()
+  refid: textfield_replacetext
+  file: classes/textfield/textfield_replacetext.as
+  script: |
+    title.replaceText(0, n, "replacement string");
+- test: setNewTextFormat()
+  refid: textfield_setnewtextformat
+  file: classes/textfield/textfield_setnewtextformat.as
+  script: |
+    title.setNewTextFormat(format);
+- test: setTextFormat(num)
+  refid: textfield_settextformat
+  file: classes/textfield/textfield_settextformat.as
+  script: |
+    format = title.setTextFormat(format);
+- test: setTextFormat(num, num)
+  refid: textfield_settextformat
+  file: classes/textfield/textfield_settextformat_num_num.as
+  script: |
+    format = title.setTextFormat(3, format);
+- test: setTextFormat(num, num, num)
+  refid: textfield_settextformat
+  file: classes/textfield/textfield_settextformat_num_num_num.as
+  script: |
+    format = title.setTextFormat(0, 5, format);
+- test: _alpha
+  refid: textfield_alpha
+  file: classes/textfield/textfield_alpha.as
+  script: |
+    title._alpha = 50;
+ - test: TextField
+  refid: textfield_createtextfield
+  file: classes/textfield/textfield.as
+  script: |
+    title.autoSize = true;
+- test: background
+  refid: textfield_background
+  file: classes/textfield/textfield_background.as
+  script: |
+    title.background = true;
+- test: backgroundColor
+  refid: textfield_backgroundcolor
+  file: classes/textfield/textfield_backgroundcolor.as
+  script: |
+    title.backgroundColor = 0xFFFFFF;
+- test: border
+  refid: textfield_border
+  file: classes/textfield/textfield_border.as
+  script: |
+    title.border = true;
+- test: TextField
+  refid: textfield_bordercolor
+  file: classes/textfield/textfield_bordercolor.as
+  script: |
+    title.borderColor = 0xFF0000;
+- test: embedFonts
+  refid: textfield_embedfonts
+  file: classes/textfield/textfield_embedfonts.as
+  script: |
+    title.embedFonts = true;
+- test: _height
+  refid: textfield_height
+  file: classes/textfield/textfield_height.as
+  script: |
+    title._height = 50;
+- test: hscroll
+  refid: textfield_hscroll
+  file: classes/textfield/textfield_hscroll.as
+  script: |
+    title.hscroll = 1;
+- test: html
+  refid: textfield_html
+  file: classes/textfield/textfield_html.as
+  script: |
+    title.html = true;
+- test: htmlText
+  refid: textfield_htmltext
+  file: classes/textfield/textfield_htmltext.as
+  script: |
+    title.htmlText = "<b>Bold</b>";
+- test: maxChars
+  refid: textfield_maxchars
+  file: classes/textfield/textfield_maxchars.as
+  script: |
+    title.maxChars = 35;
+- test: menu
+  refid: textfield_menu
+  file: classes/textfield/textfield_menu.as
+  script: |
+    title.menu = menu;
+- test: mouseWheelEnabled
+  refid: textfield_mousewheelenabled
+  file: classes/textfield/textfield_mousewheelenabled.as
+  script: |
+    title.mouseWheelEnabled = true;
+- test: multiline
+  refid: textfield_multiline
+  file: classes/textfield/textfield_multiline.as
+  script: |
+    title.multiline = true;
+- test: _name
+  refid: textfield_name
+  file: classes/textfield/textfield_name.as
+  script: |
+    title._name = "field";
+- test: _parent
+  refid: textfield_parent
+  file: classes/textfield/textfield_parent.as
+  script: |
+    title._parent = clip;
+- test: password
+  refid: textfield_password
+  file: classes/textfield/textfield_password.as
+  script: |
+    title.password = true;
+- test: _quality
+  refid: textfield_quality
+  file: classes/textfield/textfield_quality.as
+  script: |
+    title._quality = 0;
+- test: restrict
+  refid: textfield_restrict
+  file: classes/textfield/textfield_restrict.as
+  script: |
+    title.restrict = "a-z A-Z 0-9";
+- test: _rotation
+  refid: textfield_rotation
+  file: classes/textfield/textfield_rotation.as
+  script: |
+    title._rotation = 45;
+- test: scroll
+  refid: textfield_scroll
+  file: classes/textfield/textfield_scroll.as
+  script: |
+    title.scroll = 1;
+- test: selectable
+  refid: textfield_selectable
+  file: classes/textfield/textfield_selectable.as
+  script: |
+    title.selectable = true;
+- test: tabEnabled
+  refid: textfield_tabenabled
+  file: classes/textfield/textfield_tabenabled.as
+  script: |
+    title.tabEnabled = true;
+- test: tabIndex
+  refid: textfield_tabindex
+  file: classes/textfield/textfield_tabindex.as
+  script: |
+    title.tabIndex = 1;
+- test: text
+  refid: textfield_text
+  file: classes/textfield/textfield_text.as
+  script: |
+    title.text = "A String";
+- test: textColor
+  refid: textfield_textcolor
+  file: classes/textfield/textfield_textcolor.as
+  script: |
+    title.textColor = 0x000000;
+- test: textHeight
+  refid: textfield_textheight
+  file: classes/textfield/textfield_textheight.as
+  script: |
+    title.textHeight = 50;
+- test: textWidth
+  refid: textfield_textwidth
+  file: classes/textfield/textfield_textwidth.as
+  script: |
+    title.textWidth = 250;
+- test: type
+  refid: textfield_type
+  file: classes/textfield/textfield_type.as
+  script: |
+    title.type = "dynamic";
+- test: variable
+  refid: textfield_variable
+  file: classes/textfield/textfield_variable.as
+  script: |
+    title.variable = "var";
+- test: _visible
+  refid: textfield_visible
+  file: classes/textfield/textfield_visible.as
+  script: |
+    title._visible = true;
+- test: _width
+  refid: textfield_width
+  file: classes/textfield/textfield_width.as
+  script: |
+    title._width = 255;
+- test: wordWrap
+  refid: textfield_wordwrap
+  file: classes/textfield/textfield_wordwrap.as
+  script: |
+    title.wordWrap = true;
+- test: _x
+  refid: textfield_x
+  file: classes/textfield/textfield_x.as
+  script: |
+    title._x = 100;
+- test: _xscale
+  refid: textfield_xscale
+  file: classes/textfield/textfield_xscale.as
+  script: |
+    title._xscale = 100;
+- test: _y
+  refid: textfield_y
+  file: classes/textfield/textfield_y.as
+  script: |
+    title._y = 100;
+- test: _yscale
+  refid: textfield_yscale
+  file: classes/textfield/textfield_yscale.as
+  script: |
+    title._yscale = 100;
+- test: bottomScroll
+  refid: textfield_bottomscroll
+  file: classes/textfield/textfield_bottomscroll.as
+  script: |
+    lastLine = title.bottomScroll;
+- test: length
+  refid: textfield_length
+  file: classes/textfield/textfield_length.as
+  script: |
+    length = title.length;
+- test: maxhscroll
+  refid: textfield_maxhscroll
+  file: classes/textfield/textfield_maxhscroll.as
+  script: |
+    lineCount = title.maxhscroll;
+- test: maxscroll
+  refid: textfield_maxscroll
+  file: classes/textfield/textfield_maxscroll.as
+  script: |
+    maxLine = title.maxscroll;
+- test: _target
+  refid: textfield_target
+  file: classes/textfield/textfield_target.as
+  script: |
+    target = title._target;
+- test: _xmouse
+  refid: textfield_xmouse
+  file: classes/textfield/textfield_xmouse.as
+  script: |
+    x = title._xmouse;
+- test: _ymouse
+  refid: textfield_ymouse
+  file: classes/textfield/textfield_ymouse.as
+  script: |
+    y = title._ymouse;

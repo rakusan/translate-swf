@@ -1,0 +1,26 @@
+- test: post-increment
+  refid: post_increment
+  file: operators/post_increment_%d.as
+  parameters:
+    - expr: b++
+    - expr: b + 1++;
+    - expr: 0++
+    - expr: 1++
+    - expr: "1"++
+    - expr: a[b]++
+    - expr: object.attr++
+  script: |
+    a = %expr%;
+- test: post-decrement
+  refid: post_decrement
+  file: operators/post_decrement_%d.as
+  parameters:
+    - expr: b--
+    - expr: b + 1--;
+    - expr: 0--
+    - expr: 1--
+    - expr: "1"--
+    - expr: a[b]--
+    - expr: object.attr--
+  script: |
+    a = %expr%;

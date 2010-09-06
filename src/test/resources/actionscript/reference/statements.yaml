@@ -1,0 +1,213 @@
+- name: break
+  id: break
+  description: Break out of a loop.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: continue
+  id: continue
+  description: Start next iteration of a loop.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: delete
+  name: delete
+  description: Delete an object.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: do..while
+  id: dowhile
+  description: Loop at least once.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: eol
+  id: eol
+  description: Statement terminator
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: for
+  id: for
+  description: Iterate over a range.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: for..in
+  id: forin
+  description: Iterate over the properties of an object.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: function
+  id: function
+  description: Define a function.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: if
+  id: if
+  description: Statements to execute if a condition is true.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: else if
+  id: elseif
+  description: Statements to evaluate and execute when an if statement is false.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: else
+  id: else
+  description: Statements to execute when an if statement is false.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: new
+  id: new
+  description: Create an instance of an object.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: return
+  id: return
+  description: Return a value from a function.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: switch
+  name: switch
+  description: Multiple-choice conditional.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: default
+  id: default
+  description: Default condition for a switch statement.
+  profiles: 
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: throw
+  id: throw
+  description: Throw an exception.
+  profiles: 
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: try..catch..finally
+  id: try
+  description: Create an exception hanlder for a block of code.
+  profiles: 
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: var
+  name: var
+  description: Define a variable.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: void
+  name: void
+  description: Return a void value.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: while
+  id: while
+  description: Loop while a condition is true.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: with
+  id: with
+  description: Specify a target movieclip or object for the following actions.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10

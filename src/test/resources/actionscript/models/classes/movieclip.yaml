@@ -1,0 +1,172 @@
+- test: createEmptyMovieClip()
+  refid: movieclip_createemptymovieclip
+  file: classes/movieclip/movieclip_createemptymovieclip.as
+  script: |
+    this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+- test: attachMovie()
+  refid: movieclip_attachmovie
+  file: classes/movieclip/movieclip_attachmovie_%d.as
+  parameters:
+    - expr: clip.attachMovie("parent", "child", depth+1);
+    - expr: clip.attachMovie("parent", "child", depth+1, {_x:100, _y:100});
+  script: |
+    depth = this.getNextHighestDepth();
+    this.createEmptyMovieClip("clip", depth);
+    %expr%;
+- test: duplicateMovieClip()
+  refid: movieclip_duplicatemovieclip
+  file: classes/movieclip/movieclip_duplicatemovieclip_%d.as
+  parameters:
+    - expr: clip.duplicateMovieClip("subclip", depth+1);
+    - expr: clip.duplicateMovieClip("subclip", depth+1, {_x:100, _y:100});
+  script: |
+    depth = this.getNextHighestDepth();
+    this.createEmptyMovieClip("clip", depth);
+    %expr%;
+#todo
+- test: movieclip()
+  refid: movieclip_duplicatemovieclip
+  file: classes/movieclip/movieclip_duplicatemovieclip_%d.as
+  script: |
+    clip.getBounds(this);
+    clip.getBytesLoaded();
+    clip.getBytesTotal();
+    clip.getSWFVersion();
+    clip.getURL("http://www.flagstonesoftware.com");
+    clip.getURL("http://www.flagstonesoftware.com", _self);
+    clip.getURL("http://www.flagstonesoftware.com", _self, "get");
+    clip.getURL("http://www.flagstonesoftware.com/cgi-bin/issue", _self, "post");
+    clip.globalToLocal({x : _root._xmouse, y : _root._ymouse});
+    clip.gotoAndPlay(1);
+    clip.gotoAndPlay("Frame 1");
+    clip.gotoAndStop(1);
+    clip.gotoAndStop("Frame 1");
+    clip.hitTest(100, 100, true);
+    clip.hitTest(100, 100, false);
+    clip.hitTest(Clip2);
+    clip.loadMovie("Data.swf");
+    clip.loadMovie("Data.swf", "get");
+    clip.loadMovie("Data.swf", "POST");
+    clip.loadVariables("variables.txt");
+    clip.loadVariables("variables.txt", "get");
+    clip.loadVariables("variables.txt", "POST");
+    clip.localToGlobal({x : this._xmouse, y : this._ymouse});
+    clip.nextFrame();
+    clip.nextScene();
+    clip.play();
+    clip.prevFrame();
+    clip.prevScene();
+    clip.removeMovieClip();
+    clip.startDrag(true);
+    clip.startDrag(true, 0, 100, 100, 0);
+    clip.stop();
+    clip.stopDrag();
+    clip.swapDepths(2);
+    clip.swapDepths(Clip2);
+    clip.unloadMovie();
+    
+    clip.attachAudio(Microphone.get());
+    clip.createEmptyMovieClip("subclip", this.getNextHighestDepth());
+    clip.createTextField("title", this.getNextHighestDepth(), 100, 100, 250, 25);
+    clip.getDepth();
+    clip.setMask(mc);
+    clip.getInstanceAtDepth(1);
+    clip.getNextHighestDepth();
+    
+    clip.getSWFVersion();
+    clip.getTextSnapshot();
+    
+    clip.onData = function() {
+       trace("onData event");
+    };
+    
+    clip.onDragOut = function() {
+       trace("onDragOut event");
+    };
+    
+    clip.onDragOver = function() {
+       trace("onDragOver event");
+    };
+    
+    clip.onEnterFrame = function() {
+       trace("onEnterFrame event");
+    };
+    
+    clip.onKeyDown = function() {
+       trace("onKeyDown event");
+    };
+    
+    clip.onKeyUp = function() {
+       trace("onKeyUp event");
+    };
+    
+    clip.onKillFocus = function() {
+       trace("onKillFocus event");
+    };
+    
+    clip.onLoad = function() {
+       trace("onLoad event");
+    };
+    
+    clip.onMouseDown = function() {
+       trace("onMouseDown event");
+    };
+    
+    clip.onMouseMove = function() {
+       trace("onMouseMove event");
+    };
+    
+    clip.onMouseUp = function() {
+       trace("onMouseUp event");
+    };
+    
+    clip.onPress = function() {
+       trace("onPress event");
+    };
+    
+    clip.onRelease = function() {
+       trace("onRelease event");
+    };
+    
+    clip.onReleaseOutside = function() {
+       trace("onReleaseOutside event");
+    };
+    
+    clip.onRollOut = function() {
+       trace("onRollOut event");
+    };
+    
+    clip.onRollOver = function() {
+       trace("onRollOver event");
+    };
+    
+    clip.onSetFocus = function() {
+       trace("onSetFocus event");
+    };
+    
+    clip.onUnload = function() {
+       trace("onUnload event");
+    };
+    
+    clip.createEmptyMovieClip("shape", this.getNextHighestDepth());
+    
+    shape.lineStyle(1, 0x000000, 100);
+    
+    shape.beginFill(0xCC9966, 50);
+    
+    shape.moveTo(0, 0);
+    shape.lineTo(100, 0);
+    shape.curveTo(600, 500, 600, 400);
+    shape.lineTo(0, 100);
+    shape.lineTo(0, 0);
+    
+    shape.endFill();
+    shape.clear();
+     
+    colors = [0xFF0000, 0x0000FF];
+    alphas = [100, 100];
+    ratios = [0, 0xFF];
+    matrix = {a:200, b:0, c:0, d:0, e:200, f:0, g:200, h:200, i:1};
+    
+    shape.beginGradientFill("linear", colors, alphas, ratio, matrix);
+    shape.beginGradientFill("radial", colors, alphas, ratio, matrix);

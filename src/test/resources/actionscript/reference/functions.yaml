@@ -1,0 +1,763 @@
+- name: Array()
+  id: array
+  description: Creates a new array.
+  profiles:
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: asfunction()
+  id: asfunction
+  description: Allows a link in a textfield to call an actionscript function.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: Boolean()
+  id: boolean
+  description: Convert a value to a boolean.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: call()
+  id: call
+  description: Execute the actions in a frame.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: chr()
+  id: chr
+  description: Converts an ASCII code to a character.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: clearInterval()
+  id: clearinterval
+  description: Clears the call made to setInterval().
+  profiles:
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: duplicateMovieClip()
+  id: duplicatemovieclip
+  description: Create a copy of a movieclip.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: escape()
+  id: escape
+  description: urlencodes a string.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: eval()
+  id: eval
+  description: Evaluates an actionscript expression.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: fscommand()
+  id: fscommand
+  description: Send a command to the Flash Player or web browser.
+  profiles:
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: getProperty()
+  id: getProperty
+  description: Return a property of a movieclip.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: getTimer()
+  id: gettimer
+  description: Returns the number of milliseconds since the movie started playing.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: getURL()
+  id: geturl
+  description: Execute an HTTP GET or POST request.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: getVersion()
+  id: getversion
+  description: Return a string containing the Flash Player version.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: gotoAndPlay()
+  id: gotoandplay
+  description: Move the timeline to the specified frame.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: gotoAndStop()
+  id: gotoandstop
+  description: Move the timeline to the specified frame and stop.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: ifFrameLoaded()
+  id: ifframeloaded
+  description: Test whether the frame has been loaded.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: int()
+  id: int
+  description: Converts a number to an integer.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: isFinite()
+  id: isfinite
+  description: Is a number finitie, i.e. not Infinity or -Infinity.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: isNaN()
+  id: isnan
+  description: Is a number equal to NaN.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: length()
+  id: length
+  description: Returns the length of a string.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: loadMovie()
+  id: loadmovie
+  description: Load movie or JPEG image.
+  profiles:
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: loadMovieNum()
+  id: loadmovienum
+  description: Load movie or JPEG image to the specified level.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: loadVariables()
+  id: loadvariables
+  description: Load a set of variable values.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: loadVariablesNum()
+  id: loadvariablesnum
+  description: Load a set of variable values to the specified level.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: mbchr()
+  id: mbchr
+  description: Convert an ASCII code to a multi-byte character.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: mblength()
+  id: mblength
+  description: Returns the length of a multi-byte string.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: mbord()
+  id: mbord
+  description: Converts a multi-byte character to a number.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: mbsubstring()
+  id: mbsubstring
+  description: Extracts a string from a multi-byte string.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: MMExecute()
+  id: mmexecute
+  description: Executes a Flash Javascript API command.
+  profiles:
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: nextFrame()
+  id: nextframe
+  description: Move the timeline to next frame.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: nextScene()
+  id: nextscene
+  description: Move the timeline to the first frame of the next scene.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: Number()
+  id: number
+  description: Convert a value to a number.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: Object()
+  id: object
+  description: Convert an argument to an Object.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: ord()
+  id: ord
+  description: Convert an ASCII character to a number.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: parseFloat()
+  id: parsefloat
+  description: Convert a string to a floating-point number.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: parseInt()
+  id: parseint
+  description: Convert a string to an integer.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: play()
+  id: play
+  description: Start playing the movie or movieclip.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: prevFrame()
+  id: prevframe
+  description: Move the timeline to the previous frame.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: prevScene()
+  id: prevscene
+  description: Move the timeline to the first frame of the previous scene.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: print()
+  id: print
+  description: Prints a movieclip.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: printAsBitmap()
+  id: printasbitmap
+  description: Prints a movieclip as a bitmap.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: printAsBitmapNum()
+  id: printasbitmapnum
+  description: Prints the specified level.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: printNum()
+  id: printnum
+  description: Prints the specified level as a bitmap.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: random()
+  id: random
+  description: Return a random number from the specified range.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: removeMovieClip()
+  id: removemovieclip
+  description: Delete a movieclip.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: set()
+  id: set
+  description: Set a variable.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: setInterval()
+  id: setinterval
+  description: Create an interval timer to call a function or method.
+  profiles:
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: setProperty()
+  id: setproperty
+  description: Set a property.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: showRedrawRegions()
+  id: showredrawregions
+  description: Display the regions that ill be redrawn (for debugging).
+  profiles: 
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: startDrag()
+  id: startdrag
+  description: Make a movieclip draggable.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: stop()
+  id: stop
+  description: Stop playing a movie or movieclip.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: stopAllSounds()
+  id: stopallsounds
+  description: Stop playing sounds.
+  profiles:
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: stopDrag()
+  id: stopdrag
+  description: Stop dragging a movieclip.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: String()
+  id: string
+  description: Convert an object to a string.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: substring()
+  id: substring
+  description: Extracts a string from a string.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: targetPath()
+  id: targetpath
+  description: Returns the path to a movieclip.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: tellTarget()
+  id: telltarget
+  description: Executes a statement in the target movieclip.
+  profiles:
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: toggleHighQuality()
+  id: togglehighquality
+  description: Turn anti-aliasing on or off.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: trace()
+  id: trace
+  description: Display a value on the Flash Console (for debugging).
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: unescape()
+  id: unescape
+  description: urldecode a string.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: unloadMovie()
+  id: unloadmovie
+  description: Delete a movieclip loaded using loadMovie().
+  profiles:
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: unloadMovieNum()
+  id: unloadmovienum
+  description: Delete a movieclip loaded using loadMovieNum().
+  profiles:
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: updateAfterEvent()
+  id: updateafterevent
+  description: Refresh the screen after an event handler has finished.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+

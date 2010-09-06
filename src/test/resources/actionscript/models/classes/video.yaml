@@ -1,0 +1,46 @@
+- test: Video
+  refid: video_constructor
+  file: classes/video/video_constructor.as
+  script: |
+    screen = new Video();
+- test: attachVideo()
+  refid: video_attachvideo
+  file: classes/video/video_attachvideo.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+- test: clear()
+  refid: video_clear
+  file: classes/video/video_clear.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    screen.clear();    
+- test: deblocking
+  refid: video_deblocking
+  file: classes/video/video_deblocking.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    screen.deblocking = 0;
+- test: smoothing
+  refid: video_smoothing
+  file: classes/video/video_smoothing.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    screen.smoothing = true;
+- test: height
+  refid: video_height
+  file: classes/video/video_height.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    height = screen.height;
+- test: width
+  refid: video_width
+  file: classes/video/video_width.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    width = screen.width;

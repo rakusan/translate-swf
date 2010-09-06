@@ -1,0 +1,23 @@
+- test: PrintJob()
+  refid: printjob_constructor
+  file: classes/printjob/printjob_constructor.as
+  script: |
+    a = new PrintJob();
+- test: start()
+  refid: printjob_start
+  file: classes/printjob/printjob_start.as
+  script: |
+    a = new PrintJob();
+    a.start();
+- test: addPage()
+  refid: printjob_start
+  file: classes/printjob/printjob_start.as
+  script: |
+    a = new PrintJob();
+    a.addPage(0, {xMin:0,xMax:640,yMin:0,yMax:480});
+- test: send()
+  refid: printjob_send
+  file: classes/printjob/printjob_send.as
+  script: |
+    a = new PrintJob();
+    a.send();

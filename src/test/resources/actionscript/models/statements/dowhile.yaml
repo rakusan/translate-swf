@@ -1,0 +1,36 @@
+- test: do..while
+  refid: dowhile
+  file: statements/dowhile.as
+  script: |
+    a = 0;
+    do {
+        a += 1;
+    } while (a < 10);
+- test: do..while with single statement
+  refid: dowhile
+  file: statements/dowhile_single.as
+  script: |
+    a = 0;
+    do
+        a += 1;
+    while (a < 10);
+- test: do..while with empty statement
+  refid: dowhile
+  file: statements/dowhile_empty.as
+  script: |
+    a = 0;
+    do
+        ;
+    while (a < 10);
+- test: do..while nested
+  refid: dowhile
+  file: statements/dowhile_nested.as
+  script: |
+    a = 0;
+    do {
+        b = 0;
+        do {
+            b += 1;
+        } while (b < 10);
+        a += 1;
+    } while (a < 10);

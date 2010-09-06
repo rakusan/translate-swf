@@ -1,0 +1,46 @@
+- test: Stage.align
+  refid: stage_align
+  file: classes/stage/stage_align.as
+  script: |
+    Stage.align = "T";
+    a = Stage.align;
+- test: Stage.height
+  refid: stage_height
+  file: classes/stage/stage_height.as
+  script: |
+    Stage.height = 100;
+    a = Stage.height;
+- test: Stage.width
+  refid: stage_width
+  file: classes/stage/stage_width.as
+  script: |
+    Stage.width = 100;
+    a = Stage.width;
+- test: Stage.scaleMode
+  refid: stage_scalemode
+  file: classes/stage/stage_scalemode.as
+  script: |
+    Stage.scaleMode = "exactFit";
+    a = Stage.scaleMode;
+- test: Stage.showMenu
+  refid: stage_showmenu
+  file: classes/stage/stage_showmenu.as
+  script: |
+    Stage.showMenu = true;
+    a = Stage.showMenu;
+- test: addListener()
+  refid: stage_addlistener
+  file: classes/stage/stage_addlistener.as
+  script: |
+    listener = new Object();
+    listener.onResize = function() {};
+    Stage.addListener(listener);
+- test: removeListener()
+  refid: stage_removelistener
+  file: classes/stage/stage_removelistener.as
+  script: |
+    listener = new Object();
+    listener.onResize = function() {};
+    Stage.addListener(listener);
+    Stage.removeListener(listener);
+ 

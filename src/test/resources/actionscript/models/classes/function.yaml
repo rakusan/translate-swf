@@ -1,0 +1,31 @@
+- test: apply()
+  refid: function_apply
+  file: classes/function/apply.as
+  script: |
+    function show() {
+        trace(arguments);
+    }
+    show.apply(null, new Array(1,2,3));
+- test: call()
+  refid: function_call
+  file: classes/function/call.as
+  script: |
+    function show() {
+        for (i=0; i<arguments.length; i++) {
+            trace(arguments[i]);
+        }
+    }
+    show.call(null, 1, 2, 3);
+- test: call() on an object
+  refid: function_call
+  file: classes/function/object.as
+  script: |
+    function show() {
+        for (i=0; i<arguments.length; i++) {
+            trace(arguments[i]);
+        }
+    }
+    obj = new Object();
+    obj.val = 1;
+    
+    show.call(obj, "a", "b", "c");

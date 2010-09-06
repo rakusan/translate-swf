@@ -1,0 +1,55 @@
+- test: TextStyleSheet
+  refid: textstylesheet_constructor
+  file: classes/textstylesheet/text_stylesheet.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+- test: onLoad
+  refid: textstylesheet_onload
+  file: classes/textstylesheet/onload.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+    stylesheet.onLoad = function(success) {
+        if (success) {
+            trace("Stylesheet loaded");
+            
+            styles = stylesheet.getStyleNames();
+            
+            trace(styles_array.join(newline));
+        } 
+    };
+- test: load()
+  refid: textstylesheet_load
+  file: classes/textstylesheet/load.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+    stylesheet.load("styles.css");
+- test: getStyle()
+  refid: textstylesheet_getstyle
+  file: classes/textstylesheet/textstylesheet_getstyle.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+    stylesheet.getStyle("heading");
+- test: parseCSS()
+  refid: textstylesheet_parsecss
+  file: classes/textstylesheet/textstylesheet_parsecss.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+    styleSheet.parseCSS(".heading { font-family: Arial; font-size: 12px }");
+- test: setStyle()
+  refid: textstylesheet_setstyle
+  file: classes/textstylesheet/textstylesheet_setstyle.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+    styleSheet.setStyle("heading", "{ font-family: Arial; font-size: 12px }");
+- test: transform()
+  refid: textstylesheet_transform
+  file: classes/textstylesheet/textstylesheet_transform.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+    stylesheet.transform(sheet.getStyle("heading"));
+- test: clear()
+  refid: textstylesheet_clear
+  file: classes/textstylesheet/textstylesheet_clear.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+    stylesheet.clear();

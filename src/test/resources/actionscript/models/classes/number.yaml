@@ -1,0 +1,29 @@
+- test: Constants
+  properties:
+    - value: MAX_VALUE
+      refid: number_max_value
+    - value: MIN_VALUE
+      refid: number_min_value
+    - value: NaN
+      refid: number_nan
+    - value: NEGATIVE_INFINITY
+      refid: number_negative_infinity
+    - value: POSITIVE_INFINITY
+      refid: number_positive_infinity
+  script: |
+    a = Number.%value%;
+- test: Number()
+  refid: number_constructor
+  file: classes/number/number_constructor.as
+  script: |
+    a = new Number(1);
+- test: toString()
+  refid: number_tostring
+  file: classes/number/number_tostring.as
+  script: |
+    a = new Number(1).toString();
+- test: valueOf()
+  refid: number_valueof
+  file: classes/number/number_valueof.as
+  script: |
+    a = new Number(1).valueOf();

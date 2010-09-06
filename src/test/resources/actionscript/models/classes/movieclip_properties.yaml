@@ -1,0 +1,161 @@
+- test: Verify read/write MovieClip properties for Flash 4
+  type: event
+  parameters:
+    - property: _alpha
+      value: 50
+      refid: movieclip_alpha
+    - property: _height
+      value: 100
+      refid: movieclip_height
+    - property: _name
+      value: newClip
+      refid: movieclip_name
+    - property: _rotation
+      value: 50
+      refid: movieclip_rotation
+    - property: _visible
+      value: "true"
+      refid: movieclip_visible
+    - property: _width
+      value: 100
+      refid: movieclip_width
+    - property: _x
+      value: 100
+      refid: movieclip_x
+    - property: _xscale
+      value: 100
+      refid: movieclip_xscale
+    - property: _y
+      value: 100
+      refid: movieclip_y
+    - property: _yscale
+      value: 100
+      refid: movieclip_yscale
+    - property: _parent
+      value: 100
+      refid: movieclip_parent
+  script: |
+    onClipEvent (mouseDown) {
+        %property% = %value%;
+        a = %property%;
+         
+        this.%property% = %value%;
+        a = this.%property%;
+        
+        clip.%property% = %value%;
+        a = clip.%property%;
+    }  
+- test: Verify read/write MovieClip properties for Flash 6
+  type: event
+  parameters:
+    - property: enabled
+      value: "true"
+      refid: movieclip_enabled
+    - property: focusEnabled
+      value: "true"
+      refid: movieclip_focusEnabled
+    - property: _focusrect
+      value: "true"
+      refid: movieclip_focusrect
+    - property: hitArea
+      value: clip
+      refid: movieclip_hitarea
+    - property: _highquality
+      value: 0
+      refid: movieclip_highquality
+    - property: _soundbuftime
+      value: 10
+      refid: movieclip_soundbuftime
+    - property: tabChildren
+      value: "true"
+      refid: movieclip_tabchildren
+    - property: tabEnabled
+      value: "true"
+      refid: movieclip_tabenabled
+    - property: tabIndex
+      value: 1
+      refid: movieclip_tabindex
+    - property: trackAsMenu
+      value: "true"
+      refid: movieclip_trackasmenu
+    - property: useHandCursor
+      value: "true"
+      refid: movieclip_usehandcursor
+  script: |
+    onClipEvent (mouseDown) {
+        %property% = %value%;
+        a = %property%;
+         
+        this.%property% = %value%;
+        a = this.%property%;
+        
+        clip.%property% = %value%;
+        a = clip.%property%;
+    } 
+- test: Verify read/write MovieClip properties for Flash 7
+  type: event
+  parameters:
+    - property: _lockRoot
+      value: "true"
+      refid: movieclip_lockroot
+    - property: menu
+      value: menu
+      refid: movieclip_menu
+  script: |
+    onClipEvent (mouseDown) {
+        %property% = %value%;
+        a = %property%;
+         
+        this.%property% = %value%;
+        a = this.%property%;
+        
+        clip.%property% = %value%;
+        a = clip.%property%;
+    } 
+- test: Verify read-only MovieClip properties for Flash 4
+  profiles:
+    - DEFAULT_1_4
+  type: event
+  parameters:
+    - property: _currentframe
+      refid: movieclip_currentframe
+    - property: _droptarget
+      refid: movieclip_droptarget
+    - property: _framesloaded
+      refid: movieclip_framesloaded
+    - property: _target
+      refid: movieclip_target
+    - property: _totalframes
+      refid: movieclip_totalframes
+    - property: _url
+      refid: movieclip_url
+  script: |
+    onClipEvent (mouseDown) {
+        a = %property%;
+        a = this.%property%;
+        a = clip.%property%;
+    }
+- test: Verify read-only MovieClip properties for Flash 5
+  profiles:
+    - DEFAULT_1_5
+  type: event
+  parameters:
+    - property: _xmouse
+      refid: movieclip_xmouse
+    - property: _ymouse
+      refid: movieclip_ymouse
+  script: |
+    onClipEvent (mouseDown) {
+        a = %property%;
+        a = this.%property%;
+        a = clip.%property%;
+    }
+- test: Verify references to MovieClip _parent can be nested
+  type: event
+  refid: movieclip_parent
+  file: classes/movieclip/movieclip_parent_nested.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = _parent;
+        a = _parent._parent;
+    }

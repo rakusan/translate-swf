@@ -1,0 +1,98 @@
+- test: Object
+  refid: object_constructor
+  file: classes/object/object_constructor.as
+  script: |
+    a = new Object();
+- test: Object
+  refid: object_constructor_anonymous
+  file: classes/object/object_constructor_anonymous.as
+  script: |
+    a = {a:1, b:2};
+- test: Object
+  refid: object_constructor_parameter
+  file: classes/object/object_constructor_parameter.as
+  script: |
+    a = new Object("Marie Celeste");
+- test: Template
+  refid: object_template
+  file: classes/object/object_template.as
+  script: |
+    function Ship(name) {
+        this.getName = function() {
+            return this.name;
+        };
+    
+        this.getCaptain = function() {
+            return this.captain;
+        };
+    
+        this.setCaptain = function(name) {
+            this.captain = name;
+        };
+    
+        this.name = name;
+    }
+    a = new Ship("Marie Celeste");
+- test: toString()
+  refid: object_tostring
+  file: classes/object/object_tostring.as
+  script: |
+    a = new Object("Marie Celeste");
+    a.toString();
+- test: valueOf()
+  refid: object_valueof
+  file: classes/object/object_valueof.as
+  script: |
+    a = new Object("Marie Celeste");
+    a.valueOf();
+- test: constructor
+  refid: object_constructor
+  file: classes/object/object_constructor.as
+  script: |
+    a = new Object("Marie Celeste");
+    x = a.constructor;
+- test: proto
+  refid: object_proto
+  file: classes/object/object_proto.as
+  script: |
+    a = new Object("Marie Celeste");
+    x = a.__proto__;
+- test: resolve
+  refid: object_resolve
+  file: classes/object/object_resolve.as
+  script: |
+    a = new Object("Marie Celeste");
+    a.__resolve = function (name) {
+        trace("Resolving "+name);
+    };    
+- test: watch
+  refid: object_watch
+  file: classes/object/object_watch.as
+  script: |
+    a = new Object("Marie Celeste");
+    function writeStory(author) {
+        if (author == "Conan Doyle") {
+             trace("Mystery");
+        }
+    }
+    a.watch("crew", writeStory, "Conan Doyle");
+    a.setCrew(null);
+- test: unwatch
+  refid: object_unwatch
+  file: classes/object/object_unwatch.as
+  script: |
+    a = new Object("Marie Celeste");
+    function writeStory(author) {
+        if (author == "Conan Doyle") {
+             trace("Mystery");
+        }
+    }
+    a.watch("crew", writeStory, "Conan Doyle");
+    a.unwatch("crew");
+- test: registerClass
+  refid: object_registerclass
+  file: classes/object/object_registerclass.as
+  script: |
+    a = new Object("Marie Celeste");
+    Object.registerClass("SailingShip", Ship);
+

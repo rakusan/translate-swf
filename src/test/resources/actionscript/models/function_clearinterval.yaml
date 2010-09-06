@@ -1,6 +1,0 @@
-- test: clearInterval function
-  refid: function_clearinterval
-  profiles:
-    - DEFAULT_1_4
-  script: |
-    clearInterval(id);

@@ -1,0 +1,55 @@
+- test: XmlSocket
+  refid: xmlsocket
+  file: classes/xmlsocket/xml_socket.as
+  script: |
+    doc = new XMLSocket();
+- test: connect()
+  refid: xmlsocket_connect
+  file: classes/xmlsocket/xmlsocket_connect.as
+  script: |
+    doc = new XMLSocket();
+    doc.connect("xmlserver.flagstonesoftware.com", 556);
+- test: send()
+  refid: xmlsocket_send
+  file: classes/xmlsocket/xmlsocket_send.as
+  script: |
+    doc = new XMLSocket();
+    doc.send(xmlObject);
+- test: close()
+  refid: xmlsocket_close
+  file: classes/xmlsocket/xmlsocket_close.as
+  script: |
+    doc = new XMLSocket();
+    doc.close();
+- test: onClose
+  refid: xmlsocket_onclose
+  file: classes/xmlsocket/xmlsocket_onclose.as
+  script: |
+    doc = new XMLSocket();
+    doc.onClose = function() {
+        x = 1;
+    };
+- test: onConnect
+  refid: xmlsocket_onconnect
+  file: classes/xmlsocket/xmlsocket_onconnect.as
+  script: |
+    doc = new XMLSocket();
+    doc.onConnect = function(success) {
+        x = 1;
+    };
+- test: onData
+  refid: xmlsocket_ondata
+  file: classes/xmlsocket/xmlsocket_ondata.as
+  script: |
+    doc = new XMLSocket();
+    doc.onData = function(doc) {
+        trace("File loaded.");
+    };
+- test: onXML
+  refid: xmlsocket_onxml
+  file: classes/xmlsocket/xmlsocket_onxml.as
+  script: |
+    doc = new XMLSocket();
+    doc.onXML = function(doc) {
+        trace("XML Parsed.");
+    };

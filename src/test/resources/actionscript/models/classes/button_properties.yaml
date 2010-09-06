@@ -1,0 +1,129 @@
+# Read-only properties
+- test: _name
+  refid: button_name
+  file: classes/button/_name.as
+  script: |
+    a = button._name;
+- test: _parent
+  refid: button_parent
+  file: classes/button/_parent.as
+  script: |
+    a = button._parent;
+- test: _target
+  refid: button_target
+  file: classes/button/_target.as
+  script: |
+    a = button._target;
+- test: _url
+  refid: button_url
+  file: classes/button/_url.as
+  script: |
+    a = button._url;
+- test: _xmouse
+  refid: button_xmouse
+  file: classes/button/_xmouse.as
+  script: |
+    a = button._xmouse;
+- test: _ymouse
+  refid: button_ymouse
+  file: classes/button/_ymouse.as
+  script: |
+    a = button._ymouse;
+
+# Read/write properties
+- test: _alpha
+  refid: button_alpha
+  file: classes/button/_alpha.as
+  script: |
+    button._alpha = a;
+    a = button._alpha;
+- test: enabled
+  refid: button_enabled
+  file: classes/button/enabled.as
+  script: |
+    button.enabled  = a;
+    a = button.enabled;
+- test: _visible
+  refid: button_visible
+  file: classes/button/_visible.as
+  script: |
+    button._visible = a;
+    a = button._visible;
+- test: _width
+  refid: button_width
+  file: classes/button/_width.as
+  script: |
+    button._width = 250;
+    a = button._width;
+- test: _height
+  refid: button_height
+  file: classes/button/_height.as
+  script: |
+    button._height = 250;
+    a = button._height;
+- test: _rotation
+  refid: button_rotation
+  file: classes/button/_rotation.as
+  script: |
+    button._rotation = 90;
+    a = button._rotation;
+- test: _xscale
+  refid: button_xscale
+  file: classes/button/_xscale.as
+  script: |
+    button._xscale = 90;
+    a = button._xscale;
+- test: _yscale
+  refid: button_yscale
+  file: classes/button/_yscale.as
+  script: |
+    button._yscale = 90;
+    a = button._yscale;
+- test: _x
+  refid: button_x
+  file: classes/button/_x.as
+  script: |
+    button._x = 100;
+    a = button._x;
+- test: _y
+  refid: button_y
+  file: classes/button/_y.as
+  script: |
+    button._y = 100;
+    a = button._y;
+- test: _highquality
+  refid: button_highquality
+  file: classes/button/_highquality.as
+  script: |
+    button._highquality = 100;
+    a = button._highquality;
+- test: _quality
+  refid: button_quality
+  file: classes/button/_quality.as
+  script: |
+    button._quality = 100;
+    a = button._quality;
+- test: useHandCursor
+  refid: button_usehandcursor
+  file: classes/button/useHandCursor.as
+  script: |
+    button.useHandCursor = true;
+    a = button.useHandCursor;
+- test: _focusrect
+  refid: button_focusrect
+  file: classes/button/_focusrect.as
+  script: |
+    button._focusrect = true;
+    a = button._focusrect;
+- test: tabEnabled
+  refid: button_tabEnabled
+  file: classes/button/tabEnabled.as
+  script: |
+    button.tabEnabled = true;
+    a = button.tabEnabled;
+- test: tabIndex
+  refid: button_tabIndex
+  file: classes/button/tabIndex.as
+  script: |
+    button.tabIndex = 1;
+    a = button.tabIndex;

@@ -1,0 +1,10 @@
+- test: this
+  refid: this
+  file: literals/this.as
+  script: |
+	function Ship(name) {
+	    this.getName = function() {
+		    return this.name;
+	    };
+	    this.name = name;
+    }

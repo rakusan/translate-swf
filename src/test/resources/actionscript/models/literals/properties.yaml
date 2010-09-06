@@ -1,0 +1,14 @@
+- test: Properties
+  file: literals/properties_%d.as
+  parameters:
+    - expr: _level0
+    - expr: _root
+    - expr: _xmouse
+    - expr: _ymouse
+    - expr: _focusrect
+    - expr: _soundbuftime
+    - expr: _highquality
+    - expr: _quality = 1
+    - expr: _quality = "LOW"
+  script: |
+    - expr: x = %expr%

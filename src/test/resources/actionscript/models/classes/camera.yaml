@@ -1,0 +1,69 @@
+- test: Camera names
+  refid: camera_names
+  file: classes/camera/names.as
+  script: |
+    list = Camera.names;
+- test: Camera get()
+  refid: camera_get
+  file: classes/camera/get.as
+  script: |
+    Camera.get();
+- test: Camera get(index)
+  refid: camera_get
+  file: classes/camera/get_index.as
+  script: |
+    Camera.get(1);
+- test: Camera setMotionLevel()
+  refid: camera_setmotionlevel
+  file: classes/camera/setmotionlevel.as
+  script: |
+    cam = Camera.get();
+    cam.setMotionLevel(50);
+- test: Limit quality setQality()
+  refid: camera_setquality
+  file: classes/camera/setquality.as
+  script: |
+    cam = Camera.get();
+    cam.setQuality(8192, 0);
+- test: Limit bandwidth setQality()
+  refid: camera_setquality
+  file: classes/camera/bandwidth.as
+  script: |
+    cam = Camera.get();
+    cam.setQuality(0, 50);
+- test: Limit bandwidth and quality setQality()
+  refid: camera_setquality
+  file: classes/camera/bandwidth_quality.as
+  script: |
+    cam = Camera.get();
+    cam.setQuality(16484, 50);
+- test: setMode()
+  refid: camera_setmode
+  file: classes/camera/setmode_1.as
+  script: |
+    cam = Camera.get();
+    cam.setMode(640, 480, 24);
+- test: setMode()
+  refid: camera_setmode
+  file: classes/camera/setmode_2.as
+  script: |
+    cam = Camera.get();
+    cam.setMode(640, 480, 24, true);
+- test: onActivity event handler
+  refid: camera_onactivity
+  file: classes/camera/onactivity.as
+  script: |
+    cam = Camera.get();
+    cam.onActivity = function(mode) {
+        trace(mode);
+    };
+- test: onStatus event handler
+  refid: camera_onstatus
+  file: classes/camera/onstatus.as
+  script: |
+    cam = Camera.get();
+    cam.onStatus = function(status) {
+        if (status.code == "Camera.Muted") {
+            trace("Camera not available");
+        }
+    };

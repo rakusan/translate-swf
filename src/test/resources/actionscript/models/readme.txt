@@ -1,12 +1,14 @@
-The files in this directory are templates, written in YAML, that are used to generate the actionscript files that are used to test the compiler.
+The files in these directories are templates, written in YAML, that are used to generate the actionscript files that are used to test the compiler.
 
-Each file contains a list of tests. For each test there is a list of profiles which describes the versions of actionscript, flash and runtime platform that the script is valid for. There is an optional list of parameters. Each defines a set of key-value pairs which are used to replace tokens, e.g. %value% in the script. This allows a large number of variations of parameters to be concisely coded without having to write separate tests.
+Each file contains a list of tests. For each test there is refid attribute that is used to refer to an entry in the language reference YAML files that describe the language feature. Each entry in the language reference YAML file has a list of profiles which describes the versions of actionscript, flash and runtime platform that the tesxt is valid for. At least one script containing the test code will be generated for each profile. That ensures that a given feature is tested for every Flash version it is valid for so different forms of code generation can be tested, for example strict equals, ===, has a new action added in Flash 7 to support it. For earlier versions the behaviour was simulated using a more complex set of actions.
+
+There is also an optional list of parameters that defines a set of key-value pairs, which are used to replace tokens, e.g. %value% in the script. A new script is generated for each entry in the parameters list. This allows a large number of variations of parameters to be concisely coded without having to write separate tests.
 
 The scripts are generated using the ActionscriptGenerator class in the src/test/java/tools directory. The YAML file is processed according to the following algorithm:
 
 If there is a set of parameters given:
 
-foreach test
+foreach test  
   foreach profile
     foreach parameter
       replace tokens
@@ -57,12 +59,3 @@ In a further twist is it possible to omit the "file" field completely. Each test
 
 The script generated will be: movieclip_gotoframe.as
 
-- test: ...
-  parameters:
-    - ...
-      refid: button_name
-    - ... 
-      refid: button_alpha
-  script: ...
-  
-The scripts generated will be: button_name.as, button_alpha.as

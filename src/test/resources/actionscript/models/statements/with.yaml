@@ -1,0 +1,45 @@
+- test: with statement using properties.
+  refid: with
+  file: statements/with_property.as
+  script: |
+    a = new Object();
+    with (a) {
+        _width = 10;
+        _width = 20;
+    }
+- test: with statement using attributes
+  refid: with
+  file: statements/with_attributes.as
+  script: |
+    a = new Object();
+    with (a) {
+        x = 10;
+        y = 20;
+    }
+- test: with dereferencing another object
+  refid: with
+  file: statements/with_dereference.as
+  script: |
+    a = new Object();
+    a.x = new Object();    
+    with (a.x) {
+        y = 10;
+    }
+- test: with empty statement
+  refid: with
+  file: statements/with_empty.as
+  script: |
+    a = new Object();
+    with (a);
+- test: with nested
+  refid: with
+  file: statements/with_nested.as
+  script: |
+    a = new Object();
+    b = new Object();
+    with (a) {
+        x = 1;
+        with (b) {
+            y = 2;
+        }
+    }

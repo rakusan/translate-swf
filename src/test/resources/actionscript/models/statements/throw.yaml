@@ -1,0 +1,11 @@
+- test: throw an error
+  refid: throw
+  file: statements/throw_object.as
+  script: |
+    throw new Error("Invalid value");
+- test: throw a variable
+  refid: throw
+  file: statements/throw_variable.as
+  script: |
+    throw b;
+-

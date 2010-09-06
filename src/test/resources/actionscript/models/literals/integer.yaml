@@ -1,0 +1,13 @@
+- test: integers
+  refid: integer
+  file: literals/integer_%d.as
+  parameters:
+    - expr: -1
+    - expr: 0
+    - expr: 1
+    - expr: 0001
+    - expr: -0001
+    - expr: 2147483647
+    - expr: -2147483648
+  script: |
+    a = %expr%;

@@ -1,7 +1,0 @@
-- test: Array function with multiple arguments
-  refid: function_array
-  profiles:
-    - DEFAULT_1_4
-  parameters:
-  script: |
-    a = Array(1, 2, 3);

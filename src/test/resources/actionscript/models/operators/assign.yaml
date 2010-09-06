@@ -1,0 +1,152 @@
+- test: "="
+  refid: assign
+  file: operators/assign_%d.as
+  parameters:
+    - value: b
+    - value: 1
+  script: |
+    a = %value%;
+- test: "+="
+  refid: assign_add
+  file: operators/assign_add_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: 0.0
+    - value: "0"
+    - value: 1
+    - value: 2
+  script: |
+    a += %value%;
+- test: "-="
+  refid: assign_subtract
+  file: operators/assign_subtract_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: 0.0
+    - value: "0"
+    - value: 1
+    - value: 2
+  script: |
+    a -= %value%;
+- test: "*="
+  refid: assign_multiply
+  file: operators/assign_multiply_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: 0.0
+    - value: "0"
+    - value: 1
+    - value: 1.0
+    - value: "1"
+    - value: 2
+  script: |
+    a *= %value%;
+- test: "/="
+  refid: assign_divide
+  file: operators/assign_divide_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: 0.0
+    - value: "0"
+    - value: 1
+    - value: 1.0
+    - value: "1"
+    - value: 2
+  script: |
+    a /= %value%;
+- test: "%="
+  refid: assign_modulo
+  file: operators/assign_modulo_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: 1
+    - value: 1.0
+    - value: "1"
+    - value: 2
+  script: |
+    a %= %value%;
+- test: "&="
+  refid: assign_and
+  file: operators/assign_and_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: ~0
+    - value: 1
+    - value: 2
+    - value: Number.MAX_VALUE
+    - value: Number.MIN_VALUE
+  script: |
+    a &= %value%;
+- test: "|="
+  refid: assign_or
+  file: operators/assign_or_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: ~0
+    - value: 1
+    - value: 2
+    - value: Number.MAX_VALUE
+    - value: Number.MIN_VALUE
+  script: |
+    a |= %value%;
+- test: "^="
+  refid: assign_xor
+  file: operators/assign_xor_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: ~0
+    - value: 1
+    - value: 2
+    - value: Number.MAX_VALUE
+    - value: Number.MIN_VALUE
+  script: |
+    a ^= %value%;
+- test: "<<="
+  refid: assign_shift_left
+  file: operators/assign_shift_left_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: 1
+    - value: "1"
+    - value: -1
+    - value: 32
+  script: |
+    a <<= %value%;
+- test: ">>="
+  refid: assign_shift_right
+  file: operators/assign_shift_right_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: 1
+    - value: "1"
+    - value: -1
+    - value: 32
+  script: |
+    a >>= %value%;
+- test: ">>>="
+  refid: unsigned_assign_shift_right
+  file: operators/unsigned_assign_shift_right_%d.as
+  parameters:
+    - value: b
+    - value: 0
+    - value: 1
+    - value: "1"
+    - value: -1
+    - value: 32
+  script: |
+    a >>>= %value%;
+- test: compound assign
+  refid: assign
+  file: operators/assign_compound.as
+  script: |
+    a = b = c;

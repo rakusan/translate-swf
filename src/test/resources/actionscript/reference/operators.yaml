@@ -1,0 +1,642 @@
+- name: "+"
+  id: addition
+  description: Addition.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "+"
+  id: concatenation
+  description: String concatentation.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "+"
+  id: plus
+  description: Unary plus.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "-"
+  id: subtraction
+  description: Subtract.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "-"
+  id: minus
+  description: Unary minus.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "*"
+  id: multiply
+  description: Multiply.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "/"
+  id: divide
+  description: Divide.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "%"
+  id: modulo
+  description: Remainder.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "&"
+  id: bitwise_and
+  description: bitwise and.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "|"
+  id: bitwise_or
+  description: bitwise or.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "^"
+  id: bitwise_xor
+  description: bitwise xor.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "~"
+  id: bitwise_not
+  description: bitwise not.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "<<"
+  id: shift_left
+  description: Shift left.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ">>"
+  id: shift_right
+  description: shift right.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ">>>"
+  id: unsigned_shift_right
+  description: unsigned shift right.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "="
+  id: assign
+  description: Assign.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "+="
+  id: assign_add
+  description: add and assign.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: -=
+  id: assign_subtract
+  description: Subtract and assign.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "*="
+  id: assign_multiply
+  description: multiply and assign.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "/="
+  id: assign_divide
+  description: divide and assign.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "%="
+  id: assign_modulo
+  description: remainder and assign.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "&="
+  id: assign_and
+  description: bitwise add and assign.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "|="
+  id: assign_or
+  description: bitwise or and assign.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "^="
+  id: assign_xor
+  description: bitwise xor and assign.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "--"
+  id: pre_decrement
+  description: pre-decrement.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "--"
+  id: post_decrement
+  description: post-decrement.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "++"
+  id: pre_increment
+  description: pre-increment.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "++"
+  id: post_increment
+  description: post-increment.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "<<="
+  id: assign_shift_left
+  description: shift left and assign.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ">>="
+  id: assign_shift}_right
+  description: shift right and assign.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ">>>="
+  id: unsigned_assign_shift_right
+  description: unsigned shift right and assign.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "&&"
+  id: logical_and
+  description: Logical AND.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "||"
+  id: logical_or
+  description: Logical OR.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "!"
+  id: logical_not
+  description: logical NOT.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "=="
+  id: equals
+  description: Equal.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "!="
+  id: not_equals
+  description: Not equal.
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "<"
+  id: less
+  description: less than.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "<="
+  id: less_equals
+  description: Less than or equal.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ">"
+  id: greater
+  description: Greater than.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ">="
+  id: greater_equals
+  description: Greater than or equal.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "==="
+  id: strict_equals
+  description: Strict equals.
+  profiles: 
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "!=="
+  id: strict_not_equals
+  description: Strict not equals.
+  profiles: 
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "()"
+  id: parentheses
+  description: Parentheses for grouping expressions.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ","
+  id: comma
+  description: Expression separator.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "."
+  id: dot
+  description: dereference.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "[]"
+  id: subscript
+  description: Array subscript
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "?:"
+  id: conditional
+  description: conditional.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: instanceof
+  id: instanceof
+  description: Type checking.
+  profiles: 
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "//"
+  id: comment
+  description: Single line comment.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "/* */"
+  id: comment_block
+  description: Block comment.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: add
+  id: add
+  description: string concatenation.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    # not supported from Flash 8
+- name: and
+  id: and
+  description: Logical and.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: or
+  id: or
+  description: logical or.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: not
+  id: not
+  description: logical not.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: eq
+  id: eq
+  description: string equal.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ne
+  id: ne
+  description: not equal.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: "<>"
+  id: inequality
+  description: inequality.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: gt
+  id: gt
+  description: string greater than.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: ge
+  id: ge
+  description: string greater than or equal.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: lt
+  id: lt
+  description: string less than.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: le
+  id: le
+  description: string less than or equal.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10

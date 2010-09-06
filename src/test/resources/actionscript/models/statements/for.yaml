@@ -1,0 +1,76 @@
+- test: for loop
+  refid: for
+  file: statements/for.as
+  script: |
+    a = 0;
+    for (i=0; i<10; i++) {
+        a += 1;
+    }
+- test: for loop with single statement
+  refid: for
+  file: statements/for_single.as
+  script: |
+    a = 0;
+    for (i=0; i<10; i++)
+        a += 1;
+- test: for loop with empty statement
+  refid: for
+  file: statements/for_empty.as
+  script: |
+    for (i=0; i<10; i++);
+- test: nested for loops
+  refid: for
+  file: statements/for_nested.as
+  script: |
+    a = 0;
+    for (i=0; i<10; i++) {
+        b = 0;
+        for (j=0; j<10; j++) {
+            b += 1;
+        }
+        a += 1;
+    }
+- test: for loops without initialization
+  refid: for
+  file: statements/for_initialize.as
+  script: |
+    a = 0; 
+    i = 0;
+    for (; i<10; i++) {
+        a += 1;
+    }
+- test: for loop without iteration
+  refid: for
+  file: statements/for_iterate.as
+  script: |
+    for (i = 0; i<10;) {
+        i += 1;
+    }
+- test: for loop with only conditional
+  refid: for
+  file: statements/for_conditional.as
+  script: |
+    i = 0;
+    for (; i<10;) {
+        i += 1;
+    }
+- test: for loop without any elements
+  refid: for
+  file: statements/for_blank.as
+  script: |
+    i = 0;
+    for (;;) {
+        if (i++ == 5) {
+            break;
+        }
+    }
+- test: infinite for loop
+  refid: for
+  file: statements/for_blank.as
+  script: |
+    i = 0;
+    for (; true;) {
+        if (i++ == 5) {
+            break;
+        }
+    }

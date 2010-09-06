@@ -1,0 +1,58 @@
+- test: loadClip()
+  refid: moviecliploader_loadclip
+  file: classes/moviecliploader/moviecliploader_loadclip.as
+  script: |
+    this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+    loader = new MovieClipLoader();
+    loader.loadClip("http://www.flagstonesoftware.com/clip.swf", "clip");
+- test: addListener()
+  refid: moviecliploader_addlistener
+  file: classes/moviecliploader/moviecliploader_addlistener.as
+  script: |
+    listener = new Object();  
+    listener.onLoadInit = function(clip) {
+        trace("Initialising load.");
+    }; 
+    listener.onLoadStart = function(clip) {
+        trace("Starting load.");
+    };
+    listener.onLoadProgress = function(clip, bytes, total) {
+        trace(bytes+" loaded.");
+    };
+    listener.onLoadComplete = function(clip) {
+        trace("Clip loaded.");
+    };
+    listener.onLoadError = function(clip, error) {
+        trace("An error occurred.");
+    };
+     
+    this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+    loader = new MovieClipLoader();
+    loader.addListener(listener);
+    loader.loadClip("http://www.flagstonesoftware.com/clip.swf", "clip");
+
+- test: removeListener()
+  file: moviecliploader_removeListener
+  file: classes/moviecliploader/moviecliploader_removeListener.as
+  script: |
+    this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+    loader = new MovieClipLoader();
+    loader.addListener(new Object());
+    loader.loadClip("http://www.flagstonesoftware.com/clip.swf", "clip");
+    loader.removeListener(listener);
+- test: getProgress()
+  refid: moviecliploader_getprogress
+  file: classes/moviecliploader/moviecliploader_getprogress.as
+  script: |
+    this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+    loader = new MovieClipLoader();
+    loader.loadClip("http://www.flagstonesoftware.com/clip.swf", "clip");
+    loader.getProgress("clip");
+- test: unloadClip()
+  refid: moviecliploader_unloadclip
+  file: classes/moviecliploader/moviecliploader_unloadclip.as
+  script: |
+    this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+    loader = new MovieClipLoader();
+    loader.loadClip("http://www.flagstonesoftware.com/clip.swf", "clip");
+    loader.unloadClip("clip");

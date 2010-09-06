@@ -1,0 +1,131 @@
+- test: NetStream()
+  refid: netstream_constructor
+  file: classes/netstream/netstream_constructor.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+- test: bufferTime
+  refid: netstream_buffertime
+  file: classes/netstream/netstream_buffertime.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    x = stream.bufferTime;
+- test: bufferLength
+  refid: netstream_bufferlength
+  file: classes/netstream/netstream_bufferlength.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    x = stream.bufferLength;
+- test: bytesLoaded
+  refid: netstream_bytesloaded
+  file: classes/netstream/netstream_bytesloaded.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    x = stream.bytesLoaded;
+- test: bytesTotal
+  refid: netstream_bytestotal
+  file: classes/netstream/netstream_bytestotal.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    x = stream.bytesTotal;
+- test: currentFps
+  refid: netstream_currentfps
+  file: classes/netstream/netstream_currentfps.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    x = stream.currentFps;
+- test: time
+  refid: netstream_time
+  file: classes/netstream/netstream_time.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    x = stream.time;
+- test: setBufferTime
+  refid: netstream_setbuffertime
+  file: classes/netstream/netstream_setbuffertime.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    stream.setBufferTime(5);
+- test: attachVideo
+  refid: netstream_attachvideo
+  file: classes/netstream/netstream_attachvideo.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    screen.attachVideo(stream);
+- test: play
+  refid: netstream_play
+  file: classes/netstream/netstream_play.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    stream.play("video.flv");
+- test: pause
+  refid: netstream_pause
+  file: classes/netstream/netstream_pause.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    stream.pause(false);
+- test: seek
+  refid: netstream_seek
+  file: classes/netstream/netstream_seek.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    stream.pause(true);
+- test: close
+  refid: netstream_close
+  file: classes/netstream/netstream_close.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    stream.close();
+- test: onStatus
+  refid: netstream_onstatus
+  file: classes/netstream/netstream_onstatus.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    stream.onStatus = function(info) {
+        if (info.level == "status") {
+            if (info.code == "NetStream.Buffer.Empty") {
+                trace("Buffer Empty");
+            }
+            else if (info.code == "NetStream.Buffer.Full") {
+                trace("Buffer Full");
+            }
+            else if (info.code == "NetStream.Play.Start") {
+                trace("Playing");
+            }
+            else if (info.code == "NetStream.Play.Stop") {
+                trace("Stopped");
+            }
+        }
+        if (info.level == "error") {
+            if (info.code == "NetStream.Play.StreamNotFound") {
+                trace("Cannot find file to play");
+            }
+        }
+    };

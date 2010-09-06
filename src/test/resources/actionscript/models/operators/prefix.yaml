@@ -1,0 +1,48 @@
+- test: plus
+  refid: plus
+  file: operators/plus_%d.as
+  parameters:
+    - expr: +b
+    - expr: +0
+    - expr: +1
+    - expr: +"1"
+    - expr: +a[b]
+  script: |
+    a = %expr%;
+- test: minus
+  refid: minus
+  file: operators/minus_%d.as
+  parameters:
+    - expr: -b
+    - expr: -0
+    - expr: -1
+    - expr: -"1"
+    - expr: -a[b]
+  script: |
+    a = %expr%;
+- test: pre-increment
+  refid: pre_increment
+  file: operators/pre_increment_%d.as
+  parameters:
+    - expr: ++b
+    - expr: b + ++1;
+    - expr: ++0
+    - expr: ++1
+    - expr: ++"1"
+    - expr: ++a[b]
+    - expr: ++object.attr
+  script: |
+    a = %expr%;
+- test: pre-decrement
+  refid: pre_decrement
+  file: operators/pre_decrement_%d.as
+  parameters:
+    - expr: --b
+    - expr: b + --1;
+    - expr: --0
+    - expr: --1
+    - expr: --"1"
+    - expr: --a[b]
+    - expr: --object.attr
+  script: |
+    a = %expr%;

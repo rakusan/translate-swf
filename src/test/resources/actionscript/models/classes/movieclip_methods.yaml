@@ -1,0 +1,152 @@
+- test: Movieclip method attachMovie()
+  refid: movieclip_attachmovie
+  file: classes/movieclip/movieclip_attachmovie.as
+  script: |
+    onClipEvent (mouseDown) {
+        attachMovie(1, "Clip1", 1);
+    }
+- test: Movieclip method getBounds()
+  refid: movieclip_getbounds
+  file: classes/movieclip/movieclip_getbounds.as
+  script: |
+    onClipEvent (mouseDown) {
+        getBounds(_root);
+    }
+- test: Movieclip method getBytesLoaded()
+  refid: movieclip_getbytesloaded
+  file: classes/movieclip/movieclip_getbytesloaded.as
+  script: |
+    onClipEvent (mouseDown) {
+        getBytesLoaded();
+    }
+- test: Movieclip method getBytesTotal()
+  refid: movieclip_getbytestotal
+  file: classes/movieclip/movieclip_getbytestotal.as
+  script: |
+    onClipEvent (mouseDown) {
+        getBytesTotal();
+    }
+- test: Movieclip method getURL()
+  refid: movieclip_geturl
+  file: classes/movieclip/movieclip_geturl.as
+  script: |
+    onClipEvent (mouseDown) {
+        getURL("http://www.flagstonesoftware.com");
+        getURL("http://www.flagstonesoftware.com", _self);
+        getURL("http://www.flagstonesoftware.com", _self, "get");
+        getURL("http://www.flagstonesoftware.com/cgi-bin/issue", _self, "post");
+    }
+- test: Movieclip method globalToLocal()
+  refid: movieclip_globaltolocal
+  file: classes/movieclip/movieclip_globaltolocal.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = {x : _root._xmouse, y : _root._ymouse};
+        globalToLocal(a);
+    }
+- test: Movieclip method gotoAndPlay()
+  refid: movieclip_gotoandplay
+  file: classes/movieclip/movieclip_gotoandplay.as
+  script: |
+    onClipEvent (mouseDown) {
+        gotoAndPlay("Scene1", 1);
+        gotoAndPlay("Scene1", "Frame 1");
+    }
+- test: Movieclip method gotoAndStop()
+  refid: movieclip_gotoandstop
+  file: classes/movieclip/movieclip_gotoandstop.as
+  script: |
+    onClipEvent (mouseDown) {
+        gotoAndStop("Scene1", 1);
+        gotoAndStop("Scene1", "Frame 1");
+    }
+- test: Movieclip method hitTest()
+  refid: movieclip_hittest
+  file: classes/movieclip/movieclip_hittest.as
+  script: |
+    onClipEvent (mouseDown) {
+        hitTest(100, 100, true);
+        hitTest(100, 100, false);
+        hitTest(Clip2);
+    }
+- test: Movieclip method loadMovie()
+  refid: movieclip_loadmovie
+  file: classes/movieclip/movieclip_loadmovie.as
+  script: |
+    onClipEvent (mouseDown) {
+        loadMovie("Data.swf", "get");
+        loadMovie("Data.swf", "POST");
+    }
+- test: Movieclip method loadVariables()
+  refid: movieclip_loadvariables
+  file: classes/movieclip/movieclip_loadvariables.as
+  script: |
+    onClipEvent (mouseDown) {
+        loadVariables("variables.txt", "get");
+        loadVariables("variables.txt", "POST");
+    }
+- test: Movieclip method localToGlobal()
+  refid: movieclip_localtoglobal
+  file: classes/movieclip/movieclip_localtoglobal.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = {x : this._xmouse, y : this._ymouse};
+        localToGlobal(a);
+    }
+- test: Movieclip method nextFrame()
+  refid: movieclip_nextframe
+  file: classes/movieclip/movieclip_nextframe.as
+  script: |
+    onClipEvent (mouseDown) {
+        nextFrame();
+    }
+- test: Movieclip method nextScene()
+  refid: movieclip_nextscene
+  file: classes/movieclip/movieclip_nextscene.as
+  script: |
+    onClipEvent (mouseDown) {
+        nextScene();
+    }
+- test: Movieclip method play()
+  refid: movieclip_play
+  file: classes/movieclip/movieclip_play.as
+  script: |
+    onClipEvent (mouseDown) {
+        play();
+    }
+- test: Movieclip method prevFrame()
+  refid: movieclip_prevframe
+  file: classes/movieclip/movieclip_prevframe.as
+  script: |
+    onClipEvent (mouseDown) {
+        prevFrame();
+    }
+- test: Movieclip method prevScene()
+  refid: movieclip_prevscene
+  file: classes/movieclip/movieclip_prevscene.as
+  script: |
+    onClipEvent (mouseDown) {
+        prevScene();
+    }
+- test: Movieclip method stop()
+  refid: movieclip_stop
+  file: classes/movieclip/movieclip_stop.as
+  script: |
+    onClipEvent (mouseDown) {
+        stop();
+    }
+- test: Movieclip method stopDrag()
+  refid: movieclip_stopdrag
+  file: classes/movieclip/movieclip_stopdrag.as
+  script: |
+    onClipEvent (mouseDown) {
+        stopDrag();
+    }
+- test: Movieclip method swapDepths()
+  refid: movieclip_swapdepths
+  file: classes/movieclip/movieclip_swapdepths.as
+  script: |
+    onClipEvent (mouseDown) {
+        swapDepths(2);
+        swapDepths(Clip2);
+    }

@@ -1,0 +1,117 @@
+- test: "+"
+  refid: addition
+  file: operators/addition_%d.as
+  parameters:
+    - expr: a + b
+    - expr: a + b + c
+    - expr: a + 0
+    - expr: a + 0.0
+    - expr: a + -0
+    - expr: a + +0
+    - expr: a + "0"
+    - expr: a + 1
+    - expr: a + 1.0
+    - expr: a + "1.0"
+    - expr: a + 1 + 2;
+    - expr: 1 + 1
+    - expr: 1 + 1.0
+    - expr: 1 + "1.0"
+  script: |
+    x = %expr%;
+- test: "-"
+  refid: subtraction
+  file: operators/subtraction_%d.as
+  parameters:
+    - expr: a - b
+    - expr: a - b - c
+    - expr: a - 0
+    - expr: a - 0.0
+    - expr: a - -0
+    - expr: a - +0
+    - expr: a - "0"
+    - expr: a - 1
+    - expr: a - -1
+    - expr: a - +1
+    - expr: a - 1.0
+    - expr: a - "1"
+    - expr: a - 1 - 2
+    - expr: 1 - 1
+    - expr: 1 - 1.0
+    - expr: 1 - "1.0"
+  script: |
+    x = %expr%;
+- test: "*"
+  refid: multiply
+  file: operators/multiply_%d.as
+  parameters:
+    - expr: a * b
+    - expr: a * b * c
+    - expr: a * 0
+    - expr: a * 0.0
+    - expr: a * "0.0"
+    - expr: a * 1
+    - expr: a * -1
+    - expr: a * +1
+    - expr: a * 1.0  
+    - expr: a * "1.0"  
+    - expr: a * 2
+    - expr: a * "2.0"
+    - expr: a * 2 * 3
+    - expr: 1 * 0
+    - expr: 1 * 0.0
+    - expr: 1 * "0.0"
+    - expr: 1 * 1
+    - expr: 1 * 1.0
+    - expr: 1 * "1.0"
+    - expr: 1 * 2
+    - expr: 1 * 2.0
+    - expr: 1 * "2.0"
+    - expr: 1 * "a"
+  script: |
+    x = %expr%;
+- test: "/"
+  refid: divide
+  file: operators/divide_%d.as
+  parameters:
+    - expr: a / b
+    - expr: a / b / c
+    - expr: a / 0
+    - expr: a / 0.0
+    - expr: a / 1
+    - expr: a / -1
+    - expr: a / +1
+    - expr: a / 1.0
+    - expr: a / "1.0"
+    - expr: a / 2
+    - expr: a / "2"
+    - expr: a / 2 / 3
+    - expr: 0 / 0
+    - expr: 1 / 1 
+    - expr: 2 / 1
+    - expr: 1 / 2
+    - expr: 1 / "2"
+  script: |
+    x = %expr%;
+- test: "%"
+  refid: modulo
+  file: operators/modulo_%d.as
+  parameters:
+    - expr: a % b
+    - expr: a % b % c
+    - expr: a % 0
+    - expr: a % 0.0
+    - expr: a % "0.0"
+    - expr: a % 1
+    - expr: a % 1.0
+    - expr: a % "1.0"
+    - expr: a % 2
+    - expr: a % -2
+    - expr: a % +2
+    - expr: a % 2 % 3
+    - expr: 0 % 0
+    - expr: 1 % 1 
+    - expr: 2 % 1
+    - expr: 1 % 2
+    - expr: 1 % "2"
+  script: |
+    x = %expr%;

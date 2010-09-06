@@ -1,0 +1,24 @@
+- test: getProperty()
+  refid: getproperty
+  file: functions/getproperty_%d.as
+  parameters:
+    - expr: getProperty(_root, _xmouse)
+    - expr: getProperty(clip, _x)
+  script: |
+    %expr%;
+- test: setProperty()
+  refid: setproperty
+  file: functions/setproperty_%d.as
+  parameters:
+    - expr: setProperty(a, _alpha, 50)
+    - expr: setProperty(a+i, _alpha, 50)
+  script: |
+    %expr%;
+- test: set()
+  refid: set
+  file: functions/set_%d.as
+  parameters:
+    - expr: set(a, b)
+    - expr: set(a+i, b)
+  script: |
+    %expr%;

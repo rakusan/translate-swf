@@ -1,0 +1,25 @@
+- test: precedence
+  refid: precedence
+  script: operators/precedence_%d.as
+  parameters:
+    - expr: a[1]++
+    - expr: -(a + b)   
+    - expr: -a * b
+    - expr: c / +x  
+    - expr: a * b++
+    - expr: --a / b 
+    - expr: a * b + c
+    - expr: a - c / x 
+    - expr: a + b << c
+    - expr: a >> b - c 
+    - expr: a << b < c
+    - expr: a > b >> c
+    - expr: a < b != c
+    - expr: a == b >= c
+    - expr: a == b & c
+    - expr: a | b != c
+    - expr: a & b && c
+    - expr: a || b | c
+    - expr: a && b ? a | b : a || b
+  script: |
+    x = %expr%;

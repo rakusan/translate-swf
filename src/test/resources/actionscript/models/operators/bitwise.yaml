@@ -1,0 +1,104 @@
+- test: "&"
+  refid: bitwise_and
+  file: operators/bitwise_and_%d.as
+  parameters:
+    - value: a & b
+    - value: a & b & c
+    - value: a & 0
+    - value: a & ~0
+    - value: a & 1
+    - value: a & 1.0
+    - value: a & "1"
+    - value: a & Number.MAX_VALUE
+    - value: a & Number.MIN_VALUE
+  script: |
+    x = %expr%;
+- test: "|"
+  refid: bitwise_or
+  file: operators/bitwise_or_%d.as
+  parameters:
+    - value: a | b
+    - value: a | b | c
+    - value: 0
+    - value: ~0
+    - value: 1    
+    - value: "1"
+    - value: Number.MAX_VALUE
+    - value: Number.MIN_VALUE
+  script: |
+    x = %expr%;
+- test: "^"
+  refid: bitwise_xor
+  file: operators/bitwise_xor_%d.as
+  parameters:
+    - value: a ^ b
+    - value: a ^ b ^ c
+    - value: 0
+    - value: 0.0
+    - value: "0"
+    - value: ~0
+    - value: 1
+    - value: Number.MAX_VALUE
+    - value: Number.MIN_VALUE
+  script: |
+    x = %expr%;
+- test: "~"
+  refid: bitwise_not
+  file: operators/bitwise_not_%d.as
+  parameters:
+    - value: ~a
+    - value: ~0
+    - value: ~Number.MAX_VALUE
+    - value: ~Number.MIN_VALUE
+  script: |
+    x = %expr%;
+- test: "<<"
+  refid: shift_left
+  file: operators/shift_left_%d.as
+  parameters:
+    - value: a << b
+    - value: a << 0
+    - value: a << 1
+    - value: a << "1"
+    - value: a << 32
+    - value: a << 33
+    - value: 0 << 1
+    - value: 1 << 1
+    - value: 1 << 0
+    - value: 1 << 32
+  script: |
+    x = %expr%;
+- test: ">>"
+  refid: shift_right
+  file: operators/shift_right_%d.as
+  parameters:
+    - value: a >> b
+    - value: a >> 0
+    - value: a >> 1
+    - value: a >> "1"
+    - value: a >> 32
+    - value: a >> 33
+    - value: 0 >> 1
+    - value: 1 >> 1
+    - value: 1 >> 0
+    - value: Number.MAX_VALUE >> 31
+    - value: Number.MIN_VALUE >> 31
+  script: |
+    x = %expr%;
+- test: ">>>"
+  refid: un signed_shift_right
+  file: operators/unsigned_shift_right_%d.as
+  parameters:
+    - value: a >>> b
+    - value: a >>> 0
+    - value: a >>> 1
+    - value: a >>> "1"
+    - value: a >>> 32
+    - value: a >>> 33
+    - value: 0 >>> 1
+    - value: 1 >>> 1
+    - value: 1 >>> 0
+    - value: Number.MAX_VALUE >> 31
+    - value: Number.MIN_VALUE >> 31
+  script: |
+    x = %expr%;

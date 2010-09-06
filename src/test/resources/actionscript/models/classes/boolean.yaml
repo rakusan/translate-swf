@@ -1,0 +1,27 @@
+- test: Boolean constructors
+  refid: boolean_constructor
+  file: classes/boolean/constructor_%d.as
+  parameters:
+    - value: ""
+    - value: "true"
+    - value: "false"
+    - value: "0"
+    - value: "1"
+    - value: "x"
+    - value: "0"
+    - value: "new Object()"
+    - value: "null"
+  script: |
+    a = new Boolean(%value%);
+- test: Boolean toString()
+  refid: boolean_tostring
+  file: classes/boolean/tostring.as
+  script: |
+    a = new Boolean(1);
+    b = a.toString();
+- test: Boolean valueOf()
+  refid: boolean_valueof
+  file: classes/boolean/valueof.as
+  script: |
+    a = new Boolean(1);
+    b = a.valueOf();

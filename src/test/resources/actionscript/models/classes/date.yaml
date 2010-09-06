@@ -1,0 +1,115 @@
+- test: Date constructor to get current date and time.
+  refid: date_constructor
+  file: classes/date/constructor_%d.as
+  parameters:
+    - expr: Date()
+    - expr: Date(10000)
+    - expr: Date(2, 1)
+    - expr: Date(1902, 1) 
+    - expr: Date(1902, 1, 20)
+    - expr: Date(1902, 2, 28, 4)
+    - expr: Date(1902, 2, 28, 4, 25)
+    - expr: Date(1902, 2, 28, 4, 25, 45
+  script: |
+    a = new %expr%;
+- test: UTC Date constructor.
+  refid: date_utc_constructor
+  file: classes/date/utc_constructor.as
+  script: |
+    a = Date.UTC(2010, 9, 10, 12, 30, 23, 100);
+- test: getUTCFullYear()
+  refid: date_getutcfullyear
+  file: classes/date/getutcfullyear.as
+  script: |
+    a = new Date();
+    a.getUTCFullYear();
+- test: setUTCFullYear()
+  refid: date_setutcfullyear
+  file: classes/date/setutcfullyear.as
+  script: |
+    a = new Date();
+    a.setUTCFullYear(2010);
+- test: getUTCMonth()
+  refid: date_getutcmonth
+  file: classes/date/getutcmonth.as
+  script: |
+    a = new Date();
+    a.getUTCMonth();
+- test: setUTCMonth()
+  refid: date_setutcmonth
+  file: classes/date/setutcmonth.as
+  script: |
+    a = new Date();
+    a.setUTCMonth(8);
+- test: getUTCDate()
+  refid: date_getutcdate
+  file: classes/date/getutcdate.as
+  script: |
+    a = new Date();
+    a.getUTCDate();
+- test: setUTCDate()
+  refid: date_setutcdate
+  file: classes/date/setutcdate.as
+  script: |
+    a = new Date();
+    a.setUTCDate(12);
+- test: getUTCDay()
+  refid: date_getutcday
+  file: classes/date/getutcday.as
+  script: |
+    a = new Date();
+    a.getUTCDay();
+- test: setUTCDay()
+  refid: date_setutcday
+  file: classes/date/setutcday.as
+  script: |
+    a = new Date();
+    a.setUTCDay(4);
+- test: getUTCHours()
+  refid: date_getutchours
+  file: classes/date/getutchours.as
+  script: |
+    a = new Date();
+    a.getUTCHours();
+- test: setUTCHours()
+  refid: date_setutchours
+  file: classes/date/setutchours.as
+  script: |
+    a = new Date();
+    a.setUTCHours(12);
+- test: getUTCMinutes()
+  refid: date_getutcminutes
+  file: classes/date/getutcminutes.as
+  script: |
+    a = new Date();
+    a.getUTCMinutes();
+- test: setUTCMinutes()
+  refid: date_setutcminutes
+  file: classes/date/setutcminutes.as
+  script: |
+    a = new Date();
+    a.setUTCMinutes(15);
+- test: getUTCSeconds()
+  refid: date_getutcseconds
+  file: classes/date/getutcseconds.as
+  script: |
+    a = new Date();
+    a.getUTCSeconds();
+- test: setUTCSeconds()
+  refid: date_setutcseconds
+  file: classes/date/setutcseconds.as
+  script: |
+    a = new Date();
+    a.setUTCSeconds(45);
+- test: getUTCMilliseconds()
+  refid: date_getutcmilliseconds
+  file: classes/date/getutcmilliseconds.as
+  script: |
+    a = new Date();
+    a.getUTCMilliseconds();
+- test: setUTCMilliseconds()
+  refid: date_setutcmilliseconds
+  file: classes/date/setutcmilliseconds.as
+  script: |
+    a = new Date();
+    a.setUTCMilliseconds(300);

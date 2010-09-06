@@ -1,0 +1,49 @@
+- test: gotoAndPlay()
+  refid: gotoandplay
+  file: functions/gotoandplay_%d.as
+  parameters:
+    - args: 1
+    - args: a
+    - args: "\"Scene1\", 1"
+    - args: "\"Scene1\", a"
+  script: |
+    gotoAndPlay(%args%);
+- test: gotoAndStop()
+  refid: gotoandstop
+  file: functions/gotoandstop_%d.as
+  parameters:
+    - args: 1
+    - args: a
+    - args: "\"Scene1\", 1"
+    - args: "\"Scene1\", a"
+  script: |
+    gotoAndStop(%args%);
+- test: nextFrame()
+  refid: nextframe
+  file: functions/nextframe.as
+  script: |
+    nextFrame();
+- test: nextScene()
+  refid: nextscene
+  file: functions/nextscene.as
+  script: |
+    nextScene();
+- test: play()
+  refid: play
+  file: functions/play.as
+  script: |
+    play();
+- test: stop()
+  refid: stop
+  file: functions/stop.as
+  script: |
+    stop();
+- test: prevFrame()
+  file: functions/prevframe.as
+  script: |
+    prevFrame();
+- test: prevScene()
+  file: functions/prevscene.as
+  script: |
+    prevScene();
+

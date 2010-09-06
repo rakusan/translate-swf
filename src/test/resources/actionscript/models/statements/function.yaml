@@ -1,0 +1,45 @@
+- test: define a function
+  refid: function
+  file: statements/function.as
+  script: |
+    function foo(x, y, z) {
+        a = x + y + z;
+    };
+    foo(1, 2, 3);
+- test: define a method
+  refid: function
+  file: statements/method.as
+  script: |
+    foo = function(x, y, z) {
+        a = x + y + z;
+    };
+    foo(1, 2, 3);
+- test: define nested functions
+  refid: function
+  file: statements/function_nested.as
+  script: |
+    a = 1;
+    b = 2;
+    function mul(a, b) {
+        function addition(a, b) {
+            return a + b;
+        } 
+        product = 0; 
+        for (i=0; i<b; i++) {
+            product = addition(product, a);
+        }
+        return product;
+    }
+    mul(a, b);
+- test: define function object
+  refid: function
+  file: statements/function_object.as
+  script: |
+    function Ship(name, purpose) {
+        this.name = name;
+        this.purpose = purpose;
+    }
+    aShip = new Ship("Marie Celeste", "GhostShip");
+
+
+

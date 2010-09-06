@@ -1,0 +1,67 @@
+- test: loadMovie()
+  refid: loadmovie
+  file: functions/loadmovie_%d.as
+  parameters: 
+    - expr: loadMovie("Data.swf", 1)
+    - expr: loadMovie("Data.swf", 1, "GET")
+    - expr: loadMovie("Data.swf", 1, "get")
+    - expr: loadMovie("Data.swf", 1, "POST")
+    - expr: loadMovie("Data.swf", 1, "post")
+    - expr: loadMovie("Data.swf", a)
+    - expr: loadMovie("Data.swf", "_blank")
+    - expr: loadMovie("Data.swf", "_self")
+    - expr: loadMovie("Data.swf", "_parent")
+    - expr: loadMovie("Data.swf", "_top")
+    - expr: loadMovie("Data.swf", _root)
+    - expr: loadMovie("Data.swf", _level1)
+    - expr: loadMovie("Data.swf", "clip")
+    - expr: loadMovie("Data.swf", "clip", "get")
+    - expr: loadMovie("Data.swf", "clip", "post")
+    - expr: loadMovie("Data.swf", a + b, "post")
+    - expr: loadMovie("Data.swf", a + b, "post")
+    - expr: loadMovie("Data.swf", a + b, "post")
+    - expr: loadMovie("Data.swf", 1)
+    - expr: loadMovie("Data.swf", 1, "GET")
+    - expr: loadMovie("Data.swf", 1, "get")
+    - expr: loadMovie("Data.swf", 1, "POST")
+    - expr: loadMovie("Data.swf", 1, "post")
+  script: |
+    %expr%;
+- test: loadVariables()
+  refid: loadvariables
+  file: functions/loadvariables_%d.as
+  parameters: 
+    - expr: loadVariables("Data.swf", 1)
+    - expr: loadVariables("Data.swf", 1, "GET")
+    - expr: loadVariables("Data.swf", 1, "get")
+    - expr: loadVariables("Data.swf", 1, "POST")
+    - expr: loadVariables("Data.swf", 1, "post")
+    - expr: loadVariables("Data.swf", a)
+    - expr: loadVariables("Data.swf", "_blank")
+    - expr: loadVariables("Data.swf", "_self")
+    - expr: loadVariables("Data.swf", "_parent")
+    - expr: loadVariables("Data.swf", "_top")
+    - expr: loadVariables("Data.swf", _root)
+    - expr: loadVariables("Data.swf", _level1)
+    - expr: loadVariables("Data.swf", "Clip")
+    - expr: loadVariables("Data.swf", "Clip", "get")
+    - expr: loadVariables("Data.swf", "Clip", "post")
+    - expr: loadVariables("Data.swf", a + b, "post")
+    - expr: loadVariables("Data.swf", a + b, "post")
+    - expr: loadVariables("Data.swf", a + b, "post")
+    - expr: loadVariables("Data.swf", 1)
+    - expr: loadVariables("Data.swf", 1, "GET")
+    - expr: loadVariables("Data.swf", 1, "get")
+    - expr: loadVariables("Data.swf", 1, "POST")
+    - expr: loadVariables("Data.swf", 1, "post")
+  script: |
+    %expr%;
+- test: unloadMovie()
+  refid: unloadmovie
+  file: functions/unloadmovie_%d.as
+  parameters: 
+    - expr: unloadMovie(_level1)
+    - expr: unloadMovie(1)
+    - expr: unloadMovieNum(1)
+  script: |
+    %expr%;

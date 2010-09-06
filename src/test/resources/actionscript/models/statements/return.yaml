@@ -1,0 +1,15 @@
+- test: return
+  refid: return
+  file: statements/return.as
+  script: |
+    function addition(a, b) {
+        c = a + b;    
+        return;
+    }
+- test: return value
+  refid: return
+  file: statements/return_value.as
+  script: |
+    function addition(a, b) {
+        return a + b;    
+    }

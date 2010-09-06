@@ -1,0 +1,11 @@
+- test: NetConnection()
+  refid: netconnection_constructor
+  file: classes/netconnection/netconnection_constructor.as
+  script: |
+    a = new NetConnection();
+- test: connect()
+  refid: netconnection_connect
+  file: classes/netconnection/netconnection_connect.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);

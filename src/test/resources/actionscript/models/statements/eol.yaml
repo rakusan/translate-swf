@@ -1,0 +1,10 @@
+- test: line endswith semi-colon
+  refid: eol
+  file: statements/semicolon.as
+  script: |
+    x = a + b;
+- test: line ends with line break
+  refid: eol
+  file: statements/linebreak.as
+  script: |
+    x = a + b

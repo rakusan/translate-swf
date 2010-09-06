@@ -1,0 +1,26 @@
+- test: String
+  refid: string
+  file: literals/string_%d.as
+  parameters:
+    - expr: - expr: ""
+    - expr: "abcd"
+    - expr: ''
+    - expr: 'abcd'
+    - expr: '"'
+    - expr: "'"
+    - expr: "\b"
+    - expr: "\f"
+    - expr: "\n"
+    - expr: "\r"
+    - expr: "\t"
+    - expr: "\b\f\n\r\t"
+    - expr: "\""
+    - expr: "\\"
+    - expr: '\''
+    - expr: "\000"
+    - expr: "\377"
+    - expr: "\000\377"
+    - expr: "\x00"
+    - expr: "\xFF"
+    - expr: "\xff"
+    - expr: "\x00\xff"

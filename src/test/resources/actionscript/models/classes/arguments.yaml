@@ -1,0 +1,29 @@
+- test: Arguments access
+  refid: arguments_access
+  file: classes/arguments/access.as
+  script: |
+    function args(x) {
+        for (i=0; i<arguments.length; i++) {
+    	    arguments[i] += 1;
+        }
+    };
+- test: Arguments callee
+  refid: arguments_callee
+  file: classes/arguments/callee.as
+  script: |
+    function factorial(x) {
+        if (x <= 1) {
+            return 1;
+        } else {
+            return x * arguments.callee(x-1);
+        }
+    };
+- test: Arguments caller
+  refid: arguments_caller
+  file: classes/arguments/caller.as
+  script: |
+    function orphan(x) {
+        if (arguments.caller == null) {
+            trace("no parent function");
+        }
+    };

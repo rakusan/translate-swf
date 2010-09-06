@@ -1,0 +1,46 @@
+- test: switch with single value for each case
+  refid: switch
+  file: statements/switch_single.as
+  script: |
+    switch (value)  {
+        case 1:
+            b = 1;
+            break;
+        case 2:
+            b = 2;
+            break;
+        case 3:
+            b = 3;
+            break;
+    }
+- test: switch with more than one value for a case
+  refid: switch
+  file: statements/switch_multiple.as
+  script: |
+    switch (value)  {
+        case 1:
+        case 2:
+            b = 2;
+            break;
+        case 3:
+            b = 3;
+            break;
+    }
+- test: switch with default option
+  refid: default
+  file: statements/switch_default.as
+  script: |
+    switch (value)  {
+        case a:
+            b = 1;
+            break;
+        case b:
+            b = 2;
+            break;
+        case a + b:
+            b = 3;
+            break;
+        default:
+            b = 0;
+            break;
+    }

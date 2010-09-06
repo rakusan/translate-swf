@@ -1,0 +1,16 @@
+- test: boolean true
+  refid: true
+  file: literals/boolean_true.as
+  parameters:
+    - value: "true"
+    - value: "\"true\""
+  script: |
+    a = %value%;
+- test: boolean false
+  refid: false
+  file: literals/boolean_false.as
+  parameters:
+    - value: "false"
+    - value: "\"false\""
+  script: |
+    a = %value%;

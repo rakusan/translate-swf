@@ -1,0 +1,106 @@
+- test: Microphone names
+  refid: microphone_names
+  file: classes/microphone/microphone_names.as
+  script: |
+    list = Microphone.names;
+- test: Microphone get()
+  refid: microphone_get
+  file: classes/microphone/microphone_get.as
+  script: |
+    Microphone.get();
+- test: Microphone index
+  refid: microphone_index
+  file: classes/microphone/microphone_index.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.index;
+- test: Microphone name
+  refid: microphone_name
+  file: classes/microphone/microphone_name.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.name;
+- test: Microphone muted
+  refid: microphone_muted
+  file: classes/microphone/microphone_muted.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.muted;
+- test: Microphone rate
+  refid: microphone_rate
+  file: classes/microphone/microphone_rate.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.rate;
+- test: Microphone activity
+  refid: microphone_activity
+  file: classes/microphone/microphone_activity.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.activity;
+- test: Microphone gain
+  refid: microphone_gain
+  file: classes/microphone/microphone_gain.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.gain;
+- test: Microphone silenceLevel
+  refid: microphone_silencelevel
+  file: classes/microphone/microphone_silencelevel.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.silenceLevel;
+- test: Microphone silenceTimeout
+  refid: microphone_silencetimeout
+  file: classes/microphone/microphone_silencetimeout.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.silenceTimeout;
+- test: Microphone useEchoSuppression
+  refid: microphone_useechosuppression
+  file: classes/microphone/microphone_useechosuppression.as
+  script: |
+    mic = Microphone.get(1);
+    a = mic.useEchoSuppression;
+- test: Microphone setSilenceLevel()
+  refid: microphone_setsilencelevel
+  file: classes/microphone/microphone_setsilencelevel.as
+  script: |
+    mic = Microphone.get(1);
+    mic.setSilenceLevel(50, 2000);
+- test: Microphone setUseEchoSuppression()
+  refid: microphone_setuseechosuppression
+  file: classes/microphone/microphone_setuseechosuppression.as
+  script: |
+    mic = Microphone.get(1);
+    mic.setUseEchoSuppression(true);
+- test: Microphone setGain()
+  refid: microphone_setgain
+  file: classes/microphone/microphone_setgain.as
+  script: |
+    mic = Microphone.get(1);
+    mic.setGain(50);
+- test: Microphone setRate()
+  refid: microphone_setrate
+  file: classes/microphone/microphone_setrate.as
+  script: |
+    mic = Microphone.get(1);
+    mic.setRate(11);
+- test: onActivity event handler
+  refid: microphone_onactivity
+  file: classes/microphone/microphone_onactivity.as
+  script: |
+    mic = Microphone.get();
+    mic.onActivity = function(mode) {
+        trace(mode);
+    };
+- test: onStatus event handler
+  refid: microphone_onstatus
+  file: classes/microphone/microphone_onstatus.as
+  script: |
+    mic = Microphone.get();
+    mic.onStatus = function(status) {
+        if (status.code == "Microphone.muted") {
+            trace("Microphone not available");
+        }
+    };

@@ -1,0 +1,36 @@
+- test: print()
+  file: functions/print.as
+  parameters:
+    - expr: print(Clip, "bmovie")
+    - expr: print(Clip, "bmax")
+    - expr: print(Clip, "bframe")
+  script: |
+    %expr%;
+- test: printNum()
+  file: functions/printnum.as
+  parameters:
+    - expr: printNum(a, "bmovie")
+    - expr: printNum(a, "bmax")
+    - expr: printNum(a, "bframe")
+    - expr: printNum(1, "bmovie")
+    - expr: printNum(_level1, "bmax")
+  script: |
+    %expr%;
+- test: printAsBitmap()
+  file: functions/printasbitmap.as
+  parameters:
+    - expr: printAsBitmap(Clip, "bmovie")
+    - expr: printAsBitmap(Clip, "bmax")
+    - expr: printAsBitmap(Clip, "bframe")
+  script: |
+    %expr%;
+- test: printAsBitmapNum()
+  file: functions/printasbitmapnum.as
+  parameters:
+    - expr: printAsBitmapNum(a, "bmovie")
+    - expr: printAsBitmapNum(a, "bmax")
+    - expr: printAsBitmapNum(a, "bframe")
+    - expr: printAsBitmapNum(1, "bmovie")
+    - expr: printAsBitmapNum(_level1, "bmax")
+  script: |
+    %expr%;

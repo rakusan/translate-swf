@@ -1,0 +1,93 @@
+- test: Literal constructor
+  refid: string_constructor_literal
+  file: classes/string/string_constructor_literal.as
+  script: |
+    a = "abc";
+ - test: Literal constructor
+  refid: string_constructor_arg
+  file: classes/string/string_constructor_arg.as
+  script: |
+    a = new String("abc");
+- test: length attribute
+  refid: string_length
+  file: classes/string/string_length.as
+  script: |
+    a = new String("abc");
+    b = a.length;
+- test: charAt()
+  refid: string_charat
+  file: classes/string/string_charat.as
+  script: |
+    a = new String("abc");
+    b = a.charAt(0);
+- test: concat()
+  refid: string_concat
+  file: classes/string/string_concat.as
+  script: |
+    a = new String("abc");
+    b = a.concat("def");
+- test: fromCharCode()
+  refid: string_fromcharcode
+  file: classes/string/string_fromcharcode.as
+  script: |
+    a = String.fromCharCode(32);
+- test: indexOf()
+  refid: string_indexof
+  file: classes/string/string_indexof.as
+  script: |
+    a = new String("abc");
+    b = a.indexOf("b");
+- test: indexOf()
+  refid: string_indexof_offset
+  file: classes/string/string_indexof_offset.as
+  script: |
+    a = new String("abc");
+    b = a.indexOf("b", 1);
+- test: lastIndexOf()
+  refid: string_lastindexof
+  file: classes/string/string_lastindexof.as
+  script: |
+    a = new String("abc");
+    b = a.lastIndexOf("b");
+- test: lastIndexOf()
+  refid: string_lastindexof_offset
+  file: classes/string/string_lastindexof_offset.as
+  script: |
+    a = new String("abc");
+    b = a.lastIndexOf("b", 1);
+- test: slice()
+  refid: string_slice
+  file: classes/string/string_slice.as
+  script: |
+    a = new String("abc");
+    b = a.slice(1, 2);
+- test: split()
+  refid: string_split
+  file: classes/string/string_split.as
+  script: |
+    a = new String("abc");
+    b = a.split("b");
+- test: substr()
+  refid: string_substr
+  file: classes/string/string_substr.as
+  script: |
+    a = new String("abc");
+    b = a.substr(1,1);
+- test: substring()
+  refid: string_substring
+  file: classes/string/string_substring.as
+  script: |
+    a = new String("abc");
+    b = a.substring(1,2);
+- test: toLowerCase()
+  refid: string_tolowercase
+  file: classes/string/string_tolowercase.as
+  script: |
+    a = new String("abc");
+    b = a.toLowerCase();
+- test: toUpperCase()
+  refid: string_touppercase
+  file: classes/string/string_touppercase.as
+  script: |
+    a = new String("abc");
+    b = a.toUpperCase();

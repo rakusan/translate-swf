@@ -1,0 +1,47 @@
+- test: SharedObject
+  refid: sharedobject_constructor
+  file: classes/sharedobject/sharedobject_constructor.as
+  script: |
+    share = SharedObject.getLocal("obj", "/shares");
+- test: getSize()
+  refid: sharedobject_getsize
+  file: classes/sharedobject/sharedobject_getsize.as
+  script: |
+    share = SharedObject.getLocal("obj", "/shares");
+    size = share.getSize();
+- test: flush()
+  refid: sharedobject_flush
+  file: classes/sharedobject/sharedobject_flush.as
+  script: |
+    share = SharedObject.getLocal("obj", "/shares");
+    share.flush(1024);
+- test: clear()
+  refid: sharedobject_clear
+  file: classes/sharedobject/sharedobject_clear.as
+  script: |
+    share = SharedObject.getLocal("obj", "/shares");
+    share.clear();
+- test: data
+  refid: sharedobject_data
+  file: classes/sharedobject/sharedobject_data.as
+  script: |
+    share = SharedObject.getLocal("obj", "/shares");
+    share.data.name = "John Smith";
+    share.data.age = 29;
+- test: onStatus
+  refid: sharedobject_onstatus
+  file: classes/sharedobject/sharedobject_onstatus.as
+  script: |
+    share = SharedObject.getLocal("obj", "/shares");
+    share.onStatus = function(info) {
+        if (info.level == "Status") {
+            if (info.code == "SharedObject.Flush.Success") {
+                trace("Object saved");
+            }
+        }
+        if (info.level == "Error") {
+            if (info.code == "SharedObject.Flush.Failed") {
+                trace("Cannot write shared object");
+            }
+        }
+    };

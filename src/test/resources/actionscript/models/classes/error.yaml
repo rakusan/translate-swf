@@ -1,0 +1,23 @@
+- test: Error constructor
+  refid: error_constructor
+  file: classes/error/constructor.as
+  script: |
+    a = new Error("An error occurred");
+- test: name attribute
+  refid: error_name
+  file: classes/error/name.as
+  script: |
+    a = new Error("An error occurred");
+    b = a.name;
+- test: message attribute
+  refid: error_message
+  file: classes/error/message.as
+  script: |
+    a = new Error("An error occurred");
+    b = a.message;
+- test: toString()
+  refid: error_tostring
+  file: classes/error/tostring.as
+  script: |
+    a = new Error("An error occurred");
+    b = a.toString();

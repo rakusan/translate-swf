@@ -1,0 +1,10 @@
+- test: newline
+  refid: newline
+  file: literals/newline.as
+  script: |
+    a = newline;
+- test: newline string
+  refid: newline
+  file: literals/newline_string.as
+  script: |
+    a = "newline";

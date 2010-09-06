@@ -1,0 +1,10 @@
+- test: conditional
+  refid: conditional
+  file: operators/conditional.as
+  script: |
+    x = (a == 1) ? b : c;
+- test: nested conditional
+  refid: conditional
+  file: operators/conditional_nested.as
+  script: |
+    x = ((b == 1) ? 1 : 0) ? ((b == 1) ? a : c) : c;

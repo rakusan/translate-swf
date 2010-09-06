@@ -1,0 +1,57 @@
+- test: String()
+  refid: string
+  file: functions/string_%d.as
+  parameters:
+    - expr: String(a)
+    - expr: String(1)
+  script: |
+    x = %expr%;
+- test: substring()
+  refid: substring
+  file: functions/substring_%d.as
+  parameters:
+    - expr: substring(a, 0, 1);
+    - expr: substring("abcd", 0, 1);
+  script: |
+    x = %expr%;
+- test: chr()
+  refid: chr
+  file: functions/chr_%d.as
+  parameters:
+    - expr: chr(a);
+    - expr: chr(65);
+  script: |
+    x = %expr%;
+- test: ord()
+  refid: ord
+  file: functions/ord_%d.as
+  parameters:
+    - expr: ord(a);
+    - expr: ord("a");
+  script: |
+    x = %expr%;
+- test: length()
+  refid: length
+  file: functions/length_%d.as
+  parameters:
+    - expr: length(a);
+    - expr: length("a");
+  script: |
+    x = %expr%;
+- test: escape()
+  refid: escape
+  file: functions/escape_%d.as
+  parameters:
+    - expr: escape(a);
+    - expr: escape("a b");
+  script: |
+    x = %expr%;
+- test: unescape()
+  refid: unescape
+  file: functions/unescape_%d.as
+  parameters:
+    - expr: unescape(a);
+    - expr: unescape("a%20b");
+  script: |
+    x = %expr%;
+

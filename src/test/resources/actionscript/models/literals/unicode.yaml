@@ -1,0 +1,10 @@
+- test: String
+  refid: unicode
+  file: literals/unicode_%d.as
+  parameters:
+    - expr: "\u0000"
+    - expr: "\uFFFF"
+    - expr: "\uffff"
+    - expr: "\u0000\uffff"
+    - expr: "\u0000\uFFFF"
+

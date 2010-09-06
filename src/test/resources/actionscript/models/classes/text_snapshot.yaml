@@ -1,0 +1,53 @@
+- test: getTextSnapshot()
+  refid: textsnapshot_gettextsnapshot
+  file: classes/textsnapshot/text_snapshot.as
+  script: |
+    text = clip.getTextSnapshot();
+- test: findText()
+  refid: textsnapshot_findtext
+  file: classes/textsnapshot/textsnapshot_findtext.as
+  script: |
+    text = clip.getTextSnapshot();
+    pos = text.findText(0, "www", true);
+- test: getCount()
+  refid: textsnapshot_getcount
+  file: classes/textsnapshot/textsnapshot_getcount.as
+  script: |
+    text = clip.getTextSnapshot();
+    count = text.getCount();
+- test: getSelected()
+  refid: textsnapshot_getselected
+  file: classes/textsnapshot/textsnapshot_getselected.as
+  script: |
+    text = clip.getTextSnapshot();
+    isSelected = text.getSelected(0, text.getCount()-1);
+- test: getSelectedText()
+  refid: textsnapshot_getselectedtext
+  file: classes/textsnapshot/textsnapshot_getselectedtext.as
+  script: |
+    text = clip.getTextSnapshot();
+    str = text.getSelectedText(false);
+- test: getText()
+  refid: textsnapshot_gettext
+  file: classes/textsnapshot/textsnapshot_gettext.as
+  script: |
+    text = clip.getTextSnapshot();
+    str = text.getText(0, text.getCount()-1, true);
+- test: hitTestTextNearPos()
+  refid: textsnapshot_hittesttextnearpos
+  file: classes/textsnapshot/textsnapshot_hittesttextnearpos.as
+  script: |
+    text = clip.getTextSnapshot();
+    index = text.hitTestTextNearPos(_xmouse, _ymouse, 0);
+- test: setSelectColor()
+  refid: textsnapshot_setselectcolor
+  file: classes/textsnapshot/textsnapshot_setselectcolor.as
+  script: |
+    text = clip.getTextSnapshot();
+    text.setSelectColor(0xCC9966);
+- test: setSelected()
+  refid: textsnapshot_setselected
+  file: classes/textsnapshot/textsnapshot_setselected.as
+  script: |
+    text = clip.getTextSnapshot();
+    text.setSelected(0, text.getCount()-1, true);
