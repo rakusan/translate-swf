@@ -1,0 +1,69 @@
+- name: Mouse
+  type: class
+  elements:
+    - id: mouse_hide
+      name: hide()
+      description: Hide the mouse pointer.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: mouse_show
+      name: show()
+      description: Show the mouse pointer.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: mouse_addlistener
+      name: addListener()
+      description: Add an object to receive notifications of mouse events.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: mouse_removelistener
+      name: removeListener()
+      description: Remove a registered listener.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: mouse_onmousedown
+      name: onMouseDown
+      description: Get/set event handler called when the mouse is pressed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: mouse_onmousemove
+      name: onMouseMove
+      description: Get/set event handler called when the mouse is moved.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: mouse_onmouseup
+      name: onMouseUp
+      description: Get/set event handler called when the mouse is released.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: mouse_onmousewheel
+      name: onMouseWheel
+      description: Get/set event handler called when the mouse scroll wheel is moved.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

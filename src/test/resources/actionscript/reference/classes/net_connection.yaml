@@ -1,0 +1,18 @@
+- name: NetConnection
+  type: class
+  elements:
+    - id: netconnection_netconnection
+      name: NetConnection()
+      description: Create a new NetConnection object.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netconnection_connect
+      name: connect()
+      description: Open a connection to the specified URL.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

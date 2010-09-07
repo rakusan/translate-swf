@@ -1,0 +1,257 @@
+- name: Math
+  type: class
+  elements:
+    - id: math_e
+      name: E
+      type: constant
+      description: Constant representing e.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_ln10  
+      name: LN10
+      type: constant
+      description: Constant representing the natural logarithm of 10.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_ln2
+      name: LN2
+      description: Constant representing the natural logarithm of 2.
+    - id: math_log10e
+      name: LOG10E
+      type: constant
+      description: Constant representing the base-10 logarithm of e.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_log2e  
+      name: LOG2E
+      type: constant
+      description: Constant representing the base-2 logarithm of 3.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_pi
+      name: PI
+      type: constant
+      description: Constant representing PI.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_sqrt1_2
+      name: SQRT1_2
+      type: constant
+      description: Constant representing square-root of 0.5.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_sqrt2
+      name: SQRT2
+      type: constant
+      description: Constant representing square-root of 2.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_abs
+      name: abs()
+      type: class_method
+      description: Return an absolute value.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_acos
+      name: acos()
+      type: class_method
+      description: Calculate the arc cosine of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_asin
+      name: asin()
+      type: class_method
+      description: Calculate the arc sine of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_atan
+      name: atan()
+      type: class_method
+      description: Calculate the arc tan of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_atan2
+      name: atan2()
+      type: class_method
+      description: Calculate the angle of a point relative to the positive x-axis.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_ceil
+      name: ceil()
+      type: class_method
+      description: Calculate the ceiling of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_cos
+      name: cos()
+      type: class_method
+      description: Calculate the cosine of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_exp
+      name: exp()
+      type: class_method
+      description: Return the value or e to the power of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_floor
+      name: floor()
+      type: class_method
+      description: Calculate the floor of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_log
+      name: log()
+      type: class_method
+      description: Calculate the natural logarithm of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_max
+      name: max()
+      type: class_method
+      description: Calculate the maximum of two numbers.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_min
+      name: min()
+      type: class_method
+      description: Calculate the minimum of two numbers.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_pow
+      name: pow()
+      type: class_method
+      description: Calculates x to the power of y.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_random
+      name: random()
+      type: class_method
+      description: Return a random number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_round
+      name: round()
+      type: class_method
+      description: Round a number to the nearest integer.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_sin
+      name: sin()
+      type: class_method
+      description: Calculate the sine of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_sqrt
+      name: sqrt()
+      type: class_method
+      description: Calculate the square-root of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: math_tan
+      name: tan()
+      type: class_method
+      description: Calculate the tan of a number.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

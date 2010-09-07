@@ -1,0 +1,51 @@
+- name: SharedObject
+  type: class
+  elements:
+    - id: sharedobject_data
+      name: data
+      description: The collection of attributes assigned to the object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sharedobject_getlocal
+      name: getLocal()
+      description: Get a reference to a shared object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sharedobject_flush
+      name: flush()
+      description: Write the shared object to a local file.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sharedobject_getsize
+      name: getSize()
+      description: Get the size, in bytes, of the shared object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sharedobject_clear
+      name: clear()
+      description: Delete the shared object from disk.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sharedobject_onstatus
+      name: onStatus
+      description: Get/set the event handler called when an error or warning is posted for the shared object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+   

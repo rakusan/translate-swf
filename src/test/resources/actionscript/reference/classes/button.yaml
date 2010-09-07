@@ -1,0 +1,324 @@
+- name: Button
+  type: class
+  elements:
+    - id: button_alpha
+      name: _alpha
+      description: Get/set the transparency level.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_focusrect
+      name: _focusrect
+      description: Get/set whether a yellow rectangle is displayed when button has keyboard focus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_height
+      name: _height
+      description: Get/set the height of the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_highquality
+      name: _highquality
+      description: Get/set the level of anti-aliasing. This is a global property but can be set on a Button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_name
+      description: Get/set the instance name of the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_parent
+      description: Get/set the reference to the parent moviclip or object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_quality
+      name: _quality
+      description: Get/set the level of anti-aliasing. This is a global property but can be set on a Button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_rotation
+      name: _rotation
+      description: Get/set the rotation, in degrees, applied to the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_soundbuftime
+	  name: _soundbuftime
+      description: Get/set the number of seconds to buffer streaming sounds. This is a global property but can be set on a Button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_visible
+      name: _visible
+      description: Get/set whether the button is visible.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_width
+      name: _width
+      description: Get/set the width of the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_x
+      name: _x
+      description: The x-coordinate of the button relative to the parent.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_xscale
+      name: _xscale
+      description: The scaling factor applied to the button in the x-direction.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_y
+      name: _y
+      description: The y-coordinate of the button relative to the parent.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_yscale
+      name: _yscale
+      description: The scaling factor applied to the button in the y-direction.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: button_target
+      name: _target
+      description: Get the target path to the button. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_url
+      name: _url
+      description: Get the URL of the Flash file that created the button. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_xmouse
+      name: _xmouse
+      description: Get the x-coordinate of the current mouse position. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_ymouse
+      name: _ymouse
+      description: Get the y-coordinate of the current mouse position. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_blendmode
+      name: blendMode
+      description: Get/set the the blend mode which controls how the button is composited with its background.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_cacheasbitmap
+      name: cacheAsBitmap
+      description: Get/set whether a bitmap representation of the button is cached.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_filters
+      name: filters
+      description: Get/set the list of filters used to apply special effects.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_scale9grid
+      name: scale9Grid
+      description: Get/set the grid used to scale the button when it is resized.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_enabled
+      name: enabled
+      description: Get/set whether the button is enabled.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_menu
+      name: menu
+      description: Get/set the ContextMenu when the user right or control clicks the mouse.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_trackasmenu
+      name: trackAsMenu
+      description: Get/set whether other buttons can receive events for this button - used to implement menus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_tabenabled
+      name: tabEnabled
+      description: Get/set whether button is included in tab order.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_tabindex
+      name: tabIndex
+      description: Get/set the tab order for the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_usehandcursor
+      name: useHandCursor
+      description: Get/set whether the hand cursor is used when the mouse is over the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: button_getdepth
+      name: getDepth()
+      description: Get the display order for the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: button_ondragout
+      name: onDragOut
+      description: Get/set event handler called when mouse is clicked and dragged outside the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_ondragover
+      name: onDragOver
+      description: Get/set event handler called when mouse is clicked outside and dragged over the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onkeydown
+      name: onKeyDown
+      description: Get/set event handler called when a key is pressed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onkeyup
+      name: onKeyUp
+      description: Get/set event handler called when a key is released.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onkillfocus
+      name: onKillFocus
+      description: Get/set event handler called when a the button loses keyboard focus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onpress
+      name: onPress
+      description: Get/set event handler called when a mouse button is pressed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onrelease
+      name: onRelease
+      description: Get/set event handler called when a mouse button is released.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onreleaseoutside
+      name: onReleaseOutside
+      description: Get/set event handler called when a mouse button is released outside of the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onrollout
+      name: onRollOut
+      description: Get/set event handler called when the mouse moves outside of the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onrollover
+      name: onRollOver
+      description: Get/set event handler called when the mouse moves over the button.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: button_onsetfocus
+      name: onSetFocus
+      description: Get/set event handler called when the mouse gets keyboard focus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+  

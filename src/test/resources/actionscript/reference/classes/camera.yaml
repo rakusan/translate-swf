@@ -1,0 +1,156 @@
+- name: Camera
+  type: class
+  elements:
+    - id: camera_activitylevel
+      name: activityLevel
+      description: Get the level of activity detected by the camera. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_bandwidth
+      name: bandwidth
+      description: Get the bandwidth in bytes that the out-going video feed can support. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_currentfps
+      name: currentFps
+      description: Get the capture rate of the camera. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_fps
+      name: fps
+      description: Set the maximum frame rate.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_height
+      name: height
+      description: Get the height, in pixels, of the frame.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_index
+      name: index
+      description: Get the index of the camera in the list of ones currently available.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_motionlevel
+      name: motionLevel
+      description: The level of activity required to invoke the onActivity event handler.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_motiontimeout
+      name: motionTimeOut
+      description: The delay in milliseconds between activity stopping and invoking the onActivity event handler.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_muted
+      name: muted
+      description: Get whether access to the camera has been denied.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_name
+      name: name
+      description: Get the name of the camera, as specified by the hardware.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_names
+      name: names
+      description: Get an array of the names of the available cameras.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_quality
+      name: quality
+      description: Get the picture quality.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_width
+      name: width
+      description: Get the width, in pixels, of the frame.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_get
+      name: get()
+      description: Get a reference to the camera.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_setmode
+      name: setMode()
+      description: Set the capture mode indicating frame size and frame rate.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_setmotionlevel
+      name: setMotionLevel()
+      description: Set the level of activity required to invoke the onActivity event handler.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_setquality
+      name: setQuality()
+      description: Set the bandwidth or quality of the out-going video feed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_onactivity
+      name: onActivity
+      description: Get/set the event handler called when the camera starts or stops detecting motion.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: camera_onstatus
+      name: onStatus
+      description: Get/set the event handler called when the user changes the privacy settings.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

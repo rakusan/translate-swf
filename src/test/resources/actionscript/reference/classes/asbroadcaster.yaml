@@ -1,0 +1,40 @@
+- name: AsBroadcaster
+  type: class
+  elements:
+    - id: asbroadcaster_initialize
+      name: initialize()
+      description: Add event notification to a specified object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: asbroadcaster_addListener
+      name: addListener()
+      description: Register an object with a broadcaster.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: asbroadcaster_removelistener
+      name: removeListener()
+      description: Remove an object from a broadcaster.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: asbroadcaster_broadcastmessage
+      name: broadcastMessage()
+      description: Send a notrification to all registered listeners.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

@@ -1,0 +1,49 @@
+- name: Color
+  type: class
+  elements:
+    - id: color_color
+      name: Color()
+      description: Create a colour object for the specified movie clip.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: color_getrgb
+      name: getRGB()
+      description: Get the RGB colour as an integer.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: color_setrgb
+      name: setRGB()
+      description: Set the RGB colour.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: color_gettransform
+      name: getTransform()
+      description: Get the colour transform applied to the movie clip.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: color_settransform
+      name: setTransform()
+      description: Set the colour transform applied to the movie clip.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

@@ -1,0 +1,53 @@
+- name: ContextMenuItem
+  type: class
+  elements:
+    - id: contextmenuitem_contextmenuitem
+      name: ContextMenuItem()
+      description: Create a new ContextMenuItem.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: contextmenuitem_caption
+      name: caption
+      description: Get/set the name of the entry in the menu.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: contextmenuitem_enabled
+      name: enabled
+      description: Get/set whether the entry is enabled.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: contextmenuitem_separatorbefore
+      name: separatorBefore
+      description: Get/set whether a menu separator is displayed before the entry.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: contextmenuitem_visible
+      name: visible
+      description: Get/set whether the entry is visible.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: contextmenuitem_copy
+      name: copy()
+      description: Create a copy of this ContextMenuItem.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: contextmenuitem_onselect
+      name: onSelect
+      description: Get/set the event handler invoked when the item is slected.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

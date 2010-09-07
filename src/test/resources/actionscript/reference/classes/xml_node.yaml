@@ -1,0 +1,176 @@
+- name: XMLNode
+  type: class
+  elements:
+    - id: xmlnode_xmlnode
+      name: XMLNode()
+      description: Create a new XMLNode object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_attributes
+      name: attributes
+      description: Getthe attributes of the node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_childnodes
+      name: childNodes
+      description: Get the child noded of thie node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_firstchild
+      name: firstChild
+      description: Get the first child node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_lastchild
+      name: lastChild
+      description: Get the last child node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_nextsibling
+      name: nextSibling
+      description: Get the next sibling node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_nodename
+      name: nodeName
+      description: Get the name of the node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_nodetype
+      name: nodeType
+      description: Get the node type.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_nodevalue
+      name: nodeValue
+      description: Get the value of a node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_parentnode
+      name: parentNode
+      description: Get the parent node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_previoussibling
+      name: previousSibling
+      description: Gte the previous node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: xmlnode_appendchild
+      name: appendChild()
+      description: Append an XMLNode to this one.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_clonenode
+      name: cloneNode()
+      description: Create a copy of a node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_getnamespaceforprefix
+      name: getNamespaceForPrefix()
+      description: Get the namespace URI.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_getprefixfornamespace
+      name: getPrefixForNamespace()
+      description: Get the namespace prefix.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_haschildnodes
+      name: hasChildNodes()
+      description: Does the node have child nodes.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_insertbefore
+      name: insertBefore()
+      description: Insert a node before the insert point.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_removenode
+      name: removeNode()
+      description: Remove a node from its parent.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlnode_tostring
+      name: toString()
+      description: Display the node as a string.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

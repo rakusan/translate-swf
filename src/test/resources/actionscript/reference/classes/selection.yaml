@@ -1,0 +1,82 @@
+- name: Selection
+  type: class
+  elements:
+    - id: selection_getbeginindex
+      name: getBeginIndex()
+      description: Get the index at the start of the selection span.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: selection_getcaretindex
+      name: getCaretIndex()
+      description: Get the index of the insert point.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: selection_getendindex
+      name: getEndIndex()
+      description: Get the index at the end of the selection span.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: selection_getfocus
+      name: getFocus
+      description: Get the target path of the object that current has keyboard focus.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: selection_setfocus
+      name: setFocus()
+      description: Set the keyboard focus to the specified object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: selection_setselection
+      name: setSelection()
+      description: Set the selection in the field with keyboard focus.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: selection_addlistener
+      name: addListener()
+      description: Register an object to be notified when keyboard focus changes.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: selection_removelistener
+      name: removeListener()
+      description: Remove a registered object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: selection_onsetfocus
+      name: onSetFocus
+      description: Get/set the event handler called when keyboard focus changes.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

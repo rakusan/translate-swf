@@ -1,0 +1,190 @@
+- name: Array
+  type: class
+  elements:  
+    - id: array_caseinsensitive
+      name: CASEINSENSITIVE
+      ty}pe: constant
+      description: Case-insensitive sorting.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_descending
+      name: DESCENDING
+      type: constant
+      description: Sort in descending order.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_numeric
+      name: NUMERIC
+      type: constant
+      description: Sort in number order.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_returnindexedarray
+      name: RETURNINDEXEDARRAY
+      type: constant
+      description: Calls to sort() and sortOn() return indexed arrays.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_uniquesort
+      name: UNIQUESORT
+      type: constant
+      description: Calls to sort() and sortOn() return only unique elements.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_array
+      name: Array()
+      type: constructor
+      description: Create an empty array.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_array_n
+      name: Array(n)
+      type: constructor
+      description: Create an array with n elements. Each element is undefined.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_array_element
+      name: Array(element0...)
+      type: constructor
+      description: Create an array with the specified elements.
+      profiles: 
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_length
+      name: length
+      description: The number of elements in the array.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_concat
+      name: concat()
+      description: Concatenate parameters and return a new array.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_join
+      name: join()
+      description: Return a string containing the array elements separated by the specified character.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_pop
+      name: pop()
+      description: Remove and return the last element.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_push
+      name: push()
+      description: Add one or more elements to the end of the array.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_reverse
+      name: reverse()
+      description: Reverse the order of the elements.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_shift
+      name: shift()
+      description: Remove and return the first element.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_slice
+      name: slice()
+      description: Return a new array containing the selected elements.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_splice
+      name: splice()
+      description: Add or delete elements.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_toString
+      name: toString()
+      description: Return the string representation.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_unshift
+      name: unshift()
+      description: Add one or more elements to the start of the array.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_sort
+      name: sort()
+      description: Sort the elements using an optional comaprison function and sort options.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_sortOn
+      name: sortOn()
+      description: Sort an array of objects which share one or more fields.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        

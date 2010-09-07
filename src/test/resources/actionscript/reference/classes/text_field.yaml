@@ -1,0 +1,582 @@
+- name: TextField
+  type: class
+  elements:
+    - id: textfield_alpha
+      name: _alpha
+      description: Get/set the transparency level.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_antialiastype
+      name: antiAliasType
+      description: The type of anti-aliasing using for this text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_autosize
+      name: autoSize
+      description: Is the text field scaled automatically to fit the text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_background
+      name: background
+      description: Does the text field have a background color.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_backgroundcolor
+      name: backgroundColor
+      description: The background color.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+    - id: textfield_border
+        - DEFAULT_1_9
+      name: border
+      description: Does the text field have a border color.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_bordercolor
+      name: borderColor
+      description: The border color.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_bottomscroll
+      name: bottomScroll
+      description: The line currently visible at the bottom of the scrolling area.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_condensewhite
+      name: condenseWhite
+      description: Is extra whitespace removed when displaying HTML.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_embedfonts
+      name: embedFonts
+      description: Is the font glyphs from the Flash file used to display text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_gridfittype
+      name: gridFitType
+      description: What grid alignment is used to display the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_height
+      name: _height
+      description: Get/set the height of the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_highquality
+      name: _highquality
+      description: Get/set the level of anti-aliasing. This is a global property but can be set on a text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_hscroll
+      name: hScroll
+      description: The current horizontal scrolling position.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_html
+      name: html
+      description: Does the text field display HTML.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_htmltext
+      name: htmlText
+      description: The contents of the HTML text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_length
+      name: length
+      description: The number of characters in the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_maxchars
+      name: maxChars
+      description: The maximum number of characters in the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_maxhscroll
+      name: maxHScroll
+      description: The maximum value of TextField.hscroll.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_maxscroll
+      name: maxScroll
+      description: The maximum value of TextField.scroll.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_menu
+      name: menu
+      description: The context menu for the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_mousewheelenabled
+      name: mouseWheelEnabled
+      description: Can the mouse wheel be used for scrolling.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_multiline
+      name: multiline
+      description: Does the text field display more than one line of text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_name
+      name: _name
+      description: Get/set the instance name of the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_parent
+      name: _parent
+      description: Get/set the reference to the parent moviclip or object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_password
+      name: password
+      description: Does the text field display a password.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_quality
+      name: _quality
+      description: Get/set the level of anti-aliasing. This is a global property but can be set on a text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_restrict
+      name: restrict
+      description: The set of characters which may be entered as text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_rotation
+      name: _rotation
+      description: Get/set the rotation, in degrees, applied to the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_scroll
+      name: scroll
+      description: The vertical position of the text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_selectable
+      name: selectable
+      description: Is the text selectable.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_sharpness
+      name: sharpness
+      description: The sharpness of the glyph edges.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_soundbuftime
+      description: Get/set the number of seconds to buffer streaming sounds. This is a global property but can be set on a TextField.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_styleSheet
+      name: styleSheet
+      description: A Stylesheet used to format the text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_visible
+      name: _visible
+      description: Get/set whether the text field is visible.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_width
+      name: _width
+      description: Get/set the width of the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_x
+      name: _x
+      description: The x-coordinate of the text field relative to the parent.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_xscale
+      name: _xscale
+      description: The scaling factor applied to the text field in the x-direction.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_y
+      name: _y
+      description: The y-coordinate of the text field relative to the parent.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_yscale
+      name: _yscale
+      description: The scaling factor applied to the text field in the y-direction.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+
+    - id: textfield_target
+      name: _target
+      description: Get the target path to the text field. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_totalFrames
+      name: _totalFrames
+      description: The totla number of frames in the text field. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9<tr>
+    - id: textfield_url
+      description: Get the URL of the Flash file that created the text field. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_xmouse
+      name: _xmouse
+      description: Get the x-coordinate of the current mouse position. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_ymouse
+      name: _ymouse
+      description: Get the y-coordinate of the current mouse position. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: textfield_filters
+      description: Get/set the list of filters used to apply special effects.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: textfield_tabenabled
+      name: tabEnabled
+      description: Get/set whether text field is included in tab order.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_tabindex
+      name: tabIndex
+      description: Get/set the tab order for the text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: textfield_text
+      name: text
+      description: The text displayed in the field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_textcolor
+      name: textColor
+      description: The color of the text
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_textheight
+      name: textHeight
+      description: The height of the text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_textwidth
+      name: textWidth
+      description: The width of the text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_thickness
+      name: thickness
+      description: The thickness of the glyph edges.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_type
+      name: type
+      description: The text field type.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_variable
+      name: variable
+      description: The actionscript variable where the text field contents will be assigned.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_wordwrap
+      name: wordWrap
+      description: Does the text field wrap long lines of text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+
+    - id: textfield_getdepth
+      name: getDepth()
+      description: Get the layer number where the field is displayed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_getfontlist
+      name: getFontList()
+      description: Getthe list of fonts available from the host system.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_getnewtextformat
+      name: getNewTextFormat()
+      description: Get a copy of this field's TextFormat object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_gettextformat
+      name: getTextFormat()
+      description: Get this field's TextFormat object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_removetextfield
+      name: removeTextField()
+      description: Delete this text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_setnewtextformat
+      name: setNewTextFormat()
+      description: 
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_replacesel
+      name: replaceSel()
+      description: Replace the current selected text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_setnewtextformat
+      name: setNewTextFormat()
+      description: Set the default text format.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_settextformat
+      name: setTextFormat()
+      description: Apply the TextFormat to the text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_replacetext
+      name: replaceText()
+      description: 
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_addlistener
+      name: addListener()
+      description: Register an object to receive event notifications.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_removelistener
+      name: removeListener()
+      description: Remove a registered object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: textfield_onchanged
+      name: onChanged
+      description: Event handler called when the text field contents change.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_onkillfocus
+      name: onKillFocus
+      description: Event handler called when the text field loses keyboard focus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_onscroller
+      name: onScroller
+      description: Event handler called when the text field scroll properties change.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textfield_onsetfocus
+      name: onSetFocus
+      description: Event handler called when the text field gains keyboard focus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

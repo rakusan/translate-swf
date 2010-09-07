@@ -1,0 +1,165 @@
+- name: Sound
+  type: class
+  elements:
+    - id: sound_sound
+      name: Sound()
+      description: Create a new Sound object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_duration
+      name: duration
+      description: The duration of hte sound in seconds. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_id3
+      name id3
+      description: The ID3 meta-data for an MP3 sound. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_position
+      name: position
+      description: The number of milliseconds a sound has been playing. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_attachsound
+      name: attachSound()
+      description: Attached a sound to a Sound object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_getpan
+      name: getPan()
+      description: Get the pan level.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_gettransform
+      name: getTransform()
+      description: Get the balance for the sound.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_getvolume
+      name: getVolume()
+      description: Get the volume level.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_setpan
+      name: setPan()
+      description: Set the pan level controlling how the sound is played on the left and right speakers.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_settransform
+      name: setTransform()
+      description: Set the balance for the sound.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_setvolume
+      name: setVolume()
+      description: Set the volume level.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_start
+      name: start()
+      description: Start playing the sound.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_stop
+      name: stop()
+      description: Stop playing the sound.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_loadsound
+      name: loadSound()
+      description: Load an MP3 format sound.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_getbytesloaded
+      name: getBytesLoaded()
+      description: Get the number of bytes loaded (streamed).
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_getbytestotal
+      name: getBytesTotal()
+      description: Get the length in bytes of the sound.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_onload
+      name: onLoad
+      description: Get/set the event handler called when a sound finishes loading.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_onsoundcomplete
+      name: onSoundComplete
+      description: Get/set the event handler called when a sound finishes playing.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: sound_onid3
+      name: onID3
+      description: Get/set the event handler called when ID3 meta-data is loaded for an MP3 sound.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

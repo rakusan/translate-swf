@@ -1,0 +1,167 @@
+- name: TextFormat
+  type: class
+  elements:
+    - id: textformat_textformat
+      name: TextFormat()
+      description: Create a new TextFormat object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_textformat
+      name: TextFormat()
+      description: Create a new TextFormat object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_align
+      name: align
+      description: Get the paragrpah alignment.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_blockindent
+      name: blockIndent
+      description: Get the indentation, in points, for blocks of text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_bold
+      name: bold
+      description: Is the text bold.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_bullet
+      name: bullet
+      description: Is the text part of a bullet list.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_color
+      name: color
+      description: Get the colour of the text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_font
+      name: font
+      description: Get the name of the font used to display the text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_indent
+      name: indent
+      description: Get the indent, in points, of the first line of a paragraph.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_italic
+      name: italic
+      description: Is the text displayed in italics.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_kerning
+      name: kerning
+      description: Is text kerning enabled.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_leading
+      name: leading
+      description: The space, in pixels, between lines.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_leftmargin
+      name: leftMargin
+      description: The margin, in points, for the left side of a block of text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_letterspacing
+      name: letterSpacing
+      description: The spacing, in points, between characters.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_rightmargin
+      name: rightMargin
+      description: The margin, in points, for the right side of a block of text.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_size
+      name: size
+      description: The size of the text, in points.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_tabstops
+      name: tabStops
+      description: An array of integers indicating tab stops.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_target
+      name: target
+      description: The target window where a link will be displayed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_underline
+      description: Is the text underlined./td><td>6
+      description: 
+    - id: textformat_url
+      name: url
+      description: The URL for a link.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_gettextextent
+      name: getTextExtent()
+      description: Get text measurement information.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

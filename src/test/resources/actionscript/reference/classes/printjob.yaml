@@ -1,0 +1,67 @@
+- name: PrintJob
+  type: class
+  elements:
+    - id: printjob_printjob
+      name: PrintJob()
+      description: Create a new PrintJob object.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: printjob_orientation
+      name: orientation
+      description: The orientation of the page. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: printjob_pageheight
+      name: pageHeight
+      description: The height of the printable area in points. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: printjob_pagewidth
+      name: pageWidth
+      description: The width of the printable area in points. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: printjob_paperheight
+      name: paperHeight
+      description: The height of the paper in points. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: printjob_paperwidth
+      name: paperWidth
+      description: The width of the paper in points. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: printjob_addpage
+      name: addPage()
+      description: Send the level or movie clip for printing.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: printjob_send
+      name: send()
+      description: Send the added pages to the printer.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: printjob_start
+      name: start()
+      description: Display the print dialog box.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

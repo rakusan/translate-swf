@@ -1,0 +1,32 @@
+- name: Error
+  type: class
+  elements:
+    - id: error_error
+      name: Error()
+      description: Create a new Error object.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: error_tostring
+      name: toString()
+      description: Display the error message.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: error_message
+      name: message
+      description: Get/set the error message.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: error_name
+      name: name
+      description: Get/set the name of the Error object.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

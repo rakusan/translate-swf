@@ -1,0 +1,60 @@
+- name: TextFormat.StyleSheet
+  type: class
+  elements:
+    - id: stylesheet_stylesheet
+      name: StyleSheet()
+      description: Create a new Stylesheet object.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: stylesheet_getstyle
+      name: getStyle()
+      description: Get the stylesheet associated with the specified name.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: stylesheet_getstylenames
+      name: getStyleNames()
+      description: Get the list of available stylesheet names.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: stylesheet_load
+      name: load()
+      description: Load a stylesheet.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: stylesheet_parsecss
+      name: parseCSS()
+      description: Parse the stylesheet.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: stylesheet_setstyle
+      name: setStyle()
+      description: Set the stylesheet.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: stylesheet_transform
+      name: transform()
+      description: Cascade the stylesheet properties.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: stylesheet_onload
+      name: onLoad
+      description: Event handler called when a load() has completed.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

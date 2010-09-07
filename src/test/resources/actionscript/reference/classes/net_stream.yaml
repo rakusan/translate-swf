@@ -1,0 +1,109 @@
+- name: NetStream
+  type: class
+  elements:
+    - id: netstream_netstream
+      name: NetStream()
+      description: Create a new NetStream object.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_bufferlength
+      name: bufferLength
+      description: The number of seconds of data currently in the stream buffer. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_buffertime
+      name: bufferTime
+      description: The number of seconds of data assigned for the stream buffer. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_bytesloaded
+      name: bytesLoaded
+      description: The number of bytes loaded so far. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_bytestotal
+      name: bytesTotal
+      description: The total number of bytes to be loaded. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_currentfps
+      name: currentFps
+      description: Current frame rate. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_time
+      name: time
+      description: The position of the play-head, in seconds. Read-Only.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_close
+      name: close()
+      description: Stop playing and close the stream.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_pause
+      name: pause()
+      description: Pause/resume playing the stream.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_play
+      name: play()
+      description: Start playing.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_seek
+      name: seek()
+      description: Skip to the next nearest key frame.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_setbuffertime
+      name: setBufferTime()
+      description: Set time to buffer messages before starting to play.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_oncuepoint
+      name: onCuePoint
+      description: Get/set event handler called when an embedded cue point in a Flash Video stream is reached.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_onmetadata
+      name: onMetaData
+      description: Get/set event handler called when a meta-data is read.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: netstream_onstatus
+      name: onStatus
+      description: Get/set event handler called whenever status information or an error is detected.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+   

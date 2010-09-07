@@ -1,0 +1,40 @@
+- name: Boolean
+  type: class
+  elements:
+    - id: boolean_boolean
+      name: Boolean()
+      description: Create a new Boolean object with a default value of false.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: boolean_boolean_value
+      name: Boolean(value)
+      description: Create a new Boolean object evaluating the specified value as true or false.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: boolean_tostring
+      name: toString()
+      description: Return a string representation of the value, either "true" or "false".
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: boolean_valueof
+      name: valueOf()
+      description: Returns the value wrapped by the Boolean object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

@@ -1,0 +1,76 @@
+- name: XMLSocket
+  type: class
+  elements:
+    - id: xmlsocket_xmlsocket
+      name: XMLSocket()
+      description: Create a new XMLSocket object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlsocket_close
+      name: close()
+      description: Close the connection.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlsocket_connect
+      name: connect()
+      description: Open a connection to a server.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlsocket_send
+      name: send()
+      description: Send a message to the server.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlsocket_onclose
+      name: onClose
+      description: Get/set the event handler called when a connection is closed.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlsocket_onconnect
+      name: onConnect
+      description: Get/set the event handler called when a connection request has succeeded or failed.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlsocket_ondata
+      name: onData
+      description: Get/set the event handler called when a null-terminated message has been received.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xmlsocket_onxml
+      name: onXML
+      description: Get/set the event handler called when an XML message has been received
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+			

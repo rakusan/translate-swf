@@ -1,0 +1,67 @@
+- name: LocalConnection
+  type: class
+  elements:
+    - id: localconnection_localconnection
+      name: LocalConnection()
+      description: Create a new LocalConnection object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: localconnection_close
+      name: close()
+      description: Close the connection.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: localconnection_connect
+      name: connect()
+      description: Prepare a local connection to receive commands.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: localconnection_send
+      name: send()
+      description: Send a command to call a methdo onthe receiver.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: localconnection_domain
+      name: domain()
+      description: Return the domain for the current file.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: localconnection_allowdomain
+      name: allowDomain
+      description: Get/set the event handler invoked when a method is called.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: localconnection_allowinsecuredomain
+      name: allowInsecureDomain
+      description: Get/set the event handler invoked when a method is called at a secure (HTTPS) domain from a connection at an insecure (HTTP) domain.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: localconnection_onstatus
+      name: onStatus
+      description: Get/set the event handler called when a command is sent.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

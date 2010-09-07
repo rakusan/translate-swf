@@ -1,0 +1,180 @@
+- name: XML
+  type: class
+  elements:
+    - id: xml_xml
+      name: XML()
+      description: Create a new XML object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_contenttype
+      name: contentType
+      description: The MIME content-type sent to the server.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_doctypedecl
+      name: docTypeDecl
+      description: Information about the DOCTYPE declaration.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_idmap
+      name: idMap
+      description: An object containing the XMLNodes that have an id attribute.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_ignorewhite
+      name: ignoreWhite
+      description: Is whitespace ignored.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_loaded
+      name: loaded
+      description: Has the document loaded successfully.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_status
+      name: status
+      description: THe status of parsing the document into a tree of nodes.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_xmldecl
+      name: xmlDecl
+      description: Information about the XML declaration.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_addrequestheader
+      name: addRequestHeader()
+      description: Set an HTTP header.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_createelement
+      name: createElement()
+      description: Create a new XML element.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_createtextnode
+      name: createTextNode()
+      description: Create a new XML text node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_getbytesloaded
+      name: getBytesLoaded()
+      description: Get the number of bytes loaded.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_getbytestotal
+      name: getBytesTotal()
+      description: Get the length of the document in bytes.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_load
+      name: load()
+      description: Load an XML document from the specified URL.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_parsexml
+      name: parseXML()
+      description: Parse the XML text to create a document tree.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_send
+      name: send()
+      description: Encode an XML tree and send it to a server.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_sendandload
+      name: sendAndLoad()
+      description: Encode an XML tree, send it to a server and load the response.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_ondata
+      name: onData
+      description: Event handler called when a document has been loaded or when an error occurs.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_onhttpstatus
+      name: onHTTPStatus
+      description: Event handler called when a status code is returned by the server.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_onload
+      name: onLoad
+      description: Event handler called when a document has been loaded.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

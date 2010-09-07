@@ -1,0 +1,20 @@
+- name: Function
+  type: class
+  elements:
+    - id: function_apply
+      name: apply()
+      description: Execute the function for a specified object and arguments.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: function_call
+      name: call()
+      description: Call the function with the specified arguments.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+

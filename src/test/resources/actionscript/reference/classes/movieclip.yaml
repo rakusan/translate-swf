@@ -1,0 +1,814 @@
+- name: MovieClip
+  type: class
+  elements:
+    - id: movieclip_alpha
+      name: _alpha
+      description: Get/set the transparency level.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_currentframe
+      name: _currentframe
+      description: The frame currently being played. Read-Only.
+      profiles:
+        - DEFAULT_1_4
+    - id: movieclip_droptarget
+      name: _droptarget
+      description: The target path of the object where the movie clip was dropped onto.
+      profiles:
+        - DEFAULT_1_4
+    - id: movieclip_framesloaded
+      name: _framesloaded
+      description: The number of frames loaded.
+      profiles:
+        - DEFAULT_1_4
+    - id: movieclip_focusEnabled
+      name: focusEnabled
+      description: Can the movie clip get input focus.
+      profiles:
+        - DEFAULT_1_4
+    - id: movieclip_focusrect
+      name: _focusrect
+      description: Get/set whether a yellow rectangle is displayed when movie clip has keyboard focus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_height
+      name: _height
+      description: Get/set the height of the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_highquality
+      name: _highquality
+      description: Get/set the level of anti-aliasing. This is a global property but can be set on a movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_hitarea
+      name: hitArea
+      description: Use another movie clip as the hit (active) area.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_lockroot
+      name: _lockRoot
+      description: Leave _root unchanged when loading another movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_name
+      name: _name
+      description: Get/set the instance name of the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_opaquebackground
+      name: opaqueBackground
+      description: The background colour of the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_parent
+      name: _parent
+      description: Get/set the reference to the parent moviclip or object.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_quality
+      name: _quality
+      description: Get/set the level of anti-aliasing. This is a global property but can be set on a movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_rotation
+      name: _rotation
+      description: Get/set the rotation, in degrees, applied to the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_soundbuftime
+      name: _soundbuftime
+      description: Get/set the number of seconds to buffer streaming sounds. This is a global property but can be set on a movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_visible
+      name: _visible
+      description: Get/set whether the movie clip is visible.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_width
+      name: _width
+      description: Get/set the width of the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_x
+      name: _x
+      description: The x-coordinate of the movie clip relative to the parent.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_xscale
+      name: _xscale
+      description: The scaling factor applied to the movie clip in the x-direction.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_y
+      name: _y
+      description: The y-coordinate of the movie clip relative to the parent.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_yscale
+      name: _yscale
+      description: The scaling factor applied to the movie clip in the y-direction.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: movieclip_target
+      name: _target
+      description: Get the target path to the movie clip. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_totalframes
+      name: _totalFrames
+      description: The totla number of frames in the movie clip. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9- id: _url
+      name: _url
+      description: Get the URL of the Flash file that created the movie clip. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_xmouse
+      name: _xmouse
+      description: Get the x-coordinate of the current mouse position. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_ymouse
+      name: _ymouse
+      description: Get the y-coordinate of the current mouse position. Read-Only.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: movieclip_blendmode
+      name: blendMode
+      description: Get/set the the blend mode which controls how the movie clip is composited with its background.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_cacheasbitmap
+      name: cacheAsBitmap
+      description: Get/set whether a bitmap representation of the movie clip is cached.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_filters
+      name: filters
+      description: Get/set the list of filters used to apply special effects.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_scale9grid
+      name: scale9Grid
+      description: Get/set the grid used to scale the movie clip when it is resized.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_scrollrect
+      name: scrollRect
+      description: Define the scrolling area for a movie clip.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_transform
+      name: transform
+      description: The bounds, coordinate transform and colour transform for the movie clip.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: movieclip_enabled
+      name: enabled
+      description: Get/set whether the movie clip is enabled.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_menu
+      name: menu
+      description: Get/set the ContextMenu when the user right or control clicks the mouse.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_trackasmenu
+      name: trackAsMenu
+      description: Get/set whether other buttons or movie clips can receive events for this movie clip - used to implement menus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_usehandcursor
+      name: useHandCursor
+      description: Get/set whether the hand cursor is used when the mouse is over the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_tabenabled
+      name: tabEnabled
+      description: Get/set whether movie clip is included in tab order.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_tabindex
+      name: tabIndex
+      description: Get/set the tab order for the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_tabchildren
+      name: tabChildren
+      description: Are the child movie clips automatically included in tab ordering.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: movieclip_attachaudio
+      name: attachAudio()
+      description: Set the sound to be played.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_attachbitmap
+      name: attachBitmap()
+      description: Set an imag eto be displayed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_attachmovie
+      name: attachMovie()
+      description: Set a movie clip to be displayed
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: movieclip_beginfill
+      name: beginFill()
+      description: Start a new drawing path.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_beginbitmapfill
+      name: beginBitmapFill()
+      description: Fill the drawing area with an image.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_begingradientfill
+      name: beginGradientFill()
+      description: Start a new drawing path top be filled with a gradient colour.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_clear
+      name: clear()
+      description: Clear the drawing path.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_createemptymovieclip
+      name: createEmptyMovieClip()
+      description: Create a new child movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_createtextfield
+      name: createTextField()
+      description: Create a new child text field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_curveto
+      name: curveTo()
+      description: Draw a curve.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_duplicatemovieclip
+      name: duplicateMovieClip()
+      description: Create a copy of a movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_endfill
+      name: endFill()
+      description: Draw the path.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_getbounds
+      name: getBounds()
+      description: Get the bounding box for the movie clip.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_getbytesloaded
+      name: getBytesLoaded()
+      description: Get the number of bytes loaded.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_getbytestotal
+      name: getBytesTotal()
+      description: Get the size of the movie clip in bytes.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_getdepth
+      name: getDepth()
+      description: Get the layer number where the movie clip is displayed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_getinstanceatdepth
+      name: getInstanceAtDepth()
+      description: Is a layer already occupied by a movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_getnexthighestdepth
+      name: getNextHighestDepth()
+      description: Get the next avialable layer.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_getrect
+      name: getRect()
+      description: Get the bounding box for the movie clip, excluding the width of drawn lines.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_getswfversion
+      name: getSWFVersion()
+      description: Get the Flash version number.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_gettextsnapshot
+      name: getTextSnapshot()
+      description: Get a TextSnapshot containing all the static text in the movie clip.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_geturl
+      name: getURL()
+      description: Load a document into the specified window.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_globaltolocal
+      name: globalToLocal()
+      description: Change a point from the Stage coordinate space to the movie clip coordinate space.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_gotoandplay
+      name: gotoAndPlay()
+      description: Start playing the movie clip at the specified frame.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_gotoandstop
+      name: gotoAndStop()
+      description: Move to the specified frame but do not start playing.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_hittest
+      name: hitTest()
+      description: Does the movie clip overlap the target movie clip or point.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: movieclip_linegradientstyle
+      name: lineGradientStyle()
+      description: Set the line style using a gradient fill.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_linestyle
+      name: lineStyle()
+      description: Set the line style using a solid colour.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_lineto
+      name: lineTo()
+      description: Draw a line.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_moveto
+      name: moveTo()
+      description: Change the drawing position.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: movieclip_loadmovie
+      name: loadMovie()
+      description: Load a movie clip or image.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_loadvariables
+      name: loadVariables()
+      description: Load variable values.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_localtoglobal
+      name: localToGlobal()
+      description: Change a point from the Stage coordinate space to the movie clip coordinate space.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_nextframe
+      name: nextFrame()
+      description: Move to the next frame.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_play
+      name: play()
+      description: Start playing.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_prevframe
+      name: prevFrame()
+      description: Move to the previous frame.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_removemovieclip
+      name: removeMovieClip()
+      description: Delete a movie clip.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_startdrag
+      name: startDrag()
+      description: Start dragging the movie clip.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_stop
+      name: stop()
+      description: Stop playing.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_stopdrag
+      name: stopDrag()
+      description: Stop dragging the movie clip.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_swapdepths
+      name: swapDepths()
+      description: Swap the target movie clip's layer with this one.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_setmask
+      name: setMask()
+      description: Set the movie clip as a clipping mask.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_unloadmovie
+      name: unloadMovie()
+      description: Remove the movie clip contents.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+    - id: movieclip_ondata
+      name: onData
+      description: Get/set event handler called when the movie clip received data from a call to load() or loadMovie().
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_ondragout
+      name: onDragOut
+      description: Get/set event handler called when mouse is clicked and dragged outside the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_ondragover
+      name: onDragOver
+      description: Get/set event handler called when mouse is clicked outside and dragged over the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onenterframe
+      name: onEnterFrame
+      description: Get/set event handler called when mouse is over the Stage.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onkeydown
+      name: onKeyDown
+      description: Get/set event handler called when a key is pressed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onkeyup
+      name: onKeyUp
+      description: Get/set event handler called when a key is released.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onkillfocus
+      name: onKillFocus
+      description: Get/set event handler called when a the movie clip loses keyboard focus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onload
+      name: onLoad
+      description: Get/set event handler called when a the movie clip is created and added to the mopive timeline.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onmousedown
+      name: onMouseDown
+      description: Get/set event handler called when the mouse is pressed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onmousemove
+      name: onMouseMove
+      description: Get/set event handler called when the mouse is moved.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onmouseup
+      name: onMouseUp
+      description: Get/set event handler called when the mouse is released.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onpress
+      name: onPress
+      description: Get/set event handler called when a mouse movie clip is pressed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onrelease
+      name: onRelease
+      description: Get/set event handler called when a mouse movie clip is released.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onreleaseoutside
+      name: onReleaseOutside
+      description: Get/set event handler called when a mouse movie clip is released outside of the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onrollout
+      name: onRollOut
+      description: Get/set event handler called when the mouse moves outside of the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onrollover
+      name: onRollOver
+      description: Get/set event handler called when the mouse moves over the movie clip.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onsetfocus
+      name: onSetFocus
+      description: Get/set event handler called when the mouse gets keyboard focus.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_onload
+      name: onLoad
+      description: Get/set event handler called when a the movie clip is removed from the timeline.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
+
+

@@ -1,0 +1,210 @@
+- name: System.Capabilities
+  type: class
+  elements:
+    - id: capabilities_avhardwaredisable
+      name: avHardwareDisable
+      description: Is access to the camera and microphone disabled.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasaccessibility
+      name: hasAccessibility
+      description: Does the Flash Player have access to Input Readers.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasaudio
+      name: hasAudio
+      description: Does the host support sound.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasaudioencoder
+      name: hasAudioEncoder
+      description: Can the Flash Player encode audio streams.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasembeddedvideo
+      name: hasEmbeddedVideo
+      description: Can the Flash Player support embedded video.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasime
+      name: hasIME
+      description: Is the Input Method Editor installed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasmp3
+      name: hasMP3
+      description: Does the Flash Player have an MP3 decoder installed.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasprinting
+      name: hasPrinting
+      description: Does the host system support printing.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasscreenbroadcast
+      name: hasScreenBroadcast
+      description: Does the Flash Player support communication with the Flash Communication Server.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasscreenplayback
+      name: hasScreenPlayback
+      description: Can the Flash Player display applications broadcast by the Flash Communication Server.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasstreamingaudio
+      name: hasStreamingAudio
+      description: Can the Flash Player play streaming audio.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasstreamingvideo
+      name: hasStreamingVideo
+      description: Can the Flash Player play streaming video.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_hasvideoencoder
+      name: hasVideoEncoder
+      description: Can the Flash Player encode video streams.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_isdebugger
+      name: isDebugger
+      description: Is the Flash Player a special debugging version.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_language
+      name: language
+      description: What is the language of the host system.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_localfilereaddisable
+      name: localFileReadDisable
+      description: IS access to the local hard diska allowed.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_manufacturer
+      name: manufacturer
+      description: What is the name of the manufacturer of the Flash Player.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_os
+      name: os
+      description: What operating system is the Flash Player hosted on.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_pixelaspectratio
+      name: pixelAspectRatio
+      description: What is the pixel aspect ratio of the screen.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_playertype
+      name: playerType
+      description: What type of Flash Player is being used.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_screencolor
+      name: screenColor
+      description: What color is the screen.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_screendpi
+      name: screenDPI
+      description: What is the screen resolution.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_screenresolutionx
+      name: screenResolutionX
+      description: What is the maximum horizontal screen resolution.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_screenresolutiony
+      name: screenResolutionY
+      description: What is the maximum vertical screen resolution.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_serverstring
+      name: serverString
+      description: An urlencoded string containing all the system capabilities.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: capabilities_version
+      name: version
+      description: What is the Flash Player version.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+
