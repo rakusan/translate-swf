@@ -39,6 +39,10 @@ import java.util.Map;
  * support Flash content.
  */
 public enum Profile {
+	/** Profile for standard Flash Player, Actionscript 1, Flash Version 2. */
+	DEFAULT_1_2("Default", 1, 2),
+	/** Profile for standard Flash Player, Actionscript 1, Flash Version 3. */
+	DEFAULT_1_3("Default", 1, 3),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 4. */
 	DEFAULT_1_4("Default", 1, 4),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 5. */
@@ -49,6 +53,10 @@ public enum Profile {
 	DEFAULT_1_7("Default", 1, 7),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 8. */
 	DEFAULT_1_8("Default", 1, 8),
+	/** Profile for standard Flash Player, Actionscript 1, Flash Version 9. */
+	DEFAULT_1_9("Default", 1, 9),
+	/** Profile for standard Flash Player, Actionscript 1, Flash Version 10. */
+	DEFAULT_1_10("Default", 1, 10),
 	;
 
 	/** Table used to convert names into PlayerTypes. */
