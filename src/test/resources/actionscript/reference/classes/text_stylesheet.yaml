@@ -1,7 +1,7 @@
 - name: TextFormat.StyleSheet
   type: class
   elements:
-    - id: stylesheet_stylesheet
+    - id: stylesheet_constructor
       name: StyleSheet()
       description: Create a new Stylesheet object.
       profiles:
@@ -39,6 +39,13 @@
     - id: stylesheet_setstyle
       name: setStyle()
       description: Set the stylesheet.
+      profiles:
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: stylesheet_clear
+      name: clear()
+      description: Clear the stylesheet properties.
       profiles:
         - DEFAULT_1_7
         - DEFAULT_1_8

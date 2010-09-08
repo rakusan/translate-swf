@@ -19,13 +19,13 @@
   script: |
     a = [];
 - test: concat()
-  refid: array_accessor
+  refid: array_concat
   file: classes/array/concat.as
   script: |
     a = [1, 2, 3];
     b = a.concat(4, 5, 6);
 - test: join()
-  refid: array_join_default
+  refid: array_join
   file: classes/array/join.as
   script: |
     a = [1, 2, 3];
@@ -128,7 +128,7 @@
     a.push({name: "Jane", age: 34});
     a.sortOn("name");
 - test: sorton() option
-  refid: array_sorton_option
+  refid: array_sorton
   file: classes/array/sorton_option.as
   script: |
     a = new Array();

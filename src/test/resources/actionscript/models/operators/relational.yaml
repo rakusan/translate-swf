@@ -1,4 +1,4 @@
-- test: "=="
+- test: \"==\"
   refid: equals
   file: operators/equals_%d.as
   parameters:
@@ -6,16 +6,16 @@
     - expr: a == b == c
     - expr: a == 0
     - expr: a == 0.0
-    - expr: a == "0"
+    - expr: "a == \"0\""
     - expr: 1 == 0
-    - expr: 1 == "0"
+    - expr: "1 == \"0\""
     - expr: 1 == 1
     - expr: 1.0 == 1.0
-    - expr: 1 == "1"
-    - expr: "1" == "1"
+    - expr: "1 == \"1\""
+    - expr: "\"1\" == \"1\""
   script: |
     x = %expr%;
-- test: "==="
+- test: \"===\"
   refid: strict_equals
   file: operators/strict_equals_%d.as
   parameters:
@@ -23,17 +23,17 @@
     - expr: a === b === c
     - expr: a === 0
     - expr: a === 0.0
-    - expr: a === "0"
+    - expr: "a === \"0\""
     - expr: 1 === 0
-    - expr: 1 === "0"
+    - expr: "1 === \"0\""
     - expr: 1 === 1
     - expr: 1 === 1.0
-    - expr: 1 === "1"
+    - expr: "1 === \"1\""
     - expr: 1.0 === 1.0
-    - expr: "1" === "1"
+    - expr: "\"1\" === \"1\""
   script: |
     x = %expr%;
-- test: "!="
+- test: \"!=\"
   refid: not_equals
   file: operators/not_equals_%d.as
   parameters:
@@ -41,16 +41,16 @@
     - expr: a != b != c
     - expr: a != 0
     - expr: a != 0.0
-    - expr: a != "0"
+    - expr: "a != \"0\""
     - expr: 1 != 0
-    - expr: 1 != "0"
+    - expr: "1 != \"0\""
     - expr: 1 != 1
     - expr: 1.0 != 1.0
-    - expr: 1 != "1"
-    - expr: "1" != "1"
+    - expr: "1 != \"1\""
+    - expr: "\"1\" != \"1\""
   script: |
     x = %expr%;
-- test: "!=="
+- test: \"!==\"
   refid: strict_not_equals
   file: operators/strict_not_equals_%d.as
   parameters:
@@ -58,17 +58,17 @@
     - expr: a !== b !== c
     - expr: a !== 0
     - expr: a !== 0.0
-    - expr: a !== "0"
+    - expr: "a !== \"0\""
     - expr: 1 !== 0
-    - expr: 1 !== "0"
+    - expr: "1 !== \"0\""
     - expr: 1 !== 1
     - expr: 1 !== 1.0
-    - expr: 1 !== "1"
+    - expr: "1 !== \"1\""
     - expr: 1.0 !== 1.0
-    - expr: "1" !== "1"
+    - expr: "\"1\" !== \"1\""
   script: |
     x = %expr%;
-- test: ">"
+- test: \">\"
   refid: greater
   file: operators/greater_%d.as
   parameters:
@@ -76,18 +76,18 @@
     - expr: a > b > c
     - expr: a > 0
     - expr: a > 0.0
-    - expr: a > "0"
+    - expr: "a > \"0\""
     - expr: 1 > 0
     - expr: 1 > 1
     - expr: 1 > 1.0
-    - expr: 1 > "1"
+    - expr: "1 > \"1\""
     - expr: 1 > 2
     - expr: 1 > 2.0
-    - expr: 1 > "2"
-    - expr: "1" > "12"
+    - expr: "1 > \"2\""
+    - expr: "\"1\" > \"12\""
   script: |
     x = %expr%;
-- test: ">="
+- test: \">=\"
   refid: greater_equals
   file: operators/greater_equals_%d.as
   parameters:
@@ -95,18 +95,18 @@
     - expr: a >= b >= c
     - expr: a >= 0
     - expr: a >= 0.0
-    - expr: a >= "0"
+    - expr: "a >= \"0\""
     - expr: 1 >= 0
     - expr: 1 >= 1
     - expr: 1 >= 1.0
-    - expr: 1 >= "1"
+    - expr: "1 >= \"1\""
     - expr: 1 >= 2
     - expr: 1 >= 2.0
-    - expr: 1 >= "2"
-    - expr: "1" >= "12"
+    - expr: "1 >= \"2\""
+    - expr: "\"1\" >= \"12\""
   script: |
     x = %expr%;
-- test: "<"
+- test: \"<\"
   refid: less
   file: operators/less_%d.as
   parameters:
@@ -114,18 +114,18 @@
     - expr: a < b < c
     - expr: a < 0
     - expr: a < 0.0
-    - expr: a < "0"
+    - expr: "a < \"0\""
     - expr: 0 < 1
     - expr: 1 < 1
     - expr: 1 < 1.0
-    - expr: 1 < "1"
+    - expr: "1 < \"1\""
     - expr: 2 < 1
     - expr: 2.0 < 1
-    - expr: "2" < 1
-    - expr: "12" < "1"
+    - expr: "\"2\" < 1"
+    - expr: "\"12\" < \"1\""
   script: |
     x = %expr%;
-- test: "<="
+- test: \"<=\"
   refid: less_equals
   file: operators/less_equals_%d.as
   parameters:
@@ -133,15 +133,15 @@
     - expr: a <= b <= c
     - expr: a <= 0
     - expr: a <= 0.0
-    - expr: a <= "0"
+    - expr: "a <= \"0\""
     - expr: 0 <= 1
     - expr: 1 <= 1
     - expr: 1 <= 1.0
-    - expr: 1 <= "1"
+    - expr: "1 <= \"1\""
     - expr: 2 <= 1
     - expr: 2.0 <= 1
-    - expr: "2" <= 1
-    - expr: "12" <= "1"
+    - expr: "\"2\" <= 1"
+    - expr: "\"12\" <= \"1\""
   script: |
     x = %expr%;
 - test: eq
@@ -151,8 +151,8 @@
     - expr: a eq b
     - expr: 1 eq 1
     - expr: 1 eq 1.0
-    - expr: 1 eq "1"
-    - expr: "1" eq "1"
+    - expr: "1 eq \"1\""
+    - expr: "\"1\" eq \"1\""
   script: |
     x = %expr%; 
 - test: ne
@@ -162,11 +162,11 @@
     - expr: a ne b
     - expr: 1 ne 0
     - expr: 1 ne 0.0
-    - expr: 1 ne "1"
-    - expr: "1" ne "1"
+    - expr: "1 ne \"1\""
+    - expr: "\"1\" ne \"1\""
   script: |
     x = %expr%; 
-- test: "<>"
+- test: \"<>\"
   refid: inequality
   file: operators/inequality_%d.as
   parameters:
@@ -175,7 +175,7 @@
     - expr: 1 <> false
     - expr: 1 <> 1
     - expr: 1 <> 1.0
-    - expr: 1 <> "1"
+    - expr: "1 <> \"1\""
   script: |
     x = %expr%; 
 - test: gt
@@ -186,8 +186,8 @@
     - expr: a gt 1
     - expr: 1 gt 0
     - expr: 1 gt 0.0
-    - expr: 1 gt "0"
-    - expr: "1" gt "12" 
+    - expr: "1 gt \"0\""
+    - expr: "\"1\" gt \"12\"" 
   script: |
     x = %expr%; 
 - test: ge
@@ -198,8 +198,8 @@
     - expr: a ge 1
     - expr: 1 ge 0
     - expr: 1 ge 0.0
-    - expr: 1 ge "0"
-    - expr: "1" ge "12" 
+    - expr: "1 ge \"0\""
+    - expr: "\"1\" ge \"12\""
   script: |
     x = %expr%; 
 - test: lt 
@@ -210,8 +210,8 @@
     - expr: a lt 1
     - expr: 0 lt 1
     - expr: 0 lt 1.0
-    - expr: 0 lt "1"
-    - expr: "1" lt "12" 
+    - expr: "0 lt \"1\""
+    - expr: "\"1\" lt \"12\""
   script: |
     x = %expr%; 
 - test: le
@@ -222,7 +222,7 @@
     - expr: a le 1
     - expr: 0 le 1
     - expr: 0 le 1.0
-    - expr: 0 le "1"
-    - expr: "1" le "12" 
+    - expr: "0 le \"1\""
+    - expr: "\"1\" le \"12\""
   script: |
     x = %expr%; 

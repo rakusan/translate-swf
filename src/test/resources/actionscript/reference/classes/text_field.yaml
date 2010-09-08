@@ -41,7 +41,6 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
     - id: textfield_border
-        - DEFAULT_1_9
       name: border
       description: Does the text field have a border color.
       profiles:
@@ -449,8 +448,6 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-
-
     - id: textfield_getdepth
       name: getDepth()
       description: Get the layer number where the field is displayed.
@@ -546,7 +543,6 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-
     - id: textfield_onchanged
       name: onChanged
       description: Event handler called when the text field contents change.

@@ -1,7 +1,7 @@
 - name: XMLSocket
   type: class
   elements:
-    - id: xmlsocket_xmlsocket
+    - id: xmlsocket_constructor
       name: XMLSocket()
       description: Create a new XMLSocket object.
       profiles:
@@ -73,4 +73,4 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-			
+

@@ -24,7 +24,7 @@
       description: The number of frames loaded.
       profiles:
         - DEFAULT_1_4
-    - id: movieclip_focusEnabled
+    - id: movieclip_focusenabled
       name: focusEnabled
       description: Can the movie clip get input focus.
       profiles:
@@ -176,12 +176,13 @@
         - DEFAULT_1_9
     - id: movieclip_totalframes
       name: _totalFrames
-      description: The totla number of frames in the movie clip. Read-Only.
+      description: The total number of frames in the movie clip. Read-Only.
       profiles:
         - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
-        - DEFAULT_1_9- id: _url
+        - DEFAULT_1_9
+    - id: movieclip_url
       name: _url
       description: Get the URL of the Flash file that created the movie clip. Read-Only.
       profiles:
@@ -585,6 +586,15 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+    - id: movieclip_nextscene
+      name: nextScene()
+      description: Move to the next scene.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
     - id: movieclip_play
       name: play()
       description: Start playing.
@@ -597,6 +607,15 @@
     - id: movieclip_prevframe
       name: prevFrame()
       description: Move to the previous frame.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: movieclip_prevscene
+      name: prevScene()
+      description: Move to the previous scene.
       profiles:
         - DEFAULT_1_5
         - DEFAULT_1_6
@@ -665,7 +684,7 @@
         - DEFAULT_1_8
         - DEFAULT_1_9
 
-    - id: movieclip_ondata
+    - id: movieclip_event_data
       name: onData
       description: Get/set event handler called when the movie clip received data from a call to load() or loadMovie().
       profiles:
@@ -673,7 +692,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_ondragout
+    - id: movieclip_event_dragout
       name: onDragOut
       description: Get/set event handler called when mouse is clicked and dragged outside the movie clip.
       profiles:
@@ -681,7 +700,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_ondragover
+    - id: movieclip_event_dragover
       name: onDragOver
       description: Get/set event handler called when mouse is clicked outside and dragged over the movie clip.
       profiles:
@@ -689,7 +708,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onenterframe
+    - id: movieclip_event_enterframe
       name: onEnterFrame
       description: Get/set event handler called when mouse is over the Stage.
       profiles:
@@ -697,7 +716,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onkeydown
+    - id: movieclip_event_keydown
       name: onKeyDown
       description: Get/set event handler called when a key is pressed.
       profiles:
@@ -705,7 +724,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onkeyup
+    - id: movieclip_event_keyup
       name: onKeyUp
       description: Get/set event handler called when a key is released.
       profiles:
@@ -713,7 +732,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onkillfocus
+    - id: movieclip_event_killfocus
       name: onKillFocus
       description: Get/set event handler called when a the movie clip loses keyboard focus.
       profiles:
@@ -721,7 +740,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onload
+    - id: movieclip_event_load
       name: onLoad
       description: Get/set event handler called when a the movie clip is created and added to the mopive timeline.
       profiles:
@@ -729,7 +748,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onmousedown
+    - id: movieclip_event_mousedown
       name: onMouseDown
       description: Get/set event handler called when the mouse is pressed.
       profiles:
@@ -737,7 +756,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onmousemove
+    - id: movieclip_event_mousemove
       name: onMouseMove
       description: Get/set event handler called when the mouse is moved.
       profiles:
@@ -745,7 +764,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onmouseup
+    - id: movieclip_event_mouseup
       name: onMouseUp
       description: Get/set event handler called when the mouse is released.
       profiles:
@@ -753,7 +772,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onpress
+    - id: movieclip_event_press
       name: onPress
       description: Get/set event handler called when a mouse movie clip is pressed.
       profiles:
@@ -761,7 +780,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onrelease
+    - id: movieclip_event_release
       name: onRelease
       description: Get/set event handler called when a mouse movie clip is released.
       profiles:
@@ -769,7 +788,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onreleaseoutside
+    - id: movieclip_event_releaseoutside
       name: onReleaseOutside
       description: Get/set event handler called when a mouse movie clip is released outside of the movie clip.
       profiles:
@@ -777,7 +796,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onrollout
+    - id: movieclip_event_rollout
       name: onRollOut
       description: Get/set event handler called when the mouse moves outside of the movie clip.
       profiles:
@@ -785,7 +804,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onrollover
+    - id: movieclip_event_rollover
       name: onRollOver
       description: Get/set event handler called when the mouse moves over the movie clip.
       profiles:
@@ -793,7 +812,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onsetfocus
+    - id: movieclip_event_setfocus
       name: onSetFocus
       description: Get/set event handler called when the mouse gets keyboard focus.
       profiles:
@@ -801,8 +820,8 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: movieclip_onload
-      name: onLoad
+    - id: movieclip_event_unload
+      name: onUnload
       description: Get/set event handler called when a the movie clip is removed from the timeline.
       profiles:
         - DEFAULT_1_6

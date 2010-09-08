@@ -1,125 +1,125 @@
 - test: avHardwareDisable
-  refid: system_avhardwaredisable
+  refid: capabilities_avhardwaredisable
   file: classes/system/system_avhardwaredisable.as
   script: |
     System.capabilities.avHardwareDisable;
 - test: hasAudio
-  refid: system_hasaudio
+  refid: capabilities_hasaudio
   file: classes/system/hasAudio.as
   script: |
     System.capabilities.hasAudio;
 - test: hasAudioEncoder
-  refid: system_hasaudioencoder
+  refid: capabilities_hasaudioencoder
   file: classes/system/system_hasaudioencoder.as
   script: |
     System.capabilities.hasAudioEncoder;
 - test: hasEmbeddedVideo
-  refid: system_hasembeddedvideo
+  refid: capabilities_hasembeddedvideo
   file: classes/system/system_hasembeddedvideo.as
   script: |
     System.capabilities.hasEmbeddedVideo;
 - test: hasMP3
-  refid: system_hasmp3
+  refid: capabilities_hasmp3
   file: classes/system/system_hasmp3.as
   script: |
     System.capabilities.hasMP3;
 - test: hasPrinting
-  refid: system_hasprinting
+  refid: capabilities_hasprinting
   file: classes/system/system_hasprinting.as
   script: |
     System.capabilities.hasPrinting;
 - test: hasScreenBroadcast
-  refid: system_hasscreenbroadcast
+  refid: capabilities_hasscreenbroadcast
   file: classes/system/system_hasscreenbroadcast.as
   script: |
     System.capabilities.hasScreenBroadcast;
 - test: hasScreenPlayback
-  refid: system_hasscreenplayback
+  refid: capabilities_hasscreenplayback
   file: classes/system/system_hasscreenplayback.as
   script: |
     System.capabilities.hasScreenPlayback;
 - test: hasStreamingAudio
-  refid: system_hasstreamingaudio
+  refid: capabilities_hasstreamingaudio
   file: classes/system/system_hasstreamingaudio.as
   script: |
     System.capabilities.hasStreamingAudio;
 - test: hasStreamingVideo
-  refid: system_hasstreamingvideo
+  refid: capabilities_hasstreamingvideo
   file: classes/system/system_hasstreamingvideo.as
   script: |
     System.capabilities.hasStreamingVideo;
 - test: hasVideoEncoder
-  refid: system_hasvideoencoder
+  refid: capabilities_hasvideoencoder
   file: classes/system/system_hasvideoencoder.as
   script: |
     System.capabilities.hasVideoEncoder;
 - test: isDebugger
-  refid: system_isdebugger
+  refid: capabilities_isdebugger
   file: classes/system/system_isdebugger.as
   script: |
     System.capabilities.isDebugger;
 - test: language
-  refid: system_language
+  refid: capabilities_language
   file: classes/system/system_language.as
   script: |
     System.capabilities.language;
 - test: localFileReadDisable
-  refid: system_localfilereaddisable
+  refid: capabilities_localfilereaddisable
   file: classes/system/system_localfilereaddisable.as
   script: |
     System.capabilities.localFileReadDisable;
 - test: manufacturer
-  refid: system_manufacturer
+  refid: capabilities_manufacturer
   file: classes/system/system_manufacturer.as
   script: |
     System.capabilities.manufacturer;
 - test: pixelAspectRatio
-  refid: system_pixelaspectratio
+  refid: capabilities_pixelaspectratio
   file: classes/system/system_pixelaspectratio.as
   script: |
     System.capabilities.pixelAspectRatio;
 - test: screenColor
-  refid: system_screencolor
+  refid: capabilities_screencolor
   file: classes/system/system_screencolor.as
   script: |
     System.capabilities.screenColor;
 - test: screenDPI
-  refid: system_screendpi
+  refid: capabilities_screendpi
   file: classes/system/system_screendpi.as
   script: |
     System.capabilities.screenDPI;
 - test: screenResolutionX
-  refid: system_screenresolutionx
+  refid: capabilities_screenresolutionx
   file: classes/system/system_screenresolutionx.as
   script: |
     System.capabilities.screenResolutionX;
 - test: screenResolutionY
-  refid: system_screenresolutiony
+  refid: capabilities_screenresolutiony
   file: classes/system/system_screenresolutiony.as
   script: |
     System.capabilities.screenResolutionY;
 - test: serverString
-  refid: system_serverstring
+  refid: capabilities_serverstring
   file: classes/system/system_serverstring.as
   script: |
     System.capabilities.serverString;
 - test: version
-  refid: system_version
+  refid: capabilities_version
   file: classes/system/system_version.as
   script: |
     System.capabilities.version;
 - test: allowDomain
-  refid: system_allowdomain
+  refid: security_allowdomain
   file: classes/system/system_allowdomain.as
   script: |
     System.security.allowDomain("flagstonesoftware.com");
 - test: allowInsecureDomain
-  refid: system_allowinsecuredomain
+  refid: security_allowinsecuredomain
   file: classes/system/system_allowinsecuredomain.as
   script: |
     System.security.allowInsecureDomain("sourceforget.net");
 - test: loadPolicyFile
-  refid: system_loadpolicyfile
+  refid: security_loadpolicyfile
   file: classes/system/system_loadpolicyfile.as
   script: |
     System.security.loadPolicyFile("http://www.flagstonesoftware.com/policy.xml");
@@ -128,7 +128,7 @@
   file: classes/system/system_onstatus.as
   script: |
     System.onStatus = function(error) {
-	    trace("An error has occurred. Please try again.");
+        trace("An error has occurred. Please try again.");
     };
 - test: setClipBoard
   refid: system_setclipboard
@@ -136,7 +136,7 @@
   script: |
     System.setClipBoard("Copy this string");
 - test: show Privacy Panel
-  refid: system_showSettings
+  refid: system_showsettings
   file: classes/system/system_showprivacypanel.as
   script: |
     System.showSettings(0);  // Privacy panel

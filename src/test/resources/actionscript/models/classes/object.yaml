@@ -9,12 +9,12 @@
   script: |
     a = {a:1, b:2};
 - test: Object
-  refid: object_constructor_parameter
+  refid: object_constructor
   file: classes/object/object_constructor_parameter.as
   script: |
     a = new Object("Marie Celeste");
 - test: Template
-  refid: object_template
+  refid: object_constructor
   file: classes/object/object_template.as
   script: |
     function Ship(name) {

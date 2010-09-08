@@ -1,7 +1,7 @@
 - name: Boolean
   type: class
   elements:
-    - id: boolean_boolean
+    - id: boolean_constructor
       name: Boolean()
       description: Create a new Boolean object with a default value of false.
       profiles:

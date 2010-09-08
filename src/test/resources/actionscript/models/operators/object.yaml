@@ -1,8 +1,9 @@
 - test: dot
-  refid: operators/dot_%d.as
+  refid: dot
+  file: operators/dot_%d.as
   parameters:
     - expr: object.field
     - expr: object.method()
-    - expr: {a:1, b:2}.a
+    - expr: "{a:1, b:2}.a"
   script: |
     x = %expr%;

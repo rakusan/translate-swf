@@ -1,13 +1,16 @@
 - test: getTimer()
   refid: gettimer
+  file: functions/gettimer.as
   script: |
     getTimer();
 - test: clearInterval()
   refid: clearinterval
+  file: functions/clearinterval.as
   script: |
     clearInterval(id);
 - test: setInterval()
   refid: setinterval
+  file: functions/setinterval.as
   script: |
     function handler() {
         a += 1;

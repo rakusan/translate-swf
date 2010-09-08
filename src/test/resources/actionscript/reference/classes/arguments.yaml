@@ -1,6 +1,17 @@
- - name: Arguments
+- name: Arguments
   type: class
   elements:
+    - id: arguments_access
+      name: access
+      type: operator
+      class: Arguments
+      description: Subscript operator on arguments object.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
     - id: arguments_callee
       name: callee
       type: property

@@ -19,7 +19,7 @@
     menu.customItems.push(new ContextMenuItem("Copy", copy));
     menu.customItems.push(new ContextMenuItem("Paste", paste));
     button.menu = menu;
-- test onSelect
+- test: onSelect
   refid: context_menu_onselect
   file: classes/context_menu/onselect.as
   script: |
@@ -37,13 +37,13 @@
     
     menu.onSelect = menuHandler;
     
-- test hideBuiltInItems()
+- test: hideBuiltInItems()
   refid: context_menu_hidebuiltinitems
   file: classes/context_menu/hidebuiltinitems.as
   script: |
     menu = new ContextMenu();
     menu.hideBuiltInItems();
-- test builtInItems()
+- test: builtInItems()
   refid: context_menu_builtinitems
   file: classes/context_menu/builtinitems.as
   script: |
@@ -57,7 +57,7 @@
     properties.rewind = true;
     properties.forward_back = true;
     properties.print = true;
-- test copy()
+- test: copy()
   refid: context_menu_copy
   file: classes/context_menu/copy.as
   script: |

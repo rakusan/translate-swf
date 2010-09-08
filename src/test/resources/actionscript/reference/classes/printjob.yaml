@@ -1,7 +1,7 @@
 - name: PrintJob
   type: class
   elements:
-    - id: printjob_printjob
+    - id: printjob_constructor
       name: PrintJob()
       description: Create a new PrintJob object.
       profiles:

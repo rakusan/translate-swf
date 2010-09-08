@@ -116,13 +116,13 @@
     button._focusrect = true;
     a = button._focusrect;
 - test: tabEnabled
-  refid: button_tabEnabled
+  refid: button_tabenabled
   file: classes/button/tabEnabled.as
   script: |
     button.tabEnabled = true;
     a = button.tabEnabled;
 - test: tabIndex
-  refid: button_tabIndex
+  refid: button_tabindex
   file: classes/button/tabIndex.as
   script: |
     button.tabIndex = 1;

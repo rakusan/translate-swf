@@ -113,7 +113,7 @@
     - DEFAULT_1_10
 
 - name: getProperty()
-  id: getProperty
+  id: getproperty
   description: Return a property of a movieclip.
   profiles:
     - DEFAULT_1_4

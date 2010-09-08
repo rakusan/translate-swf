@@ -11,7 +11,7 @@
   script: |
     a = eval("b");
 - test: eval function discards value
-  refid: eval_discard
+  refid: eval
   file: functions/eval_discard.as
   script: |
     eval("b");

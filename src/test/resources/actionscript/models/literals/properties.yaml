@@ -1,5 +1,6 @@
 - test: Properties
   file: literals/properties_%d.as
+  refid: global_properties
   parameters:
     - expr: _level0
     - expr: _root

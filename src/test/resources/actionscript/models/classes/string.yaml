@@ -1,10 +1,5 @@
 - test: Literal constructor
-  refid: string_constructor_literal
-  file: classes/string/string_constructor_literal.as
-  script: |
-    a = "abc";
- - test: Literal constructor
-  refid: string_constructor_arg
+  refid: string_constructor
   file: classes/string/string_constructor_arg.as
   script: |
     a = new String("abc");
@@ -38,7 +33,7 @@
     a = new String("abc");
     b = a.indexOf("b");
 - test: indexOf()
-  refid: string_indexof_offset
+  refid: string_indexof
   file: classes/string/string_indexof_offset.as
   script: |
     a = new String("abc");
@@ -50,7 +45,7 @@
     a = new String("abc");
     b = a.lastIndexOf("b");
 - test: lastIndexOf()
-  refid: string_lastindexof_offset
+  refid: string_lastindexof
   file: classes/string/string_lastindexof_offset.as
   script: |
     a = new String("abc");

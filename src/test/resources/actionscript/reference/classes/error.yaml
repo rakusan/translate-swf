@@ -1,7 +1,7 @@
 - name: Error
   type: class
   elements:
-    - id: error_error
+    - id: error_constructor
       name: Error()
       description: Create a new Error object.
       profiles:

@@ -3,7 +3,7 @@
   elements:  
     - id: array_caseinsensitive
       name: CASEINSENSITIVE
-      ty}pe: constant
+      type: constant
       description: Case-insensitive sorting.
       profiles:
         - DEFAULT_1_7
@@ -33,15 +33,15 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: array_uniquesort
-      name: UNIQUESORT
+    - id: array_unique
+      name: UNIQUE
       type: constant
       description: Calls to sort() and sortOn() return only unique elements.
       profiles:
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: array_array
+    - id: array_constructor_empty
       name: Array()
       type: constructor
       description: Create an empty array.
@@ -51,7 +51,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: array_array_n
+    - id: array_constructor_size
       name: Array(n)
       type: constructor
       description: Create an array with n elements. Each element is undefined.
@@ -61,10 +61,20 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: array_array_element
+    - id: array_constructor_elements
       name: Array(element0...)
       type: constructor
       description: Create an array with the specified elements.
+      profiles: 
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_constructor_brackets
+      name: [...]
+      type: constructor
+      description: Create an array using bracket notation.
       profiles: 
         - DEFAULT_1_5
         - DEFAULT_1_6
@@ -152,7 +162,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: array_toString
+    - id: array_tostring
       name: toString()
       description: Return the string representation.
       profiles:
@@ -172,14 +182,32 @@
         - DEFAULT_1_9
     - id: array_sort
       name: sort()
-      description: Sort the elements using an optional comaprison function and sort options.
+      description: Sort the elements using default options.
       profiles:
         - DEFAULT_1_5
         - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: array_sortOn
+    - id: array_sort_function
+      name: sort()
+      description: Sort the elements using an optional comparison function.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_sort_option
+      name: sort()
+      description: Sort the elements using sort options.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: array_sorton
       name: sortOn()
       description: Sort an array of objects which share one or more fields.
       profiles:

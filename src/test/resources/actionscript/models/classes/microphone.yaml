@@ -33,7 +33,7 @@
     mic = Microphone.get(1);
     a = mic.rate;
 - test: Microphone activity
-  refid: microphone_activity
+  refid: microphone_activitylevel
   file: classes/microphone/microphone_activity.as
   script: |
     mic = Microphone.get(1);

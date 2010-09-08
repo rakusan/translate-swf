@@ -64,7 +64,7 @@
         - DEFAULT_1_8
         - DEFAULT_1_9
     - id: button_soundbuftime
-	  name: _soundbuftime
+      name: _soundbuftime
       description: Get/set the number of seconds to buffer streaming sounds. This is a global property but can be set on a Button.
       profiles:
         - DEFAULT_1_6
@@ -249,7 +249,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: button_onkeydown
+    - id: button_onkeypress
       name: onKeyDown
       description: Get/set event handler called when a key is pressed.
       profiles:

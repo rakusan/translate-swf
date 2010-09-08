@@ -1,10 +1,10 @@
 - test: TextStyleSheet
-  refid: textstylesheet_constructor
+  refid: stylesheet_constructor
   file: classes/textstylesheet/text_stylesheet.as
   script: |
     stylesheet = new TextField.StyleSheet();
 - test: onLoad
-  refid: textstylesheet_onload
+  refid: stylesheet_onload
   file: classes/textstylesheet/onload.as
   script: |
     stylesheet = new TextField.StyleSheet();
@@ -18,38 +18,38 @@
         } 
     };
 - test: load()
-  refid: textstylesheet_load
+  refid: stylesheet_load
   file: classes/textstylesheet/load.as
   script: |
     stylesheet = new TextField.StyleSheet();
     stylesheet.load("styles.css");
 - test: getStyle()
-  refid: textstylesheet_getstyle
-  file: classes/textstylesheet/textstylesheet_getstyle.as
+  refid: stylesheet_getstyle
+  file: classes/textstylesheet/stylesheet_getstyle.as
   script: |
     stylesheet = new TextField.StyleSheet();
     stylesheet.getStyle("heading");
 - test: parseCSS()
-  refid: textstylesheet_parsecss
-  file: classes/textstylesheet/textstylesheet_parsecss.as
+  refid: stylesheet_parsecss
+  file: classes/textstylesheet/stylesheet_parsecss.as
   script: |
     stylesheet = new TextField.StyleSheet();
     styleSheet.parseCSS(".heading { font-family: Arial; font-size: 12px }");
 - test: setStyle()
-  refid: textstylesheet_setstyle
-  file: classes/textstylesheet/textstylesheet_setstyle.as
+  refid: stylesheet_setstyle
+  file: classes/textstylesheet/stylesheet_setstyle.as
   script: |
     stylesheet = new TextField.StyleSheet();
     styleSheet.setStyle("heading", "{ font-family: Arial; font-size: 12px }");
 - test: transform()
-  refid: textstylesheet_transform
-  file: classes/textstylesheet/textstylesheet_transform.as
+  refid: stylesheet_transform
+  file: classes/textstylesheet/stylesheet_transform.as
   script: |
     stylesheet = new TextField.StyleSheet();
     stylesheet.transform(sheet.getStyle("heading"));
 - test: clear()
-  refid: textstylesheet_clear
-  file: classes/textstylesheet/textstylesheet_clear.as
+  refid: stylesheet_clear
+  file: classes/textstylesheet/stylesheet_clear.as
   script: |
     stylesheet = new TextField.StyleSheet();
     stylesheet.clear();

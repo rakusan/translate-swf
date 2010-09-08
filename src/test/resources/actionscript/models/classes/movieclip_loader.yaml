@@ -32,7 +32,7 @@
     loader.loadClip("http://www.flagstonesoftware.com/clip.swf", "clip");
 
 - test: removeListener()
-  file: moviecliploader_removeListener
+  refid: moviecliploader_removelistener
   file: classes/moviecliploader/moviecliploader_removeListener.as
   script: |
     this.createEmptyMovieClip("clip", this.getNextHighestDepth());

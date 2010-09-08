@@ -1,7 +1,7 @@
 - name: NetConnection
   type: class
   elements:
-    - id: netconnection_netconnection
+    - id: netconnection_constructor
       name: NetConnection()
       description: Create a new NetConnection object.
       profiles:

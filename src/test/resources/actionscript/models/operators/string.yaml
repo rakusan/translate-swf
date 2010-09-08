@@ -2,13 +2,13 @@
   refid: concatenation
   file: operators/concatenation_%d.as
   parameters:
-    - expr: a + "0"
-    - expr: a + "0.0"
-    - expr: a + "1"
-    - expr: a + "1.0"
-    - expr: a + ""
-    - expr: a + "b"
-    - expr: 1 + "a"
+    - expr: "a + \"0\""
+    - expr: "a + \"0.0\""
+    - expr: "a + \"1\""
+    - expr: "a + \"1.0\""
+    - expr: "a + \"\""
+    - expr: "a + \"b\""
+    - expr: "1 + \"a\""
     - expr: "\"a\" + \"b\""
   script: |
     x = %expr%;
@@ -19,9 +19,9 @@
     - expr: a add b
     - expr: a add 1
     - expr: a add 1.0
-    - expr: a add "1.0"
+    - expr: "a add \"1.0\""
     - expr: 0 add 1
-    - expr: 0 add "1"
-    - expr: "0" add "1"
+    - expr: "0 add \"1\""
+    - expr: "\"0\" add \"1\""
   script: |
     x = %expr%; 

@@ -1,6 +1,12 @@
 - name: Video
   type: class
   elements:
+    - id: video_constructor
+      name: Video()
+      description: Video object constructor
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
     - id: video_alpha
       name: _alpha
       description: Get/set the transparency level.

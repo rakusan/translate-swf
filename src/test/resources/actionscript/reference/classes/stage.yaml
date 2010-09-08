@@ -19,7 +19,7 @@
         - DEFAULT_1_9
     - id: stage_scalemode
       name: scaleMode
-      description: The current scaling mode: noScale, exactFit, showAll or noBorder.
+      description: "The current scaling mode: noScale, exactFit, showAll or noBorder."
       profiles:
         - DEFAULT_1_6
         - DEFAULT_1_7

@@ -1,6 +1,6 @@
 - test: SharedObject
-  refid: sharedobject_constructor
-  file: classes/sharedobject/sharedobject_constructor.as
+  refid: sharedobject_getlocal
+  file: classes/sharedobject/sharedobject_getlocal.as
   script: |
     share = SharedObject.getLocal("obj", "/shares");
 - test: getSize()

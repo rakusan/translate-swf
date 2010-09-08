@@ -86,7 +86,7 @@
   script: |
     x = %expr%;
 - test: ">>>"
-  refid: un signed_shift_right
+  refid: unsigned_shift_right
   file: operators/unsigned_shift_right_%d.as
   parameters:
     - value: a >>> b

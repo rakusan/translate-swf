@@ -1,7 +1,7 @@
 - name: Color
   type: class
   elements:
-    - id: color_color
+    - id: color_constructor
       name: Color()
       description: Create a colour object for the specified movie clip.
       profiles:

@@ -1,7 +1,7 @@
 - name: LocalConnection
   type: class
   elements:
-    - id: localconnection_localconnection
+    - id: localconnection_constructor
       name: LocalConnection()
       description: Create a new LocalConnection object.
       profiles:
@@ -25,9 +25,17 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+    - id: localconnection_methodtoexecute
+      name: methodToExecute
+      description:
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
     - id: localconnection_send
       name: send()
-      description: Send a command to call a methdo onthe receiver.
+      description: Send a command to call a method on the receiver.
       profiles:
         - DEFAULT_1_6
         - DEFAULT_1_7

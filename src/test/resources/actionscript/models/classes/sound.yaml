@@ -113,12 +113,3 @@
     a = new Sound();
     a.attachSound("bell");
     a.stop("bell");
-- test: MP3 Properties
-  refid: 
-  file: classes/sound/sound.as
-  script: |
-    a = new Sound();
-    a.loadSound("stream.mp3");
-    a.duration;
-    a.id3;
-    a.position;

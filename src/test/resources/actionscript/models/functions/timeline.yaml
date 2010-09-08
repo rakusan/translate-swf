@@ -39,10 +39,12 @@
   script: |
     stop();
 - test: prevFrame()
+  refid: prevframe
   file: functions/prevframe.as
   script: |
     prevFrame();
 - test: prevScene()
+  refid: prevscene
   file: functions/prevscene.as
   script: |
     prevScene();

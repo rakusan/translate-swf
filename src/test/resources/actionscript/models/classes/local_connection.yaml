@@ -30,15 +30,6 @@
   file: classes/localconnection/methodtoexecute.as
   script: |
     conn = new LocalConnection();
-    receiver.methodToExecute = function(a, b) {
-        trace("a = "+a);
-        trace("b = "+b);
-    };
-- test: methodToExecute
-  refid: localconnection_methodtoexecute
-  file: classes/localconnection/methodtoexecute.as
-  script: |
-    conn = new LocalConnection();
     conn.methodToExecute = function(a, b) {
         trace("a = "+a);
         trace("b = "+b);

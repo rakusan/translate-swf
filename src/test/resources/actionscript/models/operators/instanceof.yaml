@@ -2,8 +2,8 @@
   refid: instanceof
   file: operators/instanceof_%d.as
   parameters:
-    - expr a instanceof b
-    - expr a instanceof Object
-    - expr a instanceof String
+    - expr: a instanceof b
+    - expr: a instanceof Object
+    - expr: a instanceof String
   script: |
     %expr%;

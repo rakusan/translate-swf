@@ -1,5 +1,5 @@
 - test: Boolean function with argument
-  refid: function_boolean
+  refid: boolean
   file: functions/boolean_%d.as
   parameters:
     - value: a
@@ -11,7 +11,7 @@
   script: |
     a = Boolean(%value%);
 - test: Boolean function discards return value
-  refid: function_boolean
+  refid: boolean
   file: functions/boolean_discard.as
   script: |
     Boolean(b);

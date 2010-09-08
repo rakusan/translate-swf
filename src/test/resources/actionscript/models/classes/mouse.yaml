@@ -18,8 +18,8 @@
     Mouse.addListener(listener);
     Mouse.removeListener(listener);
 - test: Mouse wheel
-  refid: mouse_wheel
-  file: classes/mouse/mouse_wheel.as
+  refid: mouse_onmousewheel
+  file: classes/mouse/mouse_onmousewheel.as
   script: |
     listener = new Object();
     listener.onMouseWheel = function(delta, target) { };

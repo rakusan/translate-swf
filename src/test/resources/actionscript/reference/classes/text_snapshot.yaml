@@ -3,7 +3,7 @@
   elements:
     - id: textsnapshot_findtext
       name: findText()
-      description: Searches a TextSnapshot for hte specified text.
+      description: Searches a TextSnapshot for the specified text.
       profiles:
         - DEFAULT_1_7
         - DEFAULT_1_8

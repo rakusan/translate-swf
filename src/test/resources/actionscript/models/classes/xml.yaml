@@ -1,5 +1,6 @@
 - test: variables
   file: classes/xml/variables.xml
+  refid: xml_constructor
   script: |
     <list>
     </list>

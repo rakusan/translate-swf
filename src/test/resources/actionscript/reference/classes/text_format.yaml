@@ -1,7 +1,7 @@
 - name: TextFormat
   type: class
   elements:
-    - id: textformat_textformat
+    - id: textformat_constructor
       name: TextFormat()
       description: Create a new TextFormat object.
       profiles:
@@ -19,7 +19,7 @@
         - DEFAULT_1_9
     - id: textformat_align
       name: align
-      description: Get the paragrpah alignment.
+      description: Get the paragraph alignment.
       profiles:
         - DEFAULT_1_6
         - DEFAULT_1_7
@@ -129,6 +129,38 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+    - id: textformat_ascent
+      name: ascent
+      description: The ascent of the text, in points.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_descent
+      name: descent
+      description: The descent of the text, in points.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_textfieldwidth
+      name: width
+      description: The width of the field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_textfieldheight
+      name: height
+      description: The height of the field.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
     - id: textformat_tabstops
       name: tabStops
       description: An array of integers indicating tab stops.
@@ -146,11 +178,24 @@
         - DEFAULT_1_8
         - DEFAULT_1_9
     - id: textformat_underline
-      description: Is the text underlined./td><td>6
+      description: Is the text underlined.
       description: 
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
     - id: textformat_url
       name: url
       description: The URL for a link.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: textformat_wrapwidth
+      name: wrapWidth
+      description: The line length.
       profiles:
         - DEFAULT_1_6
         - DEFAULT_1_7

@@ -61,14 +61,6 @@
     conn.connect(null);
     stream = new NetStream(conn);
     stream.setBufferTime(5);
-- test: attachVideo
-  refid: netstream_attachvideo
-  file: classes/netstream/netstream_attachvideo.as
-  script: |
-    conn = new NetConnection();
-    conn.connect(null);
-    stream = new NetStream(conn);
-    screen.attachVideo(stream);
 - test: play
   refid: netstream_play
   file: classes/netstream/netstream_play.as

@@ -1,7 +1,7 @@
 - name: LoadVars
   type: class
   elements:
-    - id: loadvars_loadvars
+    - id: loadvars_constructor
       name: LoadVars()
       description: Create a new LoadVars object.
       profiles:

@@ -20,6 +20,6 @@
     - expr: a | b != c
     - expr: a & b && c
     - expr: a || b | c
-    - expr: a && b ? a | b : a || b
+    - expr: "a && b ? a | b : a || b"
   script: |
     x = %expr%;

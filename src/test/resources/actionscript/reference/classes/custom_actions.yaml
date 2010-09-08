@@ -1,7 +1,7 @@
 - name: CustomActions
   type: class
   elements:
-    - id: customactions_get
+    - id: custom_actions_get
       name: get()
       description: Read the contents of the custom action XML definition.
       profiles:
@@ -9,7 +9,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: customactions_install
+    - id: custom_actions_install
       name: install()
       description: Install a new custom action XML definition file.
       profiles:
@@ -17,7 +17,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: customactions_list
+    - id: custom_actions_list
       name: list()
       description: List the custom actions currently registered.
       profiles:
@@ -25,7 +25,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: customactions_uninstall
+    - id: custom_actions_uninstall
       name: uninstall()
       description: Uninstall a custom action XML definition file.
       profiles:

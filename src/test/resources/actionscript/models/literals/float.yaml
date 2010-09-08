@@ -1,4 +1,5 @@
 - test: float
+  refid: float
   file: literals/float_%d.as
   parameters:
     - expr: -0.0
@@ -19,5 +20,5 @@
     - expr: +1.0e+1;
     - expr: 2.225e-308;
     - expr: 1.798e308;
-   script: |
+  script: |
     x = %expr%;

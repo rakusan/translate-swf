@@ -1,7 +1,7 @@
 - name: String
   type: class
   elements:
-    - id: string_string
+    - id: string_constructor
       name: String()
       description: Create a new String object.
       profiles:
@@ -12,7 +12,7 @@
         - DEFAULT_1_9
     - id: string_length
       name: length
-      description: The number of charactgers in the String.
+      description: The number of characters in the String.
       profiles:
         - DEFAULT_1_5
         - DEFAULT_1_6

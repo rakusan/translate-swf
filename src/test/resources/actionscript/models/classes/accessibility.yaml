@@ -1,11 +1,11 @@
-- test: Accessibility isAction()
-  refid: accessibility_isaction
-  file classes/accessibility/isaction.as
+- test: Accessibility isActive()
+  refid: accessibility_isactive
+  file: classes/accessibility/isactive.as
   script: |
-    Accessibility.isAction();
+    Accessibility.isActive();
 - test: Accessibility updateProperties() for movie
   refid: accessibility_updateproperties
-  file classes/accessibility/updateproperties_movie.as
+  file: classes/accessibility/updateproperties_movie.as
   script: |
     _accProps.silent = false;
     _accProps.forceSimple = false;
@@ -14,7 +14,7 @@
     Accessbility.updateProperties();
 - test: Accessibility updateProperties() for movie clip
   refid: accessibility_updateproperties
-  file classes/accessibility/updateproperties_clip.as
+  file: classes/accessibility/updateproperties_clip.as
   script: |
     button._accProps.silent = false;
     button._accProps.name = "Load";

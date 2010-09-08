@@ -1,7 +1,7 @@
 - name: XML
   type: class
   elements:
-    - id: xml_xml
+    - id: xml_constructor
       name: XML()
       description: Create a new XML object.
       profiles:
@@ -21,6 +21,96 @@
     - id: xml_doctypedecl
       name: docTypeDecl
       description: Information about the DOCTYPE declaration.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_firstchild
+      name: firstchild
+      description: Get the first child node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_lastchild
+      name: lastchild
+      description: Get the last child node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_nextsibling
+      name: nextsibling
+      description: Get the next sibling node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_previoussibling
+      name: previousSibling
+      description: Get the previous sibling node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_parentnode
+      name: parentNode
+      description: Get the parent of the node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_nodename
+      name: nodeName
+      description: Get the name of the node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_nodetype
+      name: nodeType
+      description: Get the type of the node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_nodevalue
+      name: nodeValue
+      description: Get the value of the node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_attributes
+      name: attributes
+      description: Get the attributes of the node.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_childnodes
+      name: childNodes
+      description: Get the children of the node.
       profiles:
         - DEFAULT_1_5
         - DEFAULT_1_6
@@ -75,6 +165,22 @@
     - id: xml_addrequestheader
       name: addRequestHeader()
       description: Set an HTTP header.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_appendchild
+      name: appendChild()
+      description: Add a new child node.
+      profiles:
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+    - id: xml_clonenode
+      name: cloneNode()
+      description: Create a copy of a node.
       profiles:
         - DEFAULT_1_6
         - DEFAULT_1_7

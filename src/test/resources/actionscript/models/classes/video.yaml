@@ -3,12 +3,6 @@
   file: classes/video/video_constructor.as
   script: |
     screen = new Video();
-- test: attachVideo()
-  refid: video_attachvideo
-  file: classes/video/video_attachvideo.as
-  script: |
-    screen = new Video();
-    screen.attachVideo(Camera.get());
 - test: clear()
   refid: video_clear
   file: classes/video/video_clear.as

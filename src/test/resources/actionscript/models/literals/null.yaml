@@ -1,10 +1,10 @@
-- test: null
-  refid: null
+- test: "null"
+  refid: "null"
   file: literals/null.as
   script: |
     a = null;
 - test: null string
-  refid: null
+  refid: "null"
   file: literals/null_string.as
   script: |
     a = "null";

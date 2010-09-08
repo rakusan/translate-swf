@@ -1,61 +1,131 @@
-- test: Verify the properties of the Math class.
-  parameters:
-    - value: E
-      refid: math_e
-    - value: LN2
-      refid: math_ln2
-    - value: LOG2E
-      refid: math_log2e
-    - value: LN10
-      refid: math_ln10
-    - value: PI
-      refid: math_pi
-    - value: SQRT1_2
-      refid: math_sqrt_12
-    - value: SQRT2
-      refid: math_sqrt2
-    - value: LOG10E
-      refid: math_log10e
-      ignore: Rounded to 16 places in Flash but Java rounds to 17.
+- test: E
+  refid: math_e
+  file: classes/math/math_e.as
   script: |
-    a = Math.%value%;
-- test: Verify the methods of the Math class.
-  parameters:
-    - value: abs(b)
-      refid: math_abs
-    - value: acos(b)
-      refid: math_acos
-    - value: asin(b)
-      refid: math_acos
-    - value: atan(b)
-      refid: math_atan
-    - value: atan2(b, c)
-      refid: math_atan2
-    - value: ceil(b)
-      refid: math_ceil
-    - value: cos(b)
-      refid: math_cos
-    - value: exp(b)
-      refid: math_exp
-    - value: floor(b)
-      refid: math_floor
-    - value: log(b)
-      refid: math_log
-    - value: max(b, c)
-      refid: math_max
-    - value: min(b, c)
-      refid: math_min
-    - value: pow(b, c)
-      refid: math_pow
-    - value: random()
-      refid: math_random
-    - value: round(b)
-      refid: math_round
-    - value: sin(b)
-      refid: math_sin
-    - value: sqrt(b)
-      refid: math_sqrt
-    - value: tan(b)
-      refid: math_tan
+    a = Math.E;
+- test: LN2
+  refid: math_ln2
+  file: classes/math/math_ln2.as
   script: |
-    a = Math.%value%;
+    a = Math.LN2;
+- test: LOG2E
+  refid: math_log2e
+  file: classes/math/math_log2e.as
+  script: |
+    a = Math.LOG2E;
+- test: LN10
+  refid: math_ln10
+  file: classes/math/math_ln10.as
+  script: |
+    a = Math.LN10;
+- test: PI
+  refid: math_pi
+  file: classes/math/math_pi.as
+  script: |
+    a = Math.PI;
+- test: SQRT1_2
+  refid: math_sqrt1_2
+  file: classes/math/math_sqrt1_2.as
+  script: |
+    a = Math.SQRT1_2;
+- test: SQRT2
+  refid: math_sqrt2
+  file: classes/math/math_sqrt2.as
+  script: |
+    a = Math.SQRT2;
+- test: LOG10E
+  refid: math_log10e
+  file: classes/math/math_log10e.as
+  ignore: Rounded to 16 places in Flash but Java rounds to 17.
+  script: |
+    a = Math.LOG10E;
+- test: abs()
+  refid: math_abs
+  file: classes/math/math_abs.as
+  script: |
+    a = Math.abs(b);
+- test: acos()
+  refid: math_acos
+  file: classes/math/math_acos.as
+  script: |
+    a = Math.acos(b);
+- test: asin()
+  refid: math_asin
+  file: classes/math/math_asin.as
+  script: |
+    a = Math.asin(b);
+- test: atan()
+  refid: math_atan
+  file: classes/math/math_atan.as
+  script: |
+    a = Math.atan(b);
+- test: atan()
+  refid: math_atan2
+  file: classes/math/math_atan2.as
+  script: |
+    a = Math.atan2(b, c);
+- test: ceil()
+  refid: math_ceil
+  file: classes/math/math_ceiln.as
+  script: |
+    a = Math.ceil(b);
+- test: cos()
+  refid: math_cos
+  file: classes/math/math_cos.as
+  script: |
+    a = Math.cos(b);
+- test: exp()
+  refid: math_exp
+  file: classes/math/math_exp.as
+  script: |
+    a = Math.exp(b);
+- test: floor()
+  refid: math_floor
+  file: classes/math/math_floor.as
+  script: |
+    a = Math.floor(b);
+- test: log()
+  refid: math_log
+  file: classes/math/math_log.as
+  script: |
+    a = Math.log(b);
+- test: max()
+  refid: math_max
+  file: classes/math/math_max.as
+  script: |
+    a = Math.max(b, c);
+- test: min()
+  refid: math_min
+  file: classes/math/math_min.as
+  script: |
+    a = Math.min(b, c);
+- test: pow()
+  refid: math_pow
+  file: classes/math/math_pow.as
+  script: |
+    a = Math.pow(b, c);
+- test: random()
+  refid: math_random
+  file: classes/math/math_random.as
+  script: |
+    a = Math.random();
+- test: round()
+  refid: math_round
+  file: classes/math/math_round.as
+  script: |
+    a = Math.round(b);
+- test: sin()
+  refid: math_sin
+  file: classes/math/math_sin.as
+  script: |
+    a = Math.sin(b);
+- test: sqrt()
+  refid: math_sqrt
+  file: classes/math/math_sqrt.as
+  script: |
+    a = Math.sqrt(b);
+- test: tan()
+  refid: math_tan
+  file: classes/math/math_tan.as
+  script: |
+    a = Math.tan(b);

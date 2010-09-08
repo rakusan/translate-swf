@@ -1,17 +1,28 @@
-- test: Constants
-  properties:
-    - value: MAX_VALUE
-      refid: number_max_value
-    - value: MIN_VALUE
-      refid: number_min_value
-    - value: NaN
-      refid: number_nan
-    - value: NEGATIVE_INFINITY
-      refid: number_negative_infinity
-    - value: POSITIVE_INFINITY
-      refid: number_positive_infinity
+- test: MAX_VALUE
+  refid: number_max_value
+  file: classes/number/number_max_value.as
   script: |
-    a = Number.%value%;
+    a = Number.MAX_VALUE;
+- test: MIN_VALUE
+  refid: number_min_value
+  file: classes/number/number_min_value.as
+  script: |
+    a = Number.MIN_VALUE;
+- test: NaN
+  refid: number_nan
+  file: classes/number/number_nan.as
+  script: |
+    a = Number.NaN;
+- test: NEGATIVE_INFINITY
+  refid: number_negative_infinity
+  file: classes/number/number_negative_infinity.as
+  script: |
+    a = Number.NEGATIVE_INFINITY;
+- test: POSITIVE_INFINITY
+  refid: number_positive_infinity
+  file: classes/number/number_positive_infinity.as
+  script: |
+    a = Number.POSITIVE_INFINITY;
 - test: Number()
   refid: number_constructor
   file: classes/number/number_constructor.as

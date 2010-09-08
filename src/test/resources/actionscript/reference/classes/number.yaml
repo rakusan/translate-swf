@@ -46,7 +46,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: number_number
+    - id: number_constructor
       name: Number()
       description: Create a new Number object.
       profiles:

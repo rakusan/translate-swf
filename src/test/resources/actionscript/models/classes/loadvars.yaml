@@ -4,7 +4,7 @@
   script: |
     a = new LoadVars();
 - test: LoadVars contentType
-  file: loadvars_contenttype
+  refid: loadvars_contenttype
   file: classes/loadvars/loadvars_contenttype.as
   script: |
     a = new LoadVars();
@@ -16,7 +16,7 @@
     a = new LoadVars();
     a.addRequestHeader("Content-Type", "text/plain");
 - test: LoadVars addRequestHeader() array
-  file: loadvars_addrequestheader_array
+  refid: loadvars_addrequestheader
   file: classes/loadvars/loadvars_addrequestheader_array.as
   script: |
     headers = ["Content-Type", "text/plain", "X-Client-Version", "2.1.4"];
@@ -29,7 +29,7 @@
     a = new LoadVars();
     a.onData = function(source) {
         if (source == undefined) {
-		    trace("Error loading variables.");
+            trace("Error loading variables.");
         }
     };
     a.load("http://www.flagstonesoftware.com/variables.txt");
@@ -40,7 +40,7 @@
     a = new LoadVars();
     a.onLoad = function(result) {
         if (result == true) {
-		    trace("Variables loaded.");
+            trace("Variables loaded.");
         }
     };
     a.load("http://www.flagstonesoftware.com/variables.txt");

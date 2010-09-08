@@ -1,5 +1,5 @@
 - test: boolean true
-  refid: true
+  refid: "true"
   file: literals/boolean_true.as
   parameters:
     - value: "true"
@@ -7,7 +7,7 @@
   script: |
     a = %value%;
 - test: boolean false
-  refid: false
+  refid: "false"
   file: literals/boolean_false.as
   parameters:
     - value: "false"

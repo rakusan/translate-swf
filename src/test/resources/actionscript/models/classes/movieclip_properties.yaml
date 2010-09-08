@@ -1,154 +1,418 @@
-- test: Verify read/write MovieClip properties for Flash 4
+- test: _alpha
   type: event
-  parameters:
-    - property: _alpha
-      value: 50
-      refid: movieclip_alpha
-    - property: _height
-      value: 100
-      refid: movieclip_height
-    - property: _name
-      value: newClip
-      refid: movieclip_name
-    - property: _rotation
-      value: 50
-      refid: movieclip_rotation
-    - property: _visible
-      value: "true"
-      refid: movieclip_visible
-    - property: _width
-      value: 100
-      refid: movieclip_width
-    - property: _x
-      value: 100
-      refid: movieclip_x
-    - property: _xscale
-      value: 100
-      refid: movieclip_xscale
-    - property: _y
-      value: 100
-      refid: movieclip_y
-    - property: _yscale
-      value: 100
-      refid: movieclip_yscale
-    - property: _parent
-      value: 100
-      refid: movieclip_parent
+  refid: movieclip_alpha
   script: |
     onClipEvent (mouseDown) {
-        %property% = %value%;
-        a = %property%;
+        _alpha = 50;
+        a = _alpha;
          
-        this.%property% = %value%;
-        a = this.%property%;
+        this._alpha = 50;
+        a = this._alpha;
         
-        clip.%property% = %value%;
-        a = clip.%property%;
-    }  
-- test: Verify read/write MovieClip properties for Flash 6
-  type: event
-  parameters:
-    - property: enabled
-      value: "true"
-      refid: movieclip_enabled
-    - property: focusEnabled
-      value: "true"
-      refid: movieclip_focusEnabled
-    - property: _focusrect
-      value: "true"
-      refid: movieclip_focusrect
-    - property: hitArea
-      value: clip
-      refid: movieclip_hitarea
-    - property: _highquality
-      value: 0
-      refid: movieclip_highquality
-    - property: _soundbuftime
-      value: 10
-      refid: movieclip_soundbuftime
-    - property: tabChildren
-      value: "true"
-      refid: movieclip_tabchildren
-    - property: tabEnabled
-      value: "true"
-      refid: movieclip_tabenabled
-    - property: tabIndex
-      value: 1
-      refid: movieclip_tabindex
-    - property: trackAsMenu
-      value: "true"
-      refid: movieclip_trackasmenu
-    - property: useHandCursor
-      value: "true"
-      refid: movieclip_usehandcursor
-  script: |
-    onClipEvent (mouseDown) {
-        %property% = %value%;
-        a = %property%;
-         
-        this.%property% = %value%;
-        a = this.%property%;
-        
-        clip.%property% = %value%;
-        a = clip.%property%;
+        clip._alpha = 50;
+        a = clip._alpha;
     } 
-- test: Verify read/write MovieClip properties for Flash 7
+- test: _height
   type: event
-  parameters:
-    - property: _lockRoot
-      value: "true"
-      refid: movieclip_lockroot
-    - property: menu
-      value: menu
-      refid: movieclip_menu
+  refid: movieclip_height
   script: |
     onClipEvent (mouseDown) {
-        %property% = %value%;
-        a = %property%;
+        _height = 100;
+        a = _height;
          
-        this.%property% = %value%;
-        a = this.%property%;
+        this._height = 100;
+        a = this._height;
         
-        clip.%property% = %value%;
-        a = clip.%property%;
+        clip._height = 100;
+        a = clip._height;
     } 
-- test: Verify read-only MovieClip properties for Flash 4
-  profiles:
-    - DEFAULT_1_4
+- test: _name
   type: event
-  parameters:
-    - property: _currentframe
-      refid: movieclip_currentframe
-    - property: _droptarget
-      refid: movieclip_droptarget
-    - property: _framesloaded
-      refid: movieclip_framesloaded
-    - property: _target
-      refid: movieclip_target
-    - property: _totalframes
-      refid: movieclip_totalframes
-    - property: _url
-      refid: movieclip_url
+  refid: movieclip_name
   script: |
     onClipEvent (mouseDown) {
-        a = %property%;
-        a = this.%property%;
-        a = clip.%property%;
+        _name = "newClip";
+        a = _name;
+         
+        this._name = "newClip";
+        a = this._name;
+        
+        clip._name = "newClip";
+        a = clip._name;
+    } 
+- test: _rotation
+  type: event
+  refid: movieclip_rotation
+  script: |
+    onClipEvent (mouseDown) {
+        _rotation = 100;
+        a = _rotation;
+         
+        this._rotation = 100;
+        a = this._rotation;
+        
+        clip._rotation = 100;
+        a = clip._rotation;
+    } 
+- test: _visible
+  type: event
+  refid: movieclip_rotation
+  script: |
+    onClipEvent (mouseDown) {
+        _visible = true;
+        a = _visible;
+         
+        this._visible = true;
+        a = this._visible;
+        
+        clip._visible = true;
+        a = clip._visible;
+    } 
+- test: _width
+  type: event
+  refid: movieclip_width
+  script: |
+    onClipEvent (mouseDown) {
+        _width = 100;
+        a = _width;
+         
+        this._width = 100;
+        a = this._width;
+        
+        clip._width = 100;
+        a = clip._width;
+    } 
+- test: _x
+  type: event
+  refid: movieclip_x
+  script: |
+    onClipEvent (mouseDown) {
+        _x = 100;
+        a = _x;
+         
+        this._x = 100;
+        a = this._x;
+        
+        clip._x = 100;
+        a = clip._x;
+    } 
+- test: _xscale
+  type: event
+  refid: movieclip_xscale
+  script: |
+    onClipEvent (mouseDown) {
+        _xscale = 100;
+        a = _xscale;
+         
+        this._xscale = 100;
+        a = this._xscale;
+        
+        clip._xscale = 100;
+        a = clip._xscale;
+    } 
+- test: _y
+  type: event
+  refid: movieclip_y
+  script: |
+    onClipEvent (mouseDown) {
+        _y = 100;
+        a = _y;
+         
+        this._y = 100;
+        a = this._y;
+        
+        clip._y = 100;
+        a = clip._y;
+    } 
+- test: _yscale
+  type: event
+  refid: movieclip_yscale
+  script: |
+    onClipEvent (mouseDown) {
+        _yscale = 100;
+        a = _yscale;
+         
+        this._yscale = 100;
+        a = this._yscale;
+        
+        clip._yscale = 100;
+        a = clip._yscale;
+    } 
+- test: _parent
+  type: event
+  refid: movieclip_parent
+  script: |
+    onClipEvent (mouseDown) {
+        _parent = clip;
+        a = _parent;
+         
+        this._parent = clip;
+        a = this._parent;
+        
+        clip._parent = clip;
+        a = clip._parent;
+    } 
+- test: enabled
+  type: event
+  refid: movieclip_enabled
+  script: |
+    onClipEvent (mouseDown) {
+        enabled = true;
+        a = enabled;
+         
+        this.enabled = true;
+        a = this.enabled;
+        
+        clip.enabled = true;
+        a = clip.enabled;
+    } 
+- test: focusEnabled
+  type: event
+  refid: movieclip_focusenabled
+  script: |
+    onClipEvent (mouseDown) {
+        focusEnabled = true;
+        a = focusEnabled;
+         
+        this.focusEnabled = true;
+        a = this.focusEnabled;
+        
+        clip.focusEnabled = true;
+        a = clip.focusEnabled;
+    } 
+- test: _focusrect
+  type: event
+  refid: movieclip_focusrect
+  script: |
+    onClipEvent (mouseDown) {
+        _focusrect = true;
+        a = _focusrect;
+         
+        this._focusrect = true;
+        a = this._focusrect;
+        
+        clip._focusrect = true;
+        a = clip._focusrect;
+    } 
+- test: hitArea
+  type: event
+  refid: movieclip_hitarea
+  script: |
+    onClipEvent (mouseDown) {
+        hitArea = clip;
+        a = hitArea;
+         
+        this.hitArea = clip;
+        a = this.hitArea;
+        
+        clip.hitArea = clip;
+        a = clip.hitArea;
+    } 
+- test: _highquality
+  type: event
+  refid: movieclip_highquality
+  script: |
+    onClipEvent (mouseDown) {
+        _highquality = 0;
+        a = _highquality;
+         
+        this._highquality = 0;
+        a = this._highquality;
+        
+        clip._highquality = 0;
+        a = clip._highquality;
+    } 
+- test: _soundbuftime
+  type: event
+  refid: movieclip_soundbuftime
+  script: |
+    onClipEvent (mouseDown) {
+        _soundbuftime = 10;
+        a = _soundbuftime;
+         
+        this._soundbuftime = 10;
+        a = this._soundbuftime;
+        
+        clip._lockRoot = 10;
+        a = clip._soundbuftime;
+    } 
+- test: tabChildren
+  type: event
+  refid: movieclip_tabchildren
+  script: |
+    onClipEvent (mouseDown) {
+        tabChildren = true;
+        a = tabChildren;
+         
+        this.tabChildren = true;
+        a = this.tabChildren;
+        
+        clip.tabChildren = true;
+        a = clip.tabChildren;
+    } 
+- test: tabEnabled
+  type: event
+  refid: movieclip_tabenabled
+  script: |
+    onClipEvent (mouseDown) {
+        tabEnabled = true;
+        a = tabEnabled;
+         
+        this.tabEnabled = true;
+        a = this.tabEnabled;
+        
+        clip.tabEnabled = true;
+        a = clip.tabEnabled;
+    } 
+- test: tabIndex
+  type: event
+  refid: movieclip_tabindex
+  script: |
+    onClipEvent (mouseDown) {
+        tabIndex = 1;
+        a = tabIndex;
+         
+        this.tabIndex = 1;
+        a = this.tabIndex;
+        
+        clip.tabIndex = 1;
+        a = clip.tabIndex;
+    } 
+- test: trackAsMenu
+  type: event
+  refid: movieclip_trackasmenu
+  script: |
+    onClipEvent (mouseDown) {
+        trackAsMenu = true;
+        a = trackAsMenu;
+         
+        this.trackAsMenu = true;
+        a = this.trackAsMenu;
+        
+        clip.trackAsMenu = true;
+        a = clip.trackAsMenu;
+    } 
+- test: useHandCursor
+  type: event
+  refid: movieclip_usehandcursor
+  script: |
+    onClipEvent (mouseDown) {
+        useHandCursor = true;
+        a = useHandCursor;
+         
+        this.useHandCursor = true;
+        a = this.useHandCursor;
+        
+        clip.useHandCursor = true;
+        a = clip.useHandCursor;
+    } 
+- test: _lockRoot
+  type: event
+  refid: movieclip_lockroot
+  script: |
+    onClipEvent (mouseDown) {
+        _lockRoot = clip;
+        a = _lockRoot;
+         
+        this._lockRoot = clip;
+        a = this._lockRoot;
+        
+        clip._lockRoot = clip;
+        a = clip._lockRoot;
+    } 
+- test: menu
+  type: event
+  refid: movieclip_menu
+  script: |
+    onClipEvent (mouseDown) {
+        menu = clip;
+        a = menu;
+         
+        this.menu = clip;
+        a = this.menu;
+        
+        clip.menu = clip;
+        a = clip.menu;
+    } 
+- test: _currentframe
+  type: event
+  refid: movieclip_currentframe
+  file: classes/movieclip/movieclip_currentframe.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = _currentframe;
+        a = this._currentframe;
+        a = clip._currentframe;
     }
-- test: Verify read-only MovieClip properties for Flash 5
-  profiles:
-    - DEFAULT_1_5
+- test: _droptarget
   type: event
-  parameters:
-    - property: _xmouse
-      refid: movieclip_xmouse
-    - property: _ymouse
-      refid: movieclip_ymouse
+  refid: movieclip_droptarget
+  file: classes/movieclip/movieclip_droptarget.as
   script: |
     onClipEvent (mouseDown) {
-        a = %property%;
-        a = this.%property%;
-        a = clip.%property%;
+        a = _droptarget;
+        a = this._droptarget;
+        a = clip._droptarget;
+    }
+- test: _framesloaded
+  type: event
+  refid: movieclip_framesloaded
+  file: classes/movieclip/movieclip_framesloaded.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = _framesloaded;
+        a = this._framesloaded;
+        a = clip._framesloaded;
+    }
+- test: _target
+  type: event
+  refid: movieclip_target
+  file: classes/movieclip/movieclip_target.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = _target;
+        a = this._target;
+        a = clip._target;
+    }
+- test: _totalframes
+  type: event
+  refid: movieclip_totalframes
+  file: classes/movieclip/movieclip_totalframes.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = _totalframes;
+        a = this._totalframes;
+        a = clip._totalframes;
+    }
+- test: _url
+  type: event
+  refid: movieclip_url
+  file: classes/movieclip/movieclip_url.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = _url;
+        a = this._url;
+        a = clip._url;
+    }
+- test: _xmouse
+  type: event
+  refid: movieclip_xmouse
+  file: classes/movieclip/movieclip_xmouse.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = _xmouse;
+        a = this._xmouse;
+        a = clip._xmouse;
+    }
+- test: _ymouse
+  type: event
+  refid: movieclip_ymouse
+  file: classes/movieclip/movieclip_ymouse.as
+  script: |
+    onClipEvent (mouseDown) {
+        a = _ymouse;
+        a = this._ymouse;
+        a = clip._ymouse;
     }
 - test: Verify references to MovieClip _parent can be nested
   type: event

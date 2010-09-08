@@ -6,7 +6,7 @@
     - expr: b + 1++;
     - expr: 0++
     - expr: 1++
-    - expr: "1"++
+    - expr: "\"1\"++"
     - expr: a[b]++
     - expr: object.attr++
   script: |
@@ -19,7 +19,7 @@
     - expr: b + 1--;
     - expr: 0--
     - expr: 1--
-    - expr: "1"--
+    - expr: "\"1\"--"
     - expr: a[b]--
     - expr: object.attr--
   script: |

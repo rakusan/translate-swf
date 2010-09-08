@@ -1,5 +1,6 @@
 - test: CustomAction script
   file: classes/custom_action/custom_action.xml
+  refid: custom_actions_install
   script: |
     <?xml version="1.0"?>
     <customactions>
@@ -23,7 +24,7 @@
         </codehints>
     </customactions>
 - test: CustomAction install
-  refid: custom_action_install
+  refid: custom_actions_install
   file: classes/custom_action/install.as  
   script: |
     doc = new XML();
@@ -33,7 +34,7 @@
     };
     doc.load("custom_action.xml");
 - test: CustomAction uninstall
-  refid: custom_action_uninstall
+  refid: custom_actions_uninstall
   file: classes/custom_action/uninstall.as
   script: |
     doc = new XML();
@@ -44,12 +45,12 @@
     doc.load("custom_action.xml");
     CustomActions.uninstall("action");
 - test: CustomAction list()
-  refid: custom_action_list
+  refid: custom_actions_list
   file: classes/custom_action/list.as
   script: |
     a = CustomActions.list();
 - test: CustomAction get()
-  refid: custom_action_get
+  refid: custom_actions_get
   file: classes/custom_action/get.as
   script: |
     for (action in CustomActions) {

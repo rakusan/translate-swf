@@ -301,7 +301,7 @@
     - DEFAULT_1_9
     - DEFAULT_1_10
 - name: ">>="
-  id: assign_shift}_right
+  id: assign_shift_right
   description: shift right and assign.
   profiles:
     - DEFAULT_1_5
@@ -640,3 +640,15 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
+- name: precedence
+  id: precedence
+  description: operator precedence rules
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+    

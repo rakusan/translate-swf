@@ -1,7 +1,7 @@
 - name: NetStream
   type: class
   elements:
-    - id: netstream_netstream
+    - id: netstream_constructor
       name: NetStream()
       description: Create a new NetStream object.
       profiles:
