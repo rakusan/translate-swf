@@ -40,6 +40,7 @@ public class ActionscriptGenerator {
     private static final String ACTIONSCRIPT = "actionscript";
     private static final String FLASH = "flash";
     private static final String PLAYER = "player";
+    private static final String TYPE = "type";
 
     private static final String PROFILES = "profiles";
     private static final String IDENTIFIER = "id";
@@ -200,6 +201,8 @@ public class ActionscriptGenerator {
     		script = contentsOfFile(jsFile);
 
         	for (String type : TYPES) {
+                map.put(TYPE, type);
+
         		dir = dirForTest(profile.name(), type);
 
         		file = new File(dir, "publish.xml");
@@ -294,9 +297,7 @@ public class ActionscriptGenerator {
     		throw new IOException("Invalid profile name: " + name);
     	}
 
-		String path = String.format(
-				"as%d/swf%d/%s/%s", profile.getScriptVersion(),
-				profile.getFlashVersion(), profile.getPlayer(), type);
+		String path = String.format("%s/%s", name, type);
 		File dir = new File(DEST_DIR, path);
 
 		if (!dir.exists() && !dir.mkdirs()) {

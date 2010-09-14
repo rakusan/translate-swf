@@ -75,6 +75,7 @@ public class ASCompilerIT {
     private static final String RESOURCE_DIR = "resources";
 
     private static final String ACTIONSCRIPT = "actionscript";
+    private static final String PROFILE = "profile";
     private static final String FLASH = "flash";
     private static final String PLAYER = "player";
     private static final String TYPE = "type";
@@ -100,6 +101,7 @@ public class ASCompilerIT {
             map.put(ACTIONSCRIPT, profile.getScriptVersion());
             map.put(FLASH, profile.getFlashVersion());
             map.put(PLAYER, profile.getPlayer());
+            map.put(PROFILE, profile.name());
 
             for (String type : TYPES) {
         		map.put(TYPE, type);
@@ -117,13 +119,10 @@ public class ASCompilerIT {
     private static File dirForProfile(Map<String,Object> profile)
     		throws IOException {
 
-        int actionscript = (Integer)profile.get(ACTIONSCRIPT);
-        int flash = (Integer)profile.get(FLASH);
-        String player = (String)profile.get(PLAYER);
+        String name = (String)profile.get(PROFILE);
         String type = (String)profile.get(TYPE);
 
-		String path = String.format("as%d/swf%d/%s/%s",
-				actionscript, flash, player, type);
+		String path = String.format("%s/%s", name, type);
 		File dir = new File(RESOURCE_DIR, path);
 
 		if (!dir.exists() && !dir.mkdirs()) {
