@@ -2,28 +2,28 @@
   refid: string
   file: literals/string_%d.as
   parameters:
-    - expr: ""
-    - expr: "abcd"
-    - expr: ''
-    - expr: 'abcd'
-    - expr: '\"'
-    - expr: "'"
-    - expr: "\b"
-    - expr: "\f"
-    - expr: "\n"
-    - expr: "\r"
-    - expr: "\t"
-    - expr: "\b\f\n\r\t"
-    - expr: "\""
-    - expr: "\\"
+    - expr: "\"\""
+    - expr: "\"abcd\""
+    - expr: "''"
+    - expr: "'abcd'"
+    - expr: "'\"'"
+    - expr: "\"'\""
+    - expr: "\"\b\""
+    - expr: "\"\f\""
+    - expr: "\"\n\""
+    - expr: "\"\r\""
+    - expr: "\"\t\""
+    - expr: "\"\b\f\n\r\t\""
+    - expr: "\"\""
+# todo fix    - expr: "\"\\\""
 # todo fix    - expr: '\''
 # todo fix    - expr: "\000"
 # todo fix    - expr: "\377"
 # todo fix    - expr: "\000\377"
-    - expr: "\x00"
-    - expr: "\xFF"
-    - expr: "\xff"
-    - expr: "\x00\xff"
+    - expr: "\"\x00\""
+    - expr: "\"\xFF\""
+    - expr: "\"\xff\""
+    - expr: "\"\x00\xff\""
   script: |
     x = %expr%;
     

@@ -7,7 +7,7 @@
   refid: getversion
   file: functions/getversion.as
   script: |
-    x = getVersion(a);
+    x = getVersion();
 - test: random()
   refid: random
   file: functions/random.as

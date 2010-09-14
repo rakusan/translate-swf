@@ -12,4 +12,4 @@
     - expr: _quality = 1
     - expr: _quality = "LOW"
   script: |
-    - expr: x = %expr%
+    x = %expr%;

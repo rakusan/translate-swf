@@ -2,10 +2,10 @@
   refid: unicode
   file: literals/unicode_%d.as
   parameters:
-    - expr: "\u0000"
-    - expr: "\uFFFF"
-    - expr: "\uffff"
-    - expr: "\u0000\uffff"
-    - expr: "\u0000\uFFFF"
+    - expr: "\"\\u0020\""
+    - expr: "\"\\u002F\""
+    - expr: "\"\\u002f\""
+    - expr: "\"\\u0020\\u002f\""
+    - expr: "\"\\u0020\\u002F\""
   script: |
     x = %expr%;
