@@ -1,5 +1,5 @@
 /*
- * AS1SWF7IT.java
+ * ASCompilerIT.java
  * Translate SWF
  *
  * Copyright (c) 2010 Flagstone Software Ltd. All rights reserved.
@@ -37,7 +37,6 @@ import static utils.FindFiles.getFilter;
 import static utils.ReplaceReferences.replaceReferences;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -53,7 +52,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import org.yaml.snakeyaml.Yaml;
 
 import com.flagstone.transform.DoAction;
 import com.flagstone.transform.Event;
@@ -71,7 +69,6 @@ import com.flagstone.translate.Profile;
 @RunWith(Parameterized.class)
 public class ASCompilerIT {
 
-    private static final String PROFILE_DIR = "src/test/resources/profiles";
     private static final String RESOURCE_DIR = "resources";
 
     private static final String ACTIONSCRIPT = "actionscript";
@@ -84,20 +81,13 @@ public class ASCompilerIT {
     private static final String[] TYPES = { "frame", "button", "event" };
 
     @Parameters
-    @SuppressWarnings("unchecked")
 	public static Collection<Object[]> files() throws IOException {
 
-	    File yamlFile = new File(PROFILE_DIR, "profiles.yaml");
-		FileInputStream stream = new FileInputStream(yamlFile);
-		Yaml yaml = new Yaml();
 		Map<String,Object>map = new LinkedHashMap<String, Object>();
-
 		List<String> files = new ArrayList<String>();
 		List<Object[]>collection = new ArrayList<Object[]>();
-		Profile profile;
 
-        for (Object list : (List<Object>)yaml.load(stream)) {
-            profile = Profile.fromName(list.toString());
+        for (Profile profile : EnumSet.allOf(Profile.class)) {
             map.put(ACTIONSCRIPT, profile.getScriptVersion());
             map.put(FLASH, profile.getFlashVersion());
             map.put(PLAYER, profile.getPlayer());
@@ -148,9 +138,8 @@ public class ASCompilerIT {
 	public ASCompilerIT(final int actionscript, final int flash,
 			final String player, final String path) {
 		compiler = new ASCompiler();
-		compiler.setScriptVersion(actionscript);
-		compiler.setFlashVersion(flash);
-		compiler.setPlayer(PlayerType.fromName(player));
+		compiler.setProfile(Profile.fromValues(
+				PlayerType.fromName(player), actionscript, flash));
 
 		script = new File(path);
 		expected = new ArrayList<Action>();
@@ -170,7 +159,7 @@ public class ASCompilerIT {
 		try {
 			wrap(actual, compiler.compile(script));
 			replaceReferences(actual);
-			assertEquals(script.getName(), format(expected), format(actual));
+			assertEquals(script.getPath(), format(expected), format(actual));
 
 		} catch (Exception e) {
 			if (System.getProperty("test.trace") != null) {
@@ -203,8 +192,7 @@ public class ASCompilerIT {
 
 		for (MovieTag tag : movie.getObjects()) {
 			if (tag instanceof DoAction) {
-				list.add(new EventHandler( EnumSet.noneOf(Event.class),
-						((DoAction) tag).getActions()));
+				list.addAll(((DoAction) tag).getActions());
 			} else if (tag instanceof DefineButton2) {
 				list.addAll(((DefineButton2) tag).getEvents());
 			} else if (tag instanceof Place2) {

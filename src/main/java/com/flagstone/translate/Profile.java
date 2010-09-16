@@ -40,23 +40,23 @@ import java.util.Map;
  */
 public enum Profile {
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 2. */
-	DEFAULT_1_2("Default", 1, 2),
+	DEFAULT_1_2(PlayerType.DEFAULT, 1, 2),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 3. */
-	DEFAULT_1_3("Default", 1, 3),
+	DEFAULT_1_3(PlayerType.DEFAULT, 1, 3),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 4. */
-	DEFAULT_1_4("Default", 1, 4),
+	DEFAULT_1_4(PlayerType.DEFAULT, 1, 4),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 5. */
-	DEFAULT_1_5("Default", 1, 5),
+	DEFAULT_1_5(PlayerType.DEFAULT, 1, 5),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 6. */
-	DEFAULT_1_6("Default", 1, 6),
+	DEFAULT_1_6(PlayerType.DEFAULT, 1, 6),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 7. */
-	DEFAULT_1_7("Default", 1, 7),
+	DEFAULT_1_7(PlayerType.DEFAULT, 1, 7),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 8. */
-	DEFAULT_1_8("Default", 1, 8),
+	DEFAULT_1_8(PlayerType.DEFAULT, 1, 8),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 9. */
-	DEFAULT_1_9("Default", 1, 9),
+	DEFAULT_1_9(PlayerType.DEFAULT, 1, 9),
 	/** Profile for standard Flash Player, Actionscript 1, Flash Version 10. */
-	DEFAULT_1_10("Default", 1, 10),
+	DEFAULT_1_10(PlayerType.DEFAULT, 1, 10),
 	;
 
 	/** Table used to convert names into PlayerTypes. */
@@ -69,22 +69,31 @@ public enum Profile {
         }
     }
 
+    public static Profile fromValues(final PlayerType type,
+    		final int version, final int flash) {
+    	final String name = type.toString() + "_" + version + "_" + flash;
+    	if (!TABLE.containsKey(name)) {
+    		throw new IllegalArgumentException("Unsupported Profile: " + name);
+    	}
+    	return TABLE.get(name);
+    }
+
     public static Profile fromName(final String name) {
         return TABLE.get(name);
     }
 
-    private final String player;
+    private final PlayerType player;
     private final int script;
     private final int flash;
 
-    private Profile(final String platform, final int scriptVersion,
+    private Profile(final PlayerType platform, final int scriptVersion,
     		final int flashVersion) {
     	player = platform;
     	script = scriptVersion;
     	flash = flashVersion;
     }
 
-    public String getPlayer() {
+    public PlayerType getPlayer() {
     	return player;
     }
 

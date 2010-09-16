@@ -55,6 +55,7 @@ import com.flagstone.transform.button.DefineButton2;
 import com.flagstone.transform.tools.MovieWriter;
 import com.flagstone.translate.ASCompiler;
 import com.flagstone.translate.PlayerType;
+import com.flagstone.translate.Profile;
 
 @RunWith(Parameterized.class)
 public class DebugScript {
@@ -62,9 +63,8 @@ public class DebugScript {
 	public static void main(final String[] args) {
 
 		ASCompiler compiler = new ASCompiler();
-		compiler.setScriptVersion(Integer.valueOf(args[1]));
-		compiler.setFlashVersion(Integer.valueOf(args[2]));
-		compiler.setPlayer(PlayerType.fromName(args[3]));
+		compiler.setProfile(Profile.fromValues(PlayerType.fromName(args[3]),
+				Integer.valueOf(args[1]), Integer.valueOf(args[2])));
 
 		List<Action> expected = new ArrayList<Action>();
 		List<Action> actual = new ArrayList<Action>();
