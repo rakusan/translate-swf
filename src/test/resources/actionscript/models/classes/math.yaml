@@ -36,7 +36,7 @@
 - test: LOG10E
   refid: math_log10e
   file: classes/math/math_log10e.as
-  ignore: Rounded to 16 places in Flash but Java rounds to 17.
+  skip: Rounded to 16 places in Flash but Java rounds to 17.
   script: |
     a = Math.LOG10E;
 - test: abs()

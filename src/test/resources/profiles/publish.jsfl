@@ -1,30 +1,46 @@
-var doc = fl.openDocument("file:///%type%.fla");
-doc.importPublishProfile("file:///publish.xml");
-doc.currentPublishProfile = "compile";
+var types = new Array("button", "movieclip", "frame");
+var rootDir = "file:///.";
+var profiles = FLfile.listFolder(rootDir, "directories");
 
-var folder = "file:///.";
-var fileMask = ".as";
-var files = new Array();
+var publishProfile;
+var flashFile;
+var scriptDir;
 
-listFiles(folder, fileMask, files);
+for (profile in profiles) {
+    for (type in types) {
+        flashFile = rootDir + "/" + types[type] + ".fla";
+        scriptDir = rootDir + "/" + profiles[profile] + "/" + types[type];
+        publishProfile = rootDir + "/" + profiles[profile] + "/publish.xml";
+        
+        var doc = fl.openDocument(flashFile);
+        doc.importPublishProfile(publishProfile);
+        doc.currentPublishProfile = "compile";
 
-var script;
-var dirOut;
-var fileOut;
+        var fileMask = ".as";
+        var files = new Array();
 
-for (i in files) {
-    script = files[i].substring(folder.length + 1);
-    fl.actionsPanel.setText("#include \"" + script + "\"");
-	fileOut = script.slice(0, -fileMask.length) + ".swf";
-	dirOut = "file:///" + fileOut.substring(0, fileOut.lastIndexOf("/"));
-	if (!FLfile.exists(dirOut)){
-		FLfile.createFolder(dirOut);
-	}
-    doc.exportSWF("file:///" + fileOut, true);
+        listFiles(scriptDir, fileMask, files);
+
+        var script;
+        var dirOut;
+        var fileOut;
+
+        for (i in files) {
+            script = files[i].substring(rootDir.length + 1);
+            fl.actionsPanel.setText("#include \"" + script + "\"");
+            fileOut = script.slice(0, -fileMask.length) + ".swf";
+            dirOut = "file:///" + fileOut.substring(0, fileOut.lastIndexOf("/"));
+            if (!FLfile.exists(dirOut)){
+                FLfile.createFolder(dirOut);
+            }
+            doc.exportSWF("file:///" + fileOut, true);
+        }
+
+        doc.revert();
+        doc.close();
+    }
 }
 
-doc.revert();
-doc.close();
 fl.quit();
 
 function listFiles(dir, mask, files) {

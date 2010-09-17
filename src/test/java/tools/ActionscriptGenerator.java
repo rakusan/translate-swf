@@ -48,7 +48,7 @@ public class ActionscriptGenerator {
     private static final String ELEMENTS = "elements";
     private static final String PARAMETERS = "parameters";
     private static final String SCRIPT = "script";
-    private static final String IGNORE = "ignore";
+    private static final String SKIP = "skip";
     private static final String FILE = "file";
 
     private static boolean clean = false;
@@ -74,6 +74,8 @@ public class ActionscriptGenerator {
     	if (clean) {
     		delete(new File(DEST_DIR).listFiles());
     	}
+
+    	setup();
 
     	for (Profile profile : profiles) {
     		setupProfile(profile);
@@ -177,15 +179,26 @@ public class ActionscriptGenerator {
 		}
     }
 
+    private static void setup() {
+	    final String[] TYPES = { "frame", "button", "movieclip" };
+
+	    try {
+    		copyfile(new File(RESOURCE_DIR, "publish.jsfl"),
+    				new File(DEST_DIR, "publish.jsfl"));
+
+        	for (String type : TYPES) {
+        		copyfile(new File(RESOURCE_DIR, type + ".fla"),
+        				new File(DEST_DIR, type + ".fla"));
+        	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+
     private static void setupProfile(Profile profile) {
 		String publish;
-		String script;
-		File jsFile;
-
 	    File dir;
 	    File file;
-
-	    final String[] TYPES = { "frame", "button", "event" };
 
 	    try {
 			File publishFile = new File(RESOURCE_DIR, "publish.xml");
@@ -197,24 +210,15 @@ public class ActionscriptGenerator {
             publish = contentsOfFile(publishFile);
         	publish = replaceTokens(map, publish);
 
-    		jsFile = new File(RESOURCE_DIR, "publish.jsfl");
-    		script = contentsOfFile(jsFile);
+    		dir = new File(DEST_DIR, profile.name());
+    		if (!dir.exists() && !dir.mkdirs()) {
+    			throw new IOException("Cannot create directory: " + dir.getPath());
+    		}
 
-        	for (String type : TYPES) {
-                map.put(TYPE, type);
+    		file = new File(dir, "publish.xml");
+    		writeScript(file, publish);
 
-        		dir = dirForTest(profile.name(), type);
-
-        		file = new File(dir, "publish.xml");
-        		writeScript(file, publish);
-
-        		file = new File(dir, type+".jsfl");
-        		writeScript(file, replaceTokens(map, script));
-
-        		copyfile(new File(RESOURCE_DIR, type + ".fla"),
-        				new File(dir, type + ".fla"));
-        	}
-		} catch (Exception e) {
+	    } catch (Exception e) {
 			e.printStackTrace();
 		}
     }
@@ -250,9 +254,9 @@ public class ActionscriptGenerator {
         }
 
         if (script.startsWith("onClipEvent")) {
-        	type = "button";
+        	type = "movieclip";
         } else if (script.startsWith("on")) {
-        	type = "event";
+        	type = "button";
         } else {
         	type = "frame";
         }
@@ -268,11 +272,13 @@ public class ActionscriptGenerator {
 	        index = 0;
 
         	if (parameters == null) {
-            	writeScript(new File(dir, path), script);
+            	if (!list.containsKey(SKIP)) {
+                	writeScript(new File(dir, path), script);
+            	}
         	} else {
             	for (Object set : parameters) {
                 	vars = (Map<String, Object>)set;
-                	if (vars.containsKey(IGNORE)) {
+                	if (vars.containsKey(SKIP)) {
                 		continue;
                 	}
             		if (vars.containsKey(FILE)) {
