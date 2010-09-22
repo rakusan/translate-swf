@@ -9,6 +9,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stage_height
       name: height
       description: The height, in pixels, of the Stage.
@@ -17,6 +18,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stage_scalemode
       name: scaleMode
       description: "The current scaling mode: noScale, exactFit, showAll or noBorder."
@@ -25,6 +27,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stage_showmenu
       name: showMenu
       description: Whether default items in the context menu are displayed or hidden.
@@ -33,6 +36,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stage_width
       name: width
       description: The width, in pixels, of the Stage.
@@ -41,6 +45,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stage_addlistener
       name: addListener()
       description: Add a listener to be notified when the scale mode is noScale and the Flash file is resized.
@@ -49,6 +54,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stage_removelistener
       name: removeListener()
       description: Removed a registered listener.
@@ -57,6 +63,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stage_onresize
       name: onResize
       description: Get/set the event handler called when the scale mode is noScale and the Flash file is resized.
@@ -65,4 +72,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

@@ -1,0 +1,99 @@
+- name: ColorTransform
+  type: class
+  elements:
+    - id: color_transform_alphamultiplier
+      name: alphaMultiplier
+      type: property
+      description: The multiplier for the alpha channel value.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_alphaoffset
+      name: alphaOffset
+      type: property
+      description: The offset added to the alpha  channel value after the multiplier was applied.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_bluemultiplier
+      name: blueMultiplier
+      type: property
+      description: The multiplier for the blue channel value.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_blueoffset
+      name: blueOffset
+      type: property
+      description: The offset added to the blue channel value after the multiplier was applied.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_greenmultiplier
+      name: greenMultiplier
+      type: property
+      description: The multiplier for the green channel value.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_greenoffset
+      name: greenOffset
+      type: property
+      description: The offset added to the green channel value after the multiplier was applied.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_redmultiplier
+      name: redMultiplier
+      type: property
+      description: The multiplier for the red channel value.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_redoffset
+      name: redOffset
+      type: property
+      description: The offset added to the red channel value after the multiplier was applied.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_rgb
+      name: rgb
+      type: property
+      description: The RGB color value for a ColorTransform object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_constructor
+      name: ColorTransform()
+      type: constructor
+      description: Creates a ColorTransform object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_concat
+      name: concat()
+      type: method
+      description: Applies a second, additive color transformation.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: color_transform_tostring
+      name: toString()
+      type: method
+      description: Returns a string that describes all of the properties of the ColorTransform.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

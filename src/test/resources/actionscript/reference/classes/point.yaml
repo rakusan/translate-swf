@@ -1,0 +1,115 @@
+- name: Point
+  type: class
+  elements:
+    - id: point_length
+      name: a
+      type: property
+      description: The length of the line segment from (0,0) to this point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_x
+      name: x
+      type: property
+      description: The horizontal coordinate of the point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_y
+      name: y
+      type: property
+      description: The vertical coordinate of the point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_constructor
+      name: Point()
+      type: constructor
+      description: Create a new Point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_add
+      name: add()
+      type: method
+      description: Adds the coordinates of another point to the coordinates of this point to create a new point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_clone
+      name: clone()
+      type: method
+      description: Create a copy of the Point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_distance
+      name: distance()
+      type: method
+      description: Calculate the distance between two Points.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_equals
+      name: equals()
+      type: method
+      description: Are two points equal.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_interpolate
+      name: interpolate()
+      type: method
+      description: Determine a point between two Points.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_normalize
+      name: normalize()
+      type: method
+      description: Scales the line segment between (0,0) and the current point to a set length.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_offset
+      name: offset()
+      type: method
+      description: Offsets the Point object by the specified amount.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_polar
+      name: polar()
+      type: method
+      description: Converts a pair of polar coordinates to a cartesian point coordinate.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_subtract
+      name: subtract()
+      type: method
+      description: Subtracts the coordinates of another point from the coordinates of this point to create a new point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: point_tostring
+      name: toString()
+      type: method
+      description: Returns a string that contains the values of the x and y coordinates.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

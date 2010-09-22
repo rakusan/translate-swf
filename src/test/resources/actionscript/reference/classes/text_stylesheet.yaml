@@ -8,6 +8,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stylesheet_getstyle
       name: getStyle()
       description: Get the stylesheet associated with the specified name.
@@ -15,6 +16,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stylesheet_getstylenames
       name: getStyleNames()
       description: Get the list of available stylesheet names.
@@ -22,6 +24,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stylesheet_load
       name: load()
       description: Load a stylesheet.
@@ -29,6 +32,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stylesheet_parsecss
       name: parseCSS()
       description: Parse the stylesheet.
@@ -36,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stylesheet_setstyle
       name: setStyle()
       description: Set the stylesheet.
@@ -43,6 +48,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stylesheet_clear
       name: clear()
       description: Clear the stylesheet properties.
@@ -50,6 +56,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stylesheet_transform
       name: transform()
       description: Cascade the stylesheet properties.
@@ -57,6 +64,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: stylesheet_onload
       name: onLoad
       description: Event handler called when a load() has completed.
@@ -64,4 +72,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

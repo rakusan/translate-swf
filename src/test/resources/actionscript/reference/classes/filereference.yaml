@@ -1,0 +1,165 @@
+- name: FileReference
+  type: class
+  elements:
+    - id: file_reference_creationDate
+      name: available
+      type: property
+      description: The creation date of the file.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_creator
+      name: creator
+      type: property
+      description: The Macintosh creator type of the file.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_modificationdate
+      name: modificationDate
+      type: property
+      description: The date that the file was last modified.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_name
+      name: name
+      type: property
+      description: The name of the file.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_size
+      name: size
+      type: property
+      description: The size of the file, in bytes.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_type
+      name: type
+      type: property
+      description: The file type.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_oncancel
+      name: onCancel
+      type: method
+      description: Invoked when the user dismisses the file-browsing dialog box.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_oncomplete
+      name: onComplete
+      type: method
+      description: Invoked when the upload or download operation has successfully completed.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_onhttperror
+      name: onHTTPError
+      type: method
+      description: Invoked when an upload fails because of an HTTP error.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_onioerror
+      name: onIOError
+      type: method
+      description: Invoked when an input/output error occurs.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_onopen
+      name: onOpen
+      type: method
+      description: Invoked when an upload or download operation starts.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_onprogress
+      name: onProgress
+      type: method
+      description: Invoked periodically during the file upload or download operation.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_onsecurityerror
+      name: onSecurityError
+      type: method
+      description: Invoked when an upload or download fails because of a security error.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_onselect
+      name: onSelect
+      type: method
+      description: Invoked when the user selects a file to upload or download from the file-browsing dialog box.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_constructor
+      name: FileReference()
+      type: method
+      description: Creates a new FileReference object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_addListener
+      name: addListener()
+      description: Registers an object to receive notification when a FileReference event listener is invoked.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_browse
+      name: browse()
+      description: Displays a file-browsing dialog box in which the user can select a local file to upload.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_cancel
+      name: cancel()
+      description: Cancels any ongoing upload or download operation on this FileReference object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_download
+      name: download()
+      description: Displays a dialog box in which the user can download a file from a remote server.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_removelistener
+      name: removeListener()
+      description: Remove an object from a FileReference.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_upload
+      name: upload()
+      description: Starts the upload of a file selected by a user to a remote server.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

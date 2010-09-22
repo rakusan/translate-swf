@@ -9,6 +9,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_activitylevel
       name: activityLevel
       description: Get the sound level detected by the microphone. Read-Only.
@@ -17,6 +18,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_gain
       name: gain
       description: The gain of the microphone. Read-Only.
@@ -25,6 +27,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_index
       name: index
       description: The index of the microphone in the array returned by names. Read-Only.
@@ -33,6 +36,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_muted
       name: muted
       description: Is the microphone accessible. Read-Only.
@@ -41,6 +45,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_name
       name: name
       description: The name of the microphone as identified by the hardware. Read-Only.
@@ -49,6 +54,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_rate
       name: rate
       description: The sampling rate of the microphone. Read-Only.
@@ -57,6 +63,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_silencelevel
       name: silenceLevel
       description: The sound level required before the microphone is activated. Read-Only.
@@ -65,6 +72,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_silencetimeout
       name: silenceTimeOut
       description: The delay in milliseconds between the sound level falling below the silenceLevel and the microphone being de.activated. Read-Only.
@@ -73,6 +81,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_useechosuppression
       name: useEchoSuppression
       description: Is echo-suppression enabled. Read-Only.
@@ -81,6 +90,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_get
       name: get()
       description: Return a reference to the specified microphone.
@@ -89,6 +99,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_setgain
       name: setGain()
       description: Set the gain on the microphone.
@@ -97,6 +108,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_setrate
       name: setRate()
       description: Set the sampling rate on the microphone.
@@ -105,6 +117,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_setsilencelevel
       name: setSilenceLevel()
       description: Set the silence level on the microphone.
@@ -113,6 +126,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_setuseechosuppression
       name: setUseEchoSuppression()
       description: Set whether the microphone uses echo-suppression.
@@ -121,6 +135,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_onactivity
       name: onActivity
       description: Get/set event handler called when the microphone is activated.
@@ -129,6 +144,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: microphone_onstatus
       name: onStatus
       description: Get/set event handler called when user allows or denies access to the microphone.
@@ -137,4 +153,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

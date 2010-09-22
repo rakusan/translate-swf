@@ -1,0 +1,219 @@
+- name: Rectangle
+  type: class
+  elements:
+    - id: rectangle_bottom
+      name: bottom
+      type: property
+      description: The sum of the y and height properties.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_bottomright
+      name: bottomRight
+      type: property
+      description: The location of the Rectangle's bottom-right corner.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_height
+      name: height
+      type: property
+      description: The height of the rectangle in pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_left
+      name: left
+      type: property
+      description: The x coordinate of the top-left corner of the rectangle.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_right
+      name: right
+      type: property
+      description: The sum of the x and width properties.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_size
+      name: size
+      type: property
+      description: Returns a Point with the width and height of the Rectangle.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_top
+      name: top
+      type: property
+      description: The y coordinate of the top-left corner of the rectangle.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_topleft
+      name: topLeft
+      type: property
+      description: The location of the Rectangle's top-left corner.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_width
+      name: width
+      type: property
+      description: The width of the rectangle in pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_x
+      name: x
+      type: property
+      description: The x coordinate of the top-left corner of the rectangle.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_y
+      name: y
+      type: property
+      description: The y coordinate of the top-left corner of the rectangle.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_constructor
+      name: Rectangle()
+      type: constructor
+      description: Creates a new Rectangle object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_clone
+      name: clone()
+      type: method
+      description: Creates a copy of the Rectangle object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_contains
+      name: contains()
+      type: method
+      description: Determines whether the x and y coordinates lie inside the Rectangle.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_containspoint
+      name: containsPoint()
+      type: method
+      description: Determines whether a Point is inside the Rectangle.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_containsrectangle
+      name: containsRectangle()
+      type: method
+      description: Determines whether a Rectangle is inside the Rectangle.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_equals
+      name: containsEquals()
+      type: method
+      description: Determines whether a Rectangle is equal to this one.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_inflate
+      name: inflate()
+      type: method
+      description: Increases the size of the Rectangle object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_inflatepoint
+      name: inflatePoint()
+      type: method
+      description: Increases the size of the Rectangle object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_intersection
+      name: intersection()
+      type: method
+      description: Returns the intersection between two Rectangles.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_intersects
+      name: intersects()
+      type: method
+      description: Does the Rectangle intersect with this one.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_isempty
+      name: isEmpty()
+      type: method
+      description: Is the Rectangle empty.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_offset
+      name: offset()
+      type: method
+      description: Adjust the position of the top-left corner.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_offsetpoint
+      name: offsetPoint()
+      type: method
+      description: Adjust the position of the top-left corner using a Point
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_setempty
+      name: setEmpty()
+      type: method
+      description: Set the Rectangle to empty.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_tostring
+      name: toString()
+      type: method
+      description: Return a string describing the Rectangle's properties.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: rectangle_union
+      name: union()
+      type: method
+      description: Return a new Rectangle that encloses this one and another.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

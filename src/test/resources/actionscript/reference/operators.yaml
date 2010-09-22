@@ -170,16 +170,18 @@
   id: assign_add
   description: add and assign.
   profiles: 
+    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-- name: -=
+- name: "-="
   id: assign_subtract
   description: Subtract and assign.
   profiles: 
+    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
@@ -200,6 +202,7 @@
   id: assign_divide
   description: divide and assign.
   profiles: 
+    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
@@ -210,6 +213,7 @@
   id: assign_modulo
   description: remainder and assign.
   profiles: 
+    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
@@ -490,6 +494,16 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
+- name: new
+  id: new
+  description: Object constructor
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
 - name: instanceof
   id: instanceof
   description: Type checking.
@@ -499,10 +513,23 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
+- name: "{}"
+  id: object_initializer
+  description: Object initializer.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
 - name: "//"
   id: comment
   description: Single line comment.
   profiles: 
+    - DEFAULT_1_1
+    - DEFAULT_1_2
+    - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
@@ -514,7 +541,6 @@
   id: comment_block
   description: Block comment.
   profiles: 
-    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
@@ -589,6 +615,8 @@
   id: inequality
   description: inequality.
   profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
@@ -651,4 +679,32 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-    
+- name: ":"
+  id: typing
+  description: strict typing operator
+  profiles: 
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: typeof
+  id: typeof
+  description: strict typing operator
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: void
+  name: void
+  description: Return a void value.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10

@@ -8,6 +8,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_bufferlength
       name: bufferLength
       description: The number of seconds of data currently in the stream buffer. Read-Only.
@@ -15,6 +16,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_buffertime
       name: bufferTime
       description: The number of seconds of data assigned for the stream buffer. Read-Only.
@@ -22,6 +24,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_bytesloaded
       name: bytesLoaded
       description: The number of bytes loaded so far. Read-Only.
@@ -29,6 +32,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_bytestotal
       name: bytesTotal
       description: The total number of bytes to be loaded. Read-Only.
@@ -36,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_currentfps
       name: currentFps
       description: Current frame rate. Read-Only.
@@ -43,6 +48,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_time
       name: time
       description: The position of the play-head, in seconds. Read-Only.
@@ -50,6 +56,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_close
       name: close()
       description: Stop playing and close the stream.
@@ -57,6 +64,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_pause
       name: pause()
       description: Pause/resume playing the stream.
@@ -64,6 +72,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_play
       name: play()
       description: Start playing.
@@ -71,6 +80,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_seek
       name: seek()
       description: Skip to the next nearest key frame.
@@ -78,6 +88,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_setbuffertime
       name: setBufferTime()
       description: Set time to buffer messages before starting to play.
@@ -85,13 +96,14 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_oncuepoint
       name: onCuePoint
       description: Get/set event handler called when an embedded cue point in a Flash Video stream is reached.
       profiles:
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_onmetadata
       name: onMetaData
       description: Get/set event handler called when a meta-data is read.
@@ -99,6 +111,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: netstream_onstatus
       name: onStatus
       description: Get/set event handler called whenever status information or an error is detected.
@@ -106,4 +119,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
    

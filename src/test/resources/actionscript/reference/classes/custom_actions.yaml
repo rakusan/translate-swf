@@ -9,6 +9,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: custom_actions_install
       name: install()
       description: Install a new custom action XML definition file.
@@ -17,6 +18,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: custom_actions_list
       name: list()
       description: List the custom actions currently registered.
@@ -25,6 +27,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: custom_actions_uninstall
       name: uninstall()
       description: Uninstall a custom action XML definition file.
@@ -33,4 +36,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

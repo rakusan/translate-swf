@@ -10,8 +10,9 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_utc_constructor
-      name: DateUTC()
+      name: UTC()
       description: Get the number of milliseconds from Jan 1 1970 Universal time to the specified date and time.
       profiles:
         - DEFAULT_1_5
@@ -19,6 +20,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getdate
       name: getDate()
       description: Get the day of the month.
@@ -28,6 +30,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getday
       name: getDay()
       description: Get the day of the week.
@@ -37,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getfullyear
       name: getFullYear()
       description: Get the year as a 4-digit number.
@@ -46,6 +50,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_gethours
       name: getHours()
       description: Get the hour of the day.
@@ -55,6 +60,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getmilliseconds
       name: getMilliseconds()
       description: Get the number of millisconds.
@@ -64,6 +70,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getminutes
       name: getMinutes()
       description: Get the minute of the hour.
@@ -73,6 +80,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getmonth
       name: getMonth()
       description: Get the month of the year.
@@ -82,6 +90,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getseconds
       name: getSeconds()
       description: Get the seconds of the minute.
@@ -91,7 +100,8 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: date_date_gettime
+        - DEFAULT_1_10
+    - id: date_gettime
       name: getTime()
       description: Get the time in milliseconds since Jan 1 1970.
       profiles:
@@ -100,6 +110,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_gettimezoneoffset
       name: getTimezoneOffset()
       description: Get the difference in minute between local time an Universal time.
@@ -109,6 +120,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getyear
       name: getYear()
       description: Get the year according to local time.
@@ -118,6 +130,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setdate
       name: setDate()
       description: Set the day of the month.
@@ -127,6 +140,17 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: date_setday
+      name: setDay()
+      description: Set the day of the week.
+      profiles:
+        - DEFAULT_1_5
+        - DEFAULT_1_6
+        - DEFAULT_1_7
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setfullyear
       name: setFullYear()
       description: Set the 4-digit year.
@@ -136,6 +160,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_sethours
       name: setHours()
       description: Set the hour of the day.
@@ -145,6 +170,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setmilliseconds
       name: setMilliseconds()
       description: Set the number of milliseconds.
@@ -154,6 +180,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setminutes
       name: setMinutes()
       description: Set the number of minutes.
@@ -163,6 +190,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setmonth
       name: setMonth()
       description: Set the month of the year.
@@ -172,6 +200,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setseconds
       name: setSeconds()
       description: Set the number of seconds.
@@ -181,6 +210,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_settime
       name: setTime()
       description: Set the time in milliseconds since Jan 1 1970.
@@ -190,6 +220,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setyear
       name: setYear()
       description: Set the year, accordining to local time.
@@ -199,6 +230,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_tostring
       name: toString()
       description: Display the date and time as a string.
@@ -208,6 +240,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getutcdate
       name: getUTCDate()
       description: Get the day of the month according to universal time.
@@ -217,6 +250,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getutcday
       name: getUTCDay()
       description: Get the day of the week according to universal time.
@@ -226,6 +260,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getutcfullyear
       name: getUTCFullYear()
       description: Get the 4-digit year according to universal time.
@@ -235,6 +270,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getutchours
       name: getUTCHours()
       description: Get the hour of the day according to universal time.
@@ -244,6 +280,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getutcmilliseconds
       name: getUTCMilliseconds()
       description: Get the number of milliseconds according to universal time.
@@ -253,6 +290,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getutcminutes
       name: getUTCMinutes()
       description: Get the minute of the hour according to universal time.
@@ -262,6 +300,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getutcmonth
       name: getUTCMonth()
       description: Get the month of the year according to universal time.
@@ -271,6 +310,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_getutcseconds
       name: getUTCSeconds()
       description: Get the number of seconds according to universal time.
@@ -280,6 +320,14 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: date_getutcyear
+      name: getUTCYear()
+      description: Get the year according to universal time.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setutcdate
       name: setUTCDate()
       description: Set the day of the month according to universal time.
@@ -289,6 +337,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setutcday
       name: setUTCDay()
       description: Set the day of the week according to universal time.
@@ -298,6 +347,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setutcfullyear
       name: setUTCFullYear()
       description: Set the 4-digit year according to universal time.
@@ -307,6 +357,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setutchours
       name: setUTCHours()
       description: Set the hour of the day according to universal time.
@@ -316,6 +367,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setutcmilliseconds
       name: setUTCMilliseconds()
       description: Set the number of milliseconds according to universal time.
@@ -325,6 +377,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setutcminutes
       name: setUTCMinutes()
       description: Set the minute of the hour according to universal time.
@@ -334,6 +387,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setutcmonth
       name: setUTCMonth()
       description: Set the month of the year according to universal time.
@@ -343,6 +397,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_setutcseconds
       name: setUTCSeconds()
       description: Set the number of seconds according to universal time.
@@ -352,6 +407,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: date_valueof
       name: valueOf()
       description: Return the number of milliseconds since Jan 1 1970.
@@ -361,4 +417,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

@@ -9,6 +9,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: security_allowdomain
       name: allowDomain()
       description: Allow movies and html files from the HTTP domain to access variables.
@@ -17,20 +18,21 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: security_allowinsecuredomain
       name: allowInsecureDomain()
       description: Allow movies and html files from the HTTPS domain to access variables.
       profiles:
-        - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: security_loadpolicyfile
       name: loadPolicyFile()
       description: Load a cross domain policy file.
       profiles:
-        - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

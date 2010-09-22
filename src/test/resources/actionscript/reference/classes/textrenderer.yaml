@@ -1,0 +1,19 @@
+- name: TextRenderer
+  type: class
+  elements:
+    - id: text_renderer_maxlevel
+      name: maxLevel
+      type: property
+      description: The adaptively sampled distance fields (ADFs) quality level for advanced anti-aliasing.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: text_renderer_setadvancedantialiasingtable 
+      name: setAdvancedAntialiasingTable 
+      type: method
+      description: Sets a custom continuous stroke modulation (CSM) lookup table for a font.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

@@ -10,6 +10,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: accessibility_updateproperties
       name: updateProperties()
       type: method
@@ -19,3 +20,4 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9       
+        - DEFAULT_1_10

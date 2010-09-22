@@ -1,0 +1,56 @@
+- name: FileReferenceList
+  type: class
+  elements:
+    - id: file_reference_list_filelist
+      name: fileList
+      type: property
+      description: An array of FileReference objects.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_list_oncancel
+      name: onCancel
+      type: method
+      description: Invoked when the user dismisses the file-browsing dialog box.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_list_onselect
+      name: onSelect
+      type: method
+      description: Invoked when the user selects a file to upload or download from the file-browsing dialog box.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_list_constructor
+      name: FileReferenceList()
+      type: method
+      description: Creates a new FileReferenceList object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: file_reference_list_addListener
+      name: addListener()
+      description: Registers an object to receive notification when a FileReferenceList event listener is invoked.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_list_browse
+      name: browse()
+      description: Displays a file-browsing dialog box in which the user can select one or more local files to upload.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: file_reference_list_removelistener
+      name: removeListener()
+      description: Removes an object from the list of objects that receive event notification messages.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

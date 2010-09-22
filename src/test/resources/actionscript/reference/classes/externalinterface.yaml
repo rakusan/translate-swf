@@ -1,0 +1,27 @@
+- name: ExternalInterface
+  type: class
+  elements:
+    - id: external_interface_available
+      name: available
+      type: property
+      description: Is the player is in a container that offers an external interface.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: external_interface_addcallback
+      name: addCallback()
+      type: method
+      description: Registers an ActionScript method as callable from the container.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10
+    - id: external_interface_call
+      name: call()
+      type: method
+      description: Calls a function exposed by the Flash Player container.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9       
+        - DEFAULT_1_10

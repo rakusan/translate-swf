@@ -9,6 +9,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: localconnection_close
       name: close()
       description: Close the connection.
@@ -17,6 +18,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: localconnection_connect
       name: connect()
       description: Prepare a local connection to receive commands.
@@ -25,6 +27,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: localconnection_methodtoexecute
       name: methodToExecute
       description:
@@ -33,6 +36,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: localconnection_send
       name: send()
       description: Send a command to call a method on the receiver.
@@ -41,6 +45,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: localconnection_domain
       name: domain()
       description: Return the domain for the current file.
@@ -49,14 +54,15 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: localconnection_allowdomain
       name: allowDomain
       description: Get/set the event handler invoked when a method is called.
       profiles:
-        - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: localconnection_allowinsecuredomain
       name: allowInsecureDomain
       description: Get/set the event handler invoked when a method is called at a secure (HTTPS) domain from a connection at an insecure (HTTP) domain.
@@ -64,6 +70,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: localconnection_onstatus
       name: onStatus
       description: Get/set the event handler called when a command is sent.
@@ -72,4 +79,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

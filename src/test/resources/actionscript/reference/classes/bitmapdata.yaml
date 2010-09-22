@@ -1,0 +1,235 @@
+- name: BitmapData
+  type: class
+  elements:
+    - id: bitmap_data_height
+      name: height
+      type: property
+      description: The height of the image in pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_rectangle
+      name: rectangle
+      type: property
+      description: The rectangle that defines the size and location of the bitmap image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_transparent
+      name: transparent
+      type: property
+      description: Does the bitmap image support per-pixel transparency.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_width
+      name: width
+      type: property
+      description: The width of the image in pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_constructor
+      name: BitmapData
+      type: property
+      description: The alpha transparency value of the highlight color.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_applyfilter
+      name: applyFilter
+      type: method
+      description: Takes a source image and a filter object and generates the filtered image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_clone
+      name: clone()
+      type: method
+      description: Create a copy of the image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_colortransform
+      name: colorTransform()
+      type: method
+      description: Adjusts the color values in a specified area of a bitmap image by using a ColorTransform object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_copyChannel
+      name: copyChannel()
+      type: method
+      description: Transfers data from one channel of a BitmapData object to a channel of the current BitmapData object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_copyPixels
+      name: copyPixels()
+      type: method
+      description: Copy pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_dispose
+      name: dispose()
+      type: method
+      description: Delete the object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_draw
+      name: draw()
+      type: method
+      description: Draws a source image or movie clip onto a destination image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_fillrect
+      name: fillRect()
+      type: method
+      description: Fill an area with color.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_floodfill
+      name: floodFill()
+      type: method
+      description: Fill an area with color.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_generatefilterrect
+      name: generateFilterRect()
+      type: method
+      description: Get rectangle that the applyFilter() affects.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_getcolorboundsrect
+      name: getColorBoundsRect()
+      type: method
+      description: Get rectangle that encloses all pixels of the specified color.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_getpixel
+      name: getPixel()
+      type: method
+      description: Get the RGB colour of a pixel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_getpixel32
+      name: getPixel32()
+      type: method
+      description: Get the ARGB colour of a pixel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_hittest
+      name: hitTest()
+      type: method
+      description: Perform pixel-level hit detection.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_loadbitmap
+      name: loadBitmap()
+      type: method
+      description: Create new image from an object with the specified identifier.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_merge
+      name: merge()
+      type: method
+      description: Merge two images together.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_noise
+      name: noise()
+      type: method
+      description: Fill an area with random noise.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_palettemap
+      name: paletteMap()
+      type: method
+      description: Remap the colours in an image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_perlinnoise
+      name: perlinNoise()
+      type: method
+      description: Fill an area with Perlin noise.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_pixeldissolve
+      name: pixelDissolve()
+      type: method
+      description: Perform a pixel dissolve on an image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_scroll
+      name: scroll()
+      type: method
+      description: Scroll an image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_setpixel
+      name: setPixel()
+      type: method
+      description: Set the RGB colour of a pixel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_setpixel32
+      name: setPixel32()
+      type: method
+      description: Set the ARGB colour of a pixel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bitmap_data_threshold
+      name: threshold()
+      type: method
+      description: Set the pixels in an image to another colour is they are higher than the specified threshold.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

@@ -10,7 +10,8 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
-    - id: boolean_boolean_value
+        - DEFAULT_1_10
+    - id: boolean_constructor_value
       name: Boolean(value)
       description: Create a new Boolean object evaluating the specified value as true or false.
       profiles:
@@ -19,6 +20,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: boolean_tostring
       name: toString()
       description: Return a string representation of the value, either "true" or "false".
@@ -28,6 +30,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: boolean_valueof
       name: valueOf()
       description: Returns the value wrapped by the Boolean object.
@@ -37,4 +40,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

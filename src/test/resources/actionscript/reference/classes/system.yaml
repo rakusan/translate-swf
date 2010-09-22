@@ -5,10 +5,10 @@
       name: exactSettings
       description: Is access to devices such as the microphone and camera allowed for movie from exactly the same domain or from a parent domain.
       profiles:
-        - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: system_usecodepage
       name: useCodePage
       description: Use the system Code Page for determining the encoding of text files.
@@ -17,14 +17,15 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: system_setclipboard
       name: setClipboard()
       description: Place a string on the clipboard.
       profiles:
-        - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: system_showsettings
       name: showSettings()
       description: Display teh Flash Player setting panel.
@@ -33,6 +34,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: system_onstatus
       name: onStatus
       description: Get/set the event handler shared by LocalConnection, NetStream and SharedObject instances.
@@ -41,4 +43,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

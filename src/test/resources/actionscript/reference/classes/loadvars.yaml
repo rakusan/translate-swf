@@ -9,6 +9,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_addrequestheader
       name: addRequestHeader()
       description: Set an HTTP header.
@@ -17,6 +18,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_getbytesloaded
       name: getBytesLoaded()
       description: Get the number of bytes downloaded.
@@ -25,6 +27,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_getbytestotal
       name: getBytesTotal()
       description: Get the total number of bytes downloaded.
@@ -33,14 +36,15 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_decode
       name: decode()
       description: url decode a string and set them as properties.
       profiles:
-        - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_load
       name: load()
       description: Load variables from a URL.
@@ -49,6 +53,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_send
       name: send()
       description: Send variables to the target URL.
@@ -57,6 +62,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_sendandload
       name: sendAndLoad()
       description: Post variables to the target URL and load the values returned.
@@ -65,6 +71,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_tostring
       name: toString()
       description: Return a urlencoded string containing the loaded variables.
@@ -73,6 +80,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_contenttype
       name: contentType()
       description: Set the MIME content type sent to the server.
@@ -81,6 +89,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_loaded
       name: loaded
       description: Has a load() or sendAndLoad() operation completed.
@@ -89,6 +98,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_ondata
       name: onData
       description: Get/set event handler called when a download is complete or when an error occurred.
@@ -97,6 +107,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_onload
       name: onLoad
       description: Get/set event handler called when a load() or sendAndLoad() action is completed.
@@ -105,10 +116,12 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: loadvars_onhttpstatus
       name: onHTTPStatus
       description: Get/set event handler called an HTTP status code is returned by the server.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

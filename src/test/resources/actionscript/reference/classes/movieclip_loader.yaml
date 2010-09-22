@@ -8,6 +8,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_loadclip
       name: loadClip()
       description: Load a movie clip or image referenced by a URL.
@@ -15,6 +16,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_unloadclip
       name: unloadClip()
       description: Remove a movie clip or image previously loaded using loadClip().
@@ -22,6 +24,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_getprogress
       name: getProgress()
       description: Return the number of bytes loaded so far and the total number to be loaded.
@@ -29,6 +32,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_addlistener
       name: addListener()
       description: Register an object to be notified each time an event handler is called.
@@ -36,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_removelistener
       name: removeListener()
       description: Remove a registered listener.
@@ -43,6 +48,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_onloadcomplete
       name: onLoadComplete
       description: Get/set event handler called when a download completes.
@@ -50,6 +56,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_onloaderror
       name: onLoadError
       description: Get/set event handler called when a download fails.
@@ -57,6 +64,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_onloadinit
       name: onLoadInit
       description: Get/set event handler called when the the actions in the first of a loaded movie clip have been executed.
@@ -64,6 +72,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_onloadprogress
       name: onLoadProgress
       description: Get/set event handler called each time downloaded data is written to disk.
@@ -71,6 +80,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: moviecliploader_onloadstart
       name: onLoadStart
       description: Get/set event handler called when a download starts.
@@ -78,4 +88,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

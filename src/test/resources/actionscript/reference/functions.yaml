@@ -165,6 +165,7 @@
   profiles: 
     - DEFAULT_1_2
     - DEFAULT_1_3
+    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
@@ -178,6 +179,7 @@
   profiles: 
     - DEFAULT_1_2
     - DEFAULT_1_3
+    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
@@ -400,6 +402,189 @@
     - DEFAULT_1_9
     - DEFAULT_1_10
 
+- name: on(press)
+  id: on_press
+  description: Event handler for buttons
+  profiles:
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: on(release)
+  id: on_release
+  description: Event handler for buttons
+  profiles:
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: on(releaseOutside)
+  id: on_releaseoutside
+  description: Event handler for buttons
+  profiles:
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: on(rollOver)
+  id: on_rollover
+  description: Event handler for buttons
+  profiles:
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: on(rollOut)
+  id: on_rollout
+  description: Event handler for buttons
+  profiles:
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: on(dragOver)
+  id: on_dragover
+  description: Event handler for buttons
+  profiles:
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: on(keyPress)
+  id: on_keypress
+  description: Event handler for buttons
+  profiles:
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
+- name: OnClipEvent(load)
+  id: onclipevent_load
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: OnClipEvent(unload)
+  id: onclipevent_unload
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: OnClipEvent(enterFrame)
+  id: onclipevent_enterframe
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: OnClipEvent(mouseMove)
+  id: onclipevent_mousemove
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: OnClipEvent(mouseDown)
+  id: onclipevent_mousedown
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: OnClipEvent(mouseUp)
+  id: onclipevent_mouseup
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: OnClipEvent(keyDown)
+  id: onclipevent_keydown
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: OnClipEvent(keyUp)
+  id: onclipevent_keyup
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- name: OnClipEvent(data)
+  id: onclipevent_data
+  description: Event handler for movie clips
+  profiles:
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+
 - name: ord()
   id: ord
   description: Convert an ASCII character to a number.
@@ -537,18 +722,6 @@
 - name: removeMovieClip()
   id: removemovieclip
   description: Delete a movieclip.
-  profiles:
-    - DEFAULT_1_4
-    - DEFAULT_1_5
-    - DEFAULT_1_6
-    - DEFAULT_1_7
-    - DEFAULT_1_8
-    - DEFAULT_1_9
-    - DEFAULT_1_10
-
-- name: set()
-  id: set
-  description: Set a variable.
   profiles:
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -761,3 +934,14 @@
     - DEFAULT_1_9
     - DEFAULT_1_10
 
+- name: set()
+  id: set
+  description: Set a variable value.
+  profiles:
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10

@@ -1,0 +1,116 @@
+- name: BevelFilter
+  type: class
+  elements:
+    - id: bevel_filter_angle
+      name: angle
+      type: property
+      description: The angle of the bevel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_blurx
+      name: blurX
+      type: property
+      description: The amount of horizontal blur in pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_blury
+      name: blurY
+      type: property
+      description: The amount of vertical blur in pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_distance
+      name: distance
+      type: property
+      description: The offset distance of the bevel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_highlightalpha
+      name: highlightAlpha
+      type: property
+      description: The alpha transparency value of the highlight color.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_highlightcolor
+      name: highlightColor
+      type: property
+      description: The highlight color of the bevel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_knockout
+      name: knockout
+      type: property
+      description: Set the fill to be transparent to show the color behind the object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_quality
+      name: quality
+      type: property
+      description: The number of times to apply the filter.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_shadowalpha
+      name: shadowAlpha
+      type: property
+      description: The alpha value of the shadow color.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_shadowcolor
+      name: shadowColor
+      type: property
+      description: The shadow color of the bevel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_strength
+      name: strength
+      type: property
+      description: The strength of the imprint or spread.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_type
+      name: type
+      type: property
+      description: The type of bevel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_constructor
+      name: BevelFilter()
+      type: constructor
+      description: The object constructor.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: bevel_filter_clone
+      name: clone()
+      type: method
+      description: Create a copy of the filter object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+

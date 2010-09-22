@@ -8,6 +8,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: contextmenuitem_caption
       name: caption
       description: Get/set the name of the entry in the menu.
@@ -15,6 +16,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: contextmenuitem_enabled
       name: enabled
       description: Get/set whether the entry is enabled.
@@ -22,6 +24,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: contextmenuitem_separatorbefore
       name: separatorBefore
       description: Get/set whether a menu separator is displayed before the entry.
@@ -29,6 +32,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: contextmenuitem_visible
       name: visible
       description: Get/set whether the entry is visible.
@@ -36,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: contextmenuitem_copy
       name: copy()
       description: Create a copy of this ContextMenuItem.
@@ -43,6 +48,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: contextmenuitem_onselect
       name: onSelect
       description: Get/set the event handler invoked when the item is slected.
@@ -50,4 +56,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

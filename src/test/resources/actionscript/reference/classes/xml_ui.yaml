@@ -8,6 +8,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlui_cancel
       name: cancel()
       description: Exit the current XMLUI dialog with an 'cancel' state.
@@ -15,6 +16,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlui_get
       name: get()
       description: Get the value of the named property from the current XMLUI dialog.
@@ -22,6 +24,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlui_set
       name: set()
       description: Set the value of the named property in the current XMLUI dialog.
@@ -29,3 +32,4 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10

@@ -7,109 +7,99 @@
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_alpha
       name: _alpha
       description: Get/set the transparency level.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_height
       name: _height
       description: Get/set the height of the video.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_name
       name: _name
       description: Get/set the instance name of the video.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_parent
       name: _parent
       description: Get/set the reference to the parent moviclip or object.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_rotation
       name: _rotation
       description: Get/set the rotation, in degrees, applied to the video.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_visible
       name: _visible
       description: Get/set whether the video is visible.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_width
       name: _width
       description: Get/set the width of the video, in pixels.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_x
       name: _x
       description: The x-coordinate of the video relative to the parent.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_xscale
       name: _xscale
       description: The scaling factor applied to the video in the x-direction.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_y
       name: _y
       description: The y-coordinate of the video relative to the parent.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_yscale
       name: _yscale
       description: The scaling factor applied to the video in the y-direction.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 
     - id: video_xmouse
       name: _xmouse
       description: Get the x-coordinate of the current mouse position. Read-Only.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_ymouse
       name: _ymouse
       description: Get the y-coordinate of the current mouse position. Read-Only.
       profiles:
-        - DEFAULT_1_6
-        - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_attachVideo
       name: attachVideo()
       description: Set the stream to be displayed in the Video object.
@@ -118,6 +108,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_clear
       name: clear()
       description: Clear the current image being displayed.
@@ -126,6 +117,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_deblocking
       name: deblocking
       description: Get/set the type of deblocking filter used.
@@ -134,6 +126,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_height
       name: height
       description: The height of the video stream in pixels. Read-Only.
@@ -142,6 +135,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_width
       name: width
       description: The width of the video stream in pixels. Read-Only.
@@ -150,6 +144,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: video_smoothing
       name: smoothing
       description: Is the video smoothed when it is scaled.
@@ -158,4 +153,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

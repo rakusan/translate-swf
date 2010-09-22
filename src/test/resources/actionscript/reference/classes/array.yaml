@@ -9,6 +9,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_descending
       name: DESCENDING
       type: constant
@@ -17,6 +18,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_numeric
       name: NUMERIC
       type: constant
@@ -25,6 +27,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_returnindexedarray
       name: RETURNINDEXEDARRAY
       type: constant
@@ -33,6 +36,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_unique
       name: UNIQUE
       type: constant
@@ -41,6 +45,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_constructor_empty
       name: Array()
       type: constructor
@@ -51,6 +56,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_constructor_size
       name: Array(n)
       type: constructor
@@ -61,6 +67,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_constructor_elements
       name: Array(element0...)
       type: constructor
@@ -71,16 +78,18 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_constructor_brackets
-      name: [...]
+      name: [element0, ...]
       type: constructor
-      description: Create an array using bracket notation.
+      description: Create an array with the specified elements.
       profiles: 
         - DEFAULT_1_5
         - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_length
       name: length
       description: The number of elements in the array.
@@ -90,6 +99,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_concat
       name: concat()
       description: Concatenate parameters and return a new array.
@@ -99,6 +109,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_join
       name: join()
       description: Return a string containing the array elements separated by the specified character.
@@ -108,6 +119,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_pop
       name: pop()
       description: Remove and return the last element.
@@ -117,6 +129,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_push
       name: push()
       description: Add one or more elements to the end of the array.
@@ -126,6 +139,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_reverse
       name: reverse()
       description: Reverse the order of the elements.
@@ -135,6 +149,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_shift
       name: shift()
       description: Remove and return the first element.
@@ -144,6 +159,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_slice
       name: slice()
       description: Return a new array containing the selected elements.
@@ -153,6 +169,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_splice
       name: splice()
       description: Add or delete elements.
@@ -162,6 +179,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_tostring
       name: toString()
       description: Return the string representation.
@@ -171,6 +189,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_unshift
       name: unshift()
       description: Add one or more elements to the start of the array.
@@ -180,6 +199,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_sort
       name: sort()
       description: Sort the elements using default options.
@@ -189,6 +209,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_sort_function
       name: sort()
       description: Sort the elements using an optional comparison function.
@@ -198,15 +219,15 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_sort_option
       name: sort()
       description: Sort the elements using sort options.
       profiles:
-        - DEFAULT_1_5
-        - DEFAULT_1_6
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: array_sorton
       name: sortOn()
       description: Sort an array of objects which share one or more fields.
@@ -215,4 +236,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
         

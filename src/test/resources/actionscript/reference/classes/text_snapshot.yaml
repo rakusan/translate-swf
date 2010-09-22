@@ -8,6 +8,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: textsnapshot_getcount
       name: getCount()
       description: Get the number of characters in the TextSnapshot.
@@ -15,6 +16,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: textsnapshot_getselected
       name: getSelected()
       description: Does the TextSnapshot contain the text selection.
@@ -22,6 +24,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: textsnapshot_getselectedtext
       name: getSelectedText()
       description: Get the selected text from the TextSnapshot.
@@ -29,6 +32,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: textsnapshot_gettext
       name: getText()
       description: Get the text from the TextSnapshot.
@@ -36,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: textsnapshot_gettextruninfo
       name: getTextRunInfo()
       description: Get information on the TextSnapshot.
@@ -43,6 +48,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: textsnapshot_hittesttextnearpos
       name: hitTestTextNearPos()
       description: Identify which character is near a given point.
@@ -50,6 +56,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: textsnapshot_setselectcolor
       name: setSelectColor()
       description: Set the colour to use when highlighting text.
@@ -57,6 +64,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: textsnapshot_setselected
       name: setSelected()
       description: Select a range of characters in the TextSnapshot.
@@ -64,4 +72,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

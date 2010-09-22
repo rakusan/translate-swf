@@ -10,6 +10,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: color_getrgb
       name: getRGB()
       description: Get the RGB colour as an integer.
@@ -19,6 +20,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: color_setrgb
       name: setRGB()
       description: Set the RGB colour.
@@ -28,6 +30,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: color_gettransform
       name: getTransform()
       description: Get the colour transform applied to the movie clip.
@@ -37,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: color_settransform
       name: setTransform()
       description: Set the colour transform applied to the movie clip.
@@ -46,4 +50,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

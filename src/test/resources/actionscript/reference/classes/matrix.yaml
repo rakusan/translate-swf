@@ -1,0 +1,155 @@
+- name: Matrix
+  type: class
+  elements:
+    - id: matrix_a
+      name: a
+      type: property
+      description: Matrix value [0][0]
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_b
+      name: b
+      type: property
+      description: Matrix value [0][1]
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_c
+      name: c
+      type: property
+      description: Matrix value [1][0]
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_d
+      name: d
+      type: property
+      description: Matrix value [1][1]
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_tx
+      name: tx
+      type: property
+      description: Matrix value [0][2]
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_ty
+      name: ty
+      type: property
+      description: Matrix value [1][2]
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_constructor
+      name: Matrix()
+      type: constructor
+      description: Creates a new Matrix object with the specified parameters.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_clone
+      name: clone()
+      type: method
+      description: Creates a copy of this Matrix.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_concat
+      name: concat()
+      type: method
+      description: Composite the matrix with another.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_createbox
+      name: createBox()
+      type: method
+      description: Not known.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_creategradientbox
+      name: createGradientBox()
+      type: method
+      description: Creates a Matrix used for MovieClip method beginGradientFill().
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_deltatransformpoint
+      name: deltaTransformPoint()
+      type: method
+      description: Returns the transform that will be applied to the Point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_identity
+      name: identity()
+      type: method
+      description: Apply an identity transform - one that leaves the original unchanged.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_invert
+      name: invert()
+      type: method
+      description: Apply the opposite transform to the original.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_rotate
+      name: rotate()
+      type: method
+      description: Apply a rotation.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_scale
+      name: scale()
+      type: method
+      description: Apply a scaling transform.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_tostring
+      name: toString()
+      type: method
+      description: Return a string describing the properties of the Matrix.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_transformpoint
+      name: transformPoint()
+      type: method
+      description: Apply the transform to a Point.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: matrix_translate
+      name: translate()
+      type: method
+      description: Apply a translation transform.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

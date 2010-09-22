@@ -1,0 +1,92 @@
+- name: BevelFilter
+  type: class
+  elements:
+    - id: convolution_filter_alpha
+      name: alpha
+      type: property
+      description: The alpha transparency value of the substitute color.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_bias
+      name: bias
+      type: property
+      description: Bias to add to the result of the matrix transformation.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_clamp
+      name: clamp
+      type: property
+      description: Indicates whether the image should be clamped.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_color
+      name: color
+      type: property
+      description: The hexadecimal color to substitute for pixels that are off the source image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_divisor
+      name: divisor
+      type: property
+      description: The divisor used during matrix transformation.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_matrix
+      name: matrix
+      type: property
+      description: An array of values used for matrix transformation; returns a copy.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_matrixx
+      name: matrixX
+      type: property
+      description: The number of rows in the matrix).
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_matrixy
+      name: matrixY
+      type: property
+      description: The number of columns in the matrix.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_preservealpha
+      name: preserveAlpha
+      type: property
+      description: Indicates what the convolution applies to.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_constructor
+      name: BevelFilter()
+      type: constructor
+      description: The object constructor.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: convolution_filter_clone
+      name: clone()
+      type: method
+      description: Create a copy of the filter object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+

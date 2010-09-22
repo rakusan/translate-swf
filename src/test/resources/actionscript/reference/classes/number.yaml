@@ -10,6 +10,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: number_min_value
       name: MIN_VALUE
       description: The smallest representable number.
@@ -19,6 +20,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: number_nan 
       name: NaN 
       description: Not a number.
@@ -28,6 +30,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: number_negative_infinity
       name: NEGATIVE_INFINITY
       description: Negative Infinity.
@@ -37,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: number_positive_infinity
       name: POSITIVE_INFINITY
       description: Positive Infinity.
@@ -46,6 +50,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: number_constructor
       name: Number()
       description: Create a new Number object.
@@ -55,6 +60,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: number_tostring
       name: toString()
       description: Display the number in a specified radix.
@@ -64,6 +70,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: number_valueof
       name: valueOf()
       description: Return the primitive value of an object.
@@ -73,4 +80,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

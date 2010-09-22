@@ -1,0 +1,92 @@
+- name: DisplacementMapFilter
+  type: class
+  elements:
+    - id: displacement_map_filter_alpha
+      name: angle
+      type: property
+      description: Specifies the alpha transparency value to use for out-of-bounds displacements.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_color
+      name: color
+      type: property
+      description: The color to use for out-of-bounds displacements.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_componentx
+      name: componentX
+      type: property
+      description: Describes which color channel to use in the map image to displace the x result.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_componenty
+      name: componentY
+      type: property
+      description: Describes which color channel to use in the map image to displace the x result.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_mapbitmap
+      name: mapBitmap
+      type: property
+      description: A BitmapData object containing the displacement map data.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_mappoint
+      name: mapPoint
+      type: property
+      description: A Point that contains the offset of the upper-left corner of the target movie clip from the upper-left corner of the map image.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_mode
+      name: mode
+      type: property
+      description: The mode for the filter.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_scalex
+      name: scaleX
+      type: property
+      description: The multiplier to use to scale the x displacement result from the map calculation.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_scaley
+      name: scaleY
+      type: property
+      description: The multiplier to use to scale the y displacement result from the map calculation.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_constructor
+      name: DisplacementMapFilter()
+      type: constructor
+      description: The object constructor.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: displacement_map_filter_clone
+      name: clone()
+      type: method
+      description: Create a copy of the filter object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+

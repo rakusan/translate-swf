@@ -1,0 +1,51 @@
+- name: Transform
+  type: class
+  elements:
+    - id: transform_colortransform
+      name: colorTransform
+      type: property
+      description: A ColorTransform object containing values that universally adjust the colors in the movie clip.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: transform_concatenatedColorTransform
+      name: concatenatedColorTransform
+      type: property
+      description: A ColorTransform object representing the combined color transformations applied to this object and all of its parent objects, back to the root level.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: transform_concatenatedmatrix
+      name: concatenatedmatrix
+      type: property
+      description: A Matrix object representing the combined transformation matrixes of this object and all of its parent objects, back to the root level.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10 
+    - id: transform_matrix
+      name: matrix
+      type: property
+      description: A transformation Matrix object containing values that affect the scaling, rotation, and translation of the movie clip.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: transform_pixelbounds
+      name: pixelBounds
+      type: property
+      description: A Rectangle object that defines the bounding rectangle of the MovieClip object on the Stage.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: transform_constructor
+      name: Transform()
+      type: constructor
+      description: Creates a new Transform object attached to the given MovieClip object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10

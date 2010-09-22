@@ -1,46 +1,15 @@
-- id: "true"
-  name: "true"
-  description: Boolean true.
+- id: accprops
+  name: _accProps
+  description: Accessibility property
   profiles: 
-    - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-- id: "false"
-  name: "false"
-  description: Boolean false.
-  profiles: 
-    - DEFAULT_1_5
-    - DEFAULT_1_6
-    - DEFAULT_1_7
-    - DEFAULT_1_8
-    - DEFAULT_1_9
-    - DEFAULT_1_10
-- id: "null"
-  name: "null"
-  description: No value available.
-  profiles: 
-    - DEFAULT_1_5
-    - DEFAULT_1_6
-    - DEFAULT_1_7
-    - DEFAULT_1_8
-    - DEFAULT_1_9
-    - DEFAULT_1_10
-- id: undefined
-  name: undefined
-  description: No value defined.
-  profiles: 
-    - DEFAULT_1_5
-    - DEFAULT_1_6
-    - DEFAULT_1_7
-    - DEFAULT_1_8
-    - DEFAULT_1_9
-    - DEFAULT_1_10
-- id: newline
-  name: newline
-  description: Carriage return character(s).
+- id: focusrect
+  name: _focusRect
+  description: Whether a button or movie displays a rectangle when it has keyboard focus
   profiles: 
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -49,39 +18,31 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-- id: positive_infinity
-  name: Infinity
-  description: Positive infinity.
+- id: global
+  name: _global
+  description: Reference to the global object.
   profiles: 
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: highquality
+  name: _highquality
+  description: The level of anti-aliasing applied to the movie.
+  profiles: 
+    - DEFAULT_1_2
+    - DEFAULT_1_3
+    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-- id: negative_infinity
-  name: -Infinity
-  description: Negative infinity.
-  profiles: 
-    - DEFAULT_1_5
-    - DEFAULT_1_6
-    - DEFAULT_1_7
-    - DEFAULT_1_8
-    - DEFAULT_1_9
-    - DEFAULT_1_10
-- id: nan
-  name: NaN
-  description: Not a number.
-  profiles: 
-    - DEFAULT_1_5
-    - DEFAULT_1_6
-    - DEFAULT_1_7
-    - DEFAULT_1_8
-    - DEFAULT_1_9
-    - DEFAULT_1_10
-- id: integer
-  name: Integers
-  description: Integer data type.
+- id: level
+  name: _levelN
+  description: Timeline level.
   profiles: 
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -90,9 +51,9 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-- id: float
-  name: Floating-point Numbers
-  description: Floating-point data type.
+- id: maxscroll
+  name: _maxscroll
+  description: Set the number of the top line in a text field when the last line is also visible.
   profiles: 
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -101,9 +62,39 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-- id: string
-  name: Strings
-  description: String data type.
+- id: parent
+  name: _parent
+  description: A reference to the movie clip or object that contains this one.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: quality
+  name: _quality
+  description: The rendering quality used for a movie clip.
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: root
+  name: _root
+  description: A reference to the root movie clip timeline
+  profiles: 
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: scroll
+  name: scroll
+  description: Sets the line displayed first in a text field.
   profiles: 
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -112,9 +103,20 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-- id: unicode
-  name: Unicode Strings
-  description: Unicode String data type.
+- id: soundbuftime
+  name: _soundbuftime
+  description: Set the number of seconds streaming sounds are buffered for.
+  profiles: 
+    - DEFAULT_1_4
+    - DEFAULT_1_5
+    - DEFAULT_1_6
+    - DEFAULT_1_7
+    - DEFAULT_1_8
+    - DEFAULT_1_9
+    - DEFAULT_1_10
+- id: this
+  name: this
+  description: A reference to the current object or movieclip.
   profiles: 
     - DEFAULT_1_5
     - DEFAULT_1_6
@@ -122,4 +124,3 @@
     - DEFAULT_1_8
     - DEFAULT_1_9
     - DEFAULT_1_10
-

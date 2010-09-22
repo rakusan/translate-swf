@@ -8,6 +8,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems
       name: builtInItems
       description: Get an object reference for built-in menu items.
@@ -15,6 +16,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems.zoom
       name: builtInItems.zoom
       description: Get/set whether 'zoom' menu item is displayed.
@@ -22,6 +24,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems.quality
       name: builtInItems.quality
       description: Get/set whether 'quality' menu item is displayed.
@@ -29,6 +32,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems.play
       name: builtInItems.play
       description: Get/set whether 'play' menu item is displayed.
@@ -36,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems.loop
       name: builtInItems.loop
       description: Get/set whether 'loop' menu item is displayed.
@@ -43,6 +48,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems.rewind
       name: builtInItems.rewind
       description: Get/set whether 'rewind' menu item is displayed.
@@ -50,6 +56,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems.forward_back
       name: builtInItems.forward_back
       description: Get/set whether 'forward_back' menu item is displayed.
@@ -57,6 +64,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems.print
       name: builtInItems.print
       description: Get/set whether 'print' menu item is displayed.
@@ -64,6 +72,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_builtinitems.save
       name: builtInItems.save
       description: Get/set whether 'save' menu item is displayed.
@@ -71,6 +80,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_copy
       name: copy()
       description: Create a copy of this context_menu object.
@@ -78,6 +88,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_customitems
       name: customItems
       description: Array of CustomMenuItems added to the menu.
@@ -85,6 +96,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_hidebuiltinitems
       name: hideBuiltInItems()
       description: Hide all built-in menu items except "Settings".
@@ -92,6 +104,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: context_menu_onselect
       name: onSelect
       description: Get/set event handler called when the context menu is selected but before it is actually displayed.
@@ -99,4 +112,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

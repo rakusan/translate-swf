@@ -10,6 +10,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlsocket_close
       name: close()
       description: Close the connection.
@@ -19,6 +20,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlsocket_connect
       name: connect()
       description: Open a connection to a server.
@@ -28,6 +30,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlsocket_send
       name: send()
       description: Send a message to the server.
@@ -37,6 +40,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlsocket_onclose
       name: onClose
       description: Get/set the event handler called when a connection is closed.
@@ -46,6 +50,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlsocket_onconnect
       name: onConnect
       description: Get/set the event handler called when a connection request has succeeded or failed.
@@ -55,6 +60,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlsocket_ondata
       name: onData
       description: Get/set the event handler called when a null-terminated message has been received.
@@ -64,6 +70,7 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: xmlsocket_onxml
       name: onXML
       description: Get/set the event handler called when an XML message has been received
@@ -73,4 +80,5 @@
         - DEFAULT_1_7
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 

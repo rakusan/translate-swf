@@ -1,0 +1,92 @@
+- name: GlowFilter
+  type: class
+  elements:
+    - id: glow_filter_alpha
+      name: alpha
+      type: property
+      description: The alpha transparency value for the shadow color.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_angle
+      name: angle
+      type: property
+      description: The angle of the bevel.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_blurx
+      name: blurX
+      type: property
+      description: The amount of horizontal blur in pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_blury
+      name: blurY
+      type: property
+      description: The amount of vertical blur in pixels.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_color
+      name: color
+      type: property
+      description: The color of the shadow.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_inner
+      name: inner
+      type: property
+      description: Is it an inner shadow.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_knockout
+      name: knockout
+      type: property
+      description: Set the fill to be transparent to show the color behind the object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_quality
+      name: quality
+      type: property
+      description: The number of times to apply the filter.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_strength
+      name: strength
+      type: property
+      description: The strength of the imprint or spread.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_constructor
+      name: GlowFilter()
+      type: constructor
+      description: The object constructor.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+    - id: glow_filter_clone
+      name: clone()
+      type: method
+      description: Create a copy of the filter object.
+      profiles:
+        - DEFAULT_1_8
+        - DEFAULT_1_9
+        - DEFAULT_1_10
+

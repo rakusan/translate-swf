@@ -7,93 +7,110 @@
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_alphanumeric_half
       name: ALPHANUMERIC_HALF
       description: The string "ALPHANUMERIC_HALF" used when setting the conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_chinese
       description: The string "CHINESE" used when setting the conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_japanese_hirgana
       description: The string "JAPANESE_HIRGANA" used when setting the conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_japanese_katakana_full
       description: The string "JAPANESE_KATAKANA_FULL" used when setting the conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_japanese_katakana_half
       description: The string "JAPANESE_KATAKANA_HALF" used when setting the conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_korean
       description: The string "KOREAN" used when setting the conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_unknown
       description: The string "UNKNOWN" used when setting the conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_doconversion
       name: doConversion()
       description: Select the first candidate for the composition string.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_getconversionmode
       name: getConversionMode()
       description: Get the current conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_getenabled
       name: getEnabled()
       description: Is the System.IME enabled.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_setcompositionstring
       name: setCompositionString()
       description: Set the IME composition string.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_setconversionmode
       name: setConversionMode()
       description: Set the current conversion mode.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_setenabled
       name: setEnabled()
       description: Enable/disable the System.IME.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_addlistener
       name: addListener()
       description: Register an object to be notified when an onIMEComposition event handler is invoked.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_removelistener
       name: removeListener()
       description: Removed a registered listener.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
     - id: ime_onimecomposition
       description: Get/set the event handler invoked when setting the composition string.
       profiles:
         - DEFAULT_1_8
         - DEFAULT_1_9
+        - DEFAULT_1_10
 
