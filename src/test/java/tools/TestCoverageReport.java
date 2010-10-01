@@ -106,7 +106,6 @@ public class TestCoverageReport {
 		FileInputStream stream = null;
 		Map<String,Object> map;
 		String reference;
-		List<String> list;
 
 		for (String yamlFile : files) {
 			try {
@@ -114,22 +113,11 @@ public class TestCoverageReport {
 		        for (Object entry : (List<Object>)yaml.load(stream)) {
 		        	map = (Map<String,Object>) entry;
 		        	if (map.containsKey(REFID)) {
-		        		if (map.get(REFID) instanceof String) {
-				        	reference = (String) map.get(REFID);
-			        		if (table.containsKey(reference)) {
-			        			table.put(reference, true);
-			        		} else {
-			        			System.err.println("Undocumented feature: " + reference);
-			        		}
-		        		} else if (map.get(REFID) instanceof List) {
-		        			list = (List<String>) map.get(REFID);
-		        			for (String ref: list) {
-				        		if (table.containsKey(ref)) {
-				        			table.put(ref, true);
-				        		} else {
-				        			System.err.println("Undocumented feature: " + ref);
-				        		}
-		        			}
+			        	reference = (String) map.get(REFID);
+		        		if (table.containsKey(reference)) {
+		        			table.put(reference, true);
+		        		} else {
+		        			System.err.println("Undocumented feature: " + reference);
 		        		}
 		        	}
 		        }
