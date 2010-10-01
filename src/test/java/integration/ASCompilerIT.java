@@ -54,7 +54,6 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import com.flagstone.transform.DoAction;
-import com.flagstone.transform.Event;
 import com.flagstone.transform.EventHandler;
 import com.flagstone.transform.Movie;
 import com.flagstone.transform.MovieTag;
@@ -124,7 +123,7 @@ public class ASCompilerIT {
     private static Object[] parametersForProfile(Map<String,Object> profile) {
         int actionscript = (Integer)profile.get(ACTIONSCRIPT);
         int flash = (Integer)profile.get(FLASH);
-        String player = (String)profile.get(PLAYER);
+        String player = profile.get(PLAYER).toString();
         String file = (String)profile.get(FILE);
         return new Object[] {actionscript, flash, player, file};
     }
@@ -180,7 +179,7 @@ public class ASCompilerIT {
 			}
 		}
 		if (!tmp.isEmpty()) {
-			dst.add(new EventHandler(EnumSet.noneOf(Event.class), tmp));
+			dst.addAll(tmp);
 		}
 		return dst;
 	}
