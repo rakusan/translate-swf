@@ -40,15 +40,15 @@ import java.util.Map;
  */
 public enum PlayerType {
 	/** The stand-alone Flash Player or Web Browser plugin. */
-	DEFAULT("Default"),
+	DEFAULT("DEFAULT"),
 	/** The Flash Lite 1.0 Player */
-	FLASH_LITE_10("FlashLite10"),
+	FLASH_LITE_10("FLASHLITE10"),
 	/** The Flash Lite 1.1 Player */
-	FLASH_LITE_11("FlashLite11"),
+	FLASH_LITE_11("FLASHLITE11"),
 	/** The Flash Lite 2.0 Player */
-	FLASH_LITE_20("FlashLite20"),
+	FLASH_LITE_20("FLASHLITE20"),
 	/** The Flash Lite 3.0 Player */
-	FLASH_LITE_30("FlashLite30");
+	FLASH_LITE_30("FLASHLITE30");
 
 
 	/** Table used to convert names into PlayerTypes. */
