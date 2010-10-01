@@ -1,0 +1,70 @@
+- test: ContextMenuItem()
+  refid: contextmenuitem_contextmenuitem
+  file: classes/context_menu_item/constructor_%d.as
+  parameters:
+    - value: ContextMenuItem("Copy", copy)
+    - value: ContextMenuItem("Copy", copy, true)
+    - value: ContextMenuItem("Copy", copy, true, true)
+    - value: ContextMenuItem("Copy", copy, true, true, true)
+  script: |
+    function copy(menu, obj) {
+        x = 1;
+    }
+    item = new %value%;
+- test: caption
+  refid: contextmenuitem_caption
+  file: classes/context_menu_item/caption.as
+  script: |
+    function copy(menu, obj) {
+        x = 1;
+    }
+    item = new ContextMenuItem("", copy);
+    item.caption = "Copy";
+- test: enabled
+  refid: contextmenuitem_enabled
+  file: classes/context_menu_item/enabled.as
+  script: |
+    function copy(menu, obj) {
+        x = 1;
+    }
+    item = new ContextMenuItem("Copy", copy);
+    item.enabled = false;
+- test: separatorBefore
+  refid: contextmenuitem_separatorbefore
+  file: classes/context_menu_item/separatorbefore.as
+  script: |
+    function copy(menu, obj) {
+        x = 1;
+    }
+    item = new ContextMenuItem("Copy", copy);
+    item.separatorBefore = false;
+- test: visible
+  refid: contextmenuitem_visible
+  file: classes/context_menu_item/visible.as
+  script: |
+    function copy(menu, obj) {
+        x = 1;
+    }
+    item = new ContextMenuItem("Copy", copy);
+    item.visible = false;
+- test: copy()
+  refid: contextmenuitem_copy
+  file: classes/context_menu_item/copy.as
+  script: |
+    function copy(menu, obj) {
+        x = 1;
+    }
+    item = new ContextMenuItem("Copy", copy);
+    newItem = item.copy();
+- test: onSelect
+  refid: contextmenuitem_onselect
+  file: classes/context_menu_item/onselect.as
+  script: |
+    function copy(menu, obj) {
+        x = 1;
+    }
+    item = new ContextMenuItem("Copy", copy);
+    item.onSelect = function() { x = 2; };
+    
+  
+  

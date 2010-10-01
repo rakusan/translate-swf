@@ -1,3 +1,14 @@
+- test: asfunction
+  refid: asfunction
+  file: functions/asfunction.as
+  script: |
+    snd = new Sound();
+    function playMP3(mp3:String) {
+      snd.loadSound(mp3, true);
+    }
+    this.createTextField("txt", this.getNextHighestDepth(), 0, 0, 200, 100);
+    txt.html = true;
+    txt.htmlText = "<a href=\"asfunction:playMP3, sound.mp3\">Track 1</a>";
 - test: call()
   refid: call
   file: functions/call_%d.as
@@ -55,3 +66,9 @@
     
         fscommand("alert", "This message sent from within Flash.");
     */
+- test: mmexecute()
+  refid: mmexecute
+  file: functions/mmexecute.as
+  script: |
+    x = MMExecute("fl.getDocumentDOM().library.items.length");
+   

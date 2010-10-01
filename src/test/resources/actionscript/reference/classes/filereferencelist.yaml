@@ -33,7 +33,7 @@
         - DEFAULT_1_8
         - DEFAULT_1_9       
         - DEFAULT_1_10
-    - id: file_reference_list_addListener
+    - id: file_reference_list_addlistener
       name: addListener()
       description: Registers an object to receive notification when a FileReferenceList event listener is invoked.
       profiles:

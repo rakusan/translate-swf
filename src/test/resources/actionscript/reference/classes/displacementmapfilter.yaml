@@ -33,7 +33,7 @@
         - DEFAULT_1_8
         - DEFAULT_1_9
         - DEFAULT_1_10
-    - id: displacement_map_mapbitmap
+    - id: displacement_map_filter_mapbitmap
       name: mapBitmap
       type: property
       description: A BitmapData object containing the displacement map data.

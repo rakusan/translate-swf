@@ -33,6 +33,49 @@
         this.name = name;
     }
     a = new Ship("Marie Celeste");
+- test: addProperty
+  refid: object_addproperty
+  file: classes/object/object_addproperty.as
+  script: |
+    function Ship(name) {
+        this.getName = function() {
+            return this.name;
+        };
+    
+        this.getCaptain = function() {
+            return this.capt;
+        };
+    
+        this.setCaptain = function(name) {
+            this.capt = name;
+        };
+    
+        this.addProperty("captain", this.getCaptain, this.setCaptain);
+    }
+    a = new Ship("HMS Bounty");
+    a.captain("Bligh");
+- test: hasOwnProperty
+  refid: object_hasownproperty
+  file: classes/object/object_hasownproperty.as
+  script: |
+    function Ship(name) {
+        this.getName = function() {
+            return this.name;
+        };
+    }
+    a = new Ship("HMS Bounty");
+    a.hasOwnProperty("firstOfficer");
+- test: isPropertyEnumerable()
+  refid: object_ispropertyenumerable
+  file: classes/object/object_ispropertyenumerable.as
+  script: |
+    function Ship(name) {
+        this.getName = function() {
+            return this.name;
+        };
+    }
+    a = new Ship("HMS Bounty");
+    a.isPropertyEnumerable("name");
 - test: toString()
   refid: object_tostring
   file: classes/object/object_tostring.as
@@ -57,6 +100,30 @@
   script: |
     a = new Object("Marie Celeste");
     x = a.__proto__;
+- test: prototype
+  refid: object_prototype
+  file: classes/object/object_prototype.as
+  script: |
+    function Ship(name) {
+        this.getName = function() {
+            return this.name;
+        };
+        this.name = name;
+    }
+    a = new Ship("Marie Celeste");
+    x = a.prototype.constructor;
+- test: isPrototypeOf
+  refid: object_isprototypeof
+  file: classes/object/object_isprototypeof.as
+  script: |
+    function Ship(name) {
+        this.getName = function() {
+            return this.name;
+        };
+        this.name = name;
+    }
+    a = new Ship("Marie Celeste");
+    x = a.isPrototypeOf(Object);
 - test: resolve
   refid: object_resolve
   file: classes/object/object_resolve.as

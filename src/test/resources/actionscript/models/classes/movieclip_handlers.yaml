@@ -1,63 +1,180 @@
-- test: load
-  refid: movieclip_event_load
-  file: classes/movieclip/movieclip_event_load.as
-  script: |
-    onClipEvent (load) {
-        a = 1;
-    }
-- test: unload
-  refid: movieclip_event_unload
-  file: classes/movieclip/movieclip_event_unload.as
-  script: |
-    onClipEvent (unload) {
-        a = 1;
-    }
-- test: enterFrame
-  refid: movieclip_event_enterframe
-  file: classes/movieclip/movieclip_event_enterframe.as
-  script: |
-    onClipEvent (enterFrame) {
-        a = 1;
-    }
-- test: mouseMove
-  refid: movieclip_event_mousemove
-  file: classes/movieclip/movieclip_event_mousemove.as
-  script: |
-    onClipEvent (mouseMove) {
-        a = 1;
-    }
-- test: mouseDown
-  refid: movieclip_event_mousedown
-  file: classes/movieclip/movieclip_event_mousedown.as
+- test: onData
+  type: event
+  refid: movieclip_ondata
+  file: classes/movieclip/ondata.as
   script: |
     onClipEvent (mouseDown) {
-        a = 1;
-    }
-- test: mouseUp
-  refid: movieclip_event_mouseup
-  file: classes/movieclip/movieclip_event_mouseup.as
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onData = function() {
+      };
+    } 
+- test: onDragOut
+  type: event
+  refid: movieclip_ondragout
+  file: classes/movieclip/ondragout.as
   script: |
-    onClipEvent (mouseUp) {
-        a = 1;
-    }
-- test: keyDown
-  refid: movieclip_event_keydown
-  file: classes/movieclip/movieclip_event_keydown.as
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onDragOut = function() {
+      };
+    } 
+- test: onDragOver
+  type: event
+  refid: movieclip_ondragover
+  file: classes/movieclip/ondragover.as
   script: |
-    onClipEvent (keyDown) {
-        a = 1;
-    }
-- test: keyUp
-  refid: movieclip_event_keyup
-  file: classes/movieclip/movieclip_event_keyup.as
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onDragOver = function() {
+      };
+    } 
+- test: onEnterFrame
+  type: event
+  refid: movieclip_onenterframe
+  file: classes/movieclip/onenterframe.as
   script: |
-    onClipEvent (keyUp) {
-        a = 1;
-    }
-- test: data
-  refid: movieclip_event_data
-  file: classes/movieclip/movieclip_event_data.as
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onEnterFrame = function() {
+      };
+    } 
+- test: onKeyDown
+  type: event
+  refid: movieclip_onkeydown
+  file: classes/movieclip/onkeydown.as
   script: |
-    onClipEvent (data) {
-        a = 1;
-    }
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onKeyDown = function() {
+      };
+    } 
+- test: onKeyUp
+  type: event
+  refid: movieclip_onkeyup
+  file: classes/movieclip/onkeyup.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onKeyUp = function() {
+      };
+    } 
+- test: onKillFocus
+  type: event
+  refid: movieclip_onkillfocus
+  file: classes/movieclip/onkillfocus.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onKillFocus = function() {
+      };
+    } 
+- test: onLoad
+  type: event
+  refid: movieclip_onload
+  file: classes/movieclip/onload.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onLoad = function() {
+      };
+    } 
+- test: onMouseDown
+  type: event
+  refid: movieclip_onmousedown
+  file: classes/movieclip/onmousedown.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onMouseDown = function() {
+      };
+    } 
+- test: onMouseMove
+  type: event
+  refid: movieclip_onmousemove
+  file: classes/movieclip/onmousemove.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onMouseMove = function() {
+      };
+    } 
+- test: onMouseUp
+  type: event
+  refid: movieclip_onmouseup
+  file: classes/movieclip/onmouseup.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onMouseUp = function() {
+      };
+    } 
+- test: onPress
+  type: event
+  refid: movieclip_onpress
+  file: classes/movieclip/onpress.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onPress = function() {
+      };
+    } 
+- test: onRelease
+  type: event
+  refid: movieclip_onrelease
+  file: classes/movieclip/onrelease.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onRelease = function() {
+      };
+    } 
+- test: onReleaseOutside
+  type: event
+  refid: movieclip_onreleaseoutside
+  file: classes/movieclip/onreleaseoutside.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onReleaseOutside = function() {
+      };
+    } 
+- test: onRollOut
+  type: event
+  refid: movieclip_onrollout
+  file: classes/movieclip/onrollout.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onRollOut = function() {
+      };
+    } 
+- test: onRollOver
+  type: event
+  refid: movieclip_onrollover
+  file: classes/movieclip/onrollover.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onRollOver = function() {
+      };
+    } 
+- test: onSetocus
+  type: event
+  refid: movieclip_onsetfocus
+  file: classes/movieclip/onsetfocus.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onSetFocus = function() {
+      };
+    } 
+- test: onUnload
+  type: event
+  refid: movieclip_onunload
+  file: classes/movieclip/onunload.as
+  script: |
+    onClipEvent (mouseDown) {
+      clip = this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.onUnload = function() {
+      };
+    } 

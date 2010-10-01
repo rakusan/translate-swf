@@ -1,0 +1,22 @@
+- test: available
+  refid: external_interface_available
+  file: classes/external_interface/available.as
+  script: |
+    av = ExternalInterface.available;
+- test: addCallback()
+  refid: external_interface_addcallback
+  file: classes/external_interface/addcallback.as
+  script: |
+    method = function () {
+      getURL("http://www.flagstonesoftware.com", "_self");
+    };
+    ExternalInterface.addCallback("exec", null, method);
+- test: call()
+  refid: external_interface_call
+  file: classes/external_interface/call.as
+  script: |
+    method = function () {
+      getURL("http://www.flagstonesoftware.com", "_self");
+    };
+    ExternalInterface.addCallback("exec", null, method);
+    ExternalInterface.call("exec");

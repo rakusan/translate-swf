@@ -1,0 +1,213 @@
+- test: XmlNode()
+  refid: xmlnode_xmlnode
+  file: classes/xml/xmlnode_constructor.as
+  script: |
+    node = new XMLNode(1, "root");
+- test: attributes
+  refid: xmlnode_attributes
+  file: classes/xml/xmlnode_appendchild.as
+  script: |
+    root = new XMLNode(1, "root");
+    attrs = root.attributes;
+- test: childNodes
+  refid: xmlnode_childnodes
+  file: classes/xml/xmlnode_childnodes.as
+  script: |
+    root = new XMLNode(1, "root");
+    root.appendChild(new XMLNode(1, "child"));
+    nodes = root.childNodes;
+- test: firstChild
+  refid: xmlnode_firstchild
+  file: classes/xml/xmlnode_firstchild.as
+  script: |
+    root = new XMLNode(1, "root");
+    root.appendChild(new XMLNode(1, "child"));
+    node = root.firstChild;
+- test: lastChild
+  refid: xmlnode_lastchild
+  file: classes/xml/xmlnode_lastchild.as
+  script: |
+    root = new XMLNode(1, "root");
+    root.appendChild(new XMLNode(1, "child"));
+    node = root.lastChild;
+- test: localName
+  refid: xmlnode_localname
+  file: classes/xml/xmlnode_localname.as
+  script: |
+    root = new XMLNode(1, "root");
+    name = root.localName;
+- test: namespaceURI
+  refid: xmlnode_namespaceuri
+  file: classes/xml/xmlnode_namespaceuri.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "<ex:Node id='3' />"
+        + "</Root>";
+      return new XML(str).firstChild;
+    }
+    node = createXML();
+    node.namespaceURI;
+- test: nextSibling
+  refid: xmlnode_nextsibling
+  file: classes/xml/xmlnode_nextsibling.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).firstChild;
+    }
+    node = createXML();
+    node.nextSibling;
+- test: nodeName
+  refid: xmlnode_nodename
+  file: classes/xml/xmlnode_nodename.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).firstChild;
+    }
+    node = createXML();    
+    name = node.nodeName; 
+- test: nodeType
+  refid: xmlnode_nodetype
+  file: classes/xml/xmlnode_nodetype.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).firstChild;
+    }
+    node = createXML();    
+    type = nodeType;
+- test: nodeValue
+  refid: xmlnode_nodevalue
+  file: classes/xml/xmlnode_nodevalue.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).firstChild;
+    }
+    node = createXML();    
+    value = node.nodeValue;
+- test: parentNode
+  refid: xmlnode_parentnode
+  file: classes/xml/xmlnode_parentnode.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).firstChild;
+    }
+    node = createXML();    
+    parent = node.parentNode;
+- test: previousSibling
+  refid: xmlnode_previoussibling
+  file: classes/xml/xmlnode_previoussibling.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).childNodes[1];
+    }
+    node = createXML();    
+    previous = node.previousSibling;
+- test: prefix
+  refid: xmlnode_prefix
+  file: classes/xml/xmlnode_prefix.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).childNodes[1];
+    }
+    node = createXML();    
+    prefix = node.prefix;
+   
+- test: appendChild()
+  refid: xmlnode_appendchild
+  file: classes/xml/xmlnode_clonenode.as
+  script: |
+    root = new XMLNode(1, "root");
+    root.appendChild(new XMLNode(1, "child"));
+- test: cloneNode()
+  refid: xmlnode_clonenode
+  file: classes/xml/xmlnode_clonenode.as
+  script: |
+    root = new XMLNode(1, "root");
+    root.appendChild(new XMLNode(1, "child"));
+    copy = root.cloneNode(true);
+- test: getNamespaceForPrefix()
+  refid: xmlnode_getnamespaceforprefix
+  file: classes/xml/xmlnode_getnamespaceforprefix.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).firstChild;
+    }
+    node = createXML();
+    node.getNamespaceForPrefix("exu");
+- test: getPrefixForNamespace()
+  refid: xmlnode_getprefixfornamespace
+  file: classes/xml/xmlnode_getprefixfornamespace.as
+  script: |
+    function createXML() {
+      str = "<Root xmlns:exu=\"http://www.example.com/util\">"
+        + "<ex:Node id='1' />"
+        + "<ex:Node id='2' />"
+        + "</Root>";
+      return new XML(str).firstChild;
+    }
+    node = createXML();
+    ns = node.getNamespaceForPrefix("exu");
+    prefix = node.getNamespaceForPrefix(ns);
+- test: hasChildNodes()
+  refid: xmlnode_haschildnodes
+  file: classes/xml/xmlnode_haschildnodes.as
+  script: |
+    root = new XMLNode(1, "root");
+    root.appendChild(new XMLNode(1, "child"));
+    root.hasChildNodes();
+- test: insertBefore()
+  refid: xmlnode_insertbefore
+  file: classes/xml/xmlnode_insertbefore.as
+  script: |
+    root = new XMLNode(1, "root");
+    first = new XMLNode(1, "child");
+    root.appendChild(first);
+    root.insertBefore(new XMLNode(1, "child"), first);
+- test: removeNode()
+  refid: xmlnode_removenode
+  file: classes/xml/xmlnode_removenode.as
+  script: |
+    root = new XMLNode(1, "root");
+    first = new XMLNode(1, "child");
+    root.appendChild(first);
+    first.removeNode();
+- test: toString()
+  refid: xmlnode_tostring
+  file: classes/xml/xmlnode_tostring.as
+  script: |
+    root = new XMLNode(1, "root");
+    root.toString();

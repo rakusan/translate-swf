@@ -1,0 +1,188 @@
+- test: FileReference
+  refid: file_reference_constructor
+  file: classes/file_reference/constructor.as
+  script: |
+    file = new flash.net.FileReference();
+- test: addListener()
+  refid: file_reference_addlistener
+  file: classes/file_reference/addlistener.as
+  script: |
+    listener = new Object();
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: browse()
+  refid: file_reference_browse
+  file: classes/file_reference/browse.as
+  script: |
+    listener = new Object();
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.browse();
+- test: cancel()
+  refid: file_reference_cancel
+  file: classes/file_reference/cancel.as
+  script: |
+    listener = new Object();
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.cancel();
+- test: creationDate
+  refid: file_reference_creationdate
+  file: classes/file_reference/creationdate.as
+  script: |
+    listener = new Object();
+    listener.onSelect = function(file) {
+      date = file.creationDate;
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.browse();
+- test: creator
+  refid: file_reference_creator
+  file: classes/file_reference/creator.as
+  script: |
+    listener = new Object();
+    listener.onSelect = function(file) {
+      date = file.creator;
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.browse();
+- test: download()
+  refid: file_reference_download
+  file: classes/file_reference/download.as
+  script: |
+    file = new flash.net.FileReference();
+    file.download("http://www.flagstonesoftware.com/variables.txt", "variables.txt");
+- test: modificationDate
+  refid: file_reference_modificationdate
+  file: classes/file_reference/modificationdate.as
+  script: |
+    listener = new Object();
+    listener.onSelect = function(file) {
+      date = file.modificationDate;
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.browse();
+- test: name
+  refid: file_reference_name
+  file: classes/file_reference/name.as
+  script: |
+    listener = new Object();
+    listener.onSelect = function(file) {
+      name = file.name;
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.browse();
+- test: onCancel
+  refid: file_reference_oncancel
+  file: classes/file_reference/oncancel.as
+  script: |
+    listener = new Object();
+    listener.onCancel = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: onComplete
+  refid: file_reference_oncomplete
+  file: classes/file_reference/oncomplete.as
+  script: |
+    listener = new Object();
+    listener.onComplete = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: onHTTPError
+  refid: file_reference_onhttperror
+  file: classes/file_reference/onhttperror.as
+  script: |
+    listener = new Object();
+    listener.onHTTPError = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: onIOError
+  refid: file_reference_onioerror
+  file: classes/file_reference/onioerror.as
+  script: |
+    listener = new Object();
+    listener.onIOError = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: onOpen
+  refid: file_reference_onopen
+  file: classes/file_reference/onopen.as
+  script: |
+    listener = new Object();
+    listener.onOpen = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: onProgress
+  refid: file_reference_onprogress
+  file: classes/file_reference/onprogress.as
+  script: |
+    listener = new Object();
+    listener.onProgress = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: onSecurityError
+  refid: file_reference_onsecurityerror
+  file: classes/file_reference/onsecurityerror.as
+  script: |
+    listener = new Object();
+    listener.onSecurityError = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: onSelect
+  refid: file_reference_onselect
+  file: classes/file_reference/onselect.as
+  script: |
+    listener = new Object();
+    listener.onSelect = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+- test: removeListener
+  refid: file_reference_removelistener
+  file: classes/file_reference/removelistener.as
+  script: |
+    listener = new Object();
+    listener.onSelect = function(fileRef) {
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.removeener(listener);
+- test: size
+  refid: file_reference_size
+  file: classes/file_reference/size.as
+  script: |
+    listener = new Object();
+    listener.onComplete = function(file) {
+      name = file.size;
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.browse();
+- test: type
+  refid: file_reference_type
+  file: classes/file_reference/type.as
+  script: |
+    listener = new Object();
+    listener.onComplete = function(file) {
+      name = file.type;
+    };
+    file = new flash.net.FileReference();
+    file.addListener(listener);
+    file.browse();
+- test: upload()
+  refid: file_reference_upload
+  file: classes/file_reference/upload.as
+  script: |
+    file = new flash.net.FileReference();
+    file.upload("http://www.flagstonesoftware.com");

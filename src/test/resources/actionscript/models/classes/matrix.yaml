@@ -1,0 +1,116 @@
+- test: a
+  refid: matrix_a
+  file: classes/matrix/a.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    value = matrix.a;
+- test: b
+  refid: matrix_b
+  file: classes/matrix/b.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    value = matrix.b;
+- test: c
+  refid: matrix_c
+  file: classes/matrix/c.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    value = matrix.c;
+- test: d
+  refid: matrix_d
+  file: classes/matrix/d.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    value = matrix.d;
+- test: tx
+  refid: matrix_tx
+  file: classes/matrix/tx.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    value = matrix.tx;
+- test: ty
+  refid: matrix_ty
+  file: classes/matrix/ty.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    value = matrix.ty;
+- test: clone()
+  refid: matrix_clone
+  file: classes/matrix/clone.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    copy = matrix.clone();
+- test: clone()
+  refid: matrix_clone
+  file: classes/matrix/clone.as
+  script: |
+    a = new flash.geom.Matrix();
+    b = new flash.geom.Matrix();
+    b.concat(a);
+- test: createBox()
+  refid: matrix_createbox
+  file: classes/matrix/createbox.as
+  script: |
+    a = new flash.geom.Matrix();
+    a.createBox(2, 2, Math.PI/2, 50, 50);
+- test: createGradientBox()
+  refid: matrix_creategradientbox
+  file: classes/matrix/creategradientbox.as
+  script: |
+    a = new flash.geom.Matrix();
+    a.createGradientBox(200, 200, Math.PI/2, 50, 50);
+- test: deltaTransformPoint()
+  refid: matrix_deltatransformpoint
+  file: classes/matrix/deltatranformpoint.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    point = new flash.geom.Point(2,2);
+    delta = matrix.deltaTransformPoint(point);
+- test: identity()
+  refid: matrix_identity
+  file: classes/matrix/identity.as
+  script: |
+    matrix = new flash.geom.Matrix(2, 0, 0, 2, 0, 0);
+    matrix.identity();
+- test: invert()
+  refid: matrix_invert
+  file: classes/matrix/invert.as
+  script: |
+    matrix = new flash.geom.Matrix(2, 0, 0, 2, 0, 0);
+    matrix.invert();
+- test: Matrix()
+  refid: matrix_constructor
+  file: classes/matrix/constructor.as
+  script: |
+    matrix = new flash.geom.Matrix(2, 0, 0, 2, 0, 0);
+- test: rotate()
+  refid: matrix_rotate
+  file: classes/matrix/rotate.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    matrix.rotate(Math.PI/2);
+- test: scale()
+  refid: matrix_scale
+  file: classes/matrix/scale.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    matrix.scale(2, 2);
+- test: toString()
+  refid: matrix_tostring
+  file: classes/matrix/tostring.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    matrix.toString();
+- test: transformPoint()
+  refid: matrix_transformpoint
+  file: classes/matrix/transformpoint.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    point = new flash.geom.Point(2,2);
+    delta = matrix.transformPoint(point);
+- test: translate()
+  refid: matrix_translate
+  file: classes/matrix/translate.as
+  script: |
+    matrix = new flash.geom.Matrix();
+    matrix.scale(100, 100);

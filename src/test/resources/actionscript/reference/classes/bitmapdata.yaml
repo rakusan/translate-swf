@@ -65,7 +65,7 @@
         - DEFAULT_1_8
         - DEFAULT_1_9
         - DEFAULT_1_10
-    - id: bitmap_data_copyChannel
+    - id: bitmap_data_copychannel
       name: copyChannel()
       type: method
       description: Transfers data from one channel of a BitmapData object to a channel of the current BitmapData object.
@@ -73,7 +73,7 @@
         - DEFAULT_1_8
         - DEFAULT_1_9
         - DEFAULT_1_10
-    - id: bitmap_data_copyPixels
+    - id: bitmap_data_copypixels
       name: copyPixels()
       type: method
       description: Copy pixels.

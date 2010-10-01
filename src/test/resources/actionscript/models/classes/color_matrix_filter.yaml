@@ -1,0 +1,33 @@
+- test: constructor
+  refid: color_matrix_filter_constructor
+  file: classes/color_matrix_filter/constructor.as
+  script: |
+    matrix = new Array();
+    matrix = matrix.concat([1, 0, 0, 0, 0]); // red
+    matrix = matrix.concat([0, 1, 0, 0, 0]); // green
+    matrix = matrix.concat([0, 0, 1, 0, 0]); // blue
+    matrix = matrix.concat([0, 0, 0, 1, 0]); // alpha
+    filter = new flash.filters.ColorMatrixFilter(matrix);
+- test: matrix
+  refid: color_matrix_filter_matrix
+  file: classes/color_matrix_filter/matrix.as
+  script: |
+    matrix = new Array();
+    matrix = matrix.concat([1, 0, 0, 0, 0]); // red
+    matrix = matrix.concat([0, 1, 0, 0, 0]); // green
+    matrix = matrix.concat([0, 0, 1, 0, 0]); // blue
+    matrix = matrix.concat([0, 0, 0, 1, 0]); // alpha
+    filter = new flash.filters.ColorMatrixFilter(matrix);
+    matrix = filter.matrix;
+- test: clone()
+  refid: color_matrix_filter_clone
+  file: classes/color_matrix_filter/clone.as
+  script: |
+    matrix = new Array();
+    matrix = matrix.concat([1, 0, 0, 0, 0]); // red
+    matrix = matrix.concat([0, 1, 0, 0, 0]); // green
+    matrix = matrix.concat([0, 0, 1, 0, 0]); // blue
+    matrix = matrix.concat([0, 0, 0, 1, 0]); // alpha
+    filter = new flash.filters.ColorMatrixFilter(matrix);
+    copy = filter.clone();
+

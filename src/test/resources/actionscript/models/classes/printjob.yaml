@@ -10,7 +10,7 @@
     a = new PrintJob();
     a.start();
 - test: addPage()
-  refid: printjob_start
+  refid: printjob_addpage
   file: classes/printjob/printjob_start.as
   script: |
     a = new PrintJob();
@@ -21,3 +21,39 @@
   script: |
     a = new PrintJob();
     a.send();
+- test: orientation
+  refid: printjob_orientation
+  file: classes/printjob/printjob_orientation.as
+  script: |
+    a = new PrintJob();
+    a.start();
+    x = a.orientation;
+- test: pageHeight
+  refid: printjob_pageheight
+  file: classes/printjob/printjob_pageheight.as
+  script: |
+    a = new PrintJob();
+    a.start();
+    x = a.pageHeight;
+- test: pageWidth
+  refid: printjob_pagewidth
+  file: classes/printjob/printjob_pagewidth.as
+  script: |
+    a = new PrintJob();
+    a.start();
+    x = a.pageWidth;
+- test: paperHeight
+  refid: printjob_paperheight
+  file: classes/printjob/printjob_paperheight.as
+  script: |
+    a = new PrintJob();
+    a.start();
+    x = a.paperHeight;
+- test: paperWidth
+  refid: printjob_paperwidth
+  file: classes/printjob/printjob_paperwidth.as
+  script: |
+    a = new PrintJob();
+    a.start();
+    x = a.paperWidth;
+    

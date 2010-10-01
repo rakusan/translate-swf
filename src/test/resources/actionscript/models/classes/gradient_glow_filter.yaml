@@ -1,0 +1,117 @@
+- test: constructor
+  refid: gradient_glow_filter_constructor
+  file: classes/gradient_glow_filter/constructor.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+- test: alphas
+  refid: gradient_glow_filter_alphas
+  file: classes/gradient_glow_filter/alphas.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.alphas;
+- test: angle
+  refid: gradient_glow_filter_angle
+  file: classes/gradient_glow_filter/angle.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.angle;
+- test: blurX
+  refid: gradient_glow_filter_blurx
+  file: classes/gradient_glow_filter/blurx.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.blurX;
+- test: blurY
+  refid: gradient_glow_filter_blury
+  file: classes/gradient_glow_filter/blury.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.blurY;
+- test: colors
+  refid: gradient_glow_filter_colors
+  file: classes/gradient_glow_filter/colors.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.colors;
+- test: distance
+  refid: gradient_glow_filter_distance
+  file: classes/gradient_glow_filter/distance.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.distance;
+- test: knockout
+  refid: gradient_glow_filter_knockout
+  file: classes/gradient_glow_filter/knockout.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.knockout;
+- test: quality
+  refid: gradient_glow_filter_quality
+  file: classes/gradient_glow_filter/quality.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.quality;
+- test: ratios
+  refid: gradient_glow_filter_ratios
+  file: classes/gradient_glow_filter/ratios.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.ratios;
+- test: strength
+  refid: gradient_glow_filter_strength
+  file: classes/gradient_glow_filter/strength.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.strength;
+- test: type
+  refid: gradient_glow_filter_type
+  file: classes/gradient_glow_filter/type.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    value = filter.type;
+- test: clone()
+  refid: gradient_glow_filter_clone
+  file: classes/gradient_glow_filter/clone.as
+  script: |
+    colors = [0xFFFFFF, 0xFF0000, 0xFFFF00, 0x00CCFF];
+    alphas = [0, 1, 1, 1];
+    ratios = [0, 63, 126, 255];
+    filter = new flash.filters.GradientGlowFilter(0, 45, colors, alphas, ratios, 20, 20, 1, 3, "inner", false);
+    copy = filter.clone();
+

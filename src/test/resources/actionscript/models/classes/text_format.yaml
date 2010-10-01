@@ -1,5 +1,5 @@
 - test: textformat
-  refid: textformat_constructor
+  refid: textformat_textformat
   file: classes/textformat/textformat_%d.as
   parameters:
     - expr: TextFormat();
@@ -46,6 +46,18 @@
   script: |
     format = new TextFormat();
     format.descent;
+- test: kerning
+  refid: textformat_kerning
+  file: classes/textformat/textformat_kerning.as
+  script: |
+    format = new TextFormat();
+    format.kerning;
+- test: letterSpacing
+  refid: textformat_letterspacing
+  file: classes/textformat/textformat_letterspacing.as
+  script: |
+    format = new TextFormat();
+    format.letterSpacing = 10;
 - test: textFieldHeight
   refid: textformat_textfieldheight
   file: classes/textformat/textformat_textfieldheight.as

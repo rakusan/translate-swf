@@ -3,6 +3,11 @@
   file: classes/system/system_avhardwaredisable.as
   script: |
     System.capabilities.avHardwareDisable;
+- test: hasAccessibility
+  refid: capabilities_hasaccessibility
+  file: classes/system/hasAccessibility.as
+  script: |
+    has = System.capabilities.hasAccessibility;
 - test: hasAudio
   refid: capabilities_hasaudio
   file: classes/system/hasAudio.as
@@ -18,6 +23,11 @@
   file: classes/system/system_hasembeddedvideo.as
   script: |
     System.capabilities.hasEmbeddedVideo;
+- test: hasIME
+  refid: capabilities_hasime
+  file: classes/system/hasIME.as
+  script: |
+    has = System.capabilities.hasIME;
 - test: hasMP3
   refid: capabilities_hasmp3
   file: classes/system/system_hasmp3.as
@@ -73,11 +83,21 @@
   file: classes/system/system_manufacturer.as
   script: |
     System.capabilities.manufacturer;
+- test: os
+  refid: capabilities_os
+  file: classes/system/system_os.as
+  script: |
+    os = System.capabilities.os;
 - test: pixelAspectRatio
   refid: capabilities_pixelaspectratio
   file: classes/system/system_pixelaspectratio.as
   script: |
     System.capabilities.pixelAspectRatio;
+- test: playerType
+  refid: capabilities_playertype
+  file: classes/system/system_playertype.as
+  script: |
+    player = System.capabilities.playerType;
 - test: screenColor
   refid: capabilities_screencolor
   file: classes/system/system_screencolor.as
@@ -123,6 +143,11 @@
   file: classes/system/system_loadpolicyfile.as
   script: |
     System.security.loadPolicyFile("http://www.flagstonesoftware.com/policy.xml");
+- test: sandboxType
+  refid: security_sandboxtype
+  file: classes/system/security_sandboxtype.as
+  script: |
+    type = System.security.sandboxType();
 - test: onStatus
   refid: system_onstatus
   file: classes/system/system_onstatus.as

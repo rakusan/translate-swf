@@ -1,0 +1,40 @@
+- test: ":"
+  refid: typing
+  file: operators/typing_string.as
+  script: |
+    var x:String = "";
+- test: ":"
+  refid: typing
+  file: operators/typing_number.as
+  script: |
+    var x:Number = 1;
+- test: ":"
+  refid: typing
+  file: operators/typing_movieclip.as
+  script: |
+    var x:MovieClip = duplicateMovieClip(clip, "copy", clip.getNextHighestDepth());
+- test: ":"
+  refid: typing
+  file: operators/typing_object.as
+  script: |
+    var x:Object = new Object();
+- test: ":"
+  refid: typing
+  file: operators/typing_boolean.as
+  script: |
+    var x:Boolean = true;
+- test: ":"
+  refid: typing
+  file: operators/typing_function.as
+  script: |
+    var x:Function = function inc(x) { 
+      return x+1; 
+    };
+- test: typeof
+  refid: typeof
+  file: operators/typing_function.as
+  script: |
+    x = new Object();
+    y = typeof x;
+
+    

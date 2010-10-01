@@ -22,6 +22,45 @@
     headers = ["Content-Type", "text/plain", "X-Client-Version", "2.1.4"];
     a = new LoadVars();
     a.addRequestHeader(headers);
+- test: LoadVars loaded
+  refid: loadvars_loaded
+  file: classes/loadvars/loadvars_loaded.as
+  script: |
+    a = new LoadVars();
+    a.onLoad = function(result) {
+        if (result == true) {
+            trace("Loaded: " + this.loaded );
+        }
+    };
+    a.load("http://www.flagstonesoftware.com/variables.txt");
+- test: LoadVars getBytesLoaded()
+  refid: loadvars_getbytesloaded
+  file: classes/loadvars/loadvars_getbytesloaded.as
+  script: |
+    a = new LoadVars();
+    a.onLoad = function(result) {
+        if (result == true) {
+            trace("Loaded: " + this.getBytesLoaded() );
+        }
+    };
+    a.load("http://www.flagstonesoftware.com/variables.txt");
+- test: LoadVars getBytesTotal()
+  refid: loadvars_getbytestotal
+  file: classes/loadvars/loadvars_getbytestotal.as
+  script: |
+    a = new LoadVars();
+    a.onLoad = function(result) {
+        if (result == true) {
+            trace("Loaded: " + this.getBytesTotal() );
+        }
+    };
+    a.load("http://www.flagstonesoftware.com/variables.txt");
+- test: LoadVars load()
+  refid: loadvars_load
+  file: classes/loadvars/loadvars_load.as
+  script: |
+    a = new LoadVars();
+    a.load("http://www.flagstonesoftware.com/variables.txt");
 - test: LoadVars onData
   refid: loadvars_ondata
   file: classes/loadvars/loadvars_ondata.as
@@ -33,14 +72,25 @@
         }
     };
     a.load("http://www.flagstonesoftware.com/variables.txt");
-- test: LoadVars onData
-  refid: loadvars_ondata
-  file: classes/loadvars/loadvars_ondata.as
+- test: LoadVars onLoad
+  refid: loadvars_onload
+  file: classes/loadvars/loadvars_onload.as
   script: |
     a = new LoadVars();
     a.onLoad = function(result) {
         if (result == true) {
             trace("Variables loaded.");
+        }
+    };
+    a.load("http://www.flagstonesoftware.com/variables.txt");
+- test: LoadVars onHTTPStatus
+  refid: loadvars_onhttpstatus
+  file: classes/loadvars/loadvars_onhttpstatus.as
+  script: |
+    a = new LoadVars();
+    a.onHTTPStatus = function(status) {
+        if (status >= 500 && status < 600) {
+            trace("Server Error.");
         }
     };
     a.load("http://www.flagstonesoftware.com/variables.txt");

@@ -116,11 +116,37 @@
   file: classes/textfield/textfield_settextformat_num_num_num.as
   script: |
     format = title.setTextFormat(0, 5, format);
+- test: filters
+  refid: textfield_filters
+  file: classes/textfield/textfield_filters.as
+  script: |
+    filter = new flash.filters.DropShadowFilter();
+    filters = field.filters;
+    filters.push(filter);
+    field.filters = filters;
 - test: _alpha
   refid: textfield_alpha
   file: classes/textfield/textfield_alpha.as
   script: |
     title._alpha = 50;
+- test: antiAliasType
+  refid: textfield_antialiastype
+  file: classes/textfield/antialiastype.as
+  script: |
+    title = this.createTextField("title", this.getNextHighestDepth(), 10, 10, 300, 30);
+    title.antiAliasType = "advanced";
+- test: condenseWhite
+  refid: textfield_condensewhite
+  file: classes/textfield/textfield_condensewhite.as
+  script: |
+    title = this.createTextField("title", this.getNextHighestDepth(), 10, 10, 300, 30);
+    title.condenseWhite = true;
+- test: gridFitType
+  refid: textfield_gridfittype
+  file: classes/textfield/textfield_gridfittype.as
+  script: |
+    title = this.createTextField("title", this.getNextHighestDepth(), 10, 10, 300, 30);
+    title.gridFitType = "none";
 - test: autoSize
   refid: textfield_autosize
   file: classes/textfield/textfield_autosize.as
@@ -206,6 +232,11 @@
   file: classes/textfield/textfield_password.as
   script: |
     title.password = true;
+- test: _highquality
+  refid: textfield_highquality
+  file: classes/textfield/textfield_highquality.as
+  script: |
+    title._highquality = 0;
 - test: _quality
   refid: textfield_quality
   file: classes/textfield/textfield_quality.as
@@ -231,6 +262,16 @@
   file: classes/textfield/textfield_selectable.as
   script: |
     title.selectable = true;
+- test: _soundbuftime
+  refid: textfield_soundbuftime
+  file: classes/textfield/textfield_soundbuftime.as
+  script: |
+    title._soundbuftime = 10;
+- test: sharpness
+  refid: textfield_sharpness
+  file: classes/textfield/textfield_sharpness.as
+  script: |
+    title.sharpness = 400;
 - test: tabEnabled
   refid: textfield_tabenabled
   file: classes/textfield/textfield_tabenabled.as
@@ -261,6 +302,11 @@
   file: classes/textfield/textfield_textwidth.as
   script: |
     title.textWidth = 250;
+- test: thickness
+  refid: textfield_thickness
+  file: classes/textfield/textfield_thickness.as
+  script: |
+    title.thickness = 100;
 - test: type
   refid: textfield_type
   file: classes/textfield/textfield_type.as
@@ -271,6 +317,11 @@
   file: classes/textfield/textfield_variable.as
   script: |
     title.variable = "var";
+- test: _url
+  refid: textfield_url
+  file: classes/textfield/textfield_url.as
+  script: |
+    url = title._url;
 - test: _visible
   refid: textfield_visible
   file: classes/textfield/textfield_visible.as

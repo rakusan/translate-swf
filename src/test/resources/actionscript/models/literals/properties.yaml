@@ -1,15 +1,83 @@
-- test: Properties
-  file: literals/properties_%d.as
-  refid: global_properties
-  parameters:
-    - expr: _level0
-    - expr: _root
-    - expr: _xmouse
-    - expr: _ymouse
-    - expr: _focusrect
-    - expr: _soundbuftime
-    - expr: _highquality
-    - expr: _quality = 1
-    - expr: _quality = "LOW"
+- test: _accProps
+  file: properties/accprops.as
+  refid: accprops
   script: |
-    x = %expr%;
+    if ( _accProps == undefined ) {
+      _accProps = new Object();
+    }
+    _accProps.name = "Send";
+    _accProps.description = "Submit form";
+    _accProps.silent = true;
+    _accProps.forceSimple = true;
+    _accProps.shortcut = "Control+S";
+  
+- test: _focusRect
+  file: properties/focusrect.as
+  refid: focusrect
+  script: |
+    _focusRect = false;  
+
+- test: _global
+  file: properties/global.as
+  refid: global
+  script: |
+    _global.value = true;  
+
+- test: _highquality
+  file: properties/highquality.as
+  refid: highquality
+  script: |
+    _highquality = 2;  
+
+- test: _levelN
+  file: properties/level.as
+  refid: level
+  script: |
+    _level0.stop();  
+
+- test: maxscroll
+  file: properties/maxscroll.as
+  refid: maxscroll
+  script: |
+    maxscroll = 12;  
+
+- test: _parent
+  file: properties/parent.as
+  refid: parent
+  script: |
+    this._parent._alpha = 0;  
+
+- test: _quality
+  file: properties/quality.as
+  refid: quality
+  script: |
+    this._quality = "LOW";  
+
+- test: _root
+  file: properties/root.as
+  refid: root
+  script: |
+    _root.play();  
+
+- test: scroll
+  file: properties/scroll.as
+  refid: scroll
+  script: |
+    txt.scroll = txt.scroll + 1; 
+
+- test: _soundbuftime
+  file: properties/soundbuftime.as
+  refid: soundbuftime
+  script: |
+    _soundbuftime = 10; 
+
+- test: this
+  refid: this
+  file: propeties/this.as
+  script: |
+    function Ship(name) {
+        this.getName = function() {
+            return this.name;
+        };
+        this.name = name;
+    }

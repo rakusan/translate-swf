@@ -1,0 +1,76 @@
+- test: constructor
+  refid: displacement_map_filter_constructor
+  file: classes/displacement_map_filter/constructor.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+- test: alpha
+  refid: displacement_map_filter_alpha
+  file: classes/displacement_map_filter/alpha.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.alpha;
+- test: color
+  refid: displacement_map_filter_color
+  file: classes/displacement_map_filter/color.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.color;
+- test: componentX
+  refid: displacement_map_filter_componentx
+  file: classes/displacement_map_filter/componentx.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.componentX;
+- test: componentY
+  refid: displacement_map_filter_componenty
+  file: classes/displacement_map_filter/componenty.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.componentY;
+- test: mapBitmap
+  refid: displacement_map_filter_mapbitmap
+  file: classes/displacement_map_filter/mapbitmap.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.mapBitmap;
+- test: mapPoint
+  refid: displacement_map_filter_mappoint
+  file: classes/displacement_map_filter/mappoint.as
+  script: |
+    bitmap = new flash.display.BitMapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.mapPoint;
+- test: mode
+  refid: displacement_map_filter_mode
+  file: classes/displacement_map_filter/mode.as
+  script: |
+    bitmap = new flash.display.BitMapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.mode;
+- test: scaleX
+  refid: displacement_map_filter_scalex
+  file: classes/displacement_map_filter/scalex.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.scaleX;
+- test: scaleY
+  refid: displacement_map_filter_scaley
+  file: classes/displacement_map_filter/scaley.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    value = filter.scaleY;
+- test: clone()
+  refid: displacement_map_filter_clone
+  file: classes/displacement_map_filter/clone.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new flash.filters.DisplacementMapFilter(bitmap, new Point(-30, -30), 1, 1, 10, 10, "wrap", 0x000000, 0x000000);
+    copy = filter.clone();

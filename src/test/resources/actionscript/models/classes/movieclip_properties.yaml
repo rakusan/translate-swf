@@ -423,3 +423,103 @@
         a = _parent;
         a = _parent._parent;
     }
+- test: opaqueBackground
+  refid: movieclip_opaquebackground
+  file: classes/movieclip/movieclip_opaquebackground.as
+  script: |
+    onClipEvent (mouseDown) {
+        color = this.opaqueBackground;
+    }
+- test: _quality
+  type: event
+  refid: movieclip_quality
+  file: classes/movieclip/movieclip_quality.as
+  script: |
+    onClipEvent (mouseDown) {
+        _quality = 0;
+        a = _quality;
+         
+        this._quality = 0;
+        a = this._quality;
+    } 
+- test: _visible
+  type: event
+  refid: movieclip_visible
+  file: classes/movieclip/movieclip_visible.as
+  script: |
+    onClipEvent (mouseDown) {
+        _visible = 0;
+        a = _visible;
+         
+        this._visible = 0;
+        a = this._visible;
+    } 
+- test: blendMode
+  type: event
+  refid: movieclip_blendmode
+  file: classes/movieclip/movieclip_blendmode.as
+  script: |
+    onClipEvent (mouseDown) {
+        blendMode = 0;
+        a = blendMode;
+         
+        this.blendMode = 0;
+        a = this.blendMode;
+    } 
+- test: cacheAsBitmap
+  type: event
+  refid: movieclip_cacheasbitmap
+  file: classes/movieclip/movieclip_cacheasbitmap.as
+  script: |
+    onClipEvent (mouseDown) {
+        cacheAsBitmap = 0;
+        a = cacheAsBitmap;
+         
+        this.cacheAsBitmap = 0;
+        a = this.cacheAsBitmap;
+    } 
+- test: filters
+  type: event
+  refid: movieclip_filters
+  file: classes/movieclip/movieclip_filters.as
+  script: |
+    onClipEvent (mouseDown) {
+        filters = 0;
+        a = filters;
+         
+        this.filters = 0;
+        a = this.filters;
+    } 
+- test: scale9Grid
+  type: event
+  refid: movieclip_scale9grid
+  file: classes/movieclip/movieclip_scale9grid.as
+  script: |
+    onClipEvent (mouseDown) {
+        scale9Grid = new flash.geom.Rectangle(0, 0, 100, 100);
+        a = scale9Grid;
+         
+        this.scale9Grid = new flash.geom.Rectangle(0, 0, 100, 100);
+        a = this.scale9Grid;
+    } 
+- test: scrollRect
+  type: event
+  refid: movieclip_scrollrect
+  file: classes/movieclip/movieclip_scrollrect.as
+  script: |
+    onClipEvent (mouseDown) {
+        scrollRect = new flash.geom.Rectangle(0, 0, 100, 100);
+        a = scrollRect;
+         
+        this.scrollRect = new flash.geom.Rectangle(0, 0, 100, 100);
+        a = this.scrollRect;
+    } 
+- test: transform
+  type: event
+  refid: movieclip_transform
+  file: classes/movieclip/movieclip_transform.as
+  script: |
+    onClipEvent (mouseDown) {
+        tx = transform;
+        tx = this.transform;
+    } 

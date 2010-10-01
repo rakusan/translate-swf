@@ -1,0 +1,78 @@
+- test: constructor
+  refid: drop_shadow_filter_constructor
+  file: classes/drop_shadow_filter/constructor.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+- test: alpha
+  refid: drop_shadow_filter_alpha
+  file: classes/drop_shadow_filter/alpha.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.alpha;
+- test: angle
+  refid: drop_shadow_filter_angle
+  file: classes/drop_shadow_filter/angle.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.angle;
+- test: blurX
+  refid: drop_shadow_filter_blurx
+  file: classes/drop_shadow_filter/blurx.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.blurX;
+- test: blurY
+  refid: drop_shadow_filter_blury
+  file: classes/drop_shadow_filter/blury.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.blurY;
+- test: color
+  refid: drop_shadow_filter_color
+  file: classes/drop_shadow_filter/color.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.color;
+- test: distance
+  refid: drop_shadow_filter_distance
+  file: classes/drop_shadow_filter/distance.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.distance;
+- test: hideObject
+  refid: drop_shadow_filter_hideobject
+  file: classes/drop_shadow_filter/hideobject.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.hideObject;
+- test: inner
+  refid: drop_shadow_filter_inner
+  file: classes/drop_shadow_filter/inner.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.inner;
+- test: knockout
+  refid: drop_shadow_filter_knockout
+  file: classes/drop_shadow_filter/knockout.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.knockout;
+- test: quality
+  refid: drop_shadow_filter_quality
+  file: classes/drop_shadow_filter/quality.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.quality;
+- test: strength
+  refid: drop_shadow_filter_strength
+  file: classes/drop_shadow_filter/strength.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    value = filter.strength;
+- test: clone()
+  refid: drop_shadow_filter_clone
+  file: classes/drop_shadow_filter/clone.as
+  script: |
+    filter = new flash.filters.DropShadowFilter(5, 45, 0x000000, .5, 0x0000FF, 20, 20, 1, 3, false, false, false);
+    copy = filter.clone();
+

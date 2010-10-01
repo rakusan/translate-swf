@@ -1,6 +1,11 @@
 - test: Boolean constructors
   refid: boolean_constructor
-  file: classes/boolean/constructor_%d.as
+  file: classes/boolean/constructor.as
+  script: |
+    a = new Boolean();
+- test: Boolean constructors
+  refid: boolean_constructor_value
+  file: classes/boolean/constructor_value_%d.as
   parameters:
     - value: ""
     - value: "true"

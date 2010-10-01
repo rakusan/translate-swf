@@ -10,6 +10,20 @@
     screen = new Video();
     screen.attachVideo(Camera.get());
     screen.clear();    
+- test: _alpha
+  refid: video_alpha
+  file: classes/video/video_alpha.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    screen._alpha = 50;
+- test: _name
+  refid: video_name
+  file: classes/video/video_name.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    screen._name = "Camera";
 - test: deblocking
   refid: video_deblocking
   file: classes/video/video_deblocking.as
@@ -17,6 +31,20 @@
     screen = new Video();
     screen.attachVideo(Camera.get());
     screen.deblocking = 0;
+- test: _parent
+  refid: video_parent
+  file: classes/video/video_parent.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    parent = screen._parent;
+- test: _rotation
+  refid: video_rotation
+  file: classes/video/video_rotation.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    screen._rotation = 90;
 - test: smoothing
   refid: video_smoothing
   file: classes/video/video_smoothing.as
@@ -38,3 +66,52 @@
     screen = new Video();
     screen.attachVideo(Camera.get());
     width = screen.width;
+- test: _visible
+  refid: video_visible
+  file: classes/video/video_visible.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    screen._visible = true;
+- test: _x
+  refid: video_x
+  file: classes/video/video_x.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    pos = screen._x;
+- test: _xmouse
+  refid: video_xmouse
+  file: classes/video/video_xmouse.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    pos = screen._xmouse;
+- test: _xscale
+  refid: video_xscale
+  file: classes/video/video_xscale.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    scale = screen._xscale;
+- test: _y
+  refid: video_y
+  file: classes/video/video_y.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    pos = screen._y;
+- test: _ymouse
+  refid: video_ymouse
+  file: classes/video/video_ymouse.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    pos = screen._ymouse;
+- test: _yscale
+  refid: video_yscale
+  file: classes/video/video_yscale.as
+  script: |
+    screen = new Video();
+    screen.attachVideo(Camera.get());
+    scale = screen._yscale;

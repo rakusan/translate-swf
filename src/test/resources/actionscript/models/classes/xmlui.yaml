@@ -1,0 +1,20 @@
+- test: accept()
+  refid: xmlui_accept
+  file: classes/xml/xmlui_accept.as
+  script: |
+    XMLUI.accept();
+- test: cancel()
+  refid: xmlui_cancel
+  file: classes/xml/xmlui_cancel.as
+  script: |
+    XMLUI.cancel();
+- test: get()
+  refid: xmlui_get
+  file: classes/xml/xmlui_get.as
+  script: |
+    value = XMLUI.get("property");
+- test: set()
+  refid: xmlui_set
+  file: classes/xml/xmlui_set.as
+  script: |
+    value = XMLUI.set("property", "value");

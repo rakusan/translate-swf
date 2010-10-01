@@ -113,3 +113,33 @@
     a = new Sound();
     a.attachSound("bell");
     a.stop("bell");
+- test: duration
+  refid: sound_duration
+  file: classes/sound/sound_duration.as
+  script: |
+    snd = new Sound();
+    snd.onLoad = function(success) {
+      length = this.duration;
+    }
+    snd.loadSound("song1.mp3", true);
+- test: id3
+  refid: sound_id3
+  file: classes/sound/sound_id3.as
+  script: |
+    snd = new Sound();
+    snd.onID3 = function() {
+      for( var prop in snd.id3 ){
+        trace(snd.id3[prop]);
+      }
+    }
+    snd.loadSound("song1.mp3", true);
+- test: position
+  refid: sound_position
+  file: classes/sound/sound_position.as
+  script: |
+    snd = new Sound();
+    snd.onLoad = function() {
+      pos = snd.position;
+    }
+    snd.loadSound("song1.mp3", true);
+    

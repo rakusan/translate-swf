@@ -3,6 +3,14 @@
   file: classes/localconnection/local_connection_constructor.as
   script: |
     conn = new LocalConnection();
+- test: domain
+  refid: localconnection_domain
+  file: classes/localconnection/domain.as
+  script: |
+    conn = new LocalConnection();
+    conn.allowDomain = function(domain) {
+        return domain == this.domain();
+    };
 - test: allowDomain
   refid: localconnection_allowdomain
   file: classes/localconnection/allowdomain.as
@@ -53,3 +61,11 @@
     conn = new LocalConnection();   
     conn.connect("conection");
     conn.close();
+- test: onStatus
+  refid: localconnection_onstatus
+  file: classes/localconnection/onstatus.as
+  script: |
+    conn = new LocalConnection();   
+    conn.onStatus = function() {
+    };
+    

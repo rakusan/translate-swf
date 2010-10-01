@@ -1,0 +1,175 @@
+- test: constructor
+  refid: bitmap_data_constructor
+  file: classes/bitmap_data/constructor.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+- test: height
+  refid: bitmap_data_height
+  file: classes/bitmap_data/height.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    value = bitmap.height;
+- test: width
+  refid: bitmap_data_width
+  file: classes/bitmap_data/width.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    value = bitmap.width;
+- test: transparent
+  refid: bitmap_data_transparent
+  file: classes/bitmap_data/transparent.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    value = bitmap.transparent;
+- test: rectangle
+  refid: bitmap_data_rectangle
+  file: classes/bitmap_data/rectangle.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    value = bitmap.rectangle;
+- test: applyFilter()
+  refid: bitmap_data_applyfilter
+  file: classes/bitmap_data/applyfilter.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new BevelFilter(5, 45, 0xFFFF00, .8, 0x0000FF, .8, 20, 20, 1, 3, "inner", false);
+    bitmap.applyFilter(bitmap, bitmap.rectangle, new Point(0, 0), filter);
+- test: clone()
+  refid: bitmap_data_clone
+  file: classes/bitmap_data/clone.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    copy = bitmap.clone();
+- test: colorTransform()
+  refid: bitmap_data_colortransform
+  file: classes/bitmap_data/colortransform.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.colorTransform(bitmap.rectangle, new ColorTransform(1, 0, 0, 1, 255, 0, 0, 0));
+- test: copyChannel()
+  refid: bitmap_data_copychannel
+  file: classes/bitmap_data/copychannel.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.copyChannel(bitmap, new Rectangle(0, 0, 50, 80), new Point(51, 0), 3, 1);
+- test: copyPixels()
+  refid: bitmap_data_copypixels
+  file: classes/bitmap_data/copypixels.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.copyPixels(bitmap, new Rectangle(0, 0, 50, 80), new Point(51, 0));
+- test: dispose()
+  refid: bitmap_data_dispose
+  file: classes/bitmap_data/dispose.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.dispose();
+- test: draw()
+  refid: bitmap_data_draw
+  file: classes/bitmap_data/draw.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.draw(clip, new Matrix(), new ColorTransform(0, 0, 1, 1, 0, 0, 255, 0), new Rectangle(0, 0, 100, 80), "normal", true);
+- test: fillRect()
+  refid: bitmap_data_fillrect
+  file: classes/bitmap_data/fillrect.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.fillRect(new Rectangle(0, 0, 100, 20), 0x00FF00);
+- test: floodFill()
+  refid: bitmap_data_floodfill
+  file: classes/bitmap_data/floodfill.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.floodfill(20, 20, 0x00FF00);
+- test: generateFilterRect()
+  refid: bitmap_data_generatefilterrect
+  file: classes/bitmap_data/generatefilterrect.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    filter = new BevelFilter(5, 45, 0xFFFF00, .8, 0x0000FF, .8, 20, 20, 1, 3, "inner", false);
+    bitmap.generateFilterRect(bitmap.rectangle, filter);
+- test: getColorBoundsRect()
+  refid: bitmap_data_getcolorboundsrect
+  file: classes/bitmap_data/getcolorboundsrect.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.getColorBoundsRect(0x00FFFFFF, 0x00FF0000, true);
+- test: getPixel()
+  refid: bitmap_data_getpixel
+  file: classes/bitmap_data/getpixel.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.getPixel(10, 10);
+- test: getPixel32()
+  refid: bitmap_data_getpixel32
+  file: classes/bitmap_data/getpixel32.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.getPixel32(10, 10);
+- test: hitTest()
+  refid: bitmap_data_hittest
+  file: classes/bitmap_data/hittest.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.hitTest(new Point(10, 10), 255, new Point(20, 20));
+- test: loadBitmap()
+  refid: bitmap_data_loadbitmap
+  file: classes/bitmap_data/loadbitmap.as
+  script: |
+    bitmap = flash.display.BitmapData.loadBitmap("photo");
+- test: merge()
+  refid: bitmap_data_merge
+  file: classes/bitmap_data/merge.as
+  script: |
+    a = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    b = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    a.merge(b, new Rectangle(0, 0, 50, 40), new Point(25, 20), 128, 0, 0, 0);
+- test: noise()
+  refid: bitmap_data_noise
+  file: classes/bitmap_data/noise.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.noise(128, 0, 255, 1, true);
+- test: paletteMap()
+  refid: bitmap_data_palettemap
+  file: classes/bitmap_data/palettemap.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.paletteMap(bitmap, bitmap.rectangle, new Point(0, 0), reds, greens, blues, alphas);
+- test: perlinNoise()
+  refid: bitmap_data_perlinnoise
+  file: classes/bitmap_data/perlinnoise.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.perlinNoise(100, 80, 6, Math.floor(Math.random() * 10), false, true, 1, true, null);
+- test: pixelDissolve()
+  refid: bitmap_data_pixeldissolve
+  file: classes/bitmap_data/pixeldissolve.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.pixelDissolve(bitmap, bitmap.rectangle, new Point(0, 0), Math.floor(Math.random() * 10), 40, 0x00FF0000);
+- test: scroll()
+  refid: bitmap_data_scroll
+  file: classes/bitmap_data/scroll.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.scroll(0, 20);
+- test: setPixel()
+  refid: bitmap_data_setpixel
+  file: classes/bitmap_data/setpixel.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.setPixel(10, 10, 0x00FF00);
+- test: setPixel32()
+  refid: bitmap_data_setpixel32
+  file: classes/bitmap_data/setpixel32.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.setPixel32(10, 10, 0x00FF00CC);
+- test: threshold()
+  refid: bitmap_data_threshold
+  file: classes/bitmap_data/threshold.as
+  script: |
+    bitmap = new flash.display.BitmapData(100, 50, false, 0xFF0000);
+    bitmap.threshold(bitmap, bitmap.rectangle, new Rectangle(0, 0, 100, 40), new Point(0, 0), ">=", 0x00CCCCCC, 0x000000FF, 0x00FF0000, false);

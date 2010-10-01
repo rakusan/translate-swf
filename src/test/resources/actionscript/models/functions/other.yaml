@@ -23,3 +23,14 @@
   file: functions/togglehighquality.as
   script: |
     toggleHighQuality();
+- test: showRedrawRegions()
+  refid: showredrawregions
+  file: functions/showredrawregions.as
+  script: |
+    _global.showRedrawRegions(true);
+- test: Object()
+  refid: object
+  file: functions/object.as
+  script: |
+    x = Object(1);
+    

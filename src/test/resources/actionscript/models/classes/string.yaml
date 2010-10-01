@@ -15,6 +15,12 @@
   script: |
     a = new String("abc");
     b = a.charAt(0);
+- test: charCodeAt()
+  refid: string_charcodeat
+  file: classes/string/string_charcodeat.as
+  script: |
+    a = new String("abc");
+    b = a.charCodeAt(0);
 - test: concat()
   refid: string_concat
   file: classes/string/string_concat.as
@@ -86,3 +92,9 @@
   script: |
     a = new String("abc");
     b = a.toUpperCase();
+- test: toString()
+  refid: string_tostring
+  file: classes/string/string_tostring.as
+  script: |
+    a = new String("abc");
+    b = a.toString();

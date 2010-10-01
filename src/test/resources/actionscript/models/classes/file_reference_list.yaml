@@ -1,0 +1,54 @@
+- test: FileReferenceList
+  refid: file_reference_list_constructor
+  file: classes/file_reference_list/constructor.as
+  script: |
+    list = new flash.net.FileReferenceList();
+- test: addListener()
+  refid: file_reference_list_addlistener
+  file: classes/file_reference_list/addlistener.as
+  script: |
+    listener = new Object();
+    list = new flash.net.FileReferenceList();
+    list.addListener(listener);
+- test: browse()
+  refid: file_reference_list_browse
+  file: classes/file_reference_list/browse.as
+  script: |
+    listener = new Object();
+    list = new flash.net.FileReferenceList();
+    list.addListener(listener);
+    list.browse();
+- test: fileList
+  refid: file_reference_list_filelist
+  file: classes/file_reference_list/filelist.as
+  script: |
+    list = new flash.net.FileReferenceList();
+    files = list.fileList;
+- test: onCancel
+  refid: file_reference_list_oncancel
+  file: classes/file_reference_list/oncancel.as
+  script: |
+    listener = new Object();
+    listener.onCancel = function(fileRefList) {
+    };
+    list = new flash.net.FileReferenceList();
+    list.addListener(listener);
+- test: onSelect
+  refid: file_reference_list_onselect
+  file: classes/file_reference_list/onselect.as
+  script: |
+    listener = new Object();
+    listener.onSelect = function(fileRefList) {
+    };
+    list = new flash.net.FileReferenceList();
+    list.addListener(listener);
+- test: removeListener
+  refid: file_reference_list_removelistener
+  file: classes/file_reference_list/removelistener.as
+  script: |
+    listener = new Object();
+    listener.onSelect = function(fileRefList) {
+    };
+    list = new flash.net.FileReferenceList();
+    list.addListener(listener);
+    list.removeListener(listener);

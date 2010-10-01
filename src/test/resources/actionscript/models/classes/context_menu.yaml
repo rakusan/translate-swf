@@ -49,13 +49,68 @@
   script: |
     menu = new ContextMenu();
     properties = menu.builtInItems;   
+- test: builtInItems.save
+  refid: context_menu_builtinitems.save
+  file: classes/context_menu/builtinitems_save.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
     properties.save = true;
+- test: builtInItems.save
+  refid: context_menu_builtinitems.save
+  file: classes/context_menu/builtinitems_save.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
+    properties.save = true;
+- test: builtInItems.zoom
+  refid: context_menu_builtinitems.zoom
+  file: classes/context_menu/builtinitems_zoom.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
     properties.zoom = true;
+- test: builtInItems.quality
+  refid: context_menu_builtinitems.quality
+  file: classes/context_menu/builtinitems_quality.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
     properties.quality = true;
+- test: builtInItems.play
+  refid: context_menu_builtinitems.play
+  file: classes/context_menu/builtinitems_play.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
     properties.play = true;
+- test: builtInItems.loop
+  refid: context_menu_builtinitems.loop
+  file: classes/context_menu/builtinitems_loop.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
     properties.loop = true;
+- test: builtInItems.rewind
+  refid: context_menu_builtinitems.rewind
+  file: classes/context_menu/builtinitems_rewind.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
     properties.rewind = true;
+- test: builtInItems.forward_back
+  refid: context_menu_builtinitems.forward_back
+  file: classes/context_menu/builtinitems_forward_back.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
     properties.forward_back = true;
+- test: builtInItems.print
+  refid: context_menu_builtinitems.print
+  file: classes/context_menu/builtinitems_print.as
+  script: |
+    menu = new ContextMenu();
+    properties = menu.builtInItems;   
     properties.print = true;
 - test: copy()
   refid: context_menu_copy
@@ -63,3 +118,13 @@
   script: |
     menu = new ContextMenu();
     copy = menu.copy();
+- test: customItems
+  refid: context_menu_customitems
+  files: classes/context_menu/customitems.as
+  script: |
+    function handler() {
+     trace("handling");
+    }
+    menu = new ContextMenu();
+    item = new ContextMenuItem("Handle", handler);
+    menu.customItems.push(item);

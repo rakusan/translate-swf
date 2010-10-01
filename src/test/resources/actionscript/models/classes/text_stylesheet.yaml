@@ -53,3 +53,10 @@
   script: |
     stylesheet = new TextField.StyleSheet();
     stylesheet.clear();
+- test: getStyleNames
+  refid: stylesheet_getstylenames
+  file: classes/textstylesheet/getstylenames.as
+  script: |
+    stylesheet = new TextField.StyleSheet();
+    styles = stylesheet.getStyleNames();
+    

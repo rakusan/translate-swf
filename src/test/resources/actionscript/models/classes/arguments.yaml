@@ -1,6 +1,6 @@
 - test: Arguments access
-  refid: arguments_access
-  file: classes/arguments/access.as
+  refid: arguments_length
+  file: classes/arguments/length.as
   script: |
     function args(x) {
         for (i=0; i<arguments.length; i++) {

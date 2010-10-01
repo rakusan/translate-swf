@@ -17,6 +17,27 @@
     listener.onMouseMove = function() {};
     Mouse.addListener(listener);
     Mouse.removeListener(listener);
+- test: Mouse onMouseDown
+  refid: mouse_onmousedown
+  file: classes/mouse/mouse_onmousedown.as
+  script: |
+    listener = new Object();
+    listener.onMouseDown = function() {};
+    Mouse.addListener(listener);
+- test: Mouse onMouseUp
+  refid: mouse_onmouseup
+  file: classes/mouse/mouse_onmouseup.as
+  script: |
+    listener = new Object();
+    listener.onMouseUp = function() {};
+    Mouse.addListener(listener);
+- test: Mouse onMouseMove
+  refid: mouse_onmousemove
+  file: classes/mouse/mouse_onmousemove.as
+  script: |
+    listener = new Object();
+    listener.onMouseMove = function() {};
+    Mouse.addListener(listener);
 - test: Mouse wheel
   refid: mouse_onmousewheel
   file: classes/mouse/mouse_onmousewheel.as

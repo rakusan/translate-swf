@@ -1,0 +1,66 @@
+- test: alphaMultiplier
+  refid: color_transform_alphamultiplier
+  file: classes/colortransform/alphamultiplier.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.alphaMultiplier;
+- test: redMultiplier
+  refid: color_transform_redmultiplier
+  file: classes/colortransform/redmultiplier.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.redMultiplier;
+- test: greenMultiplier
+  refid: color_transform_greenmultiplier
+  file: classes/colortransform/greenmultiplier.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.greenMultiplier;
+- test: blueMultiplier
+  refid: color_transform_bluemultiplier
+  file: classes/colortransform/bluemultiplier.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.blueMultiplier;
+- test: alphaOffset
+  refid: color_transform_alphaoffset
+  file: classes/colortransform/alphaoffset.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.alphaOffset;
+- test: redOffset
+  refid: color_transform_redoffset
+  file: classes/colortransform/redoffset.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.redOffset;
+- test: greenOffset
+  refid: color_transform_greenoffset
+  file: classes/colortransform/greenoffset.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.greenOffset;
+- test: blueOffset
+  refid: color_transform_blueoffset
+  file: classes/colortransform/blueoffset.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.blueOffset;
+- test: rgb
+  refid: color_transform_rgb
+  file: classes/colortransform/rgb.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.rgb;
+- test: concat()
+  refid: color_transform_concat
+  file: classes/colortransform/concat.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.concat(new flash.geom.ColorTransform());
+- test: toString()
+  refid: color_transform_tostring
+  file: classes/colortransform/tostring.as
+  script: |
+    tx = new flash.geom.ColorTransform();
+    tx.toString();

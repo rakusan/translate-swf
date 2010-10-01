@@ -1,0 +1,14 @@
+- test: maxLevel
+  refid: text_renderer_maxlevel
+  file: classes/text_renderer/maxlevel.as
+  script: |
+    flash.text.TextRenderer.maxLevel = 3;
+- test: setAdvancedAntialiasingTable
+  refid: text_renderer_setadvancedantialiasingtable
+  file: classes/text_renderer/setadvancedantialiasingtable.as
+  script: |
+    a = {fontSize:24, insideCutoff:1.61, outsideCutoff:-3.43};
+    b = {fontSize:48, insideCutoff:0.8, outsideCutoff:-0.8};
+    table = new Array(a, b);
+    TextRenderer.setAdvancedAntialiasingTable("Arial", "none", "dark", table);
+

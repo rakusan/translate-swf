@@ -28,6 +28,12 @@
   script: |
     text = clip.getTextSnapshot();
     str = text.getText(0, text.getCount()-1, true);
+- test: getTextRunInfo()
+  refid: textsnapshot_gettextruninfo
+  file: classes/textsnapshot/textsnapshot_gettestruninfo.as
+  script: |
+    text = clip.getTextSnapshot();
+    index = text.getTextRunInfo(0, 4);
 - test: hitTestTextNearPos()
   refid: textsnapshot_hittesttextnearpos
   file: classes/textsnapshot/textsnapshot_hittesttextnearpos.as

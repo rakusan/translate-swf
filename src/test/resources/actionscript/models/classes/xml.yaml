@@ -4,7 +4,7 @@
   script: |
     <list>
     </list>
-- test: XmlSocket
+- test: XML()
   refid: xml_constructor
   file: classes/xml/xml_constructor.as
   script: |
@@ -21,66 +21,24 @@
   script: |
     doc = new XML("variables.xml");
     doc.docTypeDecl;
-- test: firstChild
-  refid: xml_firstchild
-  file: classes/xml/xml_firstchild.as
+- test: idMap
+  refid: xml_idmap
+  file: classes/xml/xml_idmap.as
   script: |
     doc = new XML("variables.xml");
-    doc.firstChild;
+    map = doc.idMap;
 - test: ignoreWhite
   refid: xml_ignorewhite
   file: classes/xml/xml_ignorewhite.as
   script: |
     doc = new XML("variables.xml");
     doc.ignoreWhite;
-- test: lastChild
-  refid: xml_lastchild
-  file: classes/xml/xml_lastchild.as
-  script: |
-    doc = new XML("variables.xml");
-    doc.lastChild;
 - test: loaded
   refid: xml_loaded
   file: classes/xml/xml_loaded.as
   script: |
     doc = new XML("variables.xml");
     doc.loaded;
-- test: nextSibling
-  refid: xml_nextsibling
-  file: classes/xml/xml_nextsibling.as
-  script: |
-    doc = new XML("variables.xml");
-    doc.nextSibling;
-- test: nodeName
-  refid: xml_nodename
-  file: classes/xml/xml_nodename.as
-  script: |
-    doc = new XML("variables.xml");
-    doc.nodeName;
-- test: nodeType
-  refid: xml_nodetype
-  file: classes/xml/xml_nodetype.as
-  script: |
-    doc = new XML("variables.xml");
-    doc.nodeType;
-- test: nodeValue
-  refid: xml_nodevalue
-  file: classes/xml/xml_nodevalue.as
-  script: |
-    doc = new XML("variables.xml");
-    doc.nodeValue;
-- test: parentNode
-  refid: xml_parentnode
-  file: classes/xml/xml_parentnode.as
-  script: |
-    doc = new XML("variables.xml");
-    doc.parentNode;
-- test: previousSibling
-  refid: xml_previoussibling
-  file: classes/xml/xml_previoussibling.as
-  script: |
-    doc = new XML("variables.xml");
-    doc.previousSibling;
 - test: status
   refid: xml_status
   file: classes/xml/xml_status.as
@@ -93,30 +51,37 @@
   script: |
     doc = new XML("variables.xml");
     doc.xmlDecl;
-- test: attributes
-  refid: xml_attributes
-  file: classes/xml/xml_attributes.as
+- test: onData
+  refid: xml_ondata
+  file: classes/xml/xml_ondata.as
   script: |
     doc = new XML("variables.xml");
-    doc.attributes;
-- test: childNodes
-  refid: xml_childnodes
-  file: classes/xml/xml_childnodes.as
+    doc.onData = function(document) {
+        trace("file loaded");
+    };
+- test: onLoad
+  refid: xml_onload
+  file: classes/xml/xml_onload.as
   script: |
     doc = new XML("variables.xml");
-    doc.childNodes;
-- test: appendChild
-  refid: xml_appendchild
-  file: classes/xml/xml_appendchild.as
+    doc.onLoad = function(document) {
+        trace("file loaded");
+    };
+- test: onHTTPStatus
+  refid: xml_onhttpstatus
+  file: classes/xml/xml_onhttpstatus.as
   script: |
     doc = new XML("variables.xml");
-    doc.appendChild(element);
-- test: cloneNode
-  refid: xml_clonenode
-  file: classes/xml/xml_clonenode.as
+    doc.onHTTPStatus = function(document) {
+        trace("status");
+    };
+- test: addRequestHeader
+  refid: xml_addrequestheader
+  file: classes/xml/xml_addrequestheader.as
   script: |
     doc = new XML("variables.xml");
-    doc.cloneNode(true);
+    headers = new Array("Content-Type", "text/plain");
+    doc.addRequestHeader(headers);
 - test: createElement
   refid: xml_createelement
   file: classes/xml/xml_createelement.as
@@ -129,30 +94,40 @@
   script: |
     doc = new XML("variables.xml");
     doc.createTextNode("elementName");
-    
+- test: getBytesLoaded()
+  refid: xml_getbytesloaded
+  file: classes/xml/xml_getbytesloaded.as
+  script: |
+    doc = new XML("variables.xml");
     doc.getBytesLoaded();
-    doc.getBYtesTotal();
-    
-    doc.hasChildNodes();
-    
-    doc.insertBefore(newNode, existingNode);
-    
+- test: getBytesTotal()
+  refid: xml_getbytestotal
+  file: classes/xml/xml_getbytestotal.as
+  script: |
+    doc = new XML("variables.xml");
+    doc.getBytesTotal();
+- test: load()
+  refid: xml_load
+  file: classes/xml/xml_load.as
+  script: |
+    doc = new XML("variables.xml");
     doc.load("variables.xml");
+- test: parseXML()
+  refid: xml_parsexml
+  file: classes/xml/xml_parsexml.as
+  script: |
+    doc = new XML("variables.xml");
     doc.parseXML("variables.xml");
-    
-    doc.removeNode();
-    
+- test: send()
+  refid: xml_send
+  file: classes/xml/xml_send.as
+  script: |
+    doc = new XML("variables.xml");
     doc.send("variables.xml");
     doc.send("variables.xml", _self);
-    
+- test: sendAndLoad()
+  refid: xml_sendandload
+  file: classes/xml/xml_sendandload.as
+  script: |
+    doc = new XML("variables.xml");
     doc.sendAndLoad("serverScript", xmlObject);
-    
-    doc.toString();
-    
-    doc.onLoad = function(document) {
-        trace("file loaded");
-    };
-    
-    doc.onLoad = function(document) {
-        trace("file loaded");
-    };

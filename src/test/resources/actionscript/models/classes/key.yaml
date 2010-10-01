@@ -68,6 +68,16 @@
   file: classes/key/key_right.as
   script: |
     x = Key.RIGHT;
+- test: SHIFT
+  refid: key_shift
+  file: classes/key/key_shift.as
+  script: |
+    x = Key.SHIFT;
+- test: SPACE
+  refid: key_space
+  file: classes/key/key_space.as
+  script: |
+    x = Key.SPACE;
 - test: TAB
   refid: key_tab
   file: classes/key/key_tab.as
@@ -83,10 +93,22 @@
   file: classes/key/addlistener.as
   script: |
     listener = new Object();
+    Key.addListener(listener);
+- test: onKeyDown
+  refid: key_onkeydown
+  file: classes/key/onkeydownr.as
+  script: |
+    listener = new Object();
     listener.onKeyDown = function() {};
+    Key.addListener(listener);
+- test: onKeyUp
+  refid: key_onkeyup
+  file: classes/key/onkeyup.as
+  script: |
+    listener = new Object();
     listener.onKeyUp = function() {};   
     Key.addListener(listener);
-- test: remnoveListener()
+- test: removeListener()
   refid: key_removelistener
   file: classes/key/removelistener.as
   script: |
@@ -95,3 +117,35 @@
     listener.onKeyUp = function() {};   
     Key.addListener(listener);
     Key.removeListener(listener);
+- test: listeners
+  refid: key_listeners
+  file: classes/key/listeners.as
+  script: |
+    listener = new Object();
+    Key.addListener(listener);
+    list = Key._listeners;
+- test: getAscii()
+  refid: key_getascii
+  file: classes/key/getascii.as
+  script: |
+    x = Key.getAscii();
+- test: getCode()
+  refid: key_getcode
+  file: classes/key/getcode.as
+  script: |
+    x = Key.getCode();
+- test: isAccessible()
+  refid: key_isaccessible
+  file: classes/key/isaccessible.as
+  script: |
+    x = Key.isAccessible();    
+- test: isDown()
+  refid: key_isdown
+  file: classes/key/isdown.as
+  script: |
+    x = Key.isDown(Key.RIGHT);
+- test: isToggled()
+  refid: key_istoggled
+  file: classes/key/istoggled.as
+  script: |
+    x = Key.isToggled(Key.CAPSLOCK);

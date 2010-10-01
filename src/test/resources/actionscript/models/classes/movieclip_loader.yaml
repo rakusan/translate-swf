@@ -1,3 +1,8 @@
+- test: MovieClipLoader()
+  refid: moviecliploader_moviecliploader
+  file: classes/moviecliploader/moviecliploader.as
+  script: |
+    loader = new MovieClipLoader();
 - test: loadClip()
   refid: moviecliploader_loadclip
   file: classes/moviecliploader/moviecliploader_loadclip.as
@@ -56,3 +61,44 @@
     loader = new MovieClipLoader();
     loader.loadClip("http://www.flagstonesoftware.com/clip.swf", "clip");
     loader.unloadClip("clip");
+- test: onLoadInit
+  refid: moviecliploader_onloadinit
+  file: classes/moviecliploader/moviecliploader_onloadinit
+  script: |
+    loader = new MovieClipLoader();
+    loader.onLoadInit = function(target) {
+      trace("Initializing");
+    }
+- test: onLoadComplete
+  refid: moviecliploader_onloadcomplete
+  file: classes/moviecliploader/moviecliploader_onloadcomplete
+  script: |
+    loader = new MovieClipLoader();
+    loader.onLoadComplete = function(target) {
+      trace("Complete");
+    }
+- test: onLoadError
+  refid: moviecliploader_onloaderror
+  file: classes/moviecliploader/moviecliploader_onloaderror
+  script: |
+    loader = new MovieClipLoader();
+    loader.onLoadError = function(target) {
+      trace("Complete");
+    }
+- test: onLoadProgress
+  refid: moviecliploader_onloadprogress
+  file: classes/moviecliploader/moviecliploader_onloadprogress
+  script: |
+    loader = new MovieClipLoader();
+    loader.onLoadProgress = function(target) {
+      trace("Loading");
+    }
+- test: onLoadStart
+  refid: moviecliploader_onloadstart
+  file: classes/moviecliploader/moviecliploader_onloadstart
+  script: |
+    loader = new MovieClipLoader();
+    loader.onLoadStart = function(target) {
+      trace("Stating");
+    }
+  

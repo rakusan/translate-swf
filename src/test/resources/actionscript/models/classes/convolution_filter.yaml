@@ -1,0 +1,70 @@
+- test: constructor
+  refid: convolution_filter_constructor
+  file: classes/convolution_filter/constructor.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+- test: alpha
+  refid: convolution_filter_alpha
+  file: classes/convolution_filter/alpha.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    value = filter.alpha;
+- test: bias
+  refid: convolution_filter_bias
+  file: classes/convolution_filter/bias.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    value = filter.bias;
+- test: color
+  refid: convolution_filter_color
+  file: classes/convolution_filter/color.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    value = filter.color;
+- test: divisor
+  refid: convolution_filter_divisor
+  file: classes/convolution_filter/divisor.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    value = filter.divisor;
+- test: matrix
+  refid: convolution_filter_matrix
+  file: classes/convolution_filter/matrix.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    value = filter.matrix;
+- test: matrixX
+  refid: convolution_filter_matrixx
+  file: classes/convolution_filter/matrixx.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    value = filter.matrixX;
+- test: matrixY
+  refid: convolution_filter_matrixy
+  file: classes/convolution_filter/matrixy.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    value = filter.matrixY;
+- test: preserveAlpha
+  refid: convolution_filter_preservealpha
+  file: classes/convolution_filter/preservealpha.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    value = filter.preserveAlpha;
+- test: clone()
+  refid: convolution_filter_clone
+  file: classes/convolution_filter/clone.as
+  script: |
+    matrix = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+    filter = new flash.filters.ConvolutionFilter(3, 3, matrix, 9, 0, true, false, 0x0000FF, 0.5);
+    copy = filter.clone();
+

@@ -37,12 +37,42 @@
   script: |
     button._alpha = a;
     a = button._alpha;
+- test: blendMode
+  refid: button_blendmode
+  file: classes/button/blendmode.as
+  script: |
+    button.blendMode = 1;
+    a = button.blendMode;
+- test: cacheAsBitmap
+  refid: button_cacheasbitmap
+  file: classes/button/cacheAsBitmap.as
+  script: |
+    button.cacheAsBitmap = true;
+    a = button.cacheAsBitmap;
 - test: enabled
   refid: button_enabled
   file: classes/button/enabled.as
   script: |
     button.enabled  = a;
     a = button.enabled;
+- test: _filters
+  refid: button_filters
+  file: classes/button/_filters.as
+  script: |
+    list = button._filters;
+    button._filters = list;
+- test: scale9Grid
+  refid: button_scale9grid
+  file: classes/button/scale9grid.as
+  script: |
+    rect = button.scale9Grid;
+    button.scale9Grid = rect;
+- test: trackAsMenu
+  refid: button_trackasmenu
+  file: classes/button/trackasmenu.as
+  script: |
+    track = button.trackAsMenu;
+    button.trackAsMenu = track;
 - test: _visible
   refid: button_visible
   file: classes/button/_visible.as
@@ -67,6 +97,12 @@
   script: |
     button._rotation = 90;
     a = button._rotation;
+- test: _soundbuftime
+  refid: button_soundbuftime
+  file: classes/button/_soundbuftime.as
+  script: |
+    button._soundbuftime = 10;
+    a = button._soundbuftime;
 - test: _xscale
   refid: button_xscale
   file: classes/button/_xscale.as
@@ -97,6 +133,16 @@
   script: |
     button._highquality = 100;
     a = button._highquality;
+- test: menu
+  refid: button_menu
+  file: classes/button/menu.as
+  script: |
+    menu = new ContextMenu();
+    menu.customItems.push(new ContextMenuItem("Save...", doSave));
+    function doSave(menu, obj) {
+      trace( " You selected the 'Save...' menu item ");
+    }
+    button.menu = menu
 - test: _quality
   refid: button_quality
   file: classes/button/_quality.as

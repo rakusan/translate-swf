@@ -27,35 +27,45 @@
     - expr: loadMovie("Data.swf", 1, "post")
   script: |
     %expr%;
+- test: loadMovieNum()
+  refid: loadmovienum
+  file: functions/loadmovienum.as
+  script: |
+    loadMovieNum("image1.jpg", 2);
 - test: loadVariables()
   refid: loadvariables
   file: functions/loadvariables_%d.as
   parameters: 
-    - expr: loadVariables("Data.swf", 1)
-    - expr: loadVariables("Data.swf", 1, "GET")
-    - expr: loadVariables("Data.swf", 1, "get")
-    - expr: loadVariables("Data.swf", 1, "POST")
-    - expr: loadVariables("Data.swf", 1, "post")
-    - expr: loadVariables("Data.swf", a)
-    - expr: loadVariables("Data.swf", "_blank")
-    - expr: loadVariables("Data.swf", "_self")
-    - expr: loadVariables("Data.swf", "_parent")
-    - expr: loadVariables("Data.swf", "_top")
-    - expr: loadVariables("Data.swf", _root)
-    - expr: loadVariables("Data.swf", _level1)
-    - expr: loadVariables("Data.swf", "Clip")
-    - expr: loadVariables("Data.swf", "Clip", "get")
-    - expr: loadVariables("Data.swf", "Clip", "post")
-    - expr: loadVariables("Data.swf", a + b, "post")
-    - expr: loadVariables("Data.swf", a + b, "post")
-    - expr: loadVariables("Data.swf", a + b, "post")
-    - expr: loadVariables("Data.swf", 1)
-    - expr: loadVariables("Data.swf", 1, "GET")
-    - expr: loadVariables("Data.swf", 1, "get")
-    - expr: loadVariables("Data.swf", 1, "POST")
-    - expr: loadVariables("Data.swf", 1, "post")
+    - expr: loadVariables("vars.txt", 1)
+    - expr: loadVariables("vars.txt", 1, "GET")
+    - expr: loadVariables("vars.txt", 1, "get")
+    - expr: loadVariables("vars.txt", 1, "POST")
+    - expr: loadVariables("vars.txt", 1, "post")
+    - expr: loadVariables("vars.txt", a)
+    - expr: loadVariables("vars.txt", "_blank")
+    - expr: loadVariables("vars.txt", "_self")
+    - expr: loadVariables("vars.txt", "_parent")
+    - expr: loadVariables("vars.txt", "_top")
+    - expr: loadVariables("vars.txt", _root)
+    - expr: loadVariables("vars.txt", _level1)
+    - expr: loadVariables("vars.txt", "Clip")
+    - expr: loadVariables("vars.txt", "Clip", "get")
+    - expr: loadVariables("vars.txt", "Clip", "post")
+    - expr: loadVariables("vars.txt", a + b, "post")
+    - expr: loadVariables("vars.txt", a + b, "post")
+    - expr: loadVariables("vars.txt", a + b, "post")
+    - expr: loadVariables("vars.txt", 1)
+    - expr: loadVariables("vars.txt", 1, "GET")
+    - expr: loadVariables("vars.txt", 1, "get")
+    - expr: loadVariables("vars.txt", 1, "POST")
+    - expr: loadVariables("vars.txt", 1, "post")
   script: |
     %expr%;
+- test: loadVariablesNum()
+  refid: loadvariablesnum
+  file: functions/loadvariablesnum.as
+  script: |
+    loadVariablesNum("vars.txt", 2);
 - test: unloadMovie()
   refid: unloadmovie
   file: functions/unloadmovie_%d.as
@@ -65,3 +75,9 @@
     - expr: unloadMovieNum(1)
   script: |
     %expr%;
+- test: unloadMovieNum()
+  refid: unloadmovienum
+  file: functions/unloadmovienum.as
+  script: |
+    unloadMoviesNum(2);
+    

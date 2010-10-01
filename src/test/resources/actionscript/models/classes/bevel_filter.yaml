@@ -1,0 +1,84 @@
+- test: constructor
+  refid: bevel_filter_constructor
+  file: classes/bevel_filter/constructor.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+- test: angle
+  refid: bevel_filter_angle
+  file: classes/bevel_filter/angle.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.angle;
+- test: blurX
+  refid: bevel_filter_blurx
+  file: classes/bevel_filter/blurx.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.blurX;
+- test: blurY
+  refid: bevel_filter_blury
+  file: classes/bevel_filter/blury.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.blurY;
+- test: distance
+  refid: bevel_filter_distance
+  file: classes/bevel_filter/distance.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.distance;
+- test: highlightAlpha
+  refid: bevel_filter_highlightalpha
+  file: classes/bevel_filter/highlightalpha.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.highlightAlpha;
+- test: highlightColor
+  refid: bevel_filter_highlightcolor
+  file: classes/bevel_filter/highlightcolor.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.highlightColor;
+- test: knockout
+  refid: bevel_filter_knockout
+  file: classes/bevel_filter/knockout.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.knockout;
+- test: quality
+  refid: bevel_filter_quality
+  file: classes/bevel_filter/quality.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.quality;
+- test: shadowAlpha
+  refid: bevel_filter_shadowalpha
+  file: classes/bevel_filter/shadowalpha.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.shadowAlpha;
+- test: shadowColor
+  refid: bevel_filter_shadowcolor
+  file: classes/bevel_filter/shadowcolor.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.shadowColor;
+- test: strength
+  refid: bevel_filter_strength
+  file: classes/bevel_filter/strength.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.strength;
+- test: type
+  refid: bevel_filter_type
+  file: classes/bevel_filter/type.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    value = filter.type;
+- test: clone()
+  refid: bevel_filter_clone
+  file: classes/bevel_filter/clone.as
+  script: |
+    filter = new flash.filters.BevelFilter(5, 45, 0xFFFF00, .5, 0x0000FF, .5, 20, 20, 1, 3, "inner", false);
+    copy = filter.clone();
+

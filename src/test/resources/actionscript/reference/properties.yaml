@@ -31,8 +31,6 @@
   name: _highquality
   description: The level of anti-aliasing applied to the movie.
   profiles: 
-    - DEFAULT_1_2
-    - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
@@ -44,7 +42,6 @@
   name: _levelN
   description: Timeline level.
   profiles: 
-    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7

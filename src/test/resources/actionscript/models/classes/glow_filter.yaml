@@ -1,0 +1,60 @@
+- test: constructor
+  refid: glow_filter_constructor
+  file: classes/glow_filter/constructor.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, false);
+- test: alpha
+  refid: glow_filter_alpha
+  file: classes/glow_filter/alpha.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    value = filter.alpha;
+- test: blurX
+  refid: glow_filter_blurx
+  file: classes/glow_filter/blurx.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    value = filter.blurX;
+- test: blurY
+  refid: glow_filter_blury
+  file: classes/glow_filter/blury.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    value = filter.blurY;
+- test: color
+  refid: glow_filter_color
+  file: classes/glow_filter/color.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    value = filter.color;
+- test: inner
+  refid: glow_filter_inner
+  file: classes/glow_filter/inner.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    value = filter.inner;
+- test: knockout
+  refid: glow_filter_knockout
+  file: classes/glow_filter/knockout.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    value = filter.knockout;
+- test: quality
+  refid: glow_filter_quality
+  file: classes/glow_filter/quality.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    value = filter.quality;
+- test: strength
+  refid: glow_filter_strength
+  file: classes/glow_filter/strength.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    value = filter.strength;
+- test: clone()
+  refid: glow_filter_clone
+  file: classes/glow_filter/clone.as
+  script: |
+    filter = new flash.filters.GlowFilter(0x000000, .5, 20, 20, 1, 3, false, falsee);
+    copy = filter.clone();
+

@@ -1,0 +1,101 @@
+- test: ALPHANUMERIC_FULL
+  refid: ime_alphanumeric_full
+  file: classes/system/ime_alphanumeric_full.as
+  script: |
+    mode = System.IME.ALPHANUMERIC_FULL;
+- test: ALPHANUMERIC_HALF
+  refid: ime_alphanumeric_half
+  file: classes/system/ime_alphanumeric_half.as
+  script: |
+    mode = System.IME.ALPHANUMERIC_HALF;
+- test: CHINESE
+  refid: ime_chinese
+  file: classes/system/ime_chinese.as
+  script: |
+    mode = System.IME.CHINESE;
+- test: JAPANESE_HIRAGANA
+  refid: ime_japanese_hirgana
+  file: classes/system/ime_japanese_hirgana.as
+  script: |
+    mode = System.IME.JAPANESE_HIRAGANA;
+- test: JAPANESE_KATAKANA_FULL
+  refid: ime_japanese_katakana_full
+  file: classes/system/ime_japanese_katakana_full.as
+  script: |
+    mode = System.IME.JAPANESE_KATAKANA_FULL;
+- test: JAPANESE_KATAKANA_HALF
+  refid: ime_japanese_katakana_half
+  file: classes/system/ime_japanese_katakana_half.as
+  script: |
+    mode = System.IME.JAPANESE_KATAKANA_HALF;
+- test: KOREAN
+  refid: ime_korean
+  file: classes/system/ime_korean.as
+  script: |
+    mode = System.IME.KOREAN;
+- test: UNKNOWN
+  refid: ime_unknown
+  file: classes/system/ime_unknown.as
+  script: |
+    mode = System.IME.UNKNOWN;
+- test: getConversionMode()
+  refid: ime_getconversionmode
+  file: classes/system/ime_getconversionmode.as
+  script: |
+    mode = System.IME.getConversionMode();
+- test: getEnabled()
+  refid: ime_getenabled
+  file: classes/system/ime_getenabled.as
+  script: |
+    enabled = System.IME.getEnabled();
+- test: setConversionMode()
+  refid: ime_setconversionmode
+  file: classes/system/ime_setconversionmode.as
+  script: |
+    System.IME.setConversionMode(System.IME.KOREAN);
+- test: setEnabled()
+  refid: ime_setenabled
+  file: classes/system/ime_setenabled.as
+  script: |
+    System.IME.setEnabled(true);
+- test: addListener()
+  refid: ime_addlistener
+  file: classes/system/ime_addlistener.as
+  script: |
+    listener = new Object();
+    listener.onIMEComposition = function(str:String) {
+      trace(">> onIMEComposition: " + str);
+    }
+    System.IME.addListener(listener);
+- test: removeListener()
+  refid: ime_removelistener
+  file: classes/system/ime_addlistener.as
+  script: |
+    listener = new Object();
+    listener.onIMEComposition = function(str:String) {
+      trace(">> onIMEComposition: " + str);
+    }
+    System.IME.addListener(listener);
+    System.IME.removeListener(listener);
+- test: onIMEComposition
+  refid: ime_onimecomposition
+  file: classes/system/ime_onimecomposition.as
+  script: |
+    listener = new Object();
+    listener.onIMEComposition = function(str:String) {
+      trace(">> onIMEComposition: " + str);
+    }
+    System.IME.addListener(listener);
+- test: doConversion()
+  refid: ime_doconversion
+  file: classes/system/ime_doconversion.as
+  script: |
+    System.IME.setCompositionString(text);
+    result = System.IME.doConversion();
+- test: setCompositionString()
+  refid: ime_setcompositionstring
+  file: classes/system/ime_setcompositionstring.as
+  script: |
+    System.IME.setCompositionString(text);
+    result = System.IME.doConversion();
+    

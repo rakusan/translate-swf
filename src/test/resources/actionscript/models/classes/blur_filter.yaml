@@ -1,0 +1,30 @@
+- test: constructor
+  refid: blur_filter_constructor
+  file: classes/blur_filter/constructor.as
+  script: |
+    filter = new flash.filters.BlurFilter(10, 10, 5);
+- test: blurX
+  refid: blur_filter_blurx
+  file: classes/blur_filter/blurx.as
+  script: |
+    filter = new flash.filters.BlurFilter(10, 10, 5);
+    value = filter.blurX;
+- test: blurY
+  refid: blur_filter_blury
+  file: classes/blur_filter/blury.as
+  script: |
+    filter = new flash.filters.BlurFilter(10, 10, 5);
+    value = filter.blurY;
+- test: quality
+  refid: blur_filter_quality
+  file: classes/blur_filter/quality.as
+  script: |
+    filter = new flash.filters.BlurFilter(10, 10, 5);
+    value = filter.quality;
+- test: clone()
+  refid: blur_filter_clone
+  file: classes/blur_filter/clone.as
+  script: |
+    filter = new flash.filters.BlurFilter(10, 10, 5);
+    copy = filter.clone();
+

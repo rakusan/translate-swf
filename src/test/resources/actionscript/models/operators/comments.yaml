@@ -3,25 +3,25 @@
   file: operators/comment_single.as
   script: |
     // This is a single line comment
-    a = 1;
+    play();
 - test: doxygen-style single line comment
   refid: comment
   file: operators/comment_triple.as
   script: |
     /// This is a single line comment
-    a = 1;
+    play();
 - test: double single line comment
   refid: comment
   file: operators/comment_quad.as
   script: |
     //// This is a single line comment
-    a = 1;
+    play();
 - test: block comment on single line
   refid: comment
   file: operators/comment_block_single.as
   script: |
     /* This is a block comment on a single line comment */
-    a = 1;
+    play();
 - test: block comment
   refid: comment_block
   file: operators/comment_block_multiple.as
@@ -29,7 +29,7 @@
     /* 
      * This is a block comment on a single line comment 
      */
-    a = 1;
+    play();
 - test: javadoc-style block comment
   refid: comment_block
   file: operators/comment_block_javadoc.as
@@ -37,7 +37,7 @@
     /** 
      * This is a block comment on a single line comment 
      */
-    a = 1;
+    play();
 - test: block comment with blank lines
   refid: comment_block
   file: operators/comment_block_blank.as
@@ -47,4 +47,4 @@
     This is a block comment on a single line comment 
         
     */
-    a = 1;
+    play();

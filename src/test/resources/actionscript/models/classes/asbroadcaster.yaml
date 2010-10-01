@@ -1,0 +1,59 @@
+- test: ASBroadcaster.initialize()
+  refid: asbroadcaster_initialize
+  file: classes/asbroadcaster/initialize.as
+  script: |
+    broadcaster = new Object();
+    ASBroadcaster.initialize(broadcaster);
+- test: ASBroadcaster.addListener()
+  refid: asbroadcaster_addlistener
+  file: classes/asbroadcaster/addlistener.as
+  script: |
+    broadcaster = new Object();
+    ASBroadcaster.initialize(broadcaster);
+    
+    client = new Object();
+    client.event = function() {
+    }
+    
+    broadcaster.addListener(client);
+- test: ASBroadcaster.removeListener()
+  refid: asbroadcaster_removelistener
+  file: classes/asbroadcaster/removelistener.as
+  script: |
+    broadcaster = new Object();
+    ASBroadcaster.initialize(broadcaster);
+    
+    client = new Object();
+    client.event = function() {
+    }
+    
+    broadcaster.addListener(client);
+    broadcaster.removeListener(client);
+- test: ASBroadcaster.broadcastMessage()
+  refid: asbroadcaster_broadcastmessage
+  file: classes/asbroadcaster/broadcastmessage.as
+  script: |
+    broadcaster = new Object();
+    ASBroadcaster.initialize(broadcaster);
+    
+    client = new Object();
+    client.event = function() {
+    }
+    
+    broadcaster.addListener(client);
+    broadcaster.broadcastMessage("event");
+- test: ASBroadcaster._listeners()
+  refid: asbroadcaster_listeners
+  file: classes/asbroadcaster/listeners.as
+  script: |
+    broadcaster = new Object();
+    ASBroadcaster.initialize(broadcaster);
+    
+    client = new Object();
+    client.event = function() {
+    }
+    
+    broadcaster.addListener(client);
+    list = broadcaster._listeners;
+    
+    

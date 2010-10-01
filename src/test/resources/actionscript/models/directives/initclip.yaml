@@ -1,0 +1,15 @@
+- test: initclip
+  skip: true
+  refid: initclip
+  file: directives/initclip.as
+  script: |
+    #initclip
+    #endinitclip
+- test: endinitclip
+  skip: true
+  refid: endinitclip
+  file: directives/endinitclip.as
+  script: |
+    #initclip
+    #endinitclip
+    

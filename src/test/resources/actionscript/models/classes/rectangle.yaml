@@ -1,0 +1,171 @@
+- test: bottom
+  refid: rectangle_bottom
+  file: classes/rectangle/bottom.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+    bottom = rect.bottom;
+- test: bottomRight
+  refid: rectangle_bottomright
+  file: classes/rectangle/bottomright.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+    corner = rect.bottomRight;
+    corner.offset(5, 5);
+    rect.bottomRight = corner;
+- test: clone()
+  refid: rectangle_clone
+  file: classes/rectangle/clone.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+    copy = rect.clone();
+- test: contains()
+  refid: rectangle_contains
+  file: classes/rectangle/contains.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+    inside = rect.contains(2, 2);
+- test: containsPoint()
+  refid: rectangle_containspoint
+  file: classes/rectangle/containspoint.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+    point = new flash.geom.Point(2, 2);
+    inside = rect.containsPoint(point);
+- test: containsRectangle()
+  refid: rectangle_containsrectangle
+  file: classes/rectangle/containsrectangle.as
+  script: |
+    large = new flash.geom.Rectangle(0, 0, 10, 5);
+    small = new flash.geom.Rectangle(1, 1, 8, 3);
+    inside = large.containsRectangle(small);
+- test: equals()
+  refid: rectangle_equals
+  file: classes/rectangle/equals.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    b = new flash.geom.Rectangle(0, 0, 10, 5);
+    c = a.equals(b);
+- test: height
+  refid: rectangle_height
+  file: classes/rectangle/height.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    height = a.height;
+- test: inflate()
+  refid: rectangle_inflate
+  file: classes/rectangle/inflate.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    a.inflate(10, 5);
+- test: inflatePoint()
+  refid: rectangle_inflatepoint
+  file: classes/rectangle/inflatepoint.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+    point = new flash.geom.Point(2, 2);
+    a.inflatePoint(point);
+- test: intersection()
+  refid: rectangle_intersection
+  file: classes/rectangle/intersection.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    b = new flash.geom.Rectangle(2, 2, 10, 5);
+    c = a.intersection(b);
+- test: intersects()
+  refid: rectangle_intersects
+  file: classes/rectangle/intersects.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    b = new flash.geom.Rectangle(2, 2, 10, 5);
+    hit = a.intersects(b);
+- test: isEmpty()
+  refid: rectangle_isempty
+  file: classes/rectangle/isempty.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 0, 0);
+    empty = a.isEmpty();
+- test: left
+  refid: rectangle_left
+  file: classes/rectangle/left.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    pos = a.left;
+- test: offset()
+  refid: rectangle_offset
+  file: classes/rectangle/offset.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+    rect.offset(5,5);
+- test: offsetPoint()
+  refid: rectangle_offsetpoint
+  file: classes/rectangle/offsetpoint.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+    point = new flash.geom.Point(2, 2);
+    a.offsetPoint(point);
+- test: Rectangle()
+  refid: rectangle_constructor
+  file: classes/rectangle/constuctor.as
+  script: |
+    rect = new flash.geom.Rectangle(0, 0, 10, 5);
+- test: right
+  refid: rectangle_right
+  file: classes/rectangle/right.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    pos = a.right;
+- test: setEmpty()
+  refid: rectangle_setempty
+  file: classes/rectangle/setempty.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    a.setEmpty();
+- test: size
+  refid: rectangle_size
+  file: classes/rectangle/size.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    size = a.size;
+- test: top
+  refid: rectangle_top
+  file: classes/rectangle/top.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    pos = a.top;
+- test: topLeft
+  refid: rectangle_topleft
+  file: classes/rectangle/topleft.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    pos = a.topLefy;
+- test: toString()
+  refid: rectangle_tostring
+  file: classes/rectangle/tostring.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    a.toString();
+- test: union()
+  refid: rectangle_union
+  file: classes/rectangle/union.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    b = new flash.geom.Rectangle(2, 2, 10, 5);
+    c = a.union(b);
+- test: width
+  refid: rectangle_width
+  file: classes/rectangle/width.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    width = a.width;
+- test: x
+  refid: rectangle_x
+  file: classes/rectangle/x.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    pos = a.x;
+- test: y
+  refid: rectangle_y
+  file: classes/rectangle/y.as
+  script: |
+    a = new flash.geom.Rectangle(0, 0, 10, 5);
+    pos = a.y;

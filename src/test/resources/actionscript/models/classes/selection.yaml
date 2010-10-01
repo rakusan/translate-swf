@@ -19,6 +19,16 @@
     };
     Selection.addListener(listener);
     Selection.removeListener(listener);
+- test: Selection onSetFocus
+  refid: selection_onsetfocus
+  file: classes/selection/selection_onsetfocus.as
+  script: |
+    listener = new Object();
+    listener.onSetFocus = function(previous, next) {
+        previous.border = false;
+        next.border = true;
+    };
+    Selection.addListener(listener);
 - test: Selection getBeginIndex()
   refid: selection_getbeginindex
   file: classes/selection/selection_getbeginindex.as

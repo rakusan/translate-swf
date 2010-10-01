@@ -1,0 +1,42 @@
+- test: press
+  refid: on_press
+  file: functions/on_press.as
+  script: |
+    on (press) {
+    }
+- test: release
+  refid: on_release
+  file: functions/on_release.as
+  script: |
+    on (release) {
+    }
+- test: releaseOutside
+  refid: on_releaseoutside
+  file: functions/on_releaseoutside.as
+  script: |
+    on (releaseOutside) {
+    }
+- test: rollOver
+  refid: on_rollover
+  file: functions/on_rollover.as
+  script: |
+    on (rollOver) {
+    }
+- test: rollOut
+  refid: on_rollout
+  file: functions/on_rollout.as
+  script: |
+    on (rollOut) {
+    }
+- test: dragOver
+  refid: on_dragover
+  file: functions/on_dragover.as
+  script: |
+    on (dragOver) {
+    }
+- test: keypress
+  refid: on_keypress
+  file: functions/on_keypress.as
+  script: |
+    on (keyPress "a") {
+    }

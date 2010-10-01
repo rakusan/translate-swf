@@ -7,3 +7,17 @@
     - expr: "{a:1, b:2}.a"
   script: |
     x = %expr%;
+- test: new
+  refid: new
+  file: operators/new.as
+  script: |
+    function Ship(name, captain) {
+      this.name = name;
+      this.captain = captain;
+    }
+    ship = new Ship("Marie Celeste", "");
+- test: "{}"
+  refid: object_initializer
+  file: operators/object_initializer.as
+  script: |
+    x = {a:1, b:2};

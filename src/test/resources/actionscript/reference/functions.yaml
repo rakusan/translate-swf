@@ -68,7 +68,6 @@
   id: duplicatemovieclip
   description: Create a copy of a movieclip.
   profiles:
-    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
@@ -103,7 +102,6 @@
   id: fscommand
   description: Send a command to the Flash Player or web browser.
   profiles:
-    - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
@@ -116,7 +114,6 @@
   id: getproperty
   description: Return a property of a movieclip.
   profiles:
-    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7
@@ -249,7 +246,6 @@
   id: loadmovie
   description: Load movie or JPEG image.
   profiles:
-    - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
@@ -484,8 +480,6 @@
   id: on_keypress
   description: Event handler for buttons
   profiles:
-    - DEFAULT_1_2
-    - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
@@ -901,7 +895,6 @@
   id: unloadmovie
   description: Delete a movieclip loaded using loadMovie().
   profiles:
-    - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
@@ -914,8 +907,6 @@
   id: unloadmovienum
   description: Delete a movieclip loaded using loadMovieNum().
   profiles:
-    - DEFAULT_1_3
-    - DEFAULT_1_4
     - DEFAULT_1_5
     - DEFAULT_1_6
     - DEFAULT_1_7

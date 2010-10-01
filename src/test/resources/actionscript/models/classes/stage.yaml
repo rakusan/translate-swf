@@ -43,4 +43,11 @@
     listener.onResize = function() {};
     Stage.addListener(listener);
     Stage.removeListener(listener);
+- test: onResize
+  refid: stage_onresize
+  file: classes/stage/stage_onresize.as
+  script: |
+    listener = new Object();
+    listener.onResize = function() {};
+    Stage.addListener(listener);
  

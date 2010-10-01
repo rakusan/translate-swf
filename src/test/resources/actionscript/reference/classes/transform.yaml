@@ -9,7 +9,7 @@
         - DEFAULT_1_8
         - DEFAULT_1_9
         - DEFAULT_1_10
-    - id: transform_concatenatedColorTransform
+    - id: transform_concatenatedcolortransform
       name: concatenatedColorTransform
       type: property
       description: A ColorTransform object representing the combined color transformations applied to this object and all of its parent objects, back to the root level.

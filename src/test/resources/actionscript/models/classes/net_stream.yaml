@@ -121,3 +121,23 @@
             }
         }
     };
+- test: onCuePoint
+  refid: netstream_oncuepoint
+  file: classes/netstream/netstream_oncuepoint.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    stream.onCuePoint = function(object) {
+      trace("Cue");
+    };
+- test: onMetaData
+  refid: netstream_onmetadata
+  file: classes/netstream/netstream_onmetadata.as
+  script: |
+    conn = new NetConnection();
+    conn.connect(null);
+    stream = new NetStream(conn);
+    stream.onMetaData = function(object) {
+      trace("Data");
+    };

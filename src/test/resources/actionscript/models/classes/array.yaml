@@ -156,3 +156,9 @@
   file: classes/array/numeric.as
   script: |
     opt = Array.NUMERIC;
+- test: RETURNINDEXEDARRAY option
+  refid: array_returnindexedarray
+  file: classes/array/returnindexarray.as
+  script: |
+    opt = Array.RETURNINDEXEDARRAY;
+    

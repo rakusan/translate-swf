@@ -1,0 +1,35 @@
+- test: colorTransform
+  refid: transform_colortransform
+  file: classes/transform/colortransform.as
+  script: |
+    tx = new flash.geom.Transform(rect);
+    tx.colorTransform;
+- test: concatenatedColorTransform
+  refid: transform_concatenatedcolortransform
+  file: classes/transform/concatenatedcolortransform.as
+  script: |
+    tx = new flash.geom.Transform(rect);
+    tx.concatenatedColorTransform;
+- test: concatenatedMatrix
+  refid: transform_concatenatedmatrix
+  file: classes/transform/concatenatedmatrix.as
+  script: |
+    tx = new flash.geom.Transform(rect);
+    tx.concatenatedMatrix;
+- test: matrix
+  refid: transform_matrix
+  file: classes/transform/matrix.as
+  script: |
+    tx = new flash.geom.Transform(rect);
+    tx.matrix;
+- test: pixelBounds
+  refid: transform_pixelbounds
+  file: classes/transform/pixelbounds.as
+  script: |
+    tx = new flash.geom.Transform(rect);
+    tx.pixelBounds;
+- test: Tranform()
+  refid: transform_constructor
+  file: classes/transform/constructor.as
+  script: |
+    tx = new flash.geom.Transform(rect);

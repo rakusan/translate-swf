@@ -16,3 +16,9 @@
   file: functions/mbsubstring.as
   script: |
     x = mbsubstring("A String", 0, 1);
+- test: mblength()
+  refid: mblength
+  file: functions/mblength.as
+  script: |
+    x = mblength("A String");
+    

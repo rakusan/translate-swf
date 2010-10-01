@@ -67,3 +67,81 @@
             trace("Camera not available");
         }
     };
+- test: activityLevel
+  refid: camera_activitylevel
+  file: classes/camera/activitylevel.as
+  script: |
+    cam = Camera.get();
+    level = cam.activityLevel;
+- test: bandwidth
+  refid: camera_bandwidth
+  file: classes/camera/bandwidth.as
+  script: |
+    cam = Camera.get();
+    level = cam.bandwidth;
+- test: currentFps
+  refid: camera_currentfps
+  file: classes/camera/currentFps.as
+  script: |
+    cam = Camera.get();
+    level = cam.currentFps;
+- test: fps
+  refid: camera_fps
+  file: classes/camera/fps.as
+  script: |
+    cam = Camera.get();
+    level = cam.fps;
+- test: height
+  refid: camera_height
+  file: classes/camera/height.as
+  script: |
+    cam = Camera.get();
+    level = cam.height;
+- test: index
+  refid: camera_index
+  file: classes/camera/index.as
+  script: |
+    cam = Camera.get();
+    level = cam.index;
+- test: motionLevel
+  refid: camera_motionlevel
+  file: classes/camera/motionlevel.as
+  script: |
+    cam = Camera.get();
+    level = cam.motionLevel;
+- test: motionTimeOut
+  refid: camera_motiontimeout
+  file: classes/camera/motiontimeout.as
+  script: |
+    cam = Camera.get();
+    level = cam.motionTimeOut;
+- test: muted
+  refid: camera_muted
+  file: classes/camera/muted.as
+  script: |
+    cam = Camera.get();
+    level = cam.muted;
+- test: name
+  refid: camera_name
+  file: classes/camera/name.as
+  script: |
+    cam = Camera.get();
+    level = cam.name;
+- test: names
+  refid: camera_names
+  file: classes/camera/names.as
+  script: |
+    list = Camera.names;
+- test: quality
+  refid: camera_quality
+  file: classes/camera/quality.as
+  script: |
+    cam = Camera.get();
+    level = cam.quality;
+- test: width
+  refid: camera_width
+  file: classes/camera/width.as
+  script: |
+    cam = Camera.get();
+    level = cam.width;
+   

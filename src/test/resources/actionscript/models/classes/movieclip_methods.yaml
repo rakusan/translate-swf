@@ -1,3 +1,25 @@
+- test: Movieclip method attachAudio()
+  refid: movieclip_attachaudio
+  file: classes/movieclip/movieclip_attachaudio.as
+  script: |
+    onClipEvent (mouseDown) {
+        nc = new NetConnection();
+        nc.connect(null);
+        ns = new NetStream(nc);
+        video.attachVideo(ns);
+        ns.play("yourVideo.flv");
+        this.createEmptyMovieClip("mc", this.getNextHighestDepth());
+        mc.attachAudio(ns);
+    }
+- test: Movieclip method attachBitmap()
+  refid: movieclip_attachbitmap
+  file: classes/movieclip/movieclip_attachbitmap.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("bmp", this.getNextHighestDepth());
+      bmpData = new BitmapData(200, 200, false, 0xaa3344);
+      bmp.attachBitmap(bmpData, 2, "auto", true);    
+    }
 - test: Movieclip method attachMovie()
   refid: movieclip_attachmovie
   file: classes/movieclip/movieclip_attachmovie.as
@@ -5,12 +27,125 @@
     onClipEvent (mouseDown) {
         attachMovie(1, "Clip1", 1);
     }
+- test: Movieclip method beginBitmapFill()
+  refid: movieclip_beginbitmapfill
+  file: classes/movieclip/movieclip_beginbitmapfill.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("bmp", this.getNextHighestDepth());
+      bmpData = new BitmapData(200, 200, false, 0xFF0000);
+      bmp.beginBitmapFill(bmpData, new flash.geom.Matric(), true, true);
+    }
+- test: beginFill()
+  refid: movieclip_beginfill
+  file: classes/movieclip/movieclip_beginfill.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.beginFill(0xFF0000);
+    }
+- test: lineStyle()
+  refid: movieclip_linestyle
+  file: classes/movieclip/movieclip_linestyle.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.lineStyle(1, 0xCCCCCC);
+    }
+- test: moveTo()
+  refid: movieclip_moveto
+  file: classes/movieclip/movieclip_moveto.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.beginFill(0xFF0000);
+      clip.moveTo(10, 10);
+    }
+- test: lineTo()
+  refid: movieclip_lineto
+  file: classes/movieclip/movieclip_lineto.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.beginFill(0xFF0000);
+      clip.lineTo(100, 10);
+    }
+- test: endFill()
+  refid: movieclip_endfill
+  file: classes/movieclip/movieclip_endfill.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.beginFill(0xFF0000);
+      clip.moveTo(10, 10);
+      clip.lineTo(100, 10);
+      clip.lineTo(100, 100);
+      clip.lineTo(10, 100);
+      clip.lineTo(10, 10);
+      clip.endFill();    
+    }
+- test: beginGradientFill()
+  refid: movieclip_begingradientfill
+  file: classes/movieclip/movieclip_begingradientfill.as
+  script: |
+    onClipEvent (mouseDown) {
+      colors = [0xFF0000, 0x0000FF];
+      fillType = "radial"
+      alphas = [100, 100];
+      ratios = [0, 0xFF];
+      spreadMethod = "reflect";
+      interpolationMethod = "linearRGB";
+      focalPointRatio = 0.9;
+      this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.beginGradientFill(fillType, colors, alphas, ratios, matrix, spreadMethod, interpolationMethod, focalPointRatio);
+    }
+- test: curveTo()
+  refid: movieclip_curveto
+  file: classes/movieclip/movieclip_curveto.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.beginFill(0xFF0000);
+      clip.curveTo(50, 50, 10, 10);
+    }
+- test: lineGradientStyle()
+  refid: movieclip_linegradientstyle
+  file: classes/movieclip/movieclip_linegradientstyle.as
+  script: |
+    onClipEvent (mouseDown) {
+      colors = [0xFF0000, 0x0000FF];
+      fillType = "radial"
+      alphas = [100, 100];
+      ratios = [0, 0xFF];
+      spreadMethod = "reflect";
+      interpolationMethod = "linearRGB";
+      focalPointRatio = 0.9;
+      this.createEmptyMovieClip("clip", this.getNextHighestDepth());
+      clip.lineGradientStyle("linear", colors, alphas, ratios, matrix, spreadMethod, interpolationMethod, focalPointRatio);
+    }
+- test: clear()
+  refid: movieclip_clear
+  file: classes/movieclip/movieclip_clear.as
+  script: |
+    onClipEvent (mouseDown) {
+        getBounds(_root);
+    }
+- test: createTextField()
+  refid: movieclip_createtextfield
+  file: classes/movieclip/movieclip_createtextfield.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.createTextField("my_txt", 1, 100, 100, 300, 100);
+    }
 - test: Movieclip method getBounds()
   refid: movieclip_getbounds
   file: classes/movieclip/movieclip_getbounds.as
   script: |
     onClipEvent (mouseDown) {
-        getBounds(_root);
+        this.createEmptyMovieClip("box_mc", this.getNextHighestDepth());
+        box_mc.onRelease = function() {
+          this.clear();
+        };
     }
 - test: Movieclip method getBytesLoaded()
   refid: movieclip_getbytesloaded
@@ -25,6 +160,48 @@
   script: |
     onClipEvent (mouseDown) {
         getBytesTotal();
+    }
+- test: getDepth()
+  refid: movieclip_getdepth
+  file: classes/movieclip/movieclip_getdepth.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.getDepth();
+    }
+- test: getInstanceAtDepth()
+  refid: movieclip_getinstanceatdepth
+  file: classes/movieclip/movieclip_getinstanceatdepth.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.getInstanceAtDepth();
+    }
+- test: getDepth()
+  refid: movieclip_getnexthighestdepth
+  file: classes/movieclip/movieclip_getnexthighestdepth.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.getNextHighestDepth();
+    }
+- test: getRect()
+  refid: movieclip_getrect
+  file: classes/movieclip/movieclip_getrect.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.getRect();
+    }
+- test: getSWFVersion()
+  refid: movieclip_getswfversion
+  file: classes/movieclip/movieclip_getswfversion.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.getSWFVersion();
+    }
+- test: getTextSnapshot()
+  refid: movieclip_gettextsnapshot
+  file: classes/movieclip/movieclip_gettextsnapshot.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.getTextSnapshot();
     }
 - test: Movieclip method getURL()
   refid: movieclip_geturl
@@ -128,12 +305,33 @@
     onClipEvent (mouseDown) {
         prevScene();
     }
+- test: removeMovieClip()
+  refid: movieclip_removemovieclip
+  file: classes/movieclip/movieclip_removemovieclip.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.removeMovieClip();
+    }
+- test: setMask()
+  refid: movieclip_setmask
+  file: classes/movieclip/movieclip_setmask.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.setMask(mask);
+    }
 - test: Movieclip method stop()
   refid: movieclip_stop
   file: classes/movieclip/movieclip_stop.as
   script: |
     onClipEvent (mouseDown) {
         stop();
+    }
+- test: startDrag()
+  refid: movieclip_startdrag
+  file: classes/movieclip/movieclip_startDrag.as
+  script: |
+    onClipEvent (mouseDown) {
+        this.startDrag();
     }
 - test: Movieclip method stopDrag()
   refid: movieclip_stopdrag
@@ -150,3 +348,15 @@
         swapDepths(2);
         swapDepths(Clip2);
     }
+- test: unloadMovie()
+  refid: movieclip_unloadmovie
+  file: classes/movieclip/movieclip_unloadmovie.as
+  script: |
+    onClipEvent (mouseDown) {
+      this.createEmptyMovieClip("box", 1);
+      box.onRelease = function() {
+        box.unloadMovie();
+      };  
+    }
+
+    

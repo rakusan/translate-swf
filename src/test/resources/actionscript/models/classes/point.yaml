@@ -1,0 +1,93 @@
+- test: Point()
+  refid: point_constructor
+  file: classes/point/constructor.as
+  script: |
+    point = new flash.geom.Point(1, 4);
+- test: add()
+  refid: point_add
+  file: classes/point/add.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    b = new flash.geom.Point(2, 8);
+    c = a.add(b);
+- test: clone()
+  refid: point_clone
+  file: classes/point/clone.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    b = a.clone();
+- test: distance()
+  refid: point_distance
+  file: classes/point/distance.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    b = new flash.geom.Point(2, 8);
+    c = flash.geom.Point.distance(a, b);
+- test: equals()
+  refid: point_equals
+  file: classes/point/equals.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    b = new flash.geom.Point(2, 8);
+    c = a.equals(b);
+- test: interpolate()
+  refid: point_interpolate
+  file: classes/point/interpolate.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    b = new flash.geom.Point(3, 8);
+    c = flash.geom.Point.interpolate(a, b, 0.5);
+- test: length()
+  refid: point_length
+  file: classes/point/length.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    length = a.length();
+- test: normalize()
+  refid: point_normalize
+  file: classes/point/normalize.as
+  script: |
+    a = new flash.geom.Point(3, 4);
+    a.normalize(10);
+- test: offset()
+  refid: point_offset
+  file: classes/point/offset.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    a.offset(1, 4);
+- test: polar()
+  refid: point_polar
+  file: classes/point/polar.as
+  script: |
+    a = flash.geom.Point.polar(5, Math.atan(3/4));
+- test: subtract()
+  refid: point_subtract
+  file: classes/point/subtract.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    b = new flash.geom.Point(3, 8);
+    c = b.subtract(a);
+- test: toString()
+  refid: point_tostring
+  file: classes/point/tostring.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    a.toString();
+- test: x
+  refid: point_x
+  file: classes/point/x.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    pos = a.x;
+- test: y
+  refid: point_y
+  file: classes/point/y.as
+  script: |
+    a = new flash.geom.Point(1, 4);
+    pos = a.y;
+
+
+
+
+
+
