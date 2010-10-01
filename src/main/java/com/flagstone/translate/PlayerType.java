@@ -62,7 +62,7 @@ public enum PlayerType {
     }
 
     public static PlayerType fromName(final String name) {
-        return TABLE.get(name);
+        return TABLE.get(name.toUpperCase());
     }
 
     private final String value;
