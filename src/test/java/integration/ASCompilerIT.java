@@ -59,6 +59,7 @@ import com.flagstone.transform.Movie;
 import com.flagstone.transform.MovieTag;
 import com.flagstone.transform.Place2;
 import com.flagstone.transform.action.Action;
+import com.flagstone.transform.action.Push;
 import com.flagstone.transform.button.DefineButton2;
 import com.flagstone.transform.tools.MovieWriter;
 import com.flagstone.translate.ASCompiler;
@@ -85,6 +86,7 @@ public class ASCompilerIT {
 		Map<String,Object>map = new LinkedHashMap<String, Object>();
 		List<String> files = new ArrayList<String>();
 		List<Object[]>collection = new ArrayList<Object[]>();
+		File dir;
 
         for (Profile profile : EnumSet.allOf(Profile.class)) {
             map.put(ACTIONSCRIPT, profile.getScriptVersion());
@@ -94,10 +96,17 @@ public class ASCompilerIT {
 
             for (String type : TYPES) {
         		map.put(TYPE, type);
-        		findFiles(files, dirForProfile(map), getFilter(".as"));
-        		for (String file : files) {
-        			map.put(FILE, file);
-        			collection.add(parametersForProfile(map));
+
+        		dir = dirForProfile(map);
+
+        		if (dir.exists()) {
+            		files.clear();
+            		findFiles(files, dir, getFilter(".as"));
+
+            		for (String file : files) {
+            			map.put(FILE, file);
+            			collection.add(parametersForProfile(map));
+            		}
         		}
         	}
         }
@@ -114,9 +123,6 @@ public class ASCompilerIT {
 		String path = String.format("%s/%s", name, type);
 		File dir = new File(RESOURCE_DIR, path);
 
-		if (!dir.exists() && !dir.mkdirs()) {
-			throw new IOException("Cannot create directory: " + dir.getPath());
-		}
 		return dir;
     }
 
@@ -150,6 +156,7 @@ public class ASCompilerIT {
 		File reference = new File(script.getPath().replace(".as", ".swf"));
 		extractActions(expected, reference);
 		replaceReferences(expected);
+		mergeActions(expected);
 	}
 
 	@Test
@@ -158,6 +165,7 @@ public class ASCompilerIT {
 		try {
 			wrap(actual, compiler.compile(script));
 			replaceReferences(actual);
+			mergeActions(actual);
 			assertEquals(script.getPath(), format(expected), format(actual));
 
 		} catch (Exception e) {
@@ -196,6 +204,31 @@ public class ASCompilerIT {
 				list.addAll(((DefineButton2) tag).getEvents());
 			} else if (tag instanceof Place2) {
 				list.addAll(((Place2) tag).getEvents());
+			}
+		}
+	}
+
+	private static void mergeActions(final List<Action>list) {
+
+		Action current;
+		Action next;
+
+		List<Object> merged = new ArrayList<Object>();
+
+		for (int i=0; i < list.size() - 1;) {
+			current = list.get(i);
+			next = list.get(i+1);
+
+			if (current instanceof Push && next instanceof Push) {
+				merged.clear();
+
+				merged.addAll(((Push)current).getValues());
+				merged.addAll(((Push)next).getValues());
+
+				list.set(i, new Push(merged));
+				list.remove(i+1);
+			} else {
+				i++;
 			}
 		}
 	}
