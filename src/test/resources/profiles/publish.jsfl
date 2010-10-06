@@ -41,7 +41,7 @@ for (profile in profiles) {
     }
 }
 
-fl.quit();
+//fl.quit();
 
 function listFiles(dir, mask, files) {
 	var list = FLfile.listFolder(dir);
