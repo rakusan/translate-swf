@@ -3,61 +3,61 @@
   file: functions/onclipevent_load.as
   script: |
     onClipEvent (load) {
-        a = 1;
+      stop();
     }
 - test: unload
   refid: onclipevent_unload
   file: functions/onclipevent_unload.as
   script: |
     onClipEvent (unload) {
-        a = 1;
+      stop();
     }
 - test: enterFrame
   refid: onclipevent_enterframe
   file: functions/onclipevent_enterframe.as
   script: |
     onClipEvent (enterFrame) {
-        a = 1;
+      stop();
     }
 - test: mouseMove
   refid: onclipevent_mousemove
   file: functions/onclipevent_mousemove.as
   script: |
     onClipEvent (mouseMove) {
-        a = 1;
+      stop();
     }
 - test: mouseDown
   refid: onclipevent_mousedown
   file: functions/onclipevent_mousedown.as
   script: |
     onClipEvent (mouseDown) {
-        a = 1;
+      stop();
     }
 - test: mouseUp
   refid: onclipevent_mouseup
   file: functions/onclipevent_mouseup.as
   script: |
     onClipEvent (mouseUp) {
-        a = 1;
+      stop();
     }
 - test: keyDown
   refid: onclipevent_keydown
   file: functions/onclipevent_keydown.as
   script: |
     onClipEvent (keyDown) {
-        a = 1;
+      stop();
     }
 - test: keyUp
   refid: onclipevent_keyup
   file: functions/onclipevent_keyup.as
   script: |
     onClipEvent (keyUp) {
-        a = 1;
+      stop();
     }
 - test: data
   refid: onclipevent_data
   file: functions/onclipevent_data.as
   script: |
     onClipEvent (data) {
-        a = 1;
+      stop();
     }
