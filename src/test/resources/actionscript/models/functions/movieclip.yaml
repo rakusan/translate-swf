@@ -21,7 +21,7 @@
     x = %expr%;
 - test: tellTarget()
   refid: telltarget
-  file: functions/telltarget_%d.as
+  file: functions/telltarget.as
   script: |
     tellTarget("clip") {
         gotoAndPlay(1);
