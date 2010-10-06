@@ -28,7 +28,7 @@
     }
 - test: ifFrameLoaded()
   refid: ifframeloaded
-  file: functions/ifframeloaded_%d.as
+  file: functions/ifframeloaded.as
   script: |
     ifFrameLoaded(frame) {
         trace("Frame loaded");

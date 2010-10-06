@@ -11,6 +11,6 @@
     %expr%;
 - test: stopDrag()
   refid: stopdrag
-  file: functions/stopdrag_%d.as
+  file: functions/stopdrag.as
   script: |
     stopDrag();
