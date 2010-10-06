@@ -401,8 +401,9 @@
 - name: on(press)
   id: on_press
   description: Event handler for buttons
-  profiles:
-    - DEFAULT_1_2
+  # Actionscript references states that on() is supported in Flash 2 but 
+  # DefineButton2 was not added until Flash 3.
+  profiles: 
     - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -414,8 +415,9 @@
 - name: on(release)
   id: on_release
   description: Event handler for buttons
+  # Actionscript references states that on() is supported in Flash 2 but 
+  # DefineButton2 was not added until Flash 3.
   profiles:
-    - DEFAULT_1_2
     - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -427,8 +429,9 @@
 - name: on(releaseOutside)
   id: on_releaseoutside
   description: Event handler for buttons
+  # Actionscript references states that on() is supported in Flash 2 but 
+  # DefineButton2 was not added until Flash 3.
   profiles:
-    - DEFAULT_1_2
     - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -440,8 +443,9 @@
 - name: on(rollOver)
   id: on_rollover
   description: Event handler for buttons
+  # Actionscript references states that on() is supported in Flash 2 but 
+  # DefineButton2 was not added until Flash 3.
   profiles:
-    - DEFAULT_1_2
     - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -453,8 +457,9 @@
 - name: on(rollOut)
   id: on_rollout
   description: Event handler for buttons
+  # Actionscript references states that on() is supported in Flash 2 but 
+  # DefineButton2 was not added until Flash 3.
   profiles:
-    - DEFAULT_1_2
     - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -466,8 +471,9 @@
 - name: on(dragOver)
   id: on_dragover
   description: Event handler for buttons
+  # Actionscript references states that on() is supported in Flash 2 but 
+  # DefineButton2 was not added until Flash 3.
   profiles:
-    - DEFAULT_1_2
     - DEFAULT_1_3
     - DEFAULT_1_4
     - DEFAULT_1_5
@@ -479,6 +485,9 @@
 - name: on(keyPress)
   id: on_keypress
   description: Event handler for buttons
+  # Actionscript references states that on() is supported in Flash 2 but 
+  # DefineButton2 was not added until Flash 3 and extended for key presses 
+  # until Flash 4.
   profiles:
     - DEFAULT_1_4
     - DEFAULT_1_5
