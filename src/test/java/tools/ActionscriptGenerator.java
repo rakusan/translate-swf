@@ -91,7 +91,6 @@ public class ActionscriptGenerator {
 				if (PROFILES_ALL.equals(name)) {
 					profiles.clear();
 					profiles.addAll(EnumSet.allOf(Profile.class));
-					break;
 				} else {
 					Profile profile = Profile.fromName(name);
 					if (profile == null) {
