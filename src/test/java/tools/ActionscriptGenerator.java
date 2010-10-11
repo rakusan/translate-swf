@@ -84,33 +84,29 @@ public class ActionscriptGenerator {
     }
 
     private static void setOptions(final String[] options) {
-		if (options.length == 0) {
-			clean = true;
-			profiles.addAll(EnumSet.allOf(Profile.class));
-		} else {
-			for (int i = 0; i < options.length; i++) {
-				if (PROFILE_OPT.equals(options[i])) {
-					String name = options[++i].toUpperCase();
+		for (int i = 0; i < options.length; i++) {
+			if (PROFILE_OPT.equals(options[i])) {
+				String name = options[++i].toUpperCase();
 
-					if (PROFILES_ALL.equals(name)) {
-						profiles.addAll(EnumSet.allOf(Profile.class));
-					} else {
-						Profile profile = Profile.fromName(name);
-						if (profile == null) {
-							throw new IllegalArgumentException(
-									"Unsupported profile: " + name);
-						}
-						profiles.add(profile);
-					}
-				} else if (CLEAN_OPT.equals(options[i])) {
-					clean = true;
+				if (PROFILES_ALL.equals(name)) {
+					profiles.clear();
+					profiles.addAll(EnumSet.allOf(Profile.class));
+					break;
 				} else {
-					throw new IllegalArgumentException(
-							"Unrecognised argument: " + options[i]);
+					Profile profile = Profile.fromName(name);
+					if (profile == null) {
+						throw new IllegalArgumentException(
+								"Unsupported profile: " + name);
+					}
+					profiles.add(profile);
 				}
+			} else if (CLEAN_OPT.equals(options[i])) {
+				clean = true;
+			} else {
+				throw new IllegalArgumentException(
+						"Unrecognised argument: " + options[i]);
 			}
 		}
-
     }
 
     @SuppressWarnings("unchecked")
