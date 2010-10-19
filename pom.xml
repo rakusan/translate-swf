@@ -18,7 +18,7 @@
 	<licenses>
 		<license>
 			<name>BSD</name>
-			<url>http://www.flagstonesoftware.com/bsd.html</url>
+			<url>http://www.flagstonesoftware.com/transform/LICENSE.txt</url>
 			<distribution>repo</distribution>
 			<comments>Open Source, Berkeley Software Distribution Licence</comments>
 		</license>
@@ -28,12 +28,14 @@
 		<name>Flagstone Software Ltd.</name>
 		<url>http://www.flagstonesoftware.com</url>
 	</organization>
+	
 	<issueManagement>
-		<system>Trac</system>
-		<url>http://sourceforge.net/apps/trac/translate-swf/</url>
+		<system>sourceforge</system>
+		<url>https://sourceforge.net/tracker/?group_id=123003</url>
 	</issueManagement>
 
 	<inceptionYear>2002</inceptionYear>
+	
 	<developers>
 		<developer>
 			<id>smackay</id>
@@ -50,8 +52,8 @@
 	</developers>
 
 	<scm>
-		<connection>http://translate-swf.svn.sourceforge.net/svnroot/translate-swf/trunk</connection>
-		<developerConnection>https://translate-swf.svn.sourceforge.net/svnroot/translate-swf/trunk</developerConnection>
+		<connection>scm:svn:http://translate-swf.svn.sourceforge.net/svnroot/translate-swf/trunk</connection>
+		<developerConnection>scm:svn:https://translate-swf.svn.sourceforge.net/svnroot/translate-swf/trunk</developerConnection>
 		<url>http://translate-swf.svn.sourceforge.net/viewvc/translate-swf/trunk</url>
 	</scm>
 
@@ -202,8 +204,10 @@
 				<reportSets>
 					<reportSet>
 						<reports>
-							<report>dependencies</report>
+							<report>summary</report>
 							<report>project-team</report>
+							<report>dependencies</report>
+							<report>mailing-list</report>
 							<report>issue-tracking</report>
 							<report>license</report>
 							<report>scm</report>
@@ -239,11 +243,6 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-changelog-plugin</artifactId>
-				<version>2.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
 				<version>2.5</version>
 			</plugin>
@@ -253,7 +252,7 @@
 	<distributionManagement>
 		<site>
 			<id>translate.sourceforge.net</id>
-			<url>scp://shell.sourceforge.net/home/groups/t/tr/translate-as1/htdocs/rel-2-1</url>
+			<url>scp://shell.sourceforge.net/home/groups/t/tr/translate-swf/htdocs</url>
 		</site>
 	</distributionManagement>
 

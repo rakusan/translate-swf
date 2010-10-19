@@ -1,0 +1,66 @@
+An Example
+
+  This example, in Java, shows how to compile the following actionscript 
+  event handlers:
+
+---------------------------
+  onClipEvent(mouseDown) {
+      startDrag(this);
+  }
+
+  onClipEvent(mouseUp) {
+      stopDrag();
+  }
+---------------------------
+
+  to control a simple movie clip:
+
+---------------------------
+  int width = 4000;
+  int height = 4000;
+
+  FSMovie movie = new FSMovie();
+  ASParser parser = new ASParser();
+  FSShapeConstructor canvas = new FSShapeConstructor();
+
+  try {
+      // Compile the script containing the event handlers
+      ASNode node = parser.parse(new File("script.as"));
+      byte[] bytes = node.encode(movie.getVersion());
+
+      int shapeId = movie.newIdentifier();
+      int clipId = movie.newIdentifier();
+    
+      // Create a simple shape to animate in a movie clip
+      canvas.add(new FSSolidLine(20, FSColorTable.black()));
+      canvas.add(new FSSolidFill(FSColorTable.red()));
+      canvas.rect(2000, 2000);
+      FSDefineShape2 rectangle = canvas.defineShape(shapeId);
+    
+      FSDefineMovieClip clip = new FSDefineMovieClip(clipId);
+      clip.add(new FSPlaceObject2(shapeId, 1, 0, 0));
+      clip.add(new FSShowFrame());
+    
+      // Set the handlers for the movie clip when it is displayed
+      FSPlaceObject2 place = new FSPlaceObject2(clipId, 1, 0, 0);
+      place.setEncodedEvents(bytes);
+    
+      // Put everything together in a movie
+      movie.setFrameRate(12.0f);
+      movie.setFrameSize(new FSBounds(-width, -height, width, height));
+      movie.add(new FSSetBackgroundColor(FSColorTable.lightblue()));
+      movie.add(rectangle);
+      movie.add(clip);
+      movie.add(place);
+      movie.add(new FSShowFrame());
+
+      movie.encodeToFile("example.swf");
+  } catch (IOException e) {
+      System.err.println("Could not write file.");
+  } catch (ParseException e) {
+      System.err.println(parser.getError());
+      System.err.println("Line: " + parser.getLineNumber());
+      System.err.println(parser.getLine());
+  }
+---------------------------
+ 

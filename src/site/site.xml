@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="Translate">
-  <bannerLeft>
-    <name>Translate SWF</name>
-    <src>images/translate.png</src>
-    <href>http://www.flagstonesoftware.com/translate/index.html</href>
-  </bannerLeft>
-  <publishDate format="dd MMM yyyy"/>
-  <body>  
-    <menu name="Main">
+<project name="Translate SWF">
+  <body>
+    <menu name="Translate SWF">
       <item name="Introduction" href="index.html"/>
-      <item name="Release Notes" href="release-notes.html" />
+      <item name="Features" href="features.html"/>
+      <item name="Example" href="example.html"/>
     </menu>
+    
     <menu ref="reports"/>
+    
   </body>
 </project>

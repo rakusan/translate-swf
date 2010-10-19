@@ -1,0 +1,17 @@
+Features
+
+    * Full support for ActionScript 1.0.
+    
+    * Integrates fully with Transform SWF for generating complex Flash files.
+    
+    * Create files fully compatible with the latest version of Flash.
+    
+    * Create sophisticated event handlers for buttons and movie clips.
+    
+    * Supports the unified event model for movie clips and buttons.
+    
+    * Enhanced with preprocessor directives to allow conditional compilation.
+    
+    * Parser supports full syntax checking and accurate error reporting.
+
+    * Open Source, BSD licence is free for commercial use.
