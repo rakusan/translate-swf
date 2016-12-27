@@ -2197,6 +2197,7 @@ public class ASNode extends Object {
             break;
         case 6:
         case 7:
+        case 8:
             children[1].generate(info, actions);
             actions.add(BasicAction.fromInt(ActionTypes.ENUMERATE_OBJECT));
             break;
@@ -2960,6 +2961,7 @@ public class ASNode extends Object {
                 break;
             case 6:
             case 7:
+            case 8:
                 children[0].generate(info, actions);
                 children[1].generate(info, actions);
                 actions.add(BasicAction.fromInt(ActionTypes.GREATER));
@@ -3028,6 +3030,10 @@ public class ASNode extends Object {
                 actions.add(BasicAction.fromInt(ActionTypes.EQUALS));
                 break;
             case 6:
+            case 7:
+            case 8:
+                children[0].generate(info, actions);
+                children[1].generate(info, actions);
                 actions.add(BasicAction.fromInt(ActionTypes.STRICT_EQUALS));
                 break;
             }
@@ -3051,6 +3057,10 @@ public class ASNode extends Object {
                 actions.add(BasicAction.fromInt(ActionTypes.LOGICAL_NOT));
                 break;
             case 6:
+            case 7:
+            case 8:
+                children[0].generate(info, actions);
+                children[1].generate(info, actions);
                 actions.add(BasicAction.fromInt(ActionTypes.STRICT_EQUALS));
                 actions.add(BasicAction.fromInt(ActionTypes.LOGICAL_NOT));
                 break;
