@@ -1412,6 +1412,7 @@ public class NodeGenerator extends AbstractCodeGenerator {
             break;
         case 6:
         case 7:
+        case 8:
             generate(generator, info, node.get(1), actions);
             actions.add(BasicAction.fromInt(ActionTypes.ENUMERATE_OBJECT));
             break;
@@ -2188,6 +2189,7 @@ public class NodeGenerator extends AbstractCodeGenerator {
                 break;
             case 6:
             case 7:
+            case 8:
                 generate(generator, info, node.get(0), actions);
                 generate(generator, info, node.get(1), actions);
                 actions.add(BasicAction.fromInt(ActionTypes.GREATER));
@@ -2256,6 +2258,10 @@ public class NodeGenerator extends AbstractCodeGenerator {
                 actions.add(BasicAction.fromInt(ActionTypes.EQUALS));
                 break;
             case 6:
+            case 7:
+            case 8:
+                generate(generator, info, node.get(0), actions);
+                generate(generator, info, node.get(1), actions);
                 actions.add(BasicAction.fromInt(ActionTypes.STRICT_EQUALS));
                 break;
             }
@@ -2279,6 +2285,10 @@ public class NodeGenerator extends AbstractCodeGenerator {
                 actions.add(BasicAction.fromInt(ActionTypes.LOGICAL_NOT));
                 break;
             case 6:
+            case 7:
+            case 8:
+                generate(generator, info, node.get(0), actions);
+                generate(generator, info, node.get(1), actions);
                 actions.add(BasicAction.fromInt(ActionTypes.STRICT_EQUALS));
                 actions.add(BasicAction.fromInt(ActionTypes.LOGICAL_NOT));
                 break;
