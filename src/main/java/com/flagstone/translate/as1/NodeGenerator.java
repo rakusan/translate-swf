@@ -2949,7 +2949,7 @@ public class NodeGenerator extends AbstractCodeGenerator {
                 literal = new Double(0.0);
         }
 
-        if (actions.size() > 0) {
+        /*if (actions.size() > 0) {
             int index = actions.size() - 1;
             Action action = actions.get(index);
 
@@ -2960,7 +2960,7 @@ public class NodeGenerator extends AbstractCodeGenerator {
             } else {
                 actions.add(new Push.Builder().add(literal).build());
             }
-        } else {
+        } else*/ {
             actions.add(new Push.Builder().add(literal).build());
         }
     }
@@ -2973,7 +2973,7 @@ public class NodeGenerator extends AbstractCodeGenerator {
         else
             number = new Integer(value);
 
-        if (actions.size() > 0) {
+        /*if (actions.size() > 0) {
             int index = actions.size() - 1;
             Action action = actions.get(index);
 
@@ -2985,13 +2985,13 @@ public class NodeGenerator extends AbstractCodeGenerator {
             else {
                 actions.add(new Push.Builder().add(number).build());
             }
-        } else {
+        } else*/ {
             actions.add(new Push.Builder().add(number).build());
         }
     }
 
     private void addLiteral(List<Action> actions, Object literal) {
-        Action action = null;
+        //Action action = null;
         int index = actions.size() - 1;
 
         if (literal instanceof Integer) {
@@ -3001,14 +3001,14 @@ public class NodeGenerator extends AbstractCodeGenerator {
                 literal = new Double(0.0);
         }
 
-        if (actions.size() > 0) {
+        /*if (actions.size() > 0) {
             action = actions.get(index);
         }
         if (action instanceof Push) {
             List<Object>values = ((Push) action).getValues();
             values.add(literal);
             actions.set(index, new Push(values));
-        } else {
+        } else*/ {
             actions.add(new Push.Builder().add(literal).build());
         }
     }
